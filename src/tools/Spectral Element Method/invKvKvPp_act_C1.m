@@ -1,0 +1,3 @@
+function  invKvKvPp_act = invKvKvPp_act_C1(stiffness_V,activePhi,prescribedPhi,Phi)
+          invKvKvPp_act = stiffness_V(activePhi,activePhi)\(stiffness_V...
+            (activePhi,prescribedPhi)*Phi(prescribedPhi));

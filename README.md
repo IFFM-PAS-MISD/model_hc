@@ -1,4 +1,4 @@
-﻿model-hc
+﻿model_hc
 ==============================
 
 PhD dissertation
