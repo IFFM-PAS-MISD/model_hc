@@ -1,5 +1,5 @@
-function q = charge(q,stiffness_uV,Um,KV,nrNodesZ,C1)
+function q = charge(q,stiffness_uV,Um,stiffness_V,Phi,voltageNode,iSteps)
          if ~isempty(stiffness_uV)
-            q_C1 = reshape((stiffness_uV'*Um-KV),[],nrNodesZ);
-            q(C1) = sum(q_C1(:,nrNodesZ));
+            q_iSteps = stiffness_uV'*Um - stiffness_V*Phi;
+            q(iSteps) = sum(q_iSteps(voltageNode));
          end

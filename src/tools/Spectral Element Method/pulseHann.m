@@ -1,24 +1,20 @@
-function existationshape = pulseHann(N,T,N_c,f_1,const)
-% PULSEHANN   One line description of what the function or script performs (H1 line) 
-%    optional: more details about the function than in the H1 line 
-%    optional: more details about the function than in the H1 line 
-%    optional: more details about the function than in the H1 line 
+function existationshape = pulseHann(N,T,N_c,f_0,const)
+% PULSEHANN   
 % 
 % Syntax: [output1,output2] = pulseHann(input1,input2,input3) 
 % 
 % Inputs: 
-%    input1 - Description, string, dimensions [m, n], Units: ms 
-%    input2 - Description, logical, dimensions [m, n], Units: m 
-%    input3 - Description, double, dimensions [m, n], Units: N 
+%    N - total number of samples, int[-]
+%    N_c - number of counts in the wave packet, int [-]
+%    const - amplitude, int [-] 
+%    T - total calculation time, int [s]
+%    f_0 - frequency of the carrier signal, int [Hz] 
 % 
 % Outputs: 
-%    output1 - Description, integer, dimensions [m, n], Units: - 
-%    output2 - Description, double, dimensions [m, n], Units: m/s^2 
-% 
+%    existationshape - Description, integer, dimensions [m, n], Units: - 
+%
 % Example: 
-%    [output1,output2] = pulseHann(input1,input2,input3) 
-%    [output1,output2] = pulseHann(input1,input2) 
-%    [output1] = pulseHann(input1,input2,input3) 
+%    existationshape = pulseHann(2^15,400e-6,10,50e3/N_c,const) 
 % 
 % Other m-files required: none 
 % Subfunctions: none 
@@ -35,9 +31,7 @@ function existationshape = pulseHann(N,T,N_c,f_1,const)
 %---------------------- BEGIN CODE---------------------- 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%N_c=10;       % number of counts in the wave packet []
-%f_1=18e3/N_c;  % frequency of the modulation signal  [Hz]
-f_2=N_c*f_1;   % frequency of the carrier signal[Hz]
+f_1=f_0/N_c;  % frequency of the modulation signal  [Hz]
 t_t=1/f_1;   % total duration time of the excitation [s]
 t_1=0e-4;    % excitation initiation time [s]
 t_2=t_1+t_t; % excitation termiation time [s]
@@ -50,7 +44,7 @@ for n=1:N;
   st(n)=0.0; t(n)=(n-1)*T/N;
   if (t(n) >= t_1) && (t(n) <= t_2);
     win(n)=0.5*(1-cos(2*pi*f_1*(t(n)-t_2)));
-    st(n)=win(n)*sin(2*pi*f_2*(t(n)-t_1));
+    st(n)=win(n)*sin(2*pi*f_0*(t(n)-t_1));
     
   end;
   om(n)=(n-1)/T; % frequency [Hz]

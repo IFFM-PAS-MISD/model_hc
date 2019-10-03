@@ -35,8 +35,10 @@ function durationtime = procTime(iStep,nSteps,durationtime,proc_name)
 if ~exist('durationtime','var');durationtime = 0; end
 if ~exist('proc_name','var');proc_name = 'miscellaneous'; end
 
-proc_done = [repmat('%',1,floor(iStep/nSteps*100)) ...
+proc_done = [repmat('-',1,floor(iStep/nSteps*100)) ...
     repmat('_',1,100-floor(iStep/nSteps*100))];
+proc_done(49:49+length(num2str(floor(iStep/nSteps*100)))) = ...
+    [num2str(floor(iStep/nSteps*100)) '%'];
 message_3=proc_done;
 message_1=sprintf('Please wait... point %4.0f from %8.0f\n', iStep, nSteps);
     

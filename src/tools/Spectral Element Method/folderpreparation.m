@@ -1,4 +1,4 @@
-function [parentFolder, name_project] = folderpreparation(parentFolder,name_project,case_name)
+function folderpreparation(parentFolder,name_project,inputNumber)
 % FOLDERPREPARATION   One line description of what the function or script performs (H1 line) 
 %    optional: more details about the function than in the H1 line 
 %    optional: more details about the function than in the H1 line 
@@ -34,36 +34,35 @@ function [parentFolder, name_project] = folderpreparation(parentFolder,name_proj
 
 %---------------------- BEGIN CODE---------------------- 
 
-if isempty(parentFolder); parentFolder = 'E:\SEM_files';end
-if isempty(name_project); name_project = 'miscellaneous';end
+
 % input folders
 folderPath = fullfile(parentFolder,'src','models',name_project,...
-              'input','case',case_name);
+              'input','case');
 if ~exist(folderPath,'dir'); mkdir(folderPath); end
 folderPath = fullfile(parentFolder,'src','models',name_project,...
-              'input','excitation',case_name);
+              'input','excitation');
 if ~exist(folderPath,'dir'); mkdir(folderPath); end
 folderPath = fullfile(parentFolder,'src','models',name_project,...
-              'input','mesh',case_name);
+              'input','mesh');
 if ~exist(folderPath,'dir'); mkdir(folderPath); end
 folderPath = fullfile(parentFolder,'src','models',name_project,...
-              'input','stiffness',case_name);
+              'input','stiffness');
 if ~exist(folderPath,'dir'); mkdir(folderPath); end
 % output folders
 folderPath = fullfile(parentFolder,'data','raw','num' ,name_project,...
-              'output',case_name,'charge');
+              'output',num2str(inputNumber),'charge');
 if ~exist(folderPath,'dir'); mkdir(folderPath); end
           
 folderPath = fullfile(parentFolder,'data','raw','num' ,name_project,...
-              'output',case_name,'Um');
+              'output',num2str(inputNumber),'Um');
 if ~exist(folderPath,'dir'); mkdir(folderPath); end
 
 folderPath = fullfile(parentFolder,'data','raw','num' ,name_project,...
-              'output',case_name,'Vt');
+              'output',num2str(inputNumber),'Vt');
 if ~exist(folderPath,'dir'); mkdir(folderPath); end
 
 folderPath = fullfile(parentFolder,'data','raw','num' ,name_project,...
-              'output',case_name,'voltage');
+              'output',num2str(inputNumber),'voltage');
 if ~exist(folderPath,'dir'); mkdir(folderPath); end
 %---------------------- END OF CODE---------------------- 
 % ================ [folderpreparation.m] ================  

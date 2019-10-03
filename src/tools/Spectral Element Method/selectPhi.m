@@ -1,2 +1,2 @@
-function  Phi = selectPhi(Phi,voltageNode,C1_vol)
-         Phi(voltageNode) = C1_vol;
+function  Phi = selectPhi(Phi,voltageNode,iSteps_vol)
+         Phi(voltageNode) = iSteps_vol;

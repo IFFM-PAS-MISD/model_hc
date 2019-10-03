@@ -1,0 +1,17 @@
+material = 'composite_PF2';
+temp = 80;
+filename = [name_project,'_',material,'_t',num2str(temp),'.mat'];
+filePath = fullfile(parentFolder,'src','models',name_project,...
+              'input',filename);
+properties = structure(2).properties;         
+properties_ready(material,temp,filePath,properties) 
+%load(filePath,'q11', 'q12', 'q13', 'q22', 'q23', 'q33', 'q44', 'q55', 'q66','rho')  
+
+
+material = 'glue';
+filename = [name_project,'_',material,'_t',num2str(temp),'.mat'];
+filePath = fullfile(parentFolder,'src','models',name_project,...
+              'input',filename);
+properties(5)=0;
+properties_ready(material,temp,filePath,properties)
+%load(filePath,'q11', 'q12', 'q13', 'q22', 'q23', 'q33', 'q44', 'q55', 'q66','rho')  

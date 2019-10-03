@@ -35,9 +35,9 @@ function [excit_shape,ts,nr_exsh] = ...
 
 %---------------------- BEGIN CODE---------------------- 
 
-Fs = N/T;         % frequency range
-ts = T/N;         % calculation time step [s]
-t_e = 0:ts:T-ts;
+Fs = N/T;           % frequency range
+ts = T/N;           % calculation time step [s]
+t_e = 0:ts:T-ts;    % time vector
 if ~isempty(strfind(freq_range,'_'))
     signal_type = freq_range(1:strfind(freq_range,'_')-1);
 else
@@ -45,16 +45,17 @@ else
 end
 switch signal_type
     case 'pulse'
-    excit_shape = pulseHann(N,T,N_c,f_1,V);
-    nr_exsh = ceil(N/(f_1*T))+2;
+        f_1 = f_0/N_c;  % frequency of the modulation signal  [Hz]
+        excit_shape = pulseHann(N,T,N_c,f_0,V);
+        nr_exsh = ceil(N/(f_1*T))+2;
     case 'chirp'
-     excit_shape = chirp(t_e,f_0,t_e(end),f_1,'linear',90)*V;
-     excit_shape(1) = 0;
-     nr_exsh = N;
+        excit_shape = chirp(t_e,f_0,t_e(end),f_1,'linear',90)*V;
+        excit_shape(1) = 0;
+        nr_exsh = N;
     otherwise
-    t0 = w1/2;
-    excit_shape = tripuls(t_e-t0,w1)*V;
-    nr_exsh = ceil(w1/ts)+2;
+        t0 = w1/2;
+        excit_shape = tripuls(t_e-t0,w1)*V;
+        nr_exsh = ceil(w1/ts)+2;
 end
 
 NFFT = 2^nextpow2(N);
