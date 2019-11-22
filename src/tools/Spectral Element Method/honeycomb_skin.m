@@ -1,5 +1,6 @@
 function [nodeCoordinates,elementNodes] = honeycomb_skin(structure,actSt)
-
+% structure_i.DOF = [5,6,1,6]; Lx = 500e-3; Ly = 314e-3; Lz = 1e-3; shiftY = 0e-3;shiftX = 0e-3;shiftZ = 0e-3;
+% D_h = 19.0e-3; W_h =  70.0e-6; n = structure_i.DOF(2);
 structure_i = structure(actSt);
 format long
 
@@ -92,6 +93,73 @@ for i = 1:number_X1
          elementNodes{C1} = EN;
       end
  end
+%%
+ pureNC = cell2mat(nodeCoordinates);
+ C3 = 0;
+ C4 = 0;
+ C1_kk = cell(1,1);
+ cellPZT = cell(2,1);
+ 
+ for k = setdiff(1:size(structure,2),actSt)
+     
+     if ~isempty(structure(k).piezo_type)
+         C4 = C4+1;
+         [elementNodes_str,nodeCoordinates_str,cellsCoordinates,cellPZT_el] = ...
+            cell_PZT_mesh(structure(actSt),structure(k));
+        
+        cPZT = repmat([structure(k).geometry(4) structure(k).geometry(5)],7,1)+...
+             cellsCoordinates;
+        C1_kk{C4,1} = zeros(length(cellsCoordinates),2);
+       
+        for kk7 = 1:length(cellsCoordinates) 
+             d1 = inf;
+            for kk = 1:C1+C3
+                if min(sqrt((nodeCoordinates{kk}(:,1)-cPZT(kk7,1)).^2+...
+                     (nodeCoordinates{kk}(:,2)-cPZT(kk7,2)).^2))<d1
+                   [d1 d] = min(sqrt((nodeCoordinates{kk}(:,1)-cPZT(kk7,1)).^2+...
+                     (nodeCoordinates{kk}(:,2)-cPZT(kk7,2)).^2));
+                    C1_kk{C4}(kk7,:) = [kk d];  
+                end
+            end
+        end
+        nodeCoordinates_str(:,1) = nodeCoordinates_str(:,1)+nodeCoordinates{C1_kk{C4}(1,1)}(C1_kk{C4}(1,2),1);
+        nodeCoordinates_str(:,2) = nodeCoordinates_str(:,2)+nodeCoordinates{C1_kk{C4}(1,1)}(C1_kk{C4}(1,2),2);
+        eN_kk = cell2mat(elementNodes(C1_kk{C4}(:,1)));
+        C2 = 0;cmnNodes = []; unqEN = unique(eN_kk);
+        for i = 1:size(nodeCoordinates_str,1)
+            if ~isempty(find(abs(pureNC(unqEN,1)-nodeCoordinates_str(i,1))<1e-5&...
+                   abs(pureNC(unqEN,2)-nodeCoordinates_str(i,2))<1e-5, 1))
+               C2 = C2+1;
+               cmnNodes(C2,:) = [i unqEN(find(abs(pureNC(unqEN,1)-...
+                  nodeCoordinates_str(i,1))<1e-5&...
+                  abs(pureNC(unqEN,2)-nodeCoordinates_str(i,2))<1e-5, 1))];
+            end
+        end
+        nN = (1:max(max(elementNodes_str)))';
+        nN = (setdiff(nN,cmnNodes(:,1)));
+        for i = 1:size(cmnNodes,1)
+            elementNodes_str(elementNodes_str==cmnNodes(i,1)) = cmnNodes(i,2);
+        end
+        for i = 1:size(nN,1)
+            elementNodes_str(elementNodes_str==nN(i)) = max(max(elementNodes{C1+C3}))+i;
+        end
+        nodeCoordinates_str(cmnNodes(:,1),:) = [];
+        nodeCoordinates_strZ=zeros(size(nodeCoordinates_str,1),1)+unique(pureNC(:,3));
+        C3 = C3+1;
+        elementNodes{C1+C3} = elementNodes_str;
+        nodeCoordinates{C1+C3} = [nodeCoordinates_str nodeCoordinates_strZ];
+        cellPZT{1} = [cellPZT{1} 
+                    (size(cell2mat(elementNodes),1)-size(elementNodes{end},1)+cellPZT_el{1})'];
+        cellPZT{2} = [cellPZT{2} 
+                    (size(cell2mat(elementNodes),1)-size(elementNodes{end},1)+cellPZT_el{2})'];
+     end
+ 
+ end
+ C1_kk = cell2mat(C1_kk);
+ cellPZT{1} = cellPZT{1}-size(cell2mat(elementNodes(C1_kk(:,1))),1);
+ cellPZT{2} = cellPZT{2}-size(cell2mat(elementNodes(C1_kk(:,1))),1);
+ elementNodes(C1_kk(:,1)) = [];
+
 nodeCoordinates = cell2mat(nodeCoordinates);
 elementNodes = cell2mat(elementNodes);
 nodeCoordinates = round(nodeCoordinates*1e6)*1e-6;

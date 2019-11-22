@@ -65,9 +65,10 @@ switch dmgType
                 element_dmg = find(sum(BB,1)==n_x*n_y);
                 if ~isempty(element_dmg)
                     empNodes = elementNodes_st(element_dmg,:);
-                    empNodes = sort(empNodes(~ismember(empNodes,elementNodes_st(1:end~=element_dmg,:))));
+                    empNodes = unique(empNodes(~ismember(empNodes,elementNodes_st(setdiff(1:...
+                        size(elementNodes_st,1),element_dmg),:))));
                     aa = repmat(reshape(elementNodes_st',[],1),1,length(empNodes)) >= ...
-                        repmat(empNodes,numel(elementNodes_st),1);
+                        repmat(empNodes',numel(elementNodes_st),1);
                     elementNodes_st = reshape(reshape(elementNodes_st',[],1)-sum(aa,2),...
                         size(elementNodes_st,2),[])';
                     elementNodes_st(element_dmg,:) = [];
@@ -134,6 +135,14 @@ switch dmgType
                 yv = [dmgGeometry(:,2); dmgGeometry(1,2)];
                 dmgNodes = hNodes(inpolygon(X,Y,xv,yv));
         end
+        BB = reshape(sum(repmat(reshape(elementNodes_st',[],1),1,length(dmgNodes)) == ...
+               repmat(dmgNodes',numel(elementNodes_st),1),2),fliplr(size(elementNodes_st)));
+        if structure_i.DOF(1) == 5
+           element_dmg = find(sum(BB,1)==n_x*n_y);
+        elseif structure_i.DOF(1) == 6
+            element_dmg = find(sum(BB,1)==n_x);
+        end
+        dmgNodes = dmgNodes(ismember(dmgNodes,unique(elementNodes_st(element_dmg,:))));
 end
 elementNodes_dmg = elementNodes_st;
 nodeCoordinates_dmg = nodeCoordinates_st;

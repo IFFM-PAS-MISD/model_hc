@@ -156,7 +156,63 @@ for i = 1:number_X2
         end
     end
 end
-
+pureNC=cell2mat(nodeCoordinates(~cellfun('isempty',nodeCoordinates)) );
+ C3=0;
+ C4=0;
+ C1_kk=cell(1,1);
+ for k=setdiff(1:size(structure,2),actSt)
+     if ~isempty(structure(k).piezo_type)
+         C4=C4+1;
+        [~,nodeCoordinates_str,~,coreElements]=...
+            cell_mesh(structure(actSt));
+        nodeCoordinates_str(:,1)=nodeCoordinates_str(:,1)+structure(k).geometry(4);
+        nodeCoordinates_str(:,2)=nodeCoordinates_str(:,2)+structure(k).geometry(5);
+        C1_kk{C4,1}=zeros(length(coreElements),2);
+        for kk7=1:length(coreElements) 
+            for kk=1:C1
+                 aa1=[pureNC(elementNodes{kk}(:,1),1:2) ...
+                        pureNC(elementNodes{kk}(:,2),1:2)]-...
+                        repmat([nodeCoordinates_str(coreElements(kk7,1),1:2) ...
+                        nodeCoordinates_str(coreElements(kk7,3),1:2)],...
+                        size(pureNC(elementNodes{kk}),1),1);
+                 aa1=ismember(abs(aa1)<1e-3,ones(1,4),'rows');   
+                 aa2=[pureNC(elementNodes{kk}(:,1),1:2) ...
+                        pureNC(elementNodes{kk}(:,2),1:2)]-...
+                        repmat([nodeCoordinates_str(coreElements(kk7,3),1:2) ...
+                        nodeCoordinates_str(coreElements(kk7,1),1:2)],...
+                        size(pureNC(elementNodes{kk}),1),1);
+                aa2=ismember(abs(aa2)<1e-3,ones(1,4),'rows');
+                if any(aa1)
+                   C3=C3+1;
+                   C1_kk{C4}(kk7,:)=[kk find(aa1)];
+                   elementNodes{C1+C3}=[elementNodes{kk}(aa1,1) max(max(elementNodes{C1+C3-1}))+1;
+                                   max(max(elementNodes{C1+C3-1}))+1 elementNodes{kk}(aa1,2)];
+                   nodeCoordinates{C1+C3}=[nodeCoordinates_str(coreElements(kk7,2),1:2) ...
+                                    unique(pureNC(:,3))];
+                   rotation_angleZ{C1+C3}=[rotation_angleZ{kk}(aa1,1);rotation_angleZ{kk}(aa1,1)];
+                 end
+                 if any(aa2)
+                    C3=C3+1;
+                    C1_kk{C4}(kk7,:)=[kk find(aa2)];
+                    elementNodes{C1+C3}=[elementNodes{kk}(aa2,1) max(max(elementNodes{C1+C3-1}))+1;
+                                    max(max(elementNodes{C1+C3-1}))+1 elementNodes{kk}(aa2,2)];
+                    nodeCoordinates{C1+C3}=[nodeCoordinates_str(coreElements(kk7,2),1:2) ...
+                                    unique(pureNC(:,3))];
+                    rotation_angleZ{C1+C3}=[rotation_angleZ{kk}(aa2,1);rotation_angleZ{kk}(aa2,1)];
+                    
+                end
+            end
+        end
+     end
+ end
+ %%
+C1_kk=cell2mat(C1_kk);
+aa=sort(unique(C1_kk(:,1)),'descend');
+aa=aa(aa>0);
+for i=1:size(aa,1);
+    elementNodes{aa(i)}(C1_kk(C1_kk(:,1)==aa(i),2),:)=[];
+    rotation_angleZ{aa(i)}(C1_kk(C1_kk(:,1)==aa(i),2),:)=[];
+end
 %     
 nodeCoordinates = cell2mat(nodeCoordinates(~cellfun('isempty',nodeCoordinates)));
 elementNodes = cell2mat(elementNodes);

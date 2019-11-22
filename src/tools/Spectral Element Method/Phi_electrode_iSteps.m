@@ -1,4 +1,8 @@
-function Phi_electrode = Phi_electrode_iSteps(Phi_electrode,Phi,nrNodesZ,iSteps)
+function Phi_electrode = Phi_electrode_iSteps(Phi_electrode,Phi,stAttach2,iSteps)
          if ~isempty(Phi)
-            Phi_electrode(iSteps) = mean(Phi(:,nrNodesZ));
+            if stAttach2 == 1
+                Phi_electrode(iSteps) = mean(Phi(:,1));
+            elseif stAttach2 == -1
+                Phi_electrode(iSteps) = mean(Phi(:,end));
+            end
          end

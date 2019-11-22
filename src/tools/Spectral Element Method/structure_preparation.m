@@ -20,6 +20,8 @@ structure(1).thicknessElementNo = ones(size(structure(1).elementNodes,1),1);
 if ~strcmp(structure(1).mesh_type,'honeycomb_core')
     [structure(1).elementNodes,structure(1).nodeCoordinates,~] = ...
         quad2spectral(structure(1).elementNodes,structure(1).nodeCoordinates,n_x-1,n_y-1);
+%[structure(1).elementNodes,structure(1).nodeCoordinates]=...
+%        internal_Nodes_SEM(structure(1),1,'old');
 end
 nodeCoordinates_int = structure(1).nodeCoordinates;
 nodes_leyer = structure(1).elementNodes;
@@ -65,7 +67,12 @@ if structure(1).numElements(3)>1
         structure(1).rotation_angle = zeros(size(structure(1).elementNodes,1),3);
     end
 end
-
+structure(1).interfaceElements = zeros(size(structure(1).elementNodes,1),...
+    size(structure(1).stAttach,2));
+for i = 1:size(structure(1).stAttach,2)
+    structure(1).interfaceElements(:,i)=...
+        intElements(structure(1),structure(structure(1).stAttach(1,i)),i);    
+end
 if size(structure,2)>1
     for i = 2:size(structure,2);
         n_x = structure(i).DOF(2);
@@ -86,8 +93,10 @@ if size(structure,2)>1
             if ~strcmp(structure(i).mesh_type,'honeycomb_core')
 
                 % add internal nodes
-                [structure(i).elementNodes,structure(i).nodeCoordinates,~] = ...
-                quad2spectral(structure(i).elementNodes,structure(i).nodeCoordinates,n_x-1,n_y-1);
+                 [structure(i).elementNodes,structure(i).nodeCoordinates,~] = ...
+                 quad2spectral(structure(i).elementNodes,structure(i).nodeCoordinates,n_x-1,n_y-1);
+%[structure(i).elementNodes,structure(i).nodeCoordinates]=...
+%      internal_Nodes_SEM(structure(i),i,'old');
                 nodeCoordinates_int = structure(i).nodeCoordinates;
                 nodes_leyer = structure(i).elementNodes;
                 %add nodes for n_zeta>1
@@ -141,16 +150,17 @@ if size(structure,2)>1
                 nodes_generator(structure(structure(i).stAttach(1,1)),structure(i),i);
 
         end
-%         for ii = 1:size(structure(i).stAttach,2)
-%             structure(i).interfaceElements(:,ii) = ...
-%                 intElements(structure(i),structure(structure(i).stAttach(1,ii)),ii);    
-%         end
+        for ii = 1:size(structure(i).stAttach,2)
+            structure(i).interfaceElements(:,ii) = ...
+                intElements(structure(i),structure(structure(i).stAttach(1,ii)),ii);    
+        end
         % boundary condition
         [structure(i).prescribedDof,structure(i).activeDof,structure(i).GDof] =  ...
             EssentialBC(structure(i));
         % force
         [structure(i).P,structure(i).forceNode,structure(i).U_pD] = ...
             structure_force(structure(i));
+        
     end
 end
 %%
@@ -164,14 +174,21 @@ end
 %         structure(structure(i).stAttach(1,ii)),ii);
 % end
 % damage
-if exist('dmgStruct','var')&&~isempty(dmgStruct)
-    for i = 1:length(dmgStruct)
-        ii = dmgStruct(i).structure;
-        [structure(ii).elementNodes,structure(ii).nodeCoordinates,structure(ii).rotation_angle,...
-            structure(ii).nodes_dmg{i}] = damage_nodes(dmgStruct(i),structure(ii));
-    end
-end
 for i = 1:size(structure,2)
+
+    if ~isempty(dmgStruct)
+        C0 = 0;
+        for j = 1:length(dmgStruct)
+            if i == dmgStruct(j).structure
+                C0 = C0 + 1;
+               [structure(i).elementNodes,structure(i).nodeCoordinates,structure(i).rotation_angle,...
+                structure(i).nodes_dmg{C0}] = damage_nodes(dmgStruct(j),structure(i));
+            end
+        end
+    else 
+        structure(i).nodes_dmg = [];
+    end
+
 % boundary condition
         [structure(i).prescribedDof,structure(i).activeDof,structure(i).GDof] =  ...
             EssentialBC(structure(i));
@@ -185,6 +202,7 @@ end
 %% properties
 
 for i = 1:size(structure,2)
+    
     n_x = structure(i).DOF(2);
     n_z = structure(i).DOF(3);
     if length(structure(i).DOF) == 4
@@ -202,7 +220,7 @@ for i = 1:size(structure,2)
         structure(i).naturalDerivativesY_P,structure(i).naturalDerivativesZ_P,structure(i).XYZ_P] = ...
         Jacob_NbN(structure(i).DOF(1),n_x,n_y,n_z,...
         structure(i).elementNodes,structure(i).nodeCoordinates,structure(i).rotation_angle);   
-    
+  
     disp(['C stiffness coefficients_',num2str(i),'.......'])      
     [structure(i).rho,structure(i).J11,structure(i).a11,structure(i).a12,...
         structure(i).a16,structure(i).a22,structure(i).a26,structure(i).a66,...
@@ -235,6 +253,15 @@ for i = 1:size(structure,2)
             structure(i).c_ypx = []; structure(i).c_ypy = []; structure(i).c_ypz = [];
             structure(i).c_zpx = []; structure(i).c_zpy = []; structure(i).c_zpz = [];
     switch structure(i).DOF(1)
+        case 2
+            structure(i).Mass = zeros(structure(i).numberNodes,1);   
+            M_P = structure(i).rho.*diag(structure(i).shapeFunction_P*...
+                structure(i).shapeFunction_P').*structure(i).w_P(:,1);
+            for ii = 1:12
+                structure(i).Mass(structure(i).I_G(:,ii)) = ...
+                structure(i).Mass(structure(i).I_G(:,ii)) + M_P(structure(i).I_L(:,ii));
+            end
+            structure(i).Mass = repmat(structure(i).Mass,3,1);
         case 3
             structure(i).Mass = zeros(structure(i).numberNodes,1);   
             M_P = structure(i).rho.*diag(structure(i).shapeFunction_P*...
@@ -302,15 +329,9 @@ for i = 1:size(structure,2)
                 c_zpz{e} = repmat(R_xyz(3,3),n_x*n_y,1);
                 
             end
-            c_xpx = cell2mat(c_xpx);
-            c_xpy = cell2mat(c_xpy);
-            c_xpz = cell2mat(c_xpz);
-            c_ypx = cell2mat(c_ypx);
-            c_ypy = cell2mat(c_ypy);
-            c_ypz = cell2mat(c_ypz);
-            c_zpx = cell2mat(c_zpx);
-            c_zpy = cell2mat(c_zpy);
-            c_zpz = cell2mat(c_zpz);
+            c_xpx = cell2mat(c_xpx); c_xpy = cell2mat(c_xpy); c_xpz = cell2mat(c_xpz);
+            c_ypx = cell2mat(c_ypx); c_ypy = cell2mat(c_ypy); c_ypz = cell2mat(c_ypz);
+            c_zpx = cell2mat(c_zpx); c_zpy = cell2mat(c_zpy); c_zpz = cell2mat(c_zpz);
             
             M_Pg1 = c_xpx.^2.*M_P + c_ypx.^2.*M_P + c_zpx.^2.*M_P;
             M_Pg2 = c_xpy.^2.*M_P + c_ypy.^2.*M_P + c_zpy.^2.*M_P;
@@ -355,26 +376,33 @@ for i = 1:size(structure,2)
             structure(i).Mass(1 + structure(i).numberNodes*(ii-1):...
             structure(i).numberNodes*ii);
     end
-    structure(i).iMass = 1./structure(i).Mass;
-    [structure(i).prescribedPhi,structure(i).Phi,structure(i).q_e,...
-            structure(i).groundNode,structure(i).voltageNode] = piezo_function(structure(i));  
+    [structure(i).prescribedPhi,structure(i).Phi,structure(i).groundNode,structure(i).voltageNode] = ...
+        piezo_function(structure(i)); 
+    structure(i).electrodeLayer = zeros(size(structure,2),1); 
     if isempty(structure(i).piezo_type)
         
         structure(i).stiffness_uV = sparse([],[],[],0,1,0);
         structure(i).stiffness_V = sparse([],[],[],0,1,0);
+        structure(i).inv_stiffness_V = sparse([],[],[],0,1,0);
         structure(i).stiffness_Vu = sparse([],[],[],0,1,0);
         structure(i).activePhi = sparse([],[],[],0,1,0);
         structure(i).Phi = sparse([],[],[],0,1,0);
-        structure(i).q = sparse([],[],[],0,1,0);
     else
-        
-        [structure(i).prescribedPhi,structure(i).Phi,structure(i).q_e,...
-            structure(i).groundNode,structure(i).voltageNode] = piezo_function(structure(i));   
+    
+        if structure(i).stAttach(2,1) == -1
+            structure(i).electrodeLayer = structure(i).DOF(3);
+        elseif structure(i).stAttach(2,1) == 1
+            structure(i).electrodeLayer(i) = 1;
+        end
+        [structure(i).prescribedPhi,structure(i).Phi,structure(i).groundNode,structure(i).voltageNode] =...
+            piezo_function(structure(i));
         [structure(i).stiffness_uV,structure(i).stiffness_V,err_el(i,2)] = ...
             formStiffnessV_full(structure(i));
         structure(i).stiffness_Vu = structure(i).stiffness_uV';
         structure(i).activePhi = cell(1,size(cellstr(structure(i).piezo_type),1));
         structure(i).activePhi = setdiff((1:structure(i).numberNodes)',structure(i).prescribedPhi);
+        structure(i).inv_stiffness_V = structure(i).stiffness_V(structure(i).activePhi,...
+            structure(i).activePhi)^(-1);
     end
 end
 if any(err_el) ~= 0

@@ -44,13 +44,15 @@ function [spec_element_nodes,spec_coords,boundary_nodes] = ...
 n_x = N_x+1;
 n_y = N_y+1;
 
-if n_x<3 || n_y<3
-    msgbox('You need at least 3 nodes on the edge of element', 'Error','error');
-    return
-elseif n_x>10 || n_y>10
-    msgbox('Maximum no of nodes on the edge of element is 10', 'Error','error');
-    return
-end
+ if n_x<3 || n_y<3
+     spec_element_nodes = elementNodes_fem(:, [1 2 4 3]);
+     spec_coords = nodeCoordinates_fem;
+     boundary_nodes = [];
+     return
+ elseif n_x>10 || n_y>10
+     msgbox('Maximum no of nodes on the edge of element is 10', 'Error','error');
+     return
+ end
 numberElements = size(elementNodes_fem,1);
 format long
 nInt_x = n_x-2;
@@ -160,7 +162,7 @@ elementNodes_int = [elementNodes_int_edge,elementNodes_int_int] + ...
     double(max(max(elementNodes_fem)));
 nodeCoordinates_int = [nodeCoordinates_int_edge;nodeCoordinates_int_int];
 elementNodes_sem = [elementNodes_fem,elementNodes_int];
-spec_coords = [nodeCoordinates_fem;nodeCoordinates_int];
+spec_coords = round([nodeCoordinates_fem;nodeCoordinates_int]*1e8)*1e-8;
 
 
 e1 = 4+(1:nInt_x);

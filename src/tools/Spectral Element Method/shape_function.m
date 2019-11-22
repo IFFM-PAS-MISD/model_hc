@@ -33,4 +33,7 @@ naturalDerivativesZ=(kron(kron(Dzeta,Seta),Sxi))';
 naturalDerivatives=[naturalDerivativesX,naturalDerivativesY,...
     naturalDerivativesZ];
 
+shapeFunction=round(shapeFunction*1e12)*1e-12;
+naturalDerivatives=round(naturalDerivatives*1e12)*1e-12;
+
 

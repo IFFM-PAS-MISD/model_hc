@@ -15,20 +15,19 @@ jSparse = bsxfun(@plus,repmat((1:n_x:n_x*length(ksi_l))',1,n_x), (0:n_x-1));
 switch func_type
     case 's'
         disp('Shape function...')
-        shapeFunction = round(Sxi*1e6)*1e-6;
+        shapeFunction = round(Sxi*1e16)*1e-16;
         shapeFunction_P = sparse(iSparse,jSparse,shapeFunction);
         naturalDerivativesX_P = [];
-        naturalDerivativesY_P = [];
     case 'd'
         disp('naturalDerivativesX...')
         shapeFunction_P = [];
-        naturalDerivativesX = round(Dxi*1e6)*1e-6;
+        naturalDerivativesX = round(Dxi*1e16)*1e-16;
         naturalDerivativesX_P = sparse(iSparse,jSparse,naturalDerivativesX);
     otherwise
         disp('Shape function...')
-        shapeFunction = round(Sxi*1e6)*1e-6;
+        shapeFunction = round(Sxi*1e16)*1e-16;
         shapeFunction_P = sparse(iSparse,jSparse,shapeFunction);
         disp('naturalDerivativesX...')
-        naturalDerivativesX = round(Dxi*1e6)*1e-6;
+        naturalDerivativesX = round(Dxi*1e16)*1e-16;
         naturalDerivativesX_P = sparse(iSparse,jSparse,naturalDerivativesX);
 end

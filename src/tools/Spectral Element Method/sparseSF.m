@@ -1,7 +1,11 @@
 function shapeFunction = sparseSF(Sxi,Seta,Szeta )
          
          if isempty(Szeta)
-            shapeFunction = kron(Seta,Sxi);
+            if isempty(Seta)
+                shapeFunction = Sxi;
+            else    
+                shapeFunction = kron(Seta,Sxi);
+            end
          else
             shapeFunction = kron(kron(Szeta,Seta),Sxi);
          end

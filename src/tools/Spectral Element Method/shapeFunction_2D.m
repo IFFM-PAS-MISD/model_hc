@@ -1,20 +1,20 @@
 function [shapeFunction_P,naturalDerivativesX_P,naturalDerivativesY_P] = ...
-    shapeFunction_2D(Q_ksi,Q_eta,ksi_l,eta_l,func_type)
+    shapeFunction_2D(Q_ksi,Q_eta,ksi_p,eta_p,func_type)
 n_x = length(Q_ksi);
 n_y = length(Q_eta);
 %%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-[Sxi,Dxi] = cellfun(@(x) shape1D_v2(n_x,Q_ksi,x),num2cell(ksi_l,2), 'UniformOutput',false);
-[Seta,Deta] = cellfun(@(x) shape1D_v2(n_y,Q_eta,x),num2cell(eta_l,2), 'UniformOutput',false);
+[Sxi,Dxi] = cellfun(@(x) shape1D_v2(n_x,Q_ksi,x),num2cell(ksi_p,2), 'uni',0);
+[Seta,Deta] = cellfun(@(x) shape1D_v2(n_y,Q_eta,x),num2cell(eta_p,2), 'uni',0);
 
-Sxi = round(cell2mat(Sxi)*1e6)*1e-6;
-Seta = round(cell2mat(Seta)*1e6)*1e-6;
+Sxi = cell2mat(Sxi);
+Seta = cell2mat(Seta);
 
-Dxi = round(cell2mat(Dxi)*1e6)*1e-6;
-Deta = round(cell2mat(Deta)*1e6)*1e-6;
+Dxi = cell2mat(Dxi);
+Deta = cell2mat(Deta);
 
-iSparse = repmat((1:length(ksi_l))',1,n_x*n_y);
-jSparse = bsxfun(@plus,repmat((1:n_x*n_y:n_x*n_y*length(ksi_l))',1,n_x*n_y), (0:n_x*n_y-1));
+iSparse = repmat((1:length(ksi_p))',1,n_x*n_y);
+jSparse = bsxfun(@plus,repmat((1:n_x*n_y:n_x*n_y*length(ksi_p))',1,n_x*n_y), (0:n_x*n_y-1));
 
 switch func_type
     case 's'
@@ -48,4 +48,4 @@ function z = rowWiseKron(x,y)
         for ii = 1 : size(x,1)
             z(ii,:) = kron(x(ii,:),y(ii,:));
         end
-        z = round(z*1e6)*1e-6;
+        z = round(z*1e8)*1e-8;

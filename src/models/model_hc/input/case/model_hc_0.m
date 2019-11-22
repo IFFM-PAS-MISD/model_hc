@@ -1,4 +1,5 @@
 % input data for plate
+% name_project='model_hc';, parentFolder='E:\model_hc'; 'model_hc','E:\model_hc'
 if  exist('structure','var'); clear structure; end
 plotStyle=['k+';'b+';'k+';'r+';'b+';'r+';'r+';'r+';'r+'];
 disp('.. Reading input data');
@@ -67,7 +68,7 @@ e_p=[];          % electric properties
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % geometry definition
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-'in x direction - total length [m]';                Lx = 480e-3;
+'in x direction - total length [m]';                Lx = 500e-3;
 'in y direction - total width [m]';                 Ly = 314e-3;
 'in z direction - total thickness [m]';             Lz = sum(lh);
 'shift in x direction - total length [m]';          shiftX = 0e-3;
@@ -83,11 +84,11 @@ BC = 'ffff';
 % if 'file_mesh' put the file name from \Input folder, 'honeycomb_skin',
 % 'honeycomb_skin'; 
 mesh_type = 'rect';
-'honeycomb cell inner diagonal [m]';  D_h = [];%ones(1,lay) * 19.0e-3;
-'honeycomb cell wall thickness [m]';  W_h = [];%ones(1,lay) * 70.0e-6;
+'honeycomb cell inner diagonal [m]';  D_h = ones(1,lay) * 19.0e-3;
+'honeycomb cell wall thickness [m]';  W_h = ones(1,lay) * 70.0e-6;
 stShape = 'rect';
-numberElementsX = 29;
-numberElementsY = 19;
+numberElementsX = 30;
+numberElementsY = 20;
 numberElementsZ = 1;
 inputfile = '';
 plotSt = 'no'; % if 'yes' plot nodes
@@ -110,7 +111,9 @@ n = 3;
 switch DOF
     case 3
     nzeta = 4;   % number of nodes on edge element on Z
-    case 5
+    case 5 
+    nzeta = 1;
+    case 6 
     nzeta = 1;
 end
 n_y = 4;
@@ -140,7 +143,7 @@ stAttach = [L_str,L_str+2;-1,1;false,false]; % assign structure which element is
 mesh_type = 'honeycomb_core';
 %force nodes and values
 'honeycomb cell inner diagonal [m]';  D_h = ones(1,lay) * 19.0e-3;
-'honeycomb cell wall thickness [m]';  W_h = ones(1,lay) * 50.0e-6;
+'honeycomb cell wall thickness [m]';  W_h = ones(1,lay) * 70.0e-6;
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 structure_content                 %%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -176,24 +179,22 @@ structure_material = 'composite_PF2';
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % geometry definition
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-'in x direction - total length [m]';                Lx = 480e-3;
+'in x direction - total length [m]';                Lx = 500e-3;
 'in y direction - total width [m]';                 Ly = 314e-3;
 'in z direction - total thickness [m]';             Lz = sum(lh);
 'shift in x direction - total length [m]';          shiftX = 0e-3;
 'shift in y direction - total width [m]';           shiftY = 0e-3;
 'shift in z direction - total thickness [m]';       shiftZ = ...
     (structure(L_str).geometry(6)+structure(L_str).geometry(3)/2+Lz/2);
-stAttach = [L_str, L_str+2, L_str+3; -1,1,1;false,false,false]; % assign structure which element is attached to
+% assign structure which element is attached to
+stAttach = [L_str, L_str+2, L_str+3; -1,1,1;false,false,false]; 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 % if 'file_mesh' put the file name from \Input folder, 'honeycomb_skin',
 % 'honeycomb_core'; 
 mesh_type = 'rect';
-numberElementsX = 20;
-numberElementsY = 20;
-numberElementsZ = 1;
-'honeycomb cell inner diagonal [m]';  D_h = [];%ones(1,lay) * 19.0e-3;
-'honeycomb cell wall thickness [m]';  W_h = [];%ones(1,lay) * 50.0e-6;
+'honeycomb cell inner diagonal [m]';  D_h = ones(1,lay) * 19.0e-3;
+'honeycomb cell wall thickness [m]';  W_h = ones(1,lay) * 70.0e-6;
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 structure_content                 %%%%%
@@ -204,12 +205,12 @@ structure_content                 %%%%%
 L_str = length(structure);
 % PZT
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-structure_material = 'piezo_P502';
+structure_material = 'piezo_nce51';
 ply_thick = 0.5e-3;
 DOF = 3;      % degree of freedom 3 for 3d, 5 for 2d
 switch DOF
     case 3
-    nzeta = 4;   % number of nodes on edge element on Z
+    nzeta = 3;   % number of nodes on edge element on Z
     case 5
     nzeta = 1;
 end
@@ -233,15 +234,15 @@ stShape = 'circ'; %shape of the construction element: 'circ' or 'rect'
 'in x direction - total length [m]';        Lx = 10.0e-3;
 'in y direction - total width [m]';         Ly = 10.0e-3;
 'in z direction - total thickness [m]';     Lz = sum(lh);
-'shift in x direction - total length [m]';  shiftX = -85.86e-3;
+'shift in x direction - total length [m]';  shiftX = -85.8637e-3;
 'shift in y direction - total width [m]';   shiftY = 0e-3;
 'shift in z direction - total thickness [m]';     shiftZ =...
     (structure(L_str).geometry(6) + (structure(L_str).geometry(3)+Lz)/2);
 %assign structure which element is attached to
 stAttach = [L_str; -1; true]; % assign structure which element is attached to
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-'honeycomb cell inner diagonal [m]';  D_h = [];%ones(1,lay) * 19.0e-3;
-'honeycomb cell wall thickness [m]';  W_h = [];%ones(1,lay) * 50.0e-6;
+'honeycomb cell inner diagonal [m]';  D_h = ones(1,lay) * 19.0e-3;
+'honeycomb cell wall thickness [m]';  W_h = ones(1,lay) * 70.0e-6;
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %piezoelectricity
 %piezo_type=cell(piezo_type,1);
@@ -249,7 +250,7 @@ piezo_type = 'actuator';
 mesh_type = 'file_mesh';
 inputfile = 'PZTd10_24';
 %piezo_type = 'sensor';
-Pn = 10*ones(1,3);
+Pn = 20*ones(1,3);
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 structure_content                 %%%%%
@@ -260,7 +261,7 @@ structure_content                 %%%%%
 
 % PZT
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-structure_material = 'piezo_P502';
+structure_material = 'piezo_nce51';
 ply_thick = 0.5e-3;
 
 typeProp = 'ready'; % 'full' if E,ni,rho available or...
@@ -282,15 +283,15 @@ stShape = 'circ'; %shape of the construction element: 'circ' or 'rect'
 'in x direction - total length [m]';        Lx = 10.0e-3;
 'in y direction - total width [m]';         Ly = 10.0e-3;
 'in z direction - total thickness [m]';     Lz = sum(lh);
-'shift in x direction - total length [m]';  shiftX = 85.56e-3;
+'shift in x direction - total length [m]';  shiftX = 85.8637e-3;
 'shift in y direction - total width [m]';   shiftY = 0e-3;
 'shift in z direction - total thickness [m]';     shiftZ =...
     (structure(L_str).geometry(6) + (structure(L_str).geometry(3)+Lz)/2);
 %assign structure which element is attached to
 stAttach = [L_str; -1; true]; % assign structure which element is attached to
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-'honeycomb cell inner diagonal [m]';  D_h = [];%ones(1,lay) * 19.0e-3;
-'honeycomb cell wall thickness [m]';  W_h = [];%ones(1,lay) * 50.0e-6;
+'honeycomb cell inner diagonal [m]';  D_h = ones(1,lay) * 19.0e-3;
+'honeycomb cell wall thickness [m]';  W_h = ones(1,lay) * 70.0e-6;
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %piezoelectricity
 %piezo_type=cell(piezo_type,1);

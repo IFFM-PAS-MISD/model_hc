@@ -2,7 +2,7 @@
 function [nodeCoordinates,elementNodes,rotation_angle]= ...
     mesh_generator(structure,actSt)
 
-%actSt=1;structure_i=structure(actSt);
+%actSt = 1;structure_i = structure(actSt);
 %%
 structure_i = structure(actSt);
 Lx = structure_i.geometry(1);

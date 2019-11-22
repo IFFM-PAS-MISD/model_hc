@@ -1,4 +1,4 @@
-function ownerElement = findOwnerElement(x_p,y_p,nodeCoordinates_main,elementNodes_main,n_x,n_y)
+function ownerElement = findOwnerElement(x_p,y_p,z_p,nodeCoordinates_main,elementNodes_main,n_x,n_y)
 % FINDOWNERELEMENT   One line description of what the function or script performs (H1 line) 
 %    optional: more details about the function than in the H1 line 
 %    optional: more details about the function than in the H1 line 
@@ -37,15 +37,54 @@ function ownerElement = findOwnerElement(x_p,y_p,nodeCoordinates_main,elementNod
 %---------------------- BEGIN CODE----------------------
 %%
 disp('Determination of the owner element');
-
-elementNodes = elementNodes_main(:,[1,n_x,n_x*n_y,n_x*(n_y-1)+1,1]);
 ownerElement = zeros(length(x_p),1);
-for ipolygon = 1:size(elementNodes_main,1)
-    elementVertex = elementNodes(ipolygon,:);
-    xv = nodeCoordinates_main(elementVertex,1);
-    yv = nodeCoordinates_main(elementVertex,2);
-    in = inpolygon(x_p,y_p,xv,yv);
-    ownerElement(in) = ipolygon;
+if n_y > 1
+    elementNodes = elementNodes_main(:,[1,n_x,n_x*n_y,n_x*(n_y-1)+1,1]);
+    
+    for ipolygon = 1:size(elementNodes_main,1)
+        elementVertex = elementNodes(ipolygon,:);
+        xv = nodeCoordinates_main(elementVertex,1);
+        yv = nodeCoordinates_main(elementVertex,2);
+        in = inpolygon(x_p,y_p,xv,yv);
+        ownerElement(in) = ipolygon;
+    end
+elseif n_y==1
+    
+    for iX = 1: length(x_p)
+        Limit = 100*eps(single(max(abs([x_p(iX) y_p(iX) z_p(iX)]))));
+        nodeNo = find(sqrt((nodeCoordinates_main(:,1)-x_p(iX)).^2 + (nodeCoordinates_main(:,2)-y_p(iX)).^2 + ...
+        (nodeCoordinates_main(:,3)-z_p(iX)).^2) < Limit,1,'first');
+        if ~isempty(nodeNo)
+            [ownerElement(iX),~,~] = find(nodeNo==elementNodes_main,1,'first');
+        end
+    end
+    
+    elementNodes = elementNodes_main(:,[1,n_x]);
+    P1 = [nodeCoordinates_main(elementNodes(:,1),1) nodeCoordinates_main(elementNodes(:,1),2)];
+    P2 = [nodeCoordinates_main(elementNodes(:,2),1) nodeCoordinates_main(elementNodes(:,2),2)];
+    emptyOwner = find(ownerElement==0);
+    P12 = P2 - P1;
+    L12 = diag(sqrt(P12 * P12'));
+    N   = bsxfun(@rdivide, P12 ,L12);
+    Limit = 500 * eps(single(max(abs(cat(2, P1, P2)),[],2)));
+    for iX = 1:length(emptyOwner)
+        disp('Determination of the owner element');
+        disp([num2str(iX) ' from ' num2str(length(emptyOwner))])
+        Q =[x_p(emptyOwner(iX)) y_p(emptyOwner(iX))];
+        PQ = bsxfun(@minus, Q,P1);
+        % Norm of distance vector: LPQ = N x PQ
+        Dist = abs(N(:,1) .* PQ(:,2) - N(:,2) .* PQ(:,1));
+        % Consider rounding errors:
+         R     = (Dist < Limit);
+        % Consider end points if any 4th input is used:
+            % Projection of the vector from P1 to Q on the line:
+            L = diag(PQ * N.');  % DOT product
+            R(R==1) = (L(R==1) >= 0.0 & L(R==1) <= L12(R==1));
+        if any(R)
+            ownerElement(emptyOwner(iX)) = find(R,1,'first');
+        end
+        clc
+    end
 end
 %---------------------- END OF CODE---------------------- 
 

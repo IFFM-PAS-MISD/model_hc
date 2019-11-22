@@ -17,6 +17,14 @@ switch freq_range
         f_0 = 1e3;          % frequency at time 0 [Hz]
         f_1 = 300e3;        % frequency at time T [Hz]
         N_c = []; N_f = N;
+    case 'chirp_300_2'
+        V = 5;
+        N = 2^17;           % total number of samples
+        T = 1e-3;           % total calculation time [s]
+        w1 = 0.2*1e-005;    % width of triangular excitation
+        f_0 = 100e3;          % frequency at time 0 [Hz]
+        f_1 = 300e3;        % frequency at time T [Hz]
+        N_c = []; N_f = N;
     case 'chirp_500'
         V = 5;
         N = 2^19;           % total number of samples

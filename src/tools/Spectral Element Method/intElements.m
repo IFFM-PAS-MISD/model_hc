@@ -1,24 +1,24 @@
 function interface=intElements(structure_i,structure_att,ii)
 %ii=i;structure_i=structure(i);structure_att=structure(structure(i).stAttach(1,ii));
 
-int_file = structure_i.int_file;
-file_folder = 'Input\Mesh\';
-file_patch = [file_folder,int_file,'.txt'];
-if exist(file_patch,'file')
-    fid = fopen(num2str(file_patch));
-    tline = fgetl(fid);
-    tlines = cell(0,1);
-    while ischar(tline)
-        tlines{end+1,1} = tline;
-        tline = fgetl(fid);
-    end
-    fclose(fid);
-    if strcmp(tlines{ii},'all')
-        interfaceElements=1:structure_i.numberElements;
-    else
-        interfaceElements=str2num(tlines{ii});
-    end
-else 
+% int_file = structure_i.int_file;
+% file_folder = 'Input\Mesh\';
+% file_patch = [file_folder,int_file,'.txt'];
+% if exist(file_patch,'file')
+%     fid = fopen(num2str(file_patch));
+%     tline = fgetl(fid);
+%     tlines = cell(0,1);
+%     while ischar(tline)
+%         tlines{end+1,1} = tline;
+%         tline = fgetl(fid);
+%     end
+%     fclose(fid);
+%     if strcmp(tlines{ii},'all')
+%         interfaceElements=1:structure_i.numberElements;
+%     else
+%         interfaceElements=str2num(tlines{ii});
+%     end
+% else 
     if structure_i.geometry(1) >= structure_att.geometry(1)||...
             structure_i.geometry(2) >= structure_att.geometry(2)
         stShape=structure_att.stShape;
@@ -80,8 +80,8 @@ else
             interfaceElements(ee,:) = e;
         end   
     end
-end
-interface = zeros(structure_i.numberElements,1);
+% end
+interface = zeros(size(elementNodes_st,1),1);
 if  any(interfaceElements~=0)
     interface(interfaceElements(:))=1;
 end
