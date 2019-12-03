@@ -44,7 +44,7 @@ end
 folder_name = fullfile(parentFolder,'src','models',name_project);    
 addpath(genpath(pwd),genpath(folder_name)),lastwarn('')
 
-%%case_no=0;
+%%case_no=100;
 newCase = case_no;
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 for i = 1 : length(case_no)
@@ -57,21 +57,24 @@ for i = 1 : length(case_no)
         myFolder = fullfile(parentFolder,'src','models',name_project,'input','case');
         myFile = [name_project,'_',num2str(case_no(i)),'.m'];
         filePath = fullfile(myFolder,myFile);
-    
+        
         run(filePath)
         case_name = [name_project,'_',num2str(case_no(i)),'_',structure(1).material,'_',...
         freq_range,'_h_',num2str(structure(1).geometry(3)*1e3),'mm'];
+    
         if  ~exist('noFrames','var'); noFrames = 2^9; end
             fileName = [name_project,'_',num2str(case_no(i)),'.mat'];
             filePath = fullfile(parentFolder,'src','models',name_project,'input','stiffness',fileName);
             if ~exist(filePath,'file')
-                structure = structure_preparation(structure,dmgStruct);
+                disp(case_name)
+                structure = structure_preparation(structure,dmgStruct,name_project,parentFolder);
                 [excit_sh,ts,nr_exsh] = excitationshape(freq_range,f_0,f_1,T,N,N_c,w1,1,'no');
                 %%%%%%%%%
                 d_lambda;
                 %%%%%%%%%
+                disp(case_name)
                 disp('Save structure to file....')
-                save(filePath,'structure','GDof','invd0','G','d1','M','invMpC','MmC','intLay',...
+                save(filePath,'structure','GDof','d0','G','d1','M','invMpC','MmC','intLay',...
                     'excit_sh','ts','nr_exsh','N_f','f_0','f_1','parentFolder','name_project',...
                     'case_name','output_result','noFrames','-v7.3')
                 disp('Save structure to file....done')
@@ -90,7 +93,7 @@ for i = 1 : length(newCase)
     filePath = fullfile(parentFolder,'src','models',name_project,...
               'input','stiffness',fileName);
     disp('Load structure from file....')
-          load(filePath, 'structure','GDof','invd0','G','d1','M','invMpC','MmC','intLay','excit_sh',...
+          load(filePath, 'structure','GDof','d0','G','d1','M','invMpC','MmC','intLay','excit_sh',...
               'ts','nr_exsh','N_f','f_0','f_1','parentFolder','name_project','case_name',...
               'output_result','noFrames');
     disp('Load structure from file....done')
@@ -109,7 +112,7 @@ for i = 1 : length(newCase)
         Ut = cellfun(@(x) zeros(x,1),GDof,'uni',0);
     end
     
-    cmplCases = equationofmotion(structure,Um,Ut,q,Phi_electrode,N_f,G,invd0,d1,M,MmC,invMpC,...
+    cmplCases = equationofmotion(structure,Um,Ut,q,Phi_electrode,N_f,G,d0,d1,M,MmC,invMpC,...
         excit_sh,ts,nr_exsh,parentFolder,name_project,case_name,durationtime,iSteps,output_result,...
         intLay,newCase(i),cmplCases,GDof,noFrames);
     

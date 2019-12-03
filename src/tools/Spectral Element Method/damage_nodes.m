@@ -1,6 +1,6 @@
 function [elementNodes_dmg,nodeCoordinates_dmg,rotation_angle,dmgNodes] = ...
     damage_nodes(dmgStrct,structure_i)
-% structure_i = structure(ii); dmgStrct = dmgStruct(i); 
+% structure_i = structure(i); dmgStrct = dmgStruct(ii); 
 rotation_angle = structure_i.rotation_angle;
 dmgGeometry = dmgStrct.geometry;
 dmgLocalization = dmgStrct.localization;
@@ -62,7 +62,7 @@ switch dmgType
                repmat(dmgNodes',numel(elementNodes_st),1),2),fliplr(size(elementNodes_st)));
            
             if dmgPrpReduction == 100
-                element_dmg = find(sum(BB,1)==n_x*n_y);
+                element_dmg = find(sum(BB,1)>=(n_x-1)*(n_y-1));
                 if ~isempty(element_dmg)
                     empNodes = elementNodes_st(element_dmg,:);
                     empNodes = unique(empNodes(~ismember(empNodes,elementNodes_st(setdiff(1:...
@@ -72,8 +72,8 @@ switch dmgType
                     elementNodes_st = reshape(reshape(elementNodes_st',[],1)-sum(aa,2),...
                         size(elementNodes_st,2),[])';
                     elementNodes_st(element_dmg,:) = [];
-                    rotation_angle(element_dmg,:) = [];
                     nodeCoordinates_st(empNodes,:) = [];
+                    if ~isempty(rotation_angle); rotation_angle(element_dmg,:) = []; end;
                 end
             else
                 element_dmg = find(sum(BB,1));

@@ -3,10 +3,14 @@ fh = figure(strNo);
 set(fh, 'color', 'white'); % sets the color to white
 axis([min(min(xx)) max(max(xx)) min(min(yy)) max(max((yy)))]);
 
-nFrames = length(1:2:C1-1);
-M1(1:noFrames) = struct('cdata',[], 'colormap',[]);
+if isempty(C1) 
+    aa = 1: noFrames;
+else
+    aa = 1 : length(1:C1-1);
+end
+M1(1:nFrames) = struct('cdata',[], 'colormap',[]);
 for i = aa;
-   clc;   disp([num2str(i), ' from ', num2str(C1+1)])
+   clc;   disp([num2str(i), ' from ', num2str(max(aa))])
    set(gca,'nextplot','replacechildren'); set(gcf,'Renderer','zbuffer');
    %subplot(8,1,[1 4])
    surf(xx,yy,data.Vt{i})

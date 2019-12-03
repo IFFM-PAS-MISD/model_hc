@@ -1,4 +1,5 @@
-function ownerElement = findOwnerElement(x_p,y_p,z_p,nodeCoordinates_main,elementNodes_main,n_x,n_y)
+function ownerElement = findOwnerElement(x_p,y_p,z_p,nodeCoordinates_main,elementNodes_main,...
+    n_x,n_y,case_name)
 % FINDOWNERELEMENT   One line description of what the function or script performs (H1 line) 
 %    optional: more details about the function than in the H1 line 
 %    optional: more details about the function than in the H1 line 
@@ -68,6 +69,7 @@ elseif n_y==1
     N   = bsxfun(@rdivide, P12 ,L12);
     Limit = 500 * eps(single(max(abs(cat(2, P1, P2)),[],2)));
     for iX = 1:length(emptyOwner)
+        disp(case_name)
         disp('Determination of the owner element');
         disp([num2str(iX) ' from ' num2str(length(emptyOwner))])
         Q =[x_p(emptyOwner(iX)) y_p(emptyOwner(iX))];

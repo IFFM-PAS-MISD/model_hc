@@ -12,6 +12,7 @@ for i = 1:size(structure,2)
     MmC{i} = sparse((1:size(iM,1))',(1:size(iM,1))',(iM - ts*iD/2));
 end
 clc;
+disp(case_name)
 disp('iMpC matrix...done')
 
 if size(structure,2)>1
@@ -168,9 +169,9 @@ if size(structure,2)>1
                 [elementNodes_interface,nodeCoordinates_interface] = ...
                     linear2spectral(elementNodes_interface,nodeCoordinates_interface,nx_int-1);
                
-                [shapeFunction_k2,ownerElement_k2,~,~] = ...
+                [shapeFunction_k2,ownerElement_k2,~,expNodes_k2] = ...
                     spectral2meshgrid(Eps,nx_k2,ny_k2,nodeCoordinates_k2,...
-                    elementNodes_k2,nodeCoordinates_interface);
+                    elementNodes_k2,nodeCoordinates_interface,[],case_name);
 
                 iSparse = repmat((1:length(ownerElement_k2))',1,nx_k2*ny_k2);
                 jSparse = bsxfun(@plus,repmat((1:nx_k2*ny_k2:nx_k2*ny_k2*length(ownerElement_k2))',...
@@ -193,8 +194,9 @@ if size(structure,2)>1
                 
                 [shapeFunction_k1,ownerElement_k1,~,~] = ...
                     spectral2meshgrid(Eps,nx_k1,1,nodeCoordinates_k1,...
-                    elementNodes_k1,nodeCoordinates_interface,structure(k1).rotation_angle);
-               
+                    elementNodes_k1,nodeCoordinates_interface,structure(k1).rotation_angle,...
+                    case_name);
+                ownerElement_k1(expNodes_k2) = [];
                 iSparse = repmat((1:length(ownerElement_k1))',1,nx_k1*1);
                 jSparse = bsxfun(@plus,repmat((1:nx_k1*1:nx_k1*1*length(ownerElement_k1))',...
                     1,nx_k1*1), (0:nx_k1*1-1));
@@ -258,9 +260,9 @@ if size(structure,2)>1
                 [elementNodes_interface,nodeCoordinates_interface] = ...
                     linear2spectral(elementNodes_interface,nodeCoordinates_interface,nx_int-1);
                 
-                [shapeFunction_k1,ownerElement_k1,~,~] = ...
+                [shapeFunction_k1,ownerElement_k1,~,expNodes_k1] = ...
                     spectral2meshgrid(Eps,nx_k1,ny_k1,nodeCoordinates_k1,...
-                    elementNodes_k1,nodeCoordinates_interface);
+                    elementNodes_k1,nodeCoordinates_interface,[],case_name);
                
                 iSparse = repmat((1:length(ownerElement_k1))',1,nx_k1*ny_k1);
                 jSparse = bsxfun(@plus,repmat((1:nx_k1*ny_k1:nx_k1*ny_k1*length(ownerElement_k1))',...
@@ -285,8 +287,10 @@ if size(structure,2)>1
                 
                [shapeFunction_k2,ownerElement_k2,~,~] = ...
                     spectral2meshgrid(Eps,nx_k2,1,nodeCoordinates_k2,...
-                    elementNodes_k2,nodeCoordinates_interface,structure(k2).rotation_angle);
+                    elementNodes_k2,nodeCoordinates_interface,structure(k2).rotation_angle,...
+                    case_name);
 
+                ownerElement_k2(expNodes_k1) = [];
                 iSparse = repmat((1:length(ownerElement_k2))',1,nx_k2*1);
                 jSparse = bsxfun(@plus,repmat((1:nx_k2*1:nx_k2*1*length(ownerElement_k2))',...
                     1,nx_k2*1), (0:nx_k2*1-1));
@@ -343,7 +347,7 @@ if size(structure,2)>1
                 
                 [~,ownerElement_interface,~,~] =...
                     spectral2meshgrid(Eps,nx_int,ny_int,nodeCoordinates_interface,elementNodes_interface, ...
-                    nodeCoordinates_interface);
+                    nodeCoordinates_interface,[],case_name);
             elseif structure(k2).stAttach(3,k4)
                 if size(structure(k2).stAttach,1)<4
                     nx_int = nx_k2; ny_int = ny_k2;
@@ -361,12 +365,12 @@ if size(structure,2)>1
                 
                 [~,ownerElement_interface,~,~] =...
                     spectral2meshgrid(Eps,nx_int,ny_int,nodeCoordinates_interface,elementNodes_interface, ...
-                    nodeCoordinates_interface);
+                    nodeCoordinates_interface,[],case_name);
             end
              %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
              [shapeFunction_k1,ownerElement_k1,~,~] = ...
                 spectral2meshgrid(Eps,structure(k1).DOF(2),structure(k1).DOF(2),nodeCoordinates_k1,...
-                elementNodes_k1,nodeCoordinates_interface);
+                elementNodes_k1,nodeCoordinates_interface,[],case_name);
                
              iSparse = repmat((1:length(ownerElement_interface))',1,nx_k1*ny_k1);
              jSparse = bsxfun(@plus,repmat((1:nx_k1*ny_k1:nx_k1*ny_k1*length(ownerElement_interface))',...
@@ -390,7 +394,7 @@ if size(structure,2)>1
               %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
              [shapeFunction_k2,ownerElement_k2,~,~] = ...
                 spectral2meshgrid(Eps,structure(k2).DOF(2),structure(k2).DOF(2),nodeCoordinates_k2,...
-                elementNodes_k2,nodeCoordinates_interface);
+                elementNodes_k2,nodeCoordinates_interface,[],case_name);
              
              iSparse = repmat((1:length(ownerElement_interface))',1,nx_k2*ny_k2);
              jSparse = bsxfun(@plus,repmat((1:nx_k2*ny_k2:nx_k2*ny_k2*length(ownerElement_interface))',...
@@ -433,7 +437,7 @@ if size(structure,2)>1
     disp('G matrix....done');     
     disp(['d0 matrix.......' num2str(time(4)) ':' num2str(time(5)) ':' num2str(round(time(6)))])
     d0 = sparse(G*invMpC*G');
-    invd0 = d0^(-1);
+    %invd0 = d0^(-1);
     clc;    disp('G matrix....done');    disp('d0 matrix...done')
     disp('id0 matrix........');    clc;    disp('G matrix....done');
     disp('d0 matrix...done');    disp('id0 matrix....done');

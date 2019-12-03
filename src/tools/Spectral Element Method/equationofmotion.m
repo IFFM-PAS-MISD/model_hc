@@ -1,4 +1,4 @@
-function cmplCases = equationofmotion(structure,Um,Ut,q,Phi_electrode,N_f,G,invd0,d1,M,MmC,...
+function cmplCases = equationofmotion(structure,Um,Ut,q,Phi_electrode,N_f,G,d0,d1,M,MmC,...
     invMpC,excit_sh,ts,nr_exsh,parentFolder,name_project,case_name,durationtime,iSteps,...
     output_result,intLay,inputNumber,cmplCases,GDof,noFrames)
 % EQUATIONOFMOTION   One line description of what the function or script performs (H1 line) 
@@ -111,7 +111,7 @@ for t = iSteps:N_f-1
     %clear F_r KU
     
     if ~isempty(intLay)
-        lambda = invd0*(d1*(2/ts^2*M*Ut - 1/ts^2*MmC*Um + F_r - KU)); 
+        lambda = d0\(d1*(2/ts^2*M*Ut - 1/ts^2*MmC*Um + F_r - KU)); 
         Up = invMpC*(2*M*Ut - MmC*Um + ts^2*(F_r - KU - G'*lambda));
     else
         Up = ts^2*invMpC*F_right;

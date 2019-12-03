@@ -1,8 +1,8 @@
 function [shapeFunction_P,ownerElement,w_p,expNodes] = ...
     spectral2meshgrid(Eps, n_x,n_y,nodeCoordinates_main,elementNodes_main,...
-    nodeCoordinates_interface,alpha_rot)
+    nodeCoordinates_interface,alpha_rot,case_name)
 % Eps = 1e-5;, n_x = 6; n_y = 6; 
-% nodeCoordinates_main = nodeCoordinates_strNo; elementNodes_main = elementNodes_strNo; 
+% nodeCoordinates_main = nodeCoordinates_k1; elementNodes_main = elementNodes_k1; 
 % nodeCoordinates_interface = nodeCoordinates_interface; 
 % alpha_rot = structure(k2).rotation_angle;
 x_p = nodeCoordinates_interface(:,1);
@@ -11,7 +11,8 @@ z_p = nodeCoordinates_interface(:,3);
  
 
 
-ownerElement = findOwnerElement(x_p,y_p,z_p,nodeCoordinates_main,elementNodes_main,n_x,n_y);
+ownerElement = findOwnerElement(x_p,y_p,z_p,nodeCoordinates_main,elementNodes_main,...
+    n_x,n_y,case_name);
 
 expNodes =[];
 if any(ownerElement==0)
@@ -23,12 +24,17 @@ if any(ownerElement==0)
         bsxfun(@minus, z_p(ownerElement==0),zz).^2),[],2);
     aa = find(ownerElement==0);
     expNodes = aa(valPoint>=Eps);
-    xx = zeros(length(find(ownerElement==0)),1);
-    for ii = 1: length(find(ownerElement==0))
+    nrNodes = aa(valPoint<Eps);
+    point_no = point_no(valPoint<Eps);
+    xx = zeros(length(nrNodes),1);
+    for ii = 1: length(nrNodes)
         [row,~] = find(elementNodes_main==point_no(ii));
         xx(ii) = row(1); 
     end
-    ownerElement(~ownerElement) = xx;
+    ownerElement(nrNodes) = xx;
+    ownerElement(expNodes) = [];
+    x_p(expNodes) = [];
+    y_p(expNodes) = [];
 end
 
 

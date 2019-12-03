@@ -1,5 +1,5 @@
 function interface=intElements(structure_i,structure_att,ii)
-%ii=i;structure_i=structure(i);structure_att=structure(structure(i).stAttach(1,ii));
+%ii=2;structure_i=structure(i);structure_att=structure(structure(i).stAttach(1,ii));
 
 % int_file = structure_i.int_file;
 % file_folder = 'Input\Mesh\';

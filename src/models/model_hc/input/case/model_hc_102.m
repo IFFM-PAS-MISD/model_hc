@@ -24,7 +24,7 @@ run('freq_input_model_hc');
 output_result = ['n';'n';'y';'y'];
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %Materials
-%case 1
+%case 2
 % carbon fiber
 DOF = 5;   % degree of freedom 3 for 3d, 5 for 2d
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -37,7 +37,7 @@ switch DOF
 end
 n_y = n;
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-structure_material='composite_PF2';
+structure_material = 'composite_PF2';
 typeProp='full'; % 'full' if material properties available or...
                  %'ready' if S matrix available
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -48,9 +48,9 @@ e_p=[];          % electric properties
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % properites of material layers
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-'fiber_type-no or type of fiber'; fiber_type='unidirectional';
+'fiber_type-no or type of fiber'; fiber_type = 'unidirectional';
 'number of material layers';      lay = 8;
-'ply thickness [m]';              ply_thick=1.0/lay*1e-3;
+'ply thickness [m]';              ply_thick = 1.0/lay*1e-3;
 'stack thickness sequence [m]';   lh = ones(1,lay)*ply_thick; 
 'stack angle sequence [deg]';     lalpha = [0,90,0,90,90,0,90,0]*1; 
 'stack matrix sequnce';           lmat = ones(1,lay)*1; 
@@ -83,14 +83,14 @@ BC = 'ffff';
 % mesh type rectangular:if 'rect' put number of elements for X,Y,Z
 % if 'file_mesh' put the file name from \Input folder, 'honeycomb_skin',
 % 'honeycomb_skin'; 
-mesh_type = 'honeycomb_skin';
+mesh_type = 'gmsh';
 'honeycomb cell inner diagonal [m]';  D_h = ones(1,lay) * 19.0e-3;
 'honeycomb cell wall thickness [m]';  W_h = ones(1,lay) * 70.0e-6;
 stShape = 'rect';
 numberElementsX = 30;
 numberElementsY = 20;
 numberElementsZ = 1;
-inputfile = '';
+inputfile = 'circle_2_pzt_15kHz_10mm';
 plotSt = 'no'; % if 'yes' plot nodes
 %force nodes and values
 Pn = zeros(1,3); 
@@ -99,15 +99,48 @@ forceNode_range = [];%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 structure_content                 %%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% 2 glue
+L_str = length(structure);
+structure_material = 'Loctite_EA9466';
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% properites of material layers
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+'fiber_type-no or type of fiber'; fiber_type = 'unidirectional';
+'number of material layers';      lay = 1;
+'ply thickness [m]';              ply_thick = 500.0/lay*1e-6;
+'stack thickness sequence [m]';   lh = ones(1,lay)*ply_thick; 
+'stack angle sequence [deg]';     lalpha = 0*1; 
+'stack matrix sequnce';           lmat = ones(1,lay)*1; 
+'stack fibres sequece';           lfib = ones(1,lay)*1; 
+'volume fraction of fibres';      lvol = ones(1,lay)*0.0;
+'damping coefficients';           alpha = 0*[0.7e4;0.7e4;0.7e4;0.7e4;0.7e4];
+'honeycomb cell inner diagonal [m]';  D_h = ones(1,lay) * 19.0e-3;
+'honeycomb cell wall thickness [m]';  W_h = ones(1,lay) * 70.0e-6;
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% geometry definition
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+'in z direction - total thickness [m]';             Lz = sum(lh);
+'shift in z direction - total thickness [m]';       shiftZ = ...
+    (structure(L_str).geometry(6)+structure(L_str).geometry(3)/2+Lz/2);
+stAttach = [L_str,L_str+2;-1,1;true,false]; % assign structure which element is attached to
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Boundary condition available: 'cccc','cccf','ssff','ffff''ssss' 
+
+mesh_type = 'base';
+inputfile = '';
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+structure_content                 %%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%
-%case 2
+%case 3
 L_str = length(structure);
 % core
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 DOF = 6;      % degree of freedom 3 for 3d, 5 for 2d, 6 for core
-n = 6;
+n = 3;
 switch DOF
     case 3
     nzeta = 4;   % number of nodes on edge element on Z
@@ -116,7 +149,7 @@ switch DOF
     case 6 
     nzeta = 1;
 end
-n_y = 6;
+n_y = 4;
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 structure_material = 'aluminium';
 ply_thick = 10e-3;
@@ -142,15 +175,55 @@ stAttach = [L_str,L_str+2;-1,1;false,false]; % assign structure which element is
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 mesh_type = 'honeycomb_core';
 %force nodes and values
-'honeycomb cell inner diagonal [m]';  D_h = ones(1,lay) * 19.0e-3;
-'honeycomb cell wall thickness [m]';  W_h = ones(1,lay) * 70.0e-6;
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 structure_content                 %%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% 4 glue
+L_str = length(structure);
+structure_material = 'Loctite_EA9466';
+DOF = 5;   % degree of freedom 3 for 3d, 5 for 2d
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+'number of nodes on edge element on X,Y';   n = 6;
+switch DOF
+    case 3
+    nzeta = 4;   % number of nodes on edge element on Z
+    case 5
+    nzeta = 1;
+end
+n_y = n;
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% properites of material layers
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+'fiber_type-no or type of fiber'; fiber_type = 'unidirectional';
+'number of material layers';      lay = 1;
+'ply thickness [m]';              ply_thick = 500.0/lay*1e-6;
+'stack thickness sequence [m]';   lh = ones(1,lay)*ply_thick; 
+'stack angle sequence [deg]';     lalpha = 0*1; 
+'stack matrix sequnce';           lmat = ones(1,lay)*1; 
+'stack fibres sequece';           lfib = ones(1,lay)*1; 
+'volume fraction of fibres';      lvol = ones(1,lay)*0.0;
+'damping coefficients';           alpha = 0*[0.7e4;0.7e4;0.7e4;0.7e4;0.7e4];
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% geometry definition
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+'in z direction - total thickness [m]';             Lz = sum(lh);
+'shift in z direction - total thickness [m]';       shiftZ = ...
+    (structure(L_str).geometry(6)+structure(L_str).geometry(3)/2+Lz/2);
+stAttach = [L_str,L_str+2;-1,1;false,true]; % assign structure which element is attached to
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Boundary condition available: 'cccc','cccf','ssff','ffff''ssss' 
+
+mesh_type = 'gmsh';
+inputfile = 'circle_2_pzt_15kHz_10mm';
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+structure_content                 %%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %Materials
-%case 3
+%case 5
 L_str = length(structure);
 % carbon fiber
 DOF = 5;   % degree of freedom 3 for 3d, 5 for 2d
@@ -176,6 +249,8 @@ structure_material = 'composite_PF2';
 'stack fibres sequece';           lfib = ones(1,lay)*1; 
 'volume fraction of fibres';      lvol = ones(1,lay)*0.5;
 'damping coefficients';           alpha = [0.7e4;0.7e4;0.7e4;0.7e4;0.7e4];
+'honeycomb cell inner diagonal [m]';  D_h = ones(1,lay) * 19.0e-3;
+'honeycomb cell wall thickness [m]';  W_h = ones(1,lay) * 70.0e-6;
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % geometry definition
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -189,19 +264,15 @@ structure_material = 'composite_PF2';
 % assign structure which element is attached to
 stAttach = [L_str, L_str+2, L_str+3; -1,1,1;false,false,false]; 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 % if 'file_mesh' put the file name from \Input folder, 'honeycomb_skin',
 % 'honeycomb_core'; 
-mesh_type = 'honeycomb_skin';
-'honeycomb cell inner diagonal [m]';  D_h = ones(1,lay) * 19.0e-3;
-'honeycomb cell wall thickness [m]';  W_h = ones(1,lay) * 70.0e-6;
-
+mesh_type = 'base';
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 structure_content                 %%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%
 %Materials
-%case 4
+%case 6
 L_str = length(structure);
 % PZT
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -247,7 +318,7 @@ stAttach = [L_str; -1; true]; % assign structure which element is attached to
 %piezoelectricity
 %piezo_type=cell(piezo_type,1);
 piezo_type = 'actuator';
-mesh_type = 'base';
+mesh_type = 'file_mesh';
 inputfile = 'PZTd10_24';
 %piezo_type = 'sensor';
 Pn = 20*ones(1,3);
@@ -257,7 +328,7 @@ structure_content                 %%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%
 %Materials
-%case 5
+%case 7
 
 % PZT
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -296,7 +367,7 @@ stAttach = [L_str; -1; true]; % assign structure which element is attached to
 %piezoelectricity
 %piezo_type=cell(piezo_type,1);
 piezo_type = 'sensor_open';
-mesh_type = 'base';
+mesh_type = 'file_mesh';
 inputfile = 'PZTd10_24';
 %piezo_type = 'sensor';
 Pn = 10*ones(1,3);
@@ -312,6 +383,30 @@ structure_content                 %%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %                               damage                                    % 
 dmgStruct = struct('shape',{},'type',{} ,'geometry',{},'structure',{},'localization',{});
+dmgNumber = 1;
+dmgShape = 'circ';
+dmgType = 'local';
+dmgPrpReduction = 100;
+dmgStructure = 2;
+'in x direction - total length [m]';           Lx_dmg = 10e-3;
+'in y direction - total width [m]';            Ly_dmg = 10e-3;
+'in z direction - total thickness [m]';        Lz_dmg = 0;
+% Lz_dmg = 0; for disconected nodes
+'shift in x direction - total length [m]';     shiftX_dmg = 0e-3;
+'shift in y direction - total width [m]';      shiftY_dmg = 0e-3;
+'shift in z direction - total thickness [m]';  shiftZ_dmg = ...
+    structure(dmgStructure).geometry(6);
+'rotation angle around z axis [deg]';          alpha_dmg = 0;
+'distance between disconected nodes';          nodesShift_dmg = 0;
+dmgGeometry = [Lx_dmg,Ly_dmg,Lz_dmg, nodesShift_dmg];
+dmgLocalization = [shiftX_dmg,shiftY_dmg,shiftZ_dmg,alpha_dmg];
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+dmgStruct(dmgNumber).geometry = dmgGeometry;
+dmgStruct(dmgNumber).localization = dmgLocalization;
+dmgStruct(dmgNumber).shape = dmgShape;
+dmgStruct(dmgNumber).type = dmgType;
+dmgStruct(dmgNumber).structure = dmgStructure;
+dmgStruct(dmgNumber).dmgPrpReduction = dmgPrpReduction;
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % 'shape' - 'circ', 'rect', 'poly'
 % 'type' - 'global' for interface disconection; 'local' for damage in the

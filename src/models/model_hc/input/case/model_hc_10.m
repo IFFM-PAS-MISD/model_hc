@@ -83,14 +83,14 @@ BC = 'ffff';
 % mesh type rectangular:if 'rect' put number of elements for X,Y,Z
 % if 'file_mesh' put the file name from \Input folder, 'honeycomb_skin',
 % 'honeycomb_skin'; 
-mesh_type = 'honeycomb_skin';
+mesh_type = 'gmsh';
 'honeycomb cell inner diagonal [m]';  D_h = ones(1,lay) * 19.0e-3;
 'honeycomb cell wall thickness [m]';  W_h = ones(1,lay) * 70.0e-6;
 stShape = 'rect';
 numberElementsX = 30;
 numberElementsY = 20;
 numberElementsZ = 1;
-inputfile = '';
+inputfile = 'circle_2_pzt_15kHz';
 plotSt = 'no'; % if 'yes' plot nodes
 %force nodes and values
 Pn = zeros(1,3); 
@@ -106,8 +106,8 @@ L_str = length(structure);
 % core
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-DOF = 2;      % degree of freedom 3 for 3d, 5 for 2d, 6 for core
-n = 6;
+DOF = 6;      % degree of freedom 3 for 3d, 5 for 2d, 6 for core
+n = 3;
 switch DOF
     case 3
     nzeta = 4;   % number of nodes on edge element on Z
@@ -116,7 +116,7 @@ switch DOF
     case 6 
     nzeta = 1;
 end
-n_y = 6;
+n_y = 4;
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 structure_material = 'aluminium';
 ply_thick = 10e-3;
@@ -192,7 +192,7 @@ stAttach = [L_str, L_str+2, L_str+3; -1,1,1;false,false,false];
 
 % if 'file_mesh' put the file name from \Input folder, 'honeycomb_skin',
 % 'honeycomb_core'; 
-mesh_type = 'honeycomb_skin';
+mesh_type = 'gmsh';
 'honeycomb cell inner diagonal [m]';  D_h = ones(1,lay) * 19.0e-3;
 'honeycomb cell wall thickness [m]';  W_h = ones(1,lay) * 70.0e-6;
 
@@ -234,7 +234,7 @@ stShape = 'circ'; %shape of the construction element: 'circ' or 'rect'
 'in x direction - total length [m]';        Lx = 10.0e-3;
 'in y direction - total width [m]';         Ly = 10.0e-3;
 'in z direction - total thickness [m]';     Lz = sum(lh);
-'shift in x direction - total length [m]';  shiftX = -85.8637e-3;
+'shift in x direction - total length [m]';  shiftX = -90.0e-3;
 'shift in y direction - total width [m]';   shiftY = 0e-3;
 'shift in z direction - total thickness [m]';     shiftZ =...
     (structure(L_str).geometry(6) + (structure(L_str).geometry(3)+Lz)/2);
@@ -283,7 +283,7 @@ stShape = 'circ'; %shape of the construction element: 'circ' or 'rect'
 'in x direction - total length [m]';        Lx = 10.0e-3;
 'in y direction - total width [m]';         Ly = 10.0e-3;
 'in z direction - total thickness [m]';     Lz = sum(lh);
-'shift in x direction - total length [m]';  shiftX = 85.8637e-3;
+'shift in x direction - total length [m]';  shiftX = 90.0e-3;
 'shift in y direction - total width [m]';   shiftY = 0e-3;
 'shift in z direction - total thickness [m]';     shiftZ =...
     (structure(L_str).geometry(6) + (structure(L_str).geometry(3)+Lz)/2);

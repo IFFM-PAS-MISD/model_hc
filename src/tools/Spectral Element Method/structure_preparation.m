@@ -1,4 +1,4 @@
-function structure = structure_preparation(structure,dmgStruct)
+function structure = structure_preparation(structure,dmgStruct,name_project,parentFolder)
 % mesh generator 4 nods place in the corners of rectangle 
 n_x = structure(1).DOF(2);
 n_z = structure(1).DOF(3);
@@ -14,7 +14,8 @@ end
 
 
 [structure(1).nodeCoordinates,...
-    structure(1).elementNodes,structure(1).rotation_angle] = mesh_generator(structure,1);
+    structure(1).elementNodes,structure(1).rotation_angle] = mesh_generator(structure,1,...
+    name_project,parentFolder);
 structure(1).thicknessElementNo = ones(size(structure(1).elementNodes,1),1);
 % add internal nodes
 if ~strcmp(structure(1).mesh_type,'honeycomb_core')
@@ -87,8 +88,8 @@ if size(structure,2)>1
         [structure(i).zeta,structure(i).wiz] = gll(n_z);
         if ~strcmp(structure(i).mesh_type,'base')
             [structure(i).nodeCoordinates,...
-                structure(i).elementNodes,structure(i).rotation_angle] = ...
-                mesh_generator(structure,i);
+                structure(i).elementNodes,structure(i).rotation_angle] = mesh_generator(structure,i,...
+                name_project,parentFolder);
             structure(i).thicknessElementNo = ones(size(structure(i).elementNodes,1),1);
             if ~strcmp(structure(i).mesh_type,'honeycomb_core')
 
@@ -221,7 +222,7 @@ for i = 1:size(structure,2)
         Jacob_NbN(structure(i).DOF(1),n_x,n_y,n_z,...
         structure(i).elementNodes,structure(i).nodeCoordinates,structure(i).rotation_angle);   
   
-    disp(['C stiffness coefficients_',num2str(i),'.......'])      
+    
     [structure(i).rho,structure(i).J11,structure(i).a11,structure(i).a12,...
         structure(i).a16,structure(i).a22,structure(i).a26,structure(i).a66,...
         structure(i).a44_2d,structure(i).a45_2d,structure(i).a55_2d,...
@@ -238,8 +239,6 @@ for i = 1:size(structure,2)
         structure(i).c55,structure(i).c56,structure(i).c61,structure(i).c62,...
         structure(i).c63,structure(i).c64,structure(i).c65,structure(i).c66,...
         structure(i).e_p,structure(i).epsS] = structure_prop_full(structure(i));
-    clc
-    disp(['C stiffness coefficients',num2str(i),'...done'])
 end
 %%
 % mass stiffness and force matrix

@@ -1,5 +1,5 @@
 clc;
-case_no = 0;
+case_no = 100;
 
 name_project = 'model_hc'; parentFolder = 'E:\model_hc';
 %name_project='model_hc'; parentFolder='E:\model_hc'; 
@@ -82,69 +82,43 @@ for C1 = aa(ismember(aa,find(cellfun(@isempty, data.Vt))-1))
     data.Vt{C1+1} = VV;
     maxV(C1+1) = max(max(abs(VV)));
 end
-cc = 5e-1*max(maxV);
+cc = 5e-2*max(maxV);
 WaveAnimation
 %% PZT voltage
 clc;
-case_no = 0;
-
-name_project = 'model_hc'; parentFolder = 'E:\model_hc';
-%name_project = 'miscellaneous'; parentFolder = 'E:\SEM_files';
-
-fileName = [name_project,'_',num2str(case_no),'.mat'];
-filePath = fullfile(parentFolder,'src','models',name_project,...
-           'input','stiffness',fileName);
-disp('Load structure from file....')
-load(filePath, 'structure','excit_sh','ts','nr_exsh','N_f','parentFolder',...
-    'name_project','case_name','output_result');
-disp('Load structure from file....done')
-pztNo = 5;
-fileName = 'Phi_electrode.mat';
-filePath = fullfile(parentFolder,'data','raw','num' ,name_project,...
-          'output',num2str(case_no),'voltage',fileName);
-load(filePath, 'Phi_electrode');
-hold on
-aa = 25.0e3;
-timeVector = (0:N_f-1)*ts;
-if ~isempty(Phi_electrode(pztNo,:))
-    plot(Phi_electrode(pztNo,1:aa),'r')
+col_line = {'b','r','y','g','c','k','r'};
+c_l = 0;
+aa = 40.1e3;
+for case_no = [100:105]
+    c_l = c_l + 1;
+    name_project = 'model_hc'; parentFolder = 'E:\model_hc';
+    %name_project = 'miscellaneous'; parentFolder = 'E:\SEM_files';
+    fileName = [name_project,'_',num2str(case_no),'.mat'];
+    filePath = fullfile(parentFolder,'src','models',name_project,...
+               'input','stiffness',fileName);
+    disp('Load structure from file....')
+    load(filePath, 'structure','excit_sh','ts','nr_exsh','N_f','parentFolder',...
+        'name_project','case_name','output_result');
+    disp('Load structure from file....done')
+    pztNo = [7 7 7];
+    fileName = 'Phi_electrode.mat';
+    filePath = fullfile(parentFolder,'data','raw','num' ,name_project,...
+              'output',num2str(case_no),'voltage',fileName);
+    load(filePath, 'Phi_electrode');
+    hold on
+    timeVector = (0:N_f-1)*ts;
+    if ~isempty(Phi_electrode(pztNo(1),:))
+        plot(timeVector(:)*1e6,Phi_electrode(pztNo(1),:),col_line{c_l})
+    end
 end
-aa_0=Phi_electrode(pztNo,1:aa);
-
-case_no = 100;
-
-name_project = 'model_hc'; parentFolder = 'E:\model_hc';
-%name_project = 'miscellaneous'; parentFolder = 'E:\SEM_files';
-
-fileName = [name_project,'_',num2str(case_no),'.mat'];
-filePath = fullfile(parentFolder,'src','models',name_project,...
-           'input','stiffness',fileName);
-disp('Load structure from file....')
-load(filePath, 'structure','excit_sh','ts','nr_exsh','N_f','parentFolder',...
-    'name_project','case_name','output_result');
-disp('Load structure from file....done')
-pztNo = 5;
-fileName = 'Phi_electrode.mat';
-filePath = fullfile(parentFolder,'data','raw','num' ,name_project,...
-          'output',num2str(case_no),'voltage',fileName);
-load(filePath, 'Phi_electrode');
-hold on
-timeVector = (0:N_f-1)*ts;
-if ~isempty(Phi_electrode(pztNo,:))
-    plot(Phi_electrode(pztNo,1:aa),'b')
-end
-
-
-aa_100=Phi_electrode(pztNo,1:aa);
-
-
+%%
 filePath = 'E:\SEM_files\Honeycomb\Output\Honeycomb_101_composite_PF2_pulse_signal_h_1mm_\structure_save.mat';
 %filePath = 'E:\SEM_files\Honeycomb\Temp\Honeycomb_101_composite_PF2_pulse_signal_h_1mm_\structure_save.mat';
 disp('Load structure from file....')
 load(filePath, 'structure_load')
 disp('Load structure from file....done')
-plot(structure_load(5).Phi_electrode(1:aa),'g')
-aa_101=structure_load(5).Phi_electrode(1:aa);
+plot(timeVector(1:aa),structure_load(5).Phi_electrode(1:aa),'g')
+%aa_101=structure_load(5).Phi_electrode(1:aa);
 % figure(2)
 % plot(aa_0-aa_100,'b')
 % hold on

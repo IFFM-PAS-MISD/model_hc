@@ -1,6 +1,6 @@
 % mesh_generator
 function [nodeCoordinates,elementNodes,rotation_angle]= ...
-    mesh_generator(structure,actSt)
+    mesh_generator(structure,actSt,name_project,parentFolder)
 
 %actSt = 1;structure_i = structure(actSt);
 %%
@@ -16,6 +16,12 @@ shift_y = structure_i.geometry(5);
 shift_z = structure_i.geometry(6);
 
 switch mesh_type
+    case 'gmsh'
+        fileName = structure_i.inputfile;
+        [nodeCoordinates,elementNodes_str] = automesh_multi_pzt_simple(fileName,parentFolder,name_project);
+        nodeCoordinates(:,1) = nodeCoordinates(:,1) + shift_x;
+        nodeCoordinates(:,2) = nodeCoordinates(:,2) + shift_y;
+        nodeCoordinates(:,3) = nodeCoordinates(:,3) + shift_z;
     case 'rect'
         [nodeCoordinates,elementNodes_str] = ...
             rectangularMesh(Lx,Ly,numberElementsX,numberElementsY,shift_x,shift_y,shift_z);
