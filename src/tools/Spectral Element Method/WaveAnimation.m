@@ -8,7 +8,7 @@ if isempty(C1)
 else
     aa = 1 : length(1:C1-1);
 end
-M1(1:nFrames) = struct('cdata',[], 'colormap',[]);
+M1(aa) = struct('cdata',[], 'colormap',[]);
 for i = aa;
    clc;   disp([num2str(i), ' from ', num2str(max(aa))])
    set(gca,'nextplot','replacechildren'); set(gcf,'Renderer','zbuffer');

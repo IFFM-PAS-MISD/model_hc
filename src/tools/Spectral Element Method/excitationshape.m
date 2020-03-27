@@ -1,5 +1,5 @@
-function [excit_shape,ts,nr_exsh] = ...
-    excitationshape(freq_range,f_0,f_1,T,N,N_c,w1,V,plot_ex)
+function [excit_shape,N,nr_exsh] = ...
+    excitationshape(freq_range,f_0,T,ts,N_c,V,plot_ex,f_1,w_1)
 % EXCITATIONSHAPE   One line description of what the function or script performs (H1 line) 
 %    optional: more details about the function than in the H1 line 
 %    optional: more details about the function than in the H1 line 
@@ -35,8 +35,8 @@ function [excit_shape,ts,nr_exsh] = ...
 
 %---------------------- BEGIN CODE---------------------- 
 
+N = T/ts;           % total steps number []
 Fs = N/T;           % frequency range
-ts = T/N;           % calculation time step [s]
 t_e = 0:ts:T-ts;    % time vector
 if ~isempty(strfind(freq_range,'_'))
     signal_type = freq_range(1:strfind(freq_range,'_')-1);
@@ -53,9 +53,9 @@ switch signal_type
         excit_shape(1) = 0;
         nr_exsh = N;
     otherwise
-        t0 = w1/2;
-        excit_shape = tripuls(t_e-t0,w1)*V;
-        nr_exsh = ceil(w1/ts)+2;
+        t0 = w_1/2;
+        excit_shape = tripuls(t_e-t0,w_1)*V;
+        nr_exsh = ceil(w_1/ts)+2;
 end
 
 NFFT = 2^nextpow2(N);

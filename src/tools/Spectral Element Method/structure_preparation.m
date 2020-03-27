@@ -8,9 +8,9 @@ else
     n_y = n_x;
 end
 
-[structure(1).ksi,structure(1).wix] = gll(n_x);
-[structure(1).eta,structure(1).wiy] = gll(n_y);
-[structure(1).zeta,structure(1).wiz] = gll(n_z);
+[structure(1).ksi,structure(1).wix] = gllnaw(n_x);
+[structure(1).eta,structure(1).wiy] = gllnaw(n_y);
+[structure(1).zeta,structure(1).wiz] = gllnaw(n_z);
 
 
 [structure(1).nodeCoordinates,...
@@ -83,9 +83,9 @@ if size(structure,2)>1
         else
             n_y = n_x;
         end
-        [structure(i).ksi,structure(i).wix] = gll(n_x);
-        [structure(i).eta,structure(i).wiy] = gll(n_y);
-        [structure(i).zeta,structure(i).wiz] = gll(n_z);
+        [structure(i).ksi,structure(i).wix] = gllnaw(n_x);
+        [structure(i).eta,structure(i).wiy] = gllnaw(n_y);
+        [structure(i).zeta,structure(i).wiz] = gllnaw(n_z);
         if ~strcmp(structure(i).mesh_type,'base')
             [structure(i).nodeCoordinates,...
                 structure(i).elementNodes,structure(i).rotation_angle] = mesh_generator(structure,i,...

@@ -12,10 +12,8 @@ disp('.. Reading input data');
 'interface_element file';            name_interface = 'non';
 % Signal definition
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-freq_range = 'pulse_15kHz';% freq_range='1MHz';freq_range='0.5MHz';
+freq_range = 'pulse_15kHz_1';% freq_range='1MHz';freq_range='0.5MHz';
                      % freq_range='pulse_signal';
-
-run('freq_input_model_hc');
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % output output_result=[sum electric charges on the top electrode;...
 %                       vector Um of the displacements;...
@@ -305,7 +303,7 @@ stShape = 'circ'; %shape of the construction element: 'circ' or 'rect'
 'in x direction - total length [m]';        Lx = 10.0e-3;
 'in y direction - total width [m]';         Ly = 10.0e-3;
 'in z direction - total thickness [m]';     Lz = sum(lh);
-'shift in x direction - total length [m]';  shiftX = -85.8637e-3;
+'shift in x direction - total length [m]';  shiftX = 80e-3;
 'shift in y direction - total width [m]';   shiftY = 0e-3;
 'shift in z direction - total thickness [m]';     shiftZ =...
     (structure(L_str).geometry(6) + (structure(L_str).geometry(3)+Lz)/2);
@@ -318,7 +316,7 @@ stAttach = [L_str; -1; true]; % assign structure which element is attached to
 %piezoelectricity
 %piezo_type=cell(piezo_type,1);
 piezo_type = 'actuator';
-mesh_type = 'file_mesh';
+mesh_type = 'base';
 inputfile = 'PZTd10_24';
 %piezo_type = 'sensor';
 Pn = 20*ones(1,3);
@@ -354,7 +352,7 @@ stShape = 'circ'; %shape of the construction element: 'circ' or 'rect'
 'in x direction - total length [m]';        Lx = 10.0e-3;
 'in y direction - total width [m]';         Ly = 10.0e-3;
 'in z direction - total thickness [m]';     Lz = sum(lh);
-'shift in x direction - total length [m]';  shiftX = 85.8637e-3;
+'shift in x direction - total length [m]';  shiftX = -80e-3;
 'shift in y direction - total width [m]';   shiftY = 0e-3;
 'shift in z direction - total thickness [m]';     shiftZ =...
     (structure(L_str).geometry(6) + (structure(L_str).geometry(3)+Lz)/2);
@@ -367,7 +365,7 @@ stAttach = [L_str; -1; true]; % assign structure which element is attached to
 %piezoelectricity
 %piezo_type=cell(piezo_type,1);
 piezo_type = 'sensor_open';
-mesh_type = 'file_mesh';
+mesh_type = 'base';
 inputfile = 'PZTd10_24';
 %piezo_type = 'sensor';
 Pn = 10*ones(1,3);

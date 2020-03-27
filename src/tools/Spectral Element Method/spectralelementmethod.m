@@ -44,7 +44,7 @@ end
 folder_name = fullfile(parentFolder,'src','models',name_project);    
 addpath(genpath(pwd),genpath(folder_name)),lastwarn('')
 
-%%case_no=100;
+%%case_no=112;
 newCase = case_no;
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 for i = 1 : length(case_no)
@@ -63,22 +63,25 @@ for i = 1 : length(case_no)
         freq_range,'_h_',num2str(structure(1).geometry(3)*1e3),'mm'];
     
         if  ~exist('noFrames','var'); noFrames = 2^9; end
-            fileName = [name_project,'_',num2str(case_no(i)),'.mat'];
-            filePath = fullfile(parentFolder,'src','models',name_project,'input','stiffness',fileName);
-            if ~exist(filePath,'file')
-                disp(case_name)
-                structure = structure_preparation(structure,dmgStruct,name_project,parentFolder);
-                [excit_sh,ts,nr_exsh] = excitationshape(freq_range,f_0,f_1,T,N,N_c,w1,1,'no');
-                %%%%%%%%%
-                d_lambda;
-                %%%%%%%%%
-                disp(case_name)
-                disp('Save structure to file....')
-                save(filePath,'structure','GDof','d0','G','d1','M','invMpC','MmC','intLay',...
-                    'excit_sh','ts','nr_exsh','N_f','f_0','f_1','parentFolder','name_project',...
-                    'case_name','output_result','noFrames','-v7.3')
-                disp('Save structure to file....done')
-            end
+        fileName = [name_project,'_',num2str(case_no(i)),'.mat'];
+        filePath = fullfile(parentFolder,'src','models',name_project,'input','stiffness',fileName);
+        if ~exist(filePath,'file')
+            disp(case_name)
+            structure = structure_preparation(structure,dmgStruct,name_project,parentFolder);
+            freq_file = ['frequency_',name_project];
+            run(freq_file)
+            [excit_sh,N,nr_exsh] = excitationshape(freq_range,f_0,T,ts,N_c,1,'no',f_1,w_1);
+            if  ~exist('N_f','var'); N_f = N; end
+            %%%%%%%%%
+            d_lambda;
+            %%%%%%%%%
+            disp(case_name)
+            disp('Save structure to file....')
+            save(filePath,'structure','GDof','d0','G','d1','M','invMpC','MmC','intLay',...
+                'excit_sh','ts','nr_exsh','N_f','f_0','f_1','parentFolder','name_project',...
+                'case_name','output_result','noFrames','-v7.3')
+            disp('Save structure to file....done')
+        end
     else
        newCase = setdiff(newCase, case_no(i)); 
     end

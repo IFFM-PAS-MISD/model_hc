@@ -18,9 +18,9 @@ strNo = 1;
 Lx = 0.95*structure(strNo).geometry(1);
 Ly = 0.95*structure(strNo).geometry(2);
 
-lambda = 15e-3;
-nElementsX = ceil(Lx/(lambda/6));
-nElementsY = ceil(Ly/(lambda/6));
+lambda = 16e-3;
+nElementsX = ceil(Lx/(lambda/10));
+nElementsY = ceil(Ly/(lambda/10));
 
 shift_x = structure(strNo).geometry(4);
 shift_y = structure(strNo).geometry(5);
@@ -37,7 +37,7 @@ elementNodes_strNo = structure(strNo).elementNodes;
 nrElements = size(elementNodes_strNo,1);
 
 [shapeFunction_strNo,ownerElement,~,expNodes] = spectral2meshgrid(1e-5,nrNodesX,nrNodesY,nodeCoordinates_strNo,...
-    elementNodes_strNo,nodeCoordinates_interface);
+    elementNodes_strNo,nodeCoordinates_interface,[],num2str(case_no));
 
 x = nodeCoordinates_interface(:,1);
 xx = reshape(x, nElementsX+1,nElementsY+1);
@@ -89,7 +89,7 @@ clc;
 col_line = {'b','r','y','g','c','k','r'};
 c_l = 0;
 aa = 40.1e3;
-for case_no = [100:105]
+for case_no = 100:103
     c_l = c_l + 1;
     name_project = 'model_hc'; parentFolder = 'E:\model_hc';
     %name_project = 'miscellaneous'; parentFolder = 'E:\SEM_files';
@@ -100,7 +100,7 @@ for case_no = [100:105]
     load(filePath, 'structure','excit_sh','ts','nr_exsh','N_f','parentFolder',...
         'name_project','case_name','output_result');
     disp('Load structure from file....done')
-    pztNo = [7 7 7];
+    pztNo = [7 7 7 7];
     fileName = 'Phi_electrode.mat';
     filePath = fullfile(parentFolder,'data','raw','num' ,name_project,...
               'output',num2str(case_no),'voltage',fileName);
