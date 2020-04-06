@@ -95,7 +95,8 @@ Institute of Fluid Flow Machinery, Polish Academy of Sciences,  imp@imp.gda.pl}
 %\conference{} % An extended version of a conference paper
 
 % Abstract (Do not insert blank lines, i.e. \\) 
-\abstract{One of the axioms of the structural health monitoring states that the severity of damage assessment can only be done in a learning mode under the supervision of an expert. Therefore, a numerical analysis will be carried out in order to gain knowledge about the influence of the size damage on the propagation of elastic waves in the honeycomb sandwich composite panel.
+\abstract{One of the axioms of the structural health monitoring states that the severity of damage assessment can only be done in a learning mode under the supervision of an expert.
+Therefore, a numerical analysis will be carried out in order to gain knowledge about the influence of the size damage on the propagation of elastic waves in the honeycomb sandwich composite panel.
 For this purpose, a panel has been modelled taking into account the real geometry of the honeycomb core using time-domain specral element method and two-dimensional elements.
 The disbonds between the skin and the core of the panel was assumed to be a damage in the structure.
 The use of two-dimensional elements required connecting the nodes of adjacent elements, which was realized by means of an interface based on Lagrange multipliers.
@@ -134,53 +135,38 @@ The result of the parametric study is a function of damage influence on the ampl
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Introduction}
 \label{sec:intro}
-Honeycomb Sandwich Composite~(HSC) is a type of multi-layered structure, which 
-is composed of the mid-core with the geometry of honeycomb sandwiched between 
-thin skins.
-They are widely used in the aerospace, marine and automotive industries due to 
-the high strength-to-weight ratio, high energy absorption capability and 
-effective acoustic insulation.
+Honeycomb Sandwich Composite~(HSC) is a type of multi-layered structure, which is composed of the mid-core with the geometry of honeycomb sandwiched between thin skins.
+They are widely used in the aerospace, marine and automotive industries due to the high strength-to-weight ratio, high energy absorption capability and effective acoustic insulation.
 However, these complex structures are exposed to various types of damage that are not found in metal alloy materials, e.g. hidden disbonds between the skin and the core, delamination of the skin plates, or the core impact damage.
 They can occur either during a manufacturing process, storage or in-service life.
 Because of this, advanced methods are required for on-line damage detections.
 
 The structural health monitoring (SHM) method with very high potential is the method based on the Guided Wave (GW) propagation \cite{mustapha2011assessment, sikdar2016guided, sikdar2016ultrasonic,radzienski2016assessment, yu2019core}.
-GW are mechanical waves that propagate in a bounded, elastic medium, e.g. bars, 
-beams, rods, plates and shells.
+GW are mechanical waves that propagate in a bounded, elastic medium, e.g. bars, beams, rods, plates and shells.
 Excitation and sensing of the GW can be realised by the lightweight and inexpensive piezoelectric transducers (PZT) \cite{giurgiutiumicromechatronics}.
 The compact PZT can be surface-bonded to the inspected structure or even embedded between the composite plies so that the measurements can be conducted in situ.
 Among numerous techniques developed for damage detection and localisation, the most popular are pitch{catch \cite{ihn2008pitch, sikdar2017structural}, pulse--echo \cite{guo1993interaction, kudela2008damage}, phase array \cite{lu2006crack, ostachowicz2008elastic}, and time-reversal mirror \cite{fink1992time, eremin2016analytically}.
 	
 The most common numerical modelling of the phenomenon of GW in HSC found in the literature is a calculation of the effective material properties of the honeycomb structure by the homogenisation process~\cite{shi1995derivation, qi2008ultrasonic, mustapha2014leaky, baid2015dispersion, sikdar2016guided}.
-However, this method is not able to adequately present the phenomenon of	propagation of elastic waves in such material.
+However, this method is not able to adequately present the phenomenon of propagation of elastic waves in such material.
 A more accurate model will be achieved if the real geometry of the hexagonal cell is retained.
 	
 Ruzzenne et al. presented a parametric study to evaluate the dynamic behavior of the honeycomb and cellular structures through the finite element model and the application of the theory of periodic structures \cite{ruzzene2003wave}.
 Recently, the simulations of the wave propagation in the HSC have been conducted with the commercially available finite element code~\cite{song2009guided, hosseini2013numerical, tian2015wavenumber, zhao2018wave}.
-However, finite element simulations (FEM) of GW are inefficient as they require 
-significant amounts of memory and are time-consuming.
-	
+However, finite element simulations (FEM) of GW are inefficient as they require significant amounts of memory and are time-consuming.
+
 The computational efficiency of the FEM in case of GW modelling in the HSC can be improved by using the time-domain spectral element method (SEM).
 The SEM was originally used for the numerical solution of the fluid flow in a channel by Patera \cite{patera1984spectral} but has also been successfully developed for elastic wave propagation~\cite{ostachowicz2011guided}.
 Kudela proposed a model of the GW in HSC by the parallel implementation of the SEM \cite{kudela2016parallel}.
 However, this model had a large number of degree-of-freedom (DOF), because cells of the core and skin plate were modelled by the three-dimensional (3D) spectral elements.
 Therefore, the simulation was limited to only one skin plate and the small dimension of the HSC (\(179 \times 159 \) mm).
-	
-Above mentioned drawbacks were motivation to propose a new model of the HSC. 
-In the present paper, the skin plates, adhesive layers and each wall of the hexagonal core were modelled by two-dimensional (2D) spectral elements.
-The displacements of each cell are calculated in the local coordinate system, 
-and then, through the transformation matrix, they are transformed into the 
-global coordinate system.
-Subsequently, the core is connected to the skin plates so that displacements of 
-common geometrical points of both elements are the same in each direction of 
-the main axes.
-This type of connection is implemented by means of interface elements based on 
-Lagrange multipliers, which are interpreted as forces responsible for 
-determining the appropriate displacements of nodes.
+
+Above mentioned drawbacks were motivation to propose a new model of the HSC. In the present paper, the skin plates, adhesive layers and each wall of the hexagonal core were modelled by two-dimensional (2D) spectral elements.
+The displacements of each cell are calculated in the local coordinate system, and then, through the transformation matrix, they are transformed into the global coordinate system.
+Subsequently, the core is connected to the skin plates so that displacements of common geometrical points of both elements are the same in each direction of the main axes.
+This type of connection is implemented by means of interface elements based on Lagrange multipliers, which are interpreted as forces responsible for determining the appropriate displacements of nodes.
 By using the interface, it is possible to model skin plates with 2D elements.
-This type of approach will reduce the number of degrees of freedom, which in 
-turn will shorten the calculation time and reduce the need for operational 
-memory.
+This type of approach will reduce the number of degrees of freedom, which in turn will shorten the calculation time and reduce the need for operational memory.
 Signal excitation and receiving were realised by the piezoelectric (PZT) transducers, which was modelled by a three-dimensional (3D) spectral element with the electromechanical coupling.
 
 The parametric study conducted in the paper leads to the determination of a model-assisted damage identification function (MADIF), which determines the influence of the size of the composite defect on wave propagation.
@@ -228,10 +214,7 @@ According to the first-order shear deformation theory~\cite{reissner1945effect, 
 \textbf{w}_0^e(\xi,\eta) \\
 \end{array} \right]
 \end{eqnarray}
-where \(\textbf{u}_0^e\), \(\textbf{v}_0^e\) and \(\textbf{w}_0^e\) denote the 
-displacements of a point on the mid-plane, \(\boldsymbol{\varphi}_x^e\), 
-\(\boldsymbol{\varphi}_y^e\) are the rotations of the normal to the mid-plane 
-with respect to axes \textit{x} and \textit{y}, respectively.
+where \(\textbf{u}_0^e\), \(\textbf{v}_0^e\) and \(\textbf{w}_0^e\) denote the displacements of a point on the mid-plane, \(\boldsymbol{\varphi}_x^e\), \(\boldsymbol{\varphi}_y^e\) are the rotations of the normal to the mid-plane with respect to axes \textit{x} and \textit{y}, respectively.
 \begin{eqnarray}
 \left [ \begin{array}{c}
 \textbf{u}_0^e(\xi,\eta) \\
@@ -357,9 +340,7 @@ where \(\textbf{B}_{d}^e\) is strain-nodal displacement matrix calculated as:
 \end{array} \right]
 \end{eqnarray}
 
-The electromechanical coupling is governed by the linear constitutive equation 
-of piezoelectric material according to~\cite{giurgiutiumicromechatronics} and 
-it is expressed by:
+The electromechanical coupling is governed by the linear constitutive equation of piezoelectric material according to~\cite{giurgiutiumicromechatronics} and it is expressed by:
 \begin{eqnarray}
 \left [ 
 \begin {array}{c}
@@ -377,13 +358,8 @@ it is expressed by:
 \textbf{E} 
 \end{array} \right ]
 \end{eqnarray}
-where \(\textbf{c}^E\), \textbf{e} and \(\boldsymbol{\epsilon}^S\) are tensors of elastic, 
-piezoelectric and dielectric constants, respectively, \textbf{E} and \textbf{D} 
-are the electric field and electric displacement, \(\boldsymbol{\sigma}\) and \textbf{S} 
-are stress and strain.
-The superscripts E and S indicate that quantities are measured at zero electric 
-fields and zero strain, respectively and the subscript T denotes transpose 
-matrix.
+where \(\textbf{c}^E\), \textbf{e} and \(\boldsymbol{\epsilon}^S\) are tensors of elastic, piezoelectric and dielectric constants, respectively, \textbf{E} and \textbf{D} are the electric field and electric displacement, \(\boldsymbol{\sigma}\) and \textbf{S} are stress and strain.
+The superscripts E and S indicate that quantities are measured at zero electric fields and zero strain, respectively and the subscript T denotes transpose matrix.
 Electric field vector can be expressed as:
 \begin{eqnarray}
 \textbf{E}^e=-\textbf{B}_\phi^e \widehat{\phi}^e
@@ -402,8 +378,7 @@ where \(\textbf{B}_\phi^e\) is electric-nodal potential matrix calculated as:
 \label{sec:interface}
 The present model of the sandwich panel consists of 2D and 3D elements. 
 Moreover, there are non-matching grids between two adjacent substructures. 
-These involve connecting them by imposing the compatibility of the 
-displacements at the interface, see Fig.~\ref{fig:interface}.
+These involve connecting them by imposing the compatibility of the displacements at the interface, see Fig.~\ref{fig:interface}.
 The coupling can be expressed as:
 \begin{eqnarray}
 \left\{\begin{array}{c}
@@ -427,20 +402,15 @@ The coupling can be expressed as:
 	\begin{center}
 		\includegraphics[width=1\linewidth]{../../figures/eps/interface_2D3D.eps}
 	\end{center}
-	\caption{Interface setup: a) interface coupling, b) degrees of freedom of the interface and the substructures, c) the nodes at the bottom layer of the 3D substructure, d) the remaining nodes of the 3D substructure, e) the nodes of the interface projected to the bottom layer of the 3D 
-		substructure, f) the nodes of the interface, g) the nodes of the interface projected to mid-surface of the 2D substructure, h) the nodes of the 2D substructure}
+	\caption{Interface setup: a) interface coupling, b) degrees of freedom of the interface and the substructures, c) the nodes at the bottom layer of the 3D substructure, d) the remaining nodes of the 3D substructure, e) the nodes of the interface projected to the bottom layer of the 3D substructure, f) the nodes of the interface, g) the nodes of the interface projected to mid-surface of the 2D substructure, h) the nodes of the 2D substructure}
 	\label{fig:interface}
 \end{figure}
-For the whole structure, equation~\ref{eq:coupling} can be written in the 
-matrix form:
+For the whole structure, equation~\ref{eq:coupling} can be written in the matrix form:
 \begin{eqnarray}
 \textbf{G}\textbf{d}=\textbf{0}
 \label{eq:cond_disp}
 \end{eqnarray}
-where \textbf{G} is the coupling matrix which contains the equations to 
-interpolate the substructures displacements at the interfaces, and 
-\(\textbf{d}\) is a global vector of displacements for \(nS\) number of 
-substructures, composed as:
+where \textbf{G} is the coupling matrix which contains the equations to interpolate the substructures displacements at the interfaces, and \(\textbf{d}\) is a global vector of displacements for \(nS\) number of substructures, composed as:
 \begin{eqnarray}
 \textbf{d} = \left\{\begin{array}{cccc}
 \textbf{d}_1, & \textbf{d}_2, &\ldots, & \textbf{d}_{nS}
@@ -448,21 +418,12 @@ substructures, composed as:
 \label{eq:displacements}
 \end{eqnarray}
 
-General formulation of the matrix \textbf{G} is proposed in Algorithm 
-\ref{alg:G_matrix}.
-The main task of the algorithm is to calculate shape functions for each 
-adjacent substructures at the points \(X_p=(x_p^k,y_p^k)\), which are 
-projections of the interface nodes onto these substructures.
-The shape function can be calculated after finding an owner element and local 
-coordinates of the points.
-Owner element is a spectral element in the domain of the substructure \(s_{ij}\) which contains interface node, for example, interface node \(k=6\) 
-(see~Fig.~\ref{fig:interface}a)) is located in element \(e^I\) and 
-\(e^{III}\) for the substructures \(s_{i1}\) and \(s_{i2}\), respectively.
-It can be found within two ways: using Matlab's built-in function 
-\verb+inpolygon+ or more efficient procedure proposed by Silva et al. 
-\cite{silva2009exact} which was used in the current implementation.
-The transformation from global to local coordinates was realized by the 
-iterative method presented in the work of Li et al.~\cite{li2014efficient}.
+General formulation of the matrix \textbf{G} is proposed in Algorithm \ref{alg:G_matrix}.
+The main task of the algorithm is to calculate shape functions for each adjacent substructures at the points \(X_p=(x_p^k,y_p^k)\), which are projections of the interface nodes onto these substructures.
+The shape function can be calculated after finding an owner element and local coordinates of the points.
+Owner element is a spectral element in the domain of the substructure \(s_{ij}\) which contains interface node, for example, interface node \(k=6\) (see~Fig.~\ref{fig:interface}a)) is located in element \(e^I\) and \(e^{III}\) for the substructures \(s_{i1}\) and \(s_{i2}\), respectively.
+It can be found within two ways: using Matlab's built-in function \verb+inpolygon+ or more efficient procedure proposed by Silva et al. \cite{silva2009exact} which was used in the current implementation.
+The transformation from global to local coordinates was realized by the iterative method presented in the work of Li et al.~\cite{li2014efficient}.
 
 \begin{algorithm}[H]
 	\SetAlgoLined
@@ -519,28 +480,15 @@ iterative method presented in the work of Li et al.~\cite{li2014efficient}.
 			
 		}
 	}
-	fill empty cells of array \(\mathbf{G}\) with null matrices, and convert 
-	\(\mathbf{G}\) to single matrix.
+	fill empty cells of array \(\mathbf{G}\) with null matrices, and convert \(\mathbf{G}\) to single matrix.
 	\caption{Matrix G formulation}
 	\label{alg:G_matrix}
 \end{algorithm}
-where \(nI\) and \(nS\) are numbers of the interfaces and the structures, 
-respectively; \(n^{\Gamma^i}\) and \(n^{s_{ij}}\) are numbers of nodes of the 
-interface \(i\), and the structure \(s_{ij}\), respectively; \(\eta^k_p\) and  
-\(\xi^k_p\) are local coordinates of \(X_p\), respectively; \(J_{\kappa}\) is 
-Jacobians evaluated at \((\xi_{\kappa+1},\eta_{\kappa+1})\) and 
-\(N(\xi_{\kappa+1},\eta_{\kappa+1})\) is a shape function evaluated at 
-\((\xi_{\kappa+1},\eta_{\kappa+1})\), \(nX_e\) is a vector of global order 
-numbers of all nodes in the \(ownerElements^{s_{ij}}_k\), \(h_{ij}\) is a 
-thickness of the structure \(s_{ij}\) and \(tol\) is a termination criterion 
-for iterations.
-The computational effectiveness of Algorithm~\ref{alg:G_matrix} can be 
-easily improved if certain precautions are taken.
-Firstly, the mesh of the interface has to be based on the mesh from one of the 
-substructures \(s_i1\), \(s_i2\), which may be referred to as a slave.
+where \(nI\) and \(nS\) are numbers of the interfaces and the structures, respectively; \(n^{\Gamma^i}\) and \(n^{s_{ij}}\) are numbers of nodes of the interface \(i\), and the structure \(s_{ij}\), respectively; \(\eta^k_p\) and  \(\xi^k_p\) are local coordinates of \(X_p\), respectively; \(J_{\kappa}\) is Jacobians evaluated at \((\xi_{\kappa+1},\eta_{\kappa+1})\) and \(N(\xi_{\kappa+1},\eta_{\kappa+1})\) is a shape function evaluated at \((\xi_{\kappa+1},\eta_{\kappa+1})\), \(nX_e\) is a vector of global order numbers of all nodes in the \(ownerElements^{s_{ij}}_k\), \(h_{ij}\) is a thickness of the structure \(s_{ij}\) and \(tol\) is a termination criterion for iterations.
+The computational effectiveness of Algorithm~\ref{alg:G_matrix} can be easily improved if certain precautions are taken.
+Firstly, the mesh of the interface has to be based on the mesh from one of the substructures \(s_i1\), \(s_i2\), which may be referred to as a slave.
 So, the shape function takes only the values of one and zeros.
-Moreover, the code can be implemented in vectorized form rather than using a 
-for-loops.
+Moreover, the code can be implemented in vectorized form rather than using a for-loops.
 
 \subsection{Elementary governing equations of motion}
 \label{sec:motion}
@@ -590,11 +538,7 @@ The elementary governing equations of motion with Lagrange multipliers can be wr
 \end{array} \right \}
 \label{eq:motion}
 \end{eqnarray}
-where \(\textbf{M}_{dd}\), \(\textbf{C}_{dd}\), \(\textbf{K}_{dd}\) are 
-structural mass, damping and stiffness matrices, respectively; 
-\(\textbf{K}_{\phi d}={\textbf{K}_{d\phi}}^T\) are piezoelectric coupling matrix; \(\textbf{K}_{\phi \phi}\) is the dielectric permittivity matrix, \(\widehat{\textbf{d}}\) is the nodal displacements and \(\widehat{\boldsymbol{\phi}}\) is the electric potential; 
-\(\textbf{F}\) the nodal external force vector, \(\textbf{Q}\) is the nodal 
-externally applied charge vector, \(\boldsymbol{\lambda}\) is the vector of Lagrange multipliers, and \(\textbf{G}\) is the Lagrange multiplier matrix; \((\dot{\ })=\frac{\partial}{\partial t}\).
+where \(\textbf{M}_{dd}\), \(\textbf{C}_{dd}\), \(\textbf{K}_{dd}\) are structural mass, damping and stiffness matrices, respectively; \(\textbf{K}_{\phi d}={\textbf{K}_{d\phi}}^T\) are piezoelectric coupling matrix; \(\textbf{K}_{\phi \phi}\) is the dielectric permittivity matrix, \(\widehat{\textbf{d}}\) is the nodal displacements and \(\widehat{\boldsymbol{\phi}}\) is the electric potential; \(\textbf{F}\) the nodal external force vector, \(\textbf{Q}\) is the nodal externally applied charge vector, \(\boldsymbol{\lambda}\) is the vector of Lagrange multipliers, and \(\textbf{G}\) is the Lagrange multiplier matrix; \((\dot{\ })=\frac{\partial}{\partial t}\).
 The formulae of the matrices are provided in App.~\ref{app:matrices}.
 The coupling is realized by imposing the traction forces, represented by a vector of Lagrange multipliers. 
 
@@ -812,50 +756,32 @@ Using a central difference scheme, equation (\ref{eq:motion}) can be rewritten a
 +\frac{2}{\Delta t^2}\textbf{M}_{dd}\widehat{\textbf{d}}_t-\left(\frac{1}{\Delta t^2}\textbf{M}_{dd}-\frac{1}{2\Delta t}\textbf{C}_{dd}\right)\widehat{\textbf{d}}_{t-\Delta t}-\textbf{G}^T\boldsymbol{\lambda}_t
 \label{eq:CDE}
 \end{eqnarray}
-where  \(\textbf{K}_s=\textbf{K}_{d\phi}^A{\textbf{K}_{\phi 
-		\phi}^{A,A}}^{-1}\textbf{K}_{\phi \phi}^{A,P}-\textbf{K}_{d\phi}^P\), 
-\(\textbf{K}_a=\textbf{K}_{d \phi}^A{\textbf{K}_{\phi 
-		\phi}^{A,A}}^{-1}\textbf{K}_{\phi d}^A\), 
-and \(\Delta t\) is the time increment. 
-\(\textbf{K}_{d \phi}^A\) and \(\textbf{K}_{d\phi}^P\) are sub-matrices of 
-matrix 
-\(\textbf{K}_{d\phi}\), 
-while \(\textbf{K}_{\phi \phi}^{A,P}\) and \(\textbf{K}_{\phi \phi}^{A,A}\) are 
-the sub-matrices of matrix \(\textbf{K}_{\phi \phi}\).
-Their formulation is realized by discarding appropriate rows and columns 
-according to imposed electrical boundary conditions.
+where  \(\textbf{K}_s=\textbf{K}_{d\phi}^A{\textbf{K}_{\phi \phi}^{A,A}}^{-1}\textbf{K}_{\phi \phi}^{A,P}-\textbf{K}_{d\phi}^P\), \(\textbf{K}_a=\textbf{K}_{d \phi}^A{\textbf{K}_{\phi \phi}^{A,A}}^{-1}\textbf{K}_{\phi d}^A\), and \(\Delta t\) is the time increment.
+\(\textbf{K}_{d \phi}^A\) and \(\textbf{K}_{d\phi}^P\) are sub-matrices of matrix \(\textbf{K}_{d\phi}\), while \(\textbf{K}_{\phi \phi}^{A,P}\) and \(\textbf{K}_{\phi \phi}^{A,A}\) are the sub-matrices of matrix \(\textbf{K}_{\phi \phi}\).
+Their formulation is realized by discarding appropriate rows and columns according to imposed electrical boundary conditions.
 \(\textbf{K}_{d \phi}^P\) contains columns selected from \(\textbf{K}_{d\phi}\) by vector \textbf{P}, and \(\textbf{K}_{d\phi}^A\) contains columns selected from \(\textbf{K}_{d\phi}\) by vector \textbf{A}.
-\(\textbf{K}_{\phi \phi}^{A,P}\) contains columns from \(\textbf{K}_{\phi \phi}\) selected by vector \textbf{P} and rows from the same matrix selected by vector \textbf{A}, and \(\textbf{K}_{\phi \phi}^{A,A}\) contains rows and 
-columns selected from \(\textbf{K}_{\phi \phi}\) by vector \textbf{A}.
-Where \textbf{P} is a list of nodes assigned to the electrodes, and \textbf{A} 
-is a complement of \textbf{P} in the set of all nodes of the PZT.
+\(\textbf{K}_{\phi \phi}^{A,P}\) contains columns from \(\textbf{K}_{\phi \phi}\) selected by vector \textbf{P} and rows from the same matrix selected by vector \textbf{A}, and \(\textbf{K}_{\phi \phi}^{A,A}\) contains rows and columns selected from \(\textbf{K}_{\phi \phi}\) by vector \textbf{A}.
+Where \textbf{P} is a list of nodes assigned to the electrodes, and \textbf{A} is a complement of \textbf{P} in the set of all nodes of the PZT.
 
-Unknown Lagrange multiplier vector \(\boldsymbol{\lambda}_t\) is dependent on the load acting on the structure, and it is calculated for each time step from 
-Eq.~(\ref{eq:CDE}) by imposing the constraint Eq.~(\ref{eq:cond_disp}).
+Unknown Lagrange multiplier vector \(\boldsymbol{\lambda}_t\) is dependent on the load acting on the structure, and it is calculated for each time step from Eq.~(\ref{eq:CDE}) by imposing the constraint Eq.~(\ref{eq:cond_disp}).
 \begin{eqnarray}
 \boldsymbol{\lambda}_t = {\left(\textbf{G}\textbf{L}_+^{-1}\textbf{G}^T \right)}^{-1}\textbf{G}\textbf{L}_+^{-1} \Bigg[ \textbf{F}_t+\textbf{K}_s\boldsymbol{\phi}_t^P+\left.\left(\frac{2}{\Delta t^2}\textbf{M}_{dd}-\textbf{K}_{dd}+\textbf{K}_a\right)\textbf{d}_t -\textbf{L}_-\textbf{u}_{t-\Delta t} \right]
 \end{eqnarray}
-where \(\textbf{L}_+=\frac{1}{\Delta t^2}\textbf{M}_{dd}+\frac{1}{2\Delta 
-	t}\textbf{C}_{dd}\) and \(\textbf{L}_-=\frac{1}{\Delta 
-	t^2}\textbf{M}_{dd}-\frac{1}{2\Delta t}\textbf{C}_{dd}\).
+where \(\textbf{L}_+=\frac{1}{\Delta t^2}\textbf{M}_{dd}+\frac{1}{2\Delta t}\textbf{C}_{dd}\) and \(\textbf{L}_-=\frac{1}{\Delta t^2}\textbf{M}_{dd}-\frac{1}{2\Delta t}\textbf{C}_{dd}\).
 
 \section{Numerical simulations}
 \label{sec:numerical}
 \subsection{Sample configuration}
 \label{sec:sample}
-The sample consists of aluminum honeycomb attached between two carbon fiber 
-reinforced polymer (CFRP) plates by the adhesive layers (Fig.~\ref{fig:honeycomb}a)).
+The sample consists of aluminum honeycomb attached between two carbon fiber reinforced polymer (CFRP) plates by the adhesive layers (Fig.~\ref{fig:honeycomb}a)).
 Material properties used in the simulations are gathered in App.~\ref{app:properties}.
-One pair of circular PZT transducers were mounted on the top skin to generate 
-and receive of guided waves signals.
+One pair of circular PZT transducers were mounted on the top skin to generate and receive of guided waves signals.
 Glue under the transducers were not considered.
 
-In the middle of the structure, the circular area of the adhesive layer between 
-the bottom skin and core was removed to simulate the disbonds in the HSC.
+In the middle of the structure, the circular area of the adhesive layer between the bottom skin and core was removed to simulate the disbonds in the HSC.
 This model is simple for implementation and does not effect on the convergence of the time integration.
 However, it does not take into account the contact between the structures, so the nodes of particular elements in this area may intersect with each other.
-The size of the disbonds was the subject of the parametric study aiming at 
-finding the damage effect on GW propagation.
+The size of the disbonds was the subject of the parametric study aiming at finding the damage effect on GW propagation.
 
 The following dimensions and parameters were assumed:
 \begin{itemize}
@@ -894,8 +820,7 @@ The prepared meshes ensure at least 6 nodes per wavelength.
 	\label{fig:skin_mesh}
 \end{figure}
 The analysis was conducted with the wide bandwidth chirp signal (Fig.~\ref{fig:chirp}).
-Total calculation time was set to 2 ms with time increment \(\Delta 
-t=10\) ns.
+Total calculation time was set to 2 ms with time increment \(\Delta t=10\) ns.
 The assigned excitation signal had the significant values in frequency domain between 0 and 20 kHz with resolution of 500 Hz.
 \begin{figure}
 	\begin{center}
@@ -907,7 +832,8 @@ The assigned excitation signal had the significant values in frequency domain be
 \section{Results}
 \label{sec:results}
 The wave propagating through the sample interact with damage boundary, so the amplitude of the transmitted wave is expected to vary according to the size of the failure.
-One can observe on the Fig. \ref{fig:wavefield} that only a portion of the wave reached the sensor, while part of the wave is entrapped within the damage. Besides, the wave also interacts with the cells, due to modelling with respect to the real geometry of the core.
+One can observe on the Fig. \ref{fig:wavefield} that only a portion of the wave reached the sensor, while part of the wave is entrapped within the damage.
+Besides, the wave also interacts with the cells, due to modelling with respect to the real geometry of the core.
 \begin{figure}
 	\begin{center}
 		\includegraphics[width=1\linewidth]{../../figures/eps/wavefield.eps}
@@ -959,12 +885,11 @@ The formulae of matrices for 3D elements are:
 \textbf{M}_{dd}^e & = & \int_{V_e}\textbf{N}^T\rho \textbf{N} dV_e\\
 \textbf{K}_{dd}^e & = & \int_{V_e}{\textbf{B}_d^e}^T\textbf{c}\textbf{B}_d^edV_e
 \end{eqnarray}
-where \textbf{c} and \(\rho\) is the elasticity matrix and mass density, 
-respectively and \(\int_{V_e}dV_e\) is a volume integral.
+where \textbf{c} and \(\rho\) is the elasticity matrix and mass density, respectively and \(\int_{V_e}dV_e\) is a volume integral.
 
 The formulae of matrices for 2D elements are:
 \begin{eqnarray}
-\textbf{M}_{dd}^e & = & 
+\textbf{M}_{dd}^e & = &
 \left [
 \begin{array}{cc}
 \textbf{M}_T^e & 0\\
@@ -990,17 +915,14 @@ h &  & &  &  &\\
 \end{array} \right]
 \textbf{B}_b^ed \Omega_e+\int_{\Omega_e}{\textbf{B}_s^e}^T\textbf{A}^{\ast}\textbf{B}_s^ed \Omega_e
 \end{eqnarray}
-where h is the element thickness and \(\int_{\Omega_e}d\Omega_e\) is a surface 
-integral and:
+where h is the element thickness and \(\int_{\Omega_e}d\Omega_e\) is a surface integral and:
 \begin{eqnarray}
 \textbf{A} & = & \textbf{c}_{ij}(h_t-h_b)\qquad i,j=1,2,6\nonumber\\
 \textbf{B} & = & \frac{1}{2}\textbf{c}_{ij}(h_t^2-h_b^2)\qquad i,j=1,2,6\nonumber\\
 \textbf{D} & = & \frac{1}{3}\textbf{c}_{ij}(h_t^3-h_b^3)\qquad i,j=1,2,6\nonumber\\
 \textbf{A}^{\ast} & = & \kappa \, \textbf{c}_{ij}\left[h_a-4/3\left(h_t^3-h_b^3\right)/h_a^2\right]\qquad i,j=4,5\nonumber
 \end{eqnarray}
-where the \(h_t\) and \(h_b\) are the distance from mid-plane to the top and 
-the bottom layer of the element, respectively and the \(\kappa=5/4\) is a shear 
-correction factor.
+where the \(h_t\) and \(h_b\) are the distance from mid-plane to the top and the bottom layer of the element, respectively and the \(\kappa=5/4\) is a shear correction factor.
 
 The dielectric conductivity matrix \(\textbf{K}_{\phi \phi}^e\) and piezoelectric coupling matrix \(\textbf{K}_{u \phi}^e\) are defined:
 \begin{eqnarray}
@@ -1011,9 +933,7 @@ The dielectric conductivity matrix \(\textbf{K}_{\phi \phi}^e\) and piezoelectri
 
 \section{}
 \label{app:properties}
-Mechanical properties of carbon fibres, epoxy resin and the adhesive layer are 
-presented in a table~\ref{tab:properties} and evaluated effective elastic 
-properties for a single layer in a table~\ref{tab:properties_layer}.
+Mechanical properties of carbon fibres, epoxy resin and the adhesive layer are presented in a table~\ref{tab:properties} and evaluated effective elastic properties for a single layer in a table~\ref{tab:properties_layer}.
 \begin{table}
 	\centering
 	\caption{\label{tab:properties}Material properties of carbon fibres, epoxy 
