@@ -823,12 +823,6 @@ The assigned excitation signal had the significant values in frequency domain be
 \label{sec:results}
 The wave propagating through the sample interact with damage boundary, so the amplitude of the transmitted wave is expected to vary according to the size of the failure.
 One can observe on the Fig. \ref{fig:wavefield} that only a portion of the wave reached the sensor, while part of the wave is entrapped within the damage. Besides, the wave also interacts with the cells, due to modelling with respect to the real geometry of the core.
-
-To analyze the effect of the damage magnitude on GW propagation, the signal obtained by the sensor was taken into account.
-The signal was defined as the average value of the electrical potential of the nodes belonging to the upper layer of the sensor, calculated in each time step.
-Then, the time domain signals were transformed to frequency domain by the discrete Fourier transform, \(\Phi(f)=DFT(\Phi(t))\)
-
-Fig. \ref{fig:signals}a) presents signals \(\Phi(f)\) for different damage size in the range of the full excitation bandwidth. 
 \begin{figure}
 	\begin{center}
 		\includegraphics[width=1\linewidth]{../../../figures/eps/wavefield.eps}
@@ -836,6 +830,12 @@ Fig. \ref{fig:signals}a) presents signals \(\Phi(f)\) for different damage size 
 	\caption{Full wavefield}
 	\label{fig:wavefield}
 \end{figure}
+
+To determine the effect of the damage size on GW propagation, the signal obtained by the sensor was taken into account.
+The signal represents an average value of the electrical potential of the nodes belonging to the upper layer of the sensor, calculated in each time step for different damage diameter.
+For further analysis, the time domain characteristics were transformed to frequency domain by the discrete Fourier transform, \(\Phi(f)=DFT(\Phi(t))\).
+It can be noticed on the Fig. \ref{fig:signals}a) that the signals values do not always decrease with the increasing of damage diameter.
+Therefore the MADIF is only defined for the frequency in which the function is monotonous.
 \begin{figure}
 	\begin{center}
 		\includegraphics[width=1\linewidth]{../../../figures/pdf/time_fft.pdf}
@@ -843,6 +843,8 @@ Fig. \ref{fig:signals}a) presents signals \(\Phi(f)\) for different damage size 
 	\caption{The sensor signal in frequency domain a) full excitation bandwidth, b) bandwidth \#1, c) bandwidth \#2}
 	\label{fig:signals}
 \end{figure}
+This assumption is fulfilled by the frequency 16.5 kHz (Fig. \ref{fig:signals}c)).
+Moreover, normalized the MADIF values are within a wide range, i.e. 0.2--1.0 (Fig. \ref{fig:madif}).
 \begin{figure}
 	\begin{center}
 		\includegraphics[width=1\linewidth]{../../../figures/eps/madif.eps}
@@ -850,8 +852,13 @@ Fig. \ref{fig:signals}a) presents signals \(\Phi(f)\) for different damage size 
 	\caption{madif}
 	\label{fig:madif}
 \end{figure}
+This function can be used to identify damage to the physical sample associated with the model.
+The severity of the failure shall be read from the determined characteristic for the value of the sensor voltage which has been measured according to the simulation scheme.
+
 \section{Conclusions}
-to be continued...
+\label{sec:conc}
+The paper presents the preliminary study on the possibility usage of model-assisted approach to identify a severity of damage in composite structures. 
+numerical analysis of GW propagation in the sandwich composite panel.  
 \appendix
 \section{}
 \label{app:matrices}
@@ -966,7 +973,7 @@ Material properties of the PZT transducer:
 0 & 0 & 0 & 13.7 & 0 & 0\\
 -6.06 & -6.06 & 17.2 & 0 & 0 & 0\nonumber \\
 \end{array}
-\right] \left[C\ m^{-2}\right]
+\right] \left[C\,m^{-2}\right]
 \end{eqnarray}
 \begin{eqnarray}
 \bepsilon^S_r=\left[
@@ -978,7 +985,7 @@ Material properties of the PZT transducer:
 \right] \left[ - \right]
 \end{eqnarray}
 \begin{eqnarray}
-\rho=7850\ [kg\ m^{-3}] \nonumber
+\rho=7850\ [kg\,m^{-3}] \nonumber
 \end{eqnarray}
 
 \bibliography{../../../../../BibTex/Rozprawa}{}
