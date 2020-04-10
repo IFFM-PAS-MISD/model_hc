@@ -25,7 +25,7 @@ bandwidth_1 = (f>=5.5e3) & (f<=7.5e3)
 bandwidth_2 = (f>=15.0e3) & (f<=17.0e3)
 maxValueFFT = np.amax(data_fft[:,1])
 
-damage = ['0 mm', '20 mm', '40 mm', '60 mm', '80 mm', '100 mm', '120 mm']
+damage = ['0', '20', '40', '60', '80', '100', '120']
 
 fig_1 = plt.figure(figsize=cm2inch(18.4,12))
 gs=GridSpec(2,2) # 2 rows, 2 columns
@@ -37,7 +37,7 @@ ax3 = fig_1.add_subplot(gs[1,1])
 
 l1 = ax1.plot(f*1e-3,data_fft[:,1:]/maxValueFFT)[0]
 ax1.set_xlabel('f [kHz]')
-ax1.set_ylabel('$\Phi$ [-]')
+ax1.set_ylabel('$\Psi_S$ [-]')
 ax1.text(0.02, 0.95, 'a)', transform=ax1.transAxes,
 fontsize=12, fontweight='bold', va='top')
 ax1.set_xticks(np.arange(0,21,2.5))
@@ -79,7 +79,7 @@ ax2.set_xticks(np.arange(len(f[bandwidth_1])))
 ax2.set_xticklabels(labels)
 ax2.set_xlim(0-1, len(labels))
 ax2.set_xlabel('f [kHz]')
-ax2.set_ylabel('$\Phi$ [-]')
+ax2.set_ylabel('$\Psi_S$ [-]')
 
 ax2.text(0.05, 0.95, 'b)', transform=ax2.transAxes,
 fontsize=12, fontweight='bold', va='top')
@@ -94,12 +94,12 @@ ax3.set_xticks(np.arange(len(f[bandwidth_2])))
 ax3.set_xticklabels(labels)
 ax3.set_xlim(0-1, len(labels))
 ax3.set_xlabel('f [kHz]')
-ax3.set_ylabel('$\Phi$ [-]')
+ax3.set_ylabel('$\Psi_S$ [-]')
 
 ax3.text(0.05, 0.95, 'c)', transform=ax3.transAxes,
 fontsize=12, fontweight='bold', va='top')
 title_pl = 'średnica wady'
-title_en = 'damage size'
+title_en = 'd [mm]'
 fig_1.legend(labels=damage,
             loc=7,
             title=title_en)
