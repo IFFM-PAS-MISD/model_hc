@@ -418,13 +418,6 @@ where \textbf{G} is the coupling matrix which contains the equations to interpol
 \label{eq:displacements}
 \end{eqnarray}
 
-The general formulation of the matrix \textbf{G} is proposed in Algorithm \ref{alg:G_matrix}.
-The main task of the algorithm is to calculate shape functions for each adjacent substructures at the points \(X_p=(x_p^k,y_p^k)\), which are projections of the interface nodes onto these substructures.
-The shape function can be calculated after finding an owner element and local coordinates of the points.
-Owner element is a spectral element in the domain of the substructure \(s_{ij}\) which contains interface node, for example, interface node \(k=6\) (see~Fig.~\ref{fig:interface}a)) is located in element \(e^I\) and \(e^{III}\) for the substructures \(s_{i1}\) and \(s_{i2}\), respectively.
-It can be found within two ways: using Matlab's built-in function \verb+inpolygon+ or more efficient procedure proposed by Silva et al. \cite{silva2009exact} which was used in the current implementation.
-The transformation from global to local coordinates was realized by the iterative method presented in the work of Li et al.~\cite{li2014efficient}.
-
 \begin{algorithm}[H]
 	\SetAlgoLined
 	\KwResult{coupling matrix \textbf{G}}
@@ -480,10 +473,17 @@ The transformation from global to local coordinates was realized by the iterativ
 			
 		}
 	}
+where \(nI\) and \(nS\) are numbers of the interfaces and the structures, respectively; \(n^{\Gamma^i}\) and \(n^{s_{ij}}\) are numbers of nodes of the interface \(i\), and the structure \(s_{ij}\), respectively; \(\eta^k_p\) and  \(\xi^k_p\) are local coordinates of \(X_p\), respectively; \(J_{\kappa}\) are Jacobians evaluated at \((\xi_{\kappa+1},\eta_{\kappa+1})\) and \(N(\xi_{\kappa+1},\eta_{\kappa+1})\) is the shape function evaluated at \((\xi_{\kappa+1},\eta_{\kappa+1})\), \(nX_e\) is the vector of global order numbers of all nodes in the \(ownerElements^{s_{ij}}_k\), \(h_{ij}\) is a thickness of the structure \(s_{ij}\) and \(tol\) is a termination criterion for iterations.
 	\caption{Matrix G formulation}
 	\label{alg:G_matrix}
 \end{algorithm}
-where \(nI\) and \(nS\) are numbers of the interfaces and the structures, respectively; \(n^{\Gamma^i}\) and \(n^{s_{ij}}\) are numbers of nodes of the interface \(i\), and the structure \(s_{ij}\), respectively; \(\eta^k_p\) and  \(\xi^k_p\) are local coordinates of \(X_p\), respectively; \(J_{\kappa}\) are Jacobians evaluated at \((\xi_{\kappa+1},\eta_{\kappa+1})\) and \(N(\xi_{\kappa+1},\eta_{\kappa+1})\) is the shape function evaluated at \((\xi_{\kappa+1},\eta_{\kappa+1})\), \(nX_e\) is the vector of global order numbers of all nodes in the \(ownerElements^{s_{ij}}_k\), \(h_{ij}\) is a thickness of the structure \(s_{ij}\) and \(tol\) is a termination criterion for iterations.
+The general formulation of the matrix \textbf{G} is proposed in Algorithm \ref{alg:G_matrix}.
+The main task of the algorithm is to calculate shape functions for each adjacent substructures at the points \(X_p=(x_p^k,y_p^k)\), which are projections of the interface nodes onto these substructures.
+The shape function can be calculated after finding an owner element and local coordinates of the points.
+Owner element is a spectral element in the domain of the substructure \(s_{ij}\) which contains interface node, for example, interface node \(k_\Gamma=36\) (see~Fig.~\ref{fig:interface}a)) is located in element \(e^{I}_{3D}\) and \(e^{III}_{2D}\) for the substructures \(s_{11}\) and \(s_{12}\), respectively.
+It can be found within two ways: using Matlab's built-in function \verb+inpolygon+ or more efficient procedure proposed by Silva et al. \cite{silva2009exact} which was used in the current implementation.
+The transformation from global to local coordinates was realized by the iterative method presented in the work of Li et al.~\cite{li2014efficient}.
+
 The computational effectiveness of Algorithm~\ref{alg:G_matrix} can be easily improved if certain precautions are taken.
 Firstly, the mesh of the interface has to be based on the mesh from one of the substructures \(s_i1\), \(s_i2\), which may be referred to as a slave.
 So, the shape function takes only the values of one and zeros.
@@ -818,9 +818,6 @@ The prepared meshes ensure at least 6 nodes per wavelength.
 	\caption{The mesh with the nodes distribution, a) spectral element of the core's wall, b) excerpt of the skin plate, c) top view of the PZT transducer mesh}
 	\label{fig:skin_mesh}
 \end{figure}
-The analysis was conducted with the wide bandwidth chirp signal (Fig.~\ref{fig:chirp}).
-Total calculation time was set to 2 ms with time increment \(\Delta t=10\) ns.
-The assigned excitation signal had the significant values in frequency domain between 0 and 20 kHz with resolution of 500 Hz.
 \begin{figure}
 	\begin{center}
 		\includegraphics[width=1\linewidth]{../../figures/eps/chirp_0_20.eps}
@@ -828,6 +825,10 @@ The assigned excitation signal had the significant values in frequency domain be
 	\caption{Chirp signal}
 	\label{fig:chirp}
 \end{figure}
+The analysis was conducted with the wide bandwidth chirp signal (Fig.~\ref{fig:chirp}).
+Total calculation time was set to 2 ms with time increment \(\Delta t=10\) ns.
+The assigned excitation signal had the significant values in frequency domain between 0 and 20 kHz with resolution of 500 Hz.
+
 \section{Results}
 \label{sec:results}
 The wave propagating through the sample interact with damage boundary, so the amplitude of the transmitted wave is expected to vary according to the size of the failure.
@@ -840,7 +841,20 @@ Besides, the wave also interacts with the cells, because each cell in the core w
 	\caption{Full wavefield}
 	\label{fig:wavefield}
 \end{figure}
-
+\begin{figure}
+	\begin{center}
+		\includegraphics[width=1\linewidth]{../../figures/eps/mgntPhiFFT.eps}
+	\end{center}
+	\caption{The sensor signal in frequency domain a) full excitation bandwidth, b) bandwidth \#1, c) bandwidth \#2}
+	\label{fig:signals}
+\end{figure}
+\begin{figure}[H]
+	\begin{center}
+		\includegraphics[width=1\linewidth]{../../figures/eps/madif.eps}
+	\end{center}
+	\caption{Model-assisted damage identify function for 16.5 kHz}
+	\label{fig:madif}
+\end{figure}
 To determine the effect of the damage size on GW propagation, the signal obtained by the sensor was taken into account.
 The signal represents an average value of the electrical potential of the nodes belonging to the upper layer of the sensor, calculated in each time step for different damage diameter.
 For further analysis, the time domain characteristics were transformed to frequency domain by the discrete Fourier transform, \(\Psi_S(f)=DFT(\Psi_S(t))\).
@@ -850,26 +864,13 @@ Therefore, to determine the MADIF, the frequency \(f_i\) was chosen from among t
 I = \Psi_S(f_i,d)
 \end{eqnarray}
 
-\begin{figure}
-	\begin{center}
-		\includegraphics[width=1\linewidth]{../../figures/eps/mgntPhiFFT.eps}
-	\end{center}
-	\caption{The sensor signal in frequency domain a) full excitation bandwidth, b) bandwidth \#1, c) bandwidth \#2}
-	\label{fig:signals}
-\end{figure}
 This assumption is fulfilled by the frequency \(f_1=16.0\) and \(f_2=16.5\) kHz (Fig. \ref{fig:signals}c)).
 The MADIF (blue, solid line on Fig. \ref{fig:madif}) was aproximated by the polynomial interpolation of the amplitudes in frequency 16.5 kHz (red, x marks on Fig. \ref{fig:madif}) obtained in the simulations. 
-\begin{figure}
-	\begin{center}
-		\includegraphics[width=1\linewidth]{../../figures/eps/madif.eps}
-	\end{center}
-	\caption{Model-assisted damage identify function for 16.5 kHz}
-	\label{fig:madif}
-\end{figure}
+
 Normalized values of the MADIF are within a wide range, i.e. 0.2–1.0, which has a positive impact on the accuracy of the severity of damage indication.
 This function can be used to identify damage to the physical sample associated with the model.
 The severity of the failure shall be read from the determined characteristic for the value of the sensor voltage which has been measured according to the simulation scheme.
-\clearpage
+
 \section{Conclusions}
 \label{sec:conc}
 This paper presents preliminary research on the possibility of using a model-assisted approach to identify the severity of damage in a composite structure using GW propagation.

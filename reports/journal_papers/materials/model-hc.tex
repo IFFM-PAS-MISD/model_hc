@@ -417,14 +417,6 @@ where \textbf{G} is the coupling matrix which contains the equations to interpol
 \end{array}\right\}^T
 \label{eq:displacements}
 \end{eqnarray}
-
-General formulation of the matrix \textbf{G} is proposed in Algorithm \ref{alg:G_matrix}.
-The main task of the algorithm is to calculate shape functions for each adjacent substructures at the points \(X_p=(x_p^k,y_p^k)\), which are projections of the interface nodes onto these substructures.
-The shape function can be calculated after finding an owner element and local coordinates of the points.
-Owner element is a spectral element in the domain of the substructure \(s_{ij}\) which contains interface node, for example, interface node \(k=6\) (see~Fig.~\ref{fig:interface}a)) is located in element \(e^I\) and \(e^{III}\) for the substructures \(s_{i1}\) and \(s_{i2}\), respectively.
-It can be found within two ways: using Matlab's built-in function \verb+inpolygon+ or more efficient procedure proposed by Silva et al. \cite{silva2009exact} which was used in the current implementation.
-The transformation from global to local coordinates was realized by the iterative method presented in the work of Li et al.~\cite{li2014efficient}.
-
 \begin{algorithm}[H]
 	\SetAlgoLined
 	\KwResult{coupling matrix \textbf{G}}
@@ -480,11 +472,17 @@ The transformation from global to local coordinates was realized by the iterativ
 			
 		}
 	}
-	fill empty cells of array \(\mathbf{G}\) with null matrices, and convert \(\mathbf{G}\) to single matrix.
+	where \(nI\) and \(nS\) are numbers of the interfaces and the structures, respectively; \(n^{\Gamma^i}\) and \(n^{s_{ij}}\) are numbers of nodes of the interface \(i\), and the structure \(s_{ij}\), respectively; \(\eta^k_p\) and  \(\xi^k_p\) are local coordinates of \(X_p\), respectively; \(J_{\kappa}\) is Jacobians evaluated at \((\xi_{\kappa+1},\eta_{\kappa+1})\) and \(N(\xi_{\kappa+1},\eta_{\kappa+1})\) is a shape function evaluated at \((\xi_{\kappa+1},\eta_{\kappa+1})\), \(nX_e\) is a vector of global order numbers of all nodes in the \(ownerElements^{s_{ij}}_k\), \(h_{ij}\) is a thickness of the structure \(s_{ij}\) and \(tol\) is a termination criterion for iterations.
 	\caption{Matrix G formulation}
 	\label{alg:G_matrix}
 \end{algorithm}
-where \(nI\) and \(nS\) are numbers of the interfaces and the structures, respectively; \(n^{\Gamma^i}\) and \(n^{s_{ij}}\) are numbers of nodes of the interface \(i\), and the structure \(s_{ij}\), respectively; \(\eta^k_p\) and  \(\xi^k_p\) are local coordinates of \(X_p\), respectively; \(J_{\kappa}\) is Jacobians evaluated at \((\xi_{\kappa+1},\eta_{\kappa+1})\) and \(N(\xi_{\kappa+1},\eta_{\kappa+1})\) is a shape function evaluated at \((\xi_{\kappa+1},\eta_{\kappa+1})\), \(nX_e\) is a vector of global order numbers of all nodes in the \(ownerElements^{s_{ij}}_k\), \(h_{ij}\) is a thickness of the structure \(s_{ij}\) and \(tol\) is a termination criterion for iterations.
+General formulation of the matrix \textbf{G} is proposed in Algorithm \ref{alg:G_matrix}.
+The main task of the algorithm is to calculate shape functions for each adjacent substructures at the points \(X_p=(x_p^k,y_p^k)\), which are projections of the interface nodes onto these substructures.
+The shape function can be calculated after finding an owner element and local coordinates of the points.
+Owner element is a spectral element in the domain of the substructure \(s_{ij}\) which contains interface node, for example, interface node \(k=6\) (see~Fig.~\ref{fig:interface}a)) is located in element \(e^I\) and \(e^{III}\) for the substructures \(s_{i1}\) and \(s_{i2}\), respectively.
+It can be found within two ways: using Matlab's built-in function \verb+inpolygon+ or more efficient procedure proposed by Silva et al. \cite{silva2009exact} which was used in the current implementation.
+The transformation from global to local coordinates was realized by the iterative method presented in the work of Li et al.~\cite{li2014efficient}.
+
 The computational effectiveness of Algorithm~\ref{alg:G_matrix} can be easily improved if certain precautions are taken.
 Firstly, the mesh of the interface has to be based on the mesh from one of the substructures \(s_i1\), \(s_i2\), which may be referred to as a slave.
 So, the shape function takes only the values of one and zeros.
