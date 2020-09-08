@@ -1,0 +1,7 @@
+\boolfalse {citerequest}\boolfalse {citetracker}\boolfalse {pagetracker}\boolfalse {backtracker}\relax 
+\contentsline {chapter}{LIST OF TABLES}{ii}{chapter*.4}%
+\contentsline {chapter}{LIST OF FIGURES}{iii}{chapter*.5}%
+\contentsline {chapter}{NOMENCLATURE}{iv}{chapter*.6}%
+\contentsline {chapter}{\numberline {1}Introduction}{1}{chapter.1}%
+\contentsline {section}{\numberline {1.1}Sandwich Composite Materials}{3}{section.1.1}%
+\contentsline {chapter}{References/Bibliography}{7}{figure.caption.15}%

@@ -37,7 +37,23 @@ switch freq_range
         ts = 10e-9;          % time increment [s]
         T = 2.0e-003;     % total calculation time [s]
         N_c = 10;            % number of counts in the wave packet []
-        f_0 = 16.5e3;         % frequency of the carrier signal[Hz]    
+        f_0 = 16.5e3;         % frequency of the carrier signal[Hz]
+    case 'pulse_20kHz'
+        ts = 10e-9;          % time increment [s]
+        T = 2.0e-003;     % total calculation time [s]
+        N_c = 10;            % number of counts in the wave packet []
+        f_0 = 20e3;         % frequency of the carrier signal[Hz]  
+    case 'pulse_20(5)kHz'
+        ts = 10e-9;          % time increment [s]
+        T = 2.0e-003;     % total calculation time [s]
+        N_c = 5;            % number of counts in the wave packet []
+        f_0 = 20e3;         % frequency of the carrier signal[Hz]  
+    case 'pulse_20(5)_1kHz'
+        ts = 10e-9;          % time increment [s]
+        T = 750.0e-006;     % total calculation time [s]
+        N_c = 5;            % number of counts in the wave packet []
+        f_0 = 20e3;         % frequency of the carrier signal[Hz]  
+    
     case 'pulse_25kHz'
         ts = 8e-9;          % time increment [s]
         T = 700.0e-006;     % total calculation time [s]

@@ -86,54 +86,51 @@ Signal excitation and receiving were realised by the piezoelectric (PZT) transdu
 \label{sec:sem}
 The general concept of the SEM is based on the idea of the FEM.
 The similarity of both methods lies in the fact that the modelled domain is divided into non-overlapping finite elements, and external forces and arbitrary boundary conditions are imposed in the particular nodes.
-The main difference between those methods is a choice of the shape function \( N=N(\xi )\), which is interpolated by Lagrange polynomial that passes through the element nodes. The nodes are localized on the endpoint of an interval, \(\xi\in[-1,1]\) and the roots of the first derivative of Legendre polynomial of degree \(p-1\) (see Eq.~(\ref{eq:nodes})).
+The main difference between those methods is a choice of the shape function \( N=N(\xi )\), which is interpolated by Lagrange polynomial that passes through the element nodes. The nodes are localized on the endpoint of an interval, \(\xi\in[-1,1]\) and the roots of the first derivative of Legendre polynomial of degree \(p-1\):
 
 \begin{eqnarray}
-	(1-\xi^2)P'_{p-1}(\xi)=0
-	\label{eq:nodes}
+(1-\xi^2)P'_{p-1}(\xi)=0
+\label{eq:nodes}
 \end{eqnarray}
 
-The approximation of integral over the elements is achieved according to Gauss-Lobatto-Legendre (GLL) rule at points coinciding with the element nodes, 
-and the weights \(w=w(\xi)\) equal to Eq. \ref{eq:weights}. This approach guarantees a diagonal mass matrix.
+The approximation of an integral over the elements is achieved according to Gauss-Lobatto-Legendre (GLL) rule at points coinciding with the element nodes, 
+and the weights \(w=w(\xi)\) calculated as:
 \begin{eqnarray}
 {w(\xi)} = \frac{2}{p(p-1)(P_{p-1}(\xi))^2}
 \label{eq:weights}
 \end{eqnarray}
-
-The shape function and the weights for 2D or 3D elements are obtained by the Kronecker product of vectors of individual axes, denoted by \(\otimes\) as follow:
+This approach guarantees a diagonal mass matrix.
+The shape functions and the weights for 2D or 3D elements are obtained by the Kronecker product of vectors of individual axes, denoted by \(\otimes\) as follows:
 \begin{eqnarray}
 N(\xi,\eta) = N(\xi)\otimes N(\eta), & N(\xi,\eta,\zeta) = N(\xi)\otimes N(\eta)\otimes N(\zeta) \nonumber\\
 w(\xi,\eta) = w(\xi)\otimes w(\eta), & w(\xi,\eta,\zeta) = w(\xi)\otimes w(\eta)\otimes w(\zeta) 
 \label{eq:3Dshape_weights}
 \end{eqnarray}
-\subsection{2D spectral modeling}
+\subsection{2D spectral modelling}
 \label{sec:2D_SEM}
 
-According to the first-order shear deformation theory~\cite{reissner1945effect, mindlin1951influence} the displacements vector is expressed as:
+According to the first-order shear deformation theory~\cite{reissner1945effect, mindlin1951influence} the vector of displacements is expressed as:
 \begin{eqnarray}
-\left [ \begin{array}{c}
+\left \{ \begin{array}{c}
 \textbf{u}^e(\xi,\eta,\zeta) \\
 \textbf{v}^e(\xi,\eta,\zeta) \\
 \textbf{w}^e(\xi,\eta,\zeta)
-\end{array} \right] = 
-\left [ \begin{array}{c}
+\end{array} \right\} = 
+\left \{ \begin{array}{c}
 \textbf{u}_0^e(\xi,\eta) + z\boldsymbol{\varphi}_x^e(\xi,\eta)\\
 \textbf{v}_0^e(\xi,\eta) + z\boldsymbol{\varphi}_y^e(\xi,\eta)\\
 \textbf{w}_0^e(\xi,\eta) \\
-\end{array} \right]
+\end{array} \right\}
 \end{eqnarray}
-where \(\textbf{u}_0^e\), \(\textbf{v}_0^e\) and \(\textbf{w}_0^e\) denote the 
-displacements of a point on the mid-plane, \(\boldsymbol{\varphi}_x^e\), 
-\(\boldsymbol{\varphi}_y^e\) are the rotations of the normal to the mid-plane 
-with respect to axes \textit{x} and \textit{y}, respectively.
+where \(\textbf{u}_0^e\), \(\textbf{v}_0^e\) and \(\textbf{w}_0^e\) are nodal displacements, \(\boldsymbol{\varphi}_x^e\), \(\boldsymbol{\varphi}_y^e\) are the rotations of the normal to the mid-plane with respect to axes \textit{x} and \textit{y}, respectively.
 \begin{eqnarray}
-\left [ \begin{array}{c}
+\left \{\begin{array}{c}
 \textbf{u}_0^e(\xi,\eta) \\
 \textbf{v}_0^e(\xi,\eta) \\
 \textbf{w}_0^e(\xi,\eta) \\
 \boldsymbol{\varphi}_x^e(\xi,\eta) \\
 \boldsymbol{\varphi}_y^e(\xi,\eta)
-\end{array} \right]
+\end{array} \right\}
 & = & \textbf{N}^e(\xi,\eta)\widehat{\textbf{d}}^e\nonumber\\
 & = & \sum_{n=1}^q\sum_{m=1}^p\textbf{N}_m^e(\xi)\textbf{N}_n^e(\eta)
 \left [ \begin{array}{c}
@@ -144,127 +141,95 @@ with respect to axes \textit{x} and \textit{y}, respectively.
 \widehat{\boldsymbol{\varphi}}_y^e
 \end{array} \right]
 \end{eqnarray}
-The bending strain components can be written as~\cite{ferreira2008matlab}:
+The nodal bending strain-displacement relations are given in the form:
 \begin{eqnarray}
-\bepsilon_b^e(\xi,\eta)=\textbf{B}_b^e\widehat{\textbf{d}}^e
-\end{eqnarray}
-where \(\textbf{B}_b^e\) is curvature-displacement matrix calculated as:
-\begin{eqnarray}
-\textbf{B}_b^e=\textbf{L}_b\textbf{N}^e(\xi,\eta)
-\end{eqnarray}
-\begin{eqnarray}
-	\textbf{L}_b=\left [
-	\begin{array}{ccccc}
-		\frac{\partial }{\partial x} & 0 & 0 & 0 & 0\\
-		0 & \frac{\partial }{\partial y} & 0 & 0 & 0\\
-		\frac{\partial }{\partial y} & \frac{\partial }{\partial x} & 0 & 0 & 0\\
-		0 & 0 & 0 & -\frac{\partial }{\partial x} & 0\\
-		0 & 0 & 0 & 0 & -\frac{\partial }{\partial y}\\
-		0 & 0 & 0 & -\frac{\partial }{\partial y} & -\frac{\partial }{\partial x}
-	\end{array} \right],\ \\
-  \left [
-	\begin{array}{c}
-		\frac{\partial }{\partial x}\\
-		\frac{\partial }{\partial y}
-	\end{array} \right] =\textbf{J}^{-1}
-	\left [
-	\begin{array}{c}
-		\frac{\partial }{\partial \xi}\\
-		\frac{\partial }{\partial \eta}
-	\end{array} \right], \ 
-	\textbf{J}=\left [
-	\begin{array}{cc}
-		\partial_\xi x & {\partial_\xi y} \\
-		\partial_\eta x & {\partial_\eta y}
-	\end{array} \right] \nonumber
-\end{eqnarray}
-The shear strain components can be written as~\cite{ferreira2008matlab}:
-\begin{eqnarray}
-\bepsilon_s^e(\xi,\eta)=\textbf{B}_s^e\widehat{\textbf{d}}^e
-\end{eqnarray}
-where \(\textbf{B}_s^e\) is curvature-displacement matrix calculated as:
-\begin{eqnarray}
-\textbf{B}_s^e=\textbf{L}_s\textbf{N}^e(\xi,\eta)
-\end{eqnarray}
-\begin{eqnarray}
-\textbf{L}_s=\left [
+\boldsymbol{\epsilon}_b^e =
+\textbf{B}_b^e\widehat{\textbf{d}}^e = 
+\left [
 \begin{array}{ccccc}
-0 & 0 & \frac{\partial }{\partial x} & -1 & 0 \\
-0 & 0 & \frac{\partial }{\partial y} & 0 & -1
+\frac{\partial N^e}{\partial x} & 0 & 0 & 0 & 0\\
+0 & \frac{\partial N^e}{\partial y} & 0 & 0 & 0\\
+\frac{\partial N^e}{\partial y} & \frac{\partial N^e}{\partial x} & 0 & 0 & 0\\
+0 & 0 & 0 & -\frac{\partial N^e}{\partial x} & 0\\
+0 & 0 & 0 & 0 & -\frac{\partial N^e}{\partial y}\\
+0 & 0 & 0 & -\frac{\partial N^e}{\partial y} & -\frac{\partial N^e}{\partial x}
 \end{array} \right]
+\left \{ \begin{array}{c}
+\textbf{u}_0^e \\
+\textbf{v}_0^e \\
+\textbf{w}_0^e \\
+\boldsymbol{\varphi}_x^e \\
+\boldsymbol{\varphi}_y^e
+\end{array} \right\}
+\end{eqnarray}
+The nodal shear strain-displacement relations are given in the form:
+\begin{eqnarray}
+\boldsymbol{\epsilon}_s^e =
+\textbf{B}_s^e\widehat{\textbf{d}}^e = 
+\left [
+\begin{array}{ccccc}
+0 & 0 & \frac{\partial N^e}{\partial y} & -1 & 0\\
+0 & 0 & \frac{\partial N^e}{\partial y} & 0 & -1
+\end{array} \right]
+\left \{ \begin{array}{c}
+\textbf{u}_0^e \\
+\textbf{v}_0^e \\
+\textbf{w}_0^e \\
+\boldsymbol{\varphi}_x^e \\
+\boldsymbol{\varphi}_y^e
+\end{array} \right\}
 \end{eqnarray}
 \subsection{3D model of the PZT transducer}
 \label{sec:3D_SEM}
-The displacements of the PZT transducer are defined by three displacement components \textbf{u}, \textbf{v} and \textbf{w}, and can be express in a form:
+The displacements vector of the PZT transducer is composed of three translational displacements, and it is defined as:
 \begin{eqnarray}
-\left [ \begin{array}{c}
+\left \{ \begin{array}{c}
 \textbf{u}^e(\xi,\eta,\zeta) \\
 \textbf{v}^e(\xi,\eta,\zeta) \\
 \textbf{w}^e(\xi,\eta,\zeta)
-\end{array} \right]
+\end{array} \right\}
 & = & \textbf{N}^e(\xi,\eta, \zeta)\widehat{\textbf{d}}^e\nonumber\\
 & = & \sum_{l=1}^r\sum_{n=1}^q\sum_{m=1}^p\textbf{N}_m^e(\xi)\textbf{N}_n^e(\eta)\textbf{N}_l^e(\zeta)
-\left [ \begin{array}{c}
+\left \{ \begin{array}{c}
 \widehat{\textbf{u}}^e(\xi_m,\eta_n,\zeta_l) \\
 \widehat{\textbf{v}}^e(\xi_m,\eta_n,\zeta_l) \\
 \widehat{\textbf{w}}^e(\xi_m,\eta_n,\zeta_l)
-\end{array} \right]
+\end{array} \right\}
 \label{eq:3D_displ}
 \end{eqnarray}
 where \(\widehat{\textbf{u}}^e\), \(\widehat{\textbf{v}}^e\) and 
-\(\widehat{\textbf{w}}^e\) are nodal values.
-Six components of the strain matrix are approximated as follow 
-\cite{kudela20093d}:
+\(\widehat{\textbf{w}}^e\) are displacements of the element nodes in \(\xi,\eta\) and \(\zeta\) direction.
+
+The nodal strain-displacement relations are given as \cite{kudela20093d}:
 \begin{eqnarray}
-\bepsilon^e(\xi,\eta,\zeta)=\textbf{B}_{d}^e\widehat{\textbf{d}}^e
-\end{eqnarray}
-where \(\textbf{B}_{d}^e\) is strain-nodal displacement matrix calculated as:
-\begin{eqnarray}
-\textbf{B}_{d}^e=\textbf{L}\textbf{N}^e(\xi,\eta,\zeta)
-\end{eqnarray}
-\begin{eqnarray}
-\textbf{L}=\left [
-\begin{array}{ccc}
-\frac{\partial }{\partial x} & 0 & 0\\
-0 & \frac{\partial }{\partial y} & 0\\
-0 & 0 & \frac{\partial }{\partial z}\\
-0 & \frac{\partial }{\partial z} & \frac{\partial }{\partial y}\\
-\frac{\partial }{\partial z} & 0 & \frac{\partial }{\partial x}\\
-\frac{\partial }{\partial y} & \frac{\partial }{\partial x} & 0
-\end{array} \right],\ 
+\boldsymbol{\epsilon}^e=\textbf{B}_{d}^e\widehat{\textbf{d}}^e=
 \left [
-\begin{array}{c}
-\frac{\partial }{\partial x}\\
-\frac{\partial }{\partial y}\\
-\frac{\partial }{\partial z}
-\end{array} \right] =\textbf{J}^{-1}
-\left [
-\begin{array}{c}
-\frac{\partial }{\partial \xi}\\
-\frac{\partial }{\partial \eta}\\
-\frac{\partial }{\partial \zeta}
-\end{array} \right], \ 
-\textbf{J}=\left [
 \begin{array}{ccc}
-\partial_\xi x & {\partial_\xi y} & {\partial_\xi z}\\
-\partial_\eta x & {\partial_\eta y} & {\partial_\eta z}\\
-\partial_\zeta x & {\partial_\zeta y} & {\partial_\zeta z}
+\frac{\partial N^e}{\partial x} & 0 & 0\\
+0 & \frac{\partial N^e}{\partial y} & 0\\
+0 & 0 & \frac{\partial N^e}{\partial z}\\
+0 & \frac{\partial N^e}{\partial z} & \frac{\partial N^e}{\partial y}\\
+\frac{\partial N^e}{\partial z} & 0 & \frac{\partial N^e}{\partial x}\\
+\frac{\partial N^e}{\partial y} & \frac{\partial N^e}{\partial x} & 0
 \end{array} \right]
+\left \{ \begin{array}{c}
+\textbf{u}^e \\
+\textbf{v}^e \\
+\textbf{w}^e
+\end{array} \right\}
 \end{eqnarray}
 
-The electromechanical coupling is governed by the linear constitutive equation 
-of piezoelectric material according to~\cite{giurgiutiumicromechatronics} and 
-it is expressed by:
+The electromechanical coupling is governed by the linear constitutive equation of piezoelectric material according to~\cite{giurgiutiumicromechatronics, rekatsinas2017cubic}, and it is defined as:
 \begin{eqnarray}
 \left [ 
 \begin {array}{c}
-\bsigma\\
+\boldsymbol{\sigma}\\
 \textbf{D}
- \end{array}\right ]=
+\end{array}\right ]=
 \left [ 
 \begin{array}{cc}
 \textbf{c}^E & -\textbf{e}^T \\
-\textbf{e} & \bepsilon^S 
+\textbf{e} & \epsilon^S 
 \end{array} \right ]
 \left[ 
 \begin{array}{c}
@@ -272,70 +237,55 @@ it is expressed by:
 \textbf{E} 
 \end{array} \right ]
 \end{eqnarray}
-where \(\textbf{c}^E\), \textbf{e} and \(\bepsilon^S\) are tensors of elastic, 
-piezoelectric and dielectric constants, respectively, \textbf{E} and \textbf{D} 
-are the electric field and electric displacement, \(\bsigma\) and \textbf{S} 
-are stress and strain.
-The superscripts E and S indicate that quantities are measured at zero electric 
-fields and zero strain, respectively and the subscript T denotes transpose 
-matrix.
-Electric field vector can be expressed as:
+where \(\textbf{c}^E\) is the stiffness coefficients measured at zero electric field, \textbf{e} is the piezoelectric coupling tensor and \(\boldsymbol{\epsilon}^S\) electric permittivity, \textbf{E} and \textbf{D} are the electric field and electric displacement measured at zero strain.
+The superscript T denotes transpose matrix.
+The eElectric field is defined as:
 \begin{eqnarray}
-\textbf{E}^e=-\textbf{B}_\phi^e \widehat{\bphi}^e
-\end{eqnarray}
-where \(\textbf{B}_\phi^e\) is electric-nodal potential matrix calculated as:
-\begin{eqnarray}
-\textbf{B}_\phi^e=
-\left[ \begin{array}{c}
-\frac{\partial }{\partial \xi}\\
-\frac{\partial }{\partial \eta}\\
-\frac{\partial }{\partial \zeta}
-\end{array} \right]\textbf{N}^e(\xi,\eta,\zeta)
+\textbf{E}^e=-\textbf{B}_\phi^e \widehat{\phi}^e = \left[ \begin{array}{c}
+\frac{\partial N^e}{\partial \xi}\\
+\frac{\partial N^e}{\partial \eta}\\
+\frac{\partial N^e}{\partial \zeta}
+\end{array} \right] \widehat{\phi}^e
 \end{eqnarray}
 
 \subsection{Displacements coupling at the substructures interface}
 \label{sec:interface}
 The present model of the sandwich panel consists of 2D and 3D elements. 
 Moreover, there are non-matching grids between two adjacent substructures. 
-These involve connecting them by imposing the compatibility of the 
-displacements at the interface, see Fig.~\ref{fig:interface}.
+These involve connecting them by imposing the compatibility of the displacements at the interface, see Fig.~\ref{fig:interface}.
+This type of connection is implemented through the interface elements based on Lagrange multipliers, which are interpreted as forces responsible for determining the appropriate displacements of nodes.
 The coupling can be expressed as:
 \begin{eqnarray}
 \left\{\begin{array}{c}
-	\textbf{u}\\
-	\textbf{v}\\
-	\textbf{w}
-	\end{array}\right\}_{s_{i1}}^{\Gamma^i}-
-	\left\{\begin{array}{c}
-	\textbf{u}\\
-	\textbf{v}\\
-	\textbf{w}
-	\end{array}\right\}_{s_{i2}}^{\Gamma^i}=
-	\left\{\begin{array}{c}
-	\textbf{0}\\
-	\textbf{0}\\
-	\textbf{0}
-	\end{array}\right\}
+\textbf{u}\\
+\textbf{v}\\
+\textbf{w}
+\end{array}\right\}_{s_{i1}}^{\Gamma^i}-
+\left\{\begin{array}{c}
+\textbf{u}\\
+\textbf{v}\\
+\textbf{w}
+\end{array}\right\}_{s_{i2}}^{\Gamma^i}=
+\left\{\begin{array}{c}
+\textbf{0}\\
+\textbf{0}\\
+\textbf{0}
+\end{array}\right\}
 \label{eq:coupling}
 \end{eqnarray}
 \begin{figure}
 	\begin{center}
 		\includegraphics[width=1\linewidth]{../../../figures/eps/interface_2D3D.eps}
 	\end{center}
-	\caption{Interface setup: a) interface coupling, b) degrees of freedom of the interface and the substructures, c) the nodes at the bottom layer of the 3D substructure, d) the remaining nodes of the 3D substructure, e) the nodes of the interface projected to the bottom layer of the 3D 
-	substructure, f) the nodes of the interface, g) the nodes of the interface projected to mid-surface of the 2D substructure, h) the nodes of the 2D substructure}
+	\caption{Non-matching interface setup: a) interface coupling, b) degrees-of-freedom of the interface and the substructures, c) the nodes of the 3D substructure, d) interface nodes inherited from 3D substructure, e) interface nodes projection on the 2D substructure, f) the nodes of the 2D substructure}
 	\label{fig:interface}
 \end{figure}
-For the whole structure, equation~\ref{eq:coupling} can be written in the 
-matrix form:
+where \(s_{i1}\) and \(s_{i2}\) are substructures connected by the interface \(\Gamma^i\). For the whole structure, the Eq.~\ref{eq:coupling} can be written in the matrix form:
 \begin{eqnarray}
 \textbf{G}\textbf{d}=\textbf{0}
 \label{eq:cond_disp}
 \end{eqnarray}
-where \textbf{G} is the coupling matrix which contains the equations to 
-interpolate the substructures displacements at the interfaces, and 
-\(\textbf{d}\) is a global vector of displacements for \(nS\) number of 
-substructures, composed as:
+where \textbf{G} is the coupling matrix which contains the equations to interpolate the substructures displacements at the interfaces, and \(\textbf{d}\) is a global vector of displacements for \(nS\) number of substructures, composed as:
 \begin{eqnarray}
 \textbf{d} = \left\{\begin{array}{cccc}
 \textbf{d}_1, & \textbf{d}_2, &\ldots, & \textbf{d}_{nS}
@@ -343,24 +293,7 @@ substructures, composed as:
 \label{eq:displacements}
 \end{eqnarray}
 
-General formulation of the matrix \textbf{G} is proposed in Algorithm 
-\ref{alg:G_matrix}.
-The main task of the algorithm is to calculate shape functions for each 
-adjacent substructures at the points \(X_p=(x_p^k,y_p^k)\), which are 
-projections of the interface nodes onto these substructures.
-The shape function can be calculated after finding an owner element and local 
-coordinates of the points.
-Owner element is a spectral element in the domain of the substructure \(s_{ij}\) which contains interface node, for example, interface node \(k=6\) 
-(see~Fig.~\ref{fig:interface}a)) is located in element \(e^I\) and 
-\(e^{III}\) for the substructures \(s_{i1}\) and \(s_{i2}\), respectively.
-It can be found within two ways: using Matlab's built-in function 
-\verb+inpolygon+ or more efficient procedure proposed by Silva et al. 
-\cite{silva2009exact} which was used in the current implementation.
-The transformation from global to local coordinates was realized by the 
-iterative method presented in the work of Li et al.~\cite{li2014efficient}.
-
-
-\begin{algorithm}[H]
+\begin{algorithm}
 	\SetAlgoLined
 	\KwResult{coupling matrix \textbf{G}}
 	create empty \(nI \times nS\) cell array: \(\mathbf{G} = cell(nI,nS)\)\;
@@ -372,7 +305,7 @@ iterative method presented in the work of Li et al.~\cite{li2014efficient}.
 			\(\mathbf{G}^{s_{ij}}_i\),\\
 			\For{k = 1 \KwTo \(n^{\Gamma^i}\)} {
 				find \(ownerElement^{s_{ij}}_k\) in the structure \(s_{ij}\) 
-				containg interface node \(k\) with global coordinates vector: 
+				containing interface node \(k\) with global coordinates vector: 
 				\(X_p=(x^k_p,y^k_p)\)\;
 				assign vector \(X_e=(x_e,y_e)\) of coordinates of all nodes in 
 				\(ownerElement^{s_{ij}}_k\)\;
@@ -380,8 +313,7 @@ iterative method presented in the work of Li et al.~\cite{li2014efficient}.
 				\(X_{\kappa}=(x^k_{\kappa},y^k_{\kappa})\) to the nearest node 
 				in 
 				\(ownerElement^{s_{ij}}_k\) to node \(k\)\;
-				transform global coordinates \(X_{\kappa}\) to local coordinate 
-				system \(\xi_{\kappa}=\xi(X_{\kappa});\quad 
+				transform global coordinates \(X_{\kappa}\) to a local coordinate system \(\xi_{\kappa}=\xi(X_{\kappa});\quad 
 				\eta_{\kappa}=\eta(X_{\kappa})\)\;
 				\While{\(\left|X_p-X_{\kappa}\right|>tol\)}{
 					\(\xi_{\kappa+1}=\xi_{\kappa}+(J^{-1}_{\kappa})_{11}.*(x^k_p-x_{\kappa}^k)+(J^{-1}_{\kappa})_{12}.*(y^k_p-y_{\kappa}^k)\)\;
@@ -415,115 +347,61 @@ iterative method presented in the work of Li et al.~\cite{li2014efficient}.
 			
 		}
 	}
-	fill empty cells of array \(\mathbf{G}\) with null matrices, and convert 
-	\(\mathbf{G}\) to single matrix.
+	where \(nI\) and \(nS\) are numbers of the interfaces and the structures, respectively; \(n^{\Gamma^i}\) and \(n^{s_{ij}}\) are numbers of nodes of the interface \(i\), and the structure \(s_{ij}\), respectively; \(\eta^k_p\) and  \(\xi^k_p\) are local coordinates of \(X_p\), respectively; \(J_{\kappa}\) are Jacobians evaluated at \((\xi_{\kappa+1},\eta_{\kappa+1})\) and \(N(\xi_{\kappa+1},\eta_{\kappa+1})\) is the shape function evaluated at \((\xi_{\kappa+1},\eta_{\kappa+1})\), \(nX_e\) is the vector of global order numbers of all nodes in the \(Elements^{s_{ij}}_k\), \(h_{ij}\) is a thickness of the structure \(s_{ij}\) and \(tol\) is a termination criterion for iterations.
 	\caption{Matrix G formulation}
 	\label{alg:G_matrix}
 \end{algorithm}
-where \(nI\) and \(nS\) are numbers of the interfaces and the structures, 
-respectively; \(n^{\Gamma^i}\) and \(n^{s_{ij}}\) are numbers of nodes of the 
-interface \(i\), and the structure \(s_{ij}\), respectively; \(\eta^k_p\) and  
-\(\xi^k_p\) are local coordinates of \(X_p\), respectively; \(J_{\kappa}\) is 
-Jacobians evaluated at \((\xi_{\kappa+1},\eta_{\kappa+1})\) and 
-\(N(\xi_{\kappa+1},\eta_{\kappa+1})\) is a shape function evaluated at 
-\((\xi_{\kappa+1},\eta_{\kappa+1})\), \(nX_e\) is a vector of global order 
-numbers of all nodes in the \(ownerElements^{s_{ij}}_k\), \(h_{ij}\) is a 
-thickness of the structure \(s_{ij}\) and \(tol\) is a termination criterion 
-for iterations.
+The general formulation of the matrix \textbf{G} is proposed in Algorithm \ref{alg:G_matrix}.
+The main task of the algorithm is to calculate shape functions for each adjacent substructures at the points \(X_p=(x_p^k,y_p^k)\), which are projections of the interface nodes onto these substructures.
+The shape function can be calculated after finding an owner element and local coordinates of the points.
+Owner element is a spectral element in the domain of the substructure \(s_{ij}\) which contains interface node, for example, interface node \(k_\Gamma=36\) (see~Fig.~\ref{fig:interface}a)) is located in the element \(e^{I}_{3D}\) and \(e^{III}_{2D}\) for the substructures \(s_{11}\) and \(s_{12}\), respectively.
+It can be found within two ways: using Matlab's built-in function \verb+inpolygon+ or more efficient procedure proposed by Silva et al. \cite{silva2009exact} which was used in the current implementation.
+The transformation from global to local coordinates was realised by the iterative method presented in the work of Li et al.~\cite{li2014efficient}.
 
-The computational effectiveness of Algorithm~\ref{alg:G_matrix} can be 
-easily improved if certain precautions are taken.
-Firstly, the mesh of the interface has to be based on the mesh from one of the 
-substructures \(s_i1\), \(s_i2\), which may be referred to as a slave.
+The computational effectiveness of Algorithm~\ref{alg:G_matrix} can be easily improved if certain precautions are taken.
+Firstly, the mesh of the interface has to be based on the mesh from one of the substructures \(s_i1\), \(s_i2\), which may be referred to as a slave.
 So, the shape function takes only the values of one and zeros.
-Moreover, the code can be implemented in vectorized form rather than using a 
-for-loops.
+Moreover, the code can be implemented in vectorized form rather than using a for-loops.
 
 \subsection{Elementary governing equations of motion}
 \label{sec:motion}
-The elementary governing equations of motion with Lagrange multipliers can be written in the matrix form:
+The classical equations of motion \(\textbf{M}\ddot{\textbf{d}} + \textbf{C}\dot{\textbf{d}} + \textbf{K}\textbf{d} = \textbf{F}\) known from FEM are complemented by piezoelectric and interface coupling. Thus, the governing equations are defined as:
 \begin{eqnarray}
-\left[
-\begin{array}{ccc}
-\textbf{M}_{dd} & 0 & 0\\
-0 & 0 & 0\\
-0 & 0 & 0
-\end{array} \right]
-\left \{
-\begin{array}{c}
-\ddot{\widehat{\textbf{d}}}\\
-\ddot{\widehat{\bphi}}\\
-0
-\end{array} \right \}+
-\left[
-\begin{array}{ccc}
-\textbf{C}_{dd} & 0 & 0\\
-0 & 0 & 0\\
-0 & 0 & 0
-\end{array} \right]
-\left \{
-\begin{array}{c}
-\dot{\widehat{\textbf{d}}}\\
-\dot{\widehat{\bphi}}\\
-0
-\end{array} \right \}+\nonumber\\
-+\left[
-\begin{array}{ccc}
-\textbf{K}_{dd} & \textbf{K}_{d\phi} & {\textbf{G}}^T\\
-\textbf{K}_{\phi d} & \textbf{K}_{\phi \phi} & 0\\
-\textbf{G} & 0 & 0
-\end{array} \right]
-\left \{
-\begin{array}{c}
-\widehat{\textbf{d}}\\
-\widehat{\bphi}\\
-\blambda
-\end{array} \right \}=
-\left \{
-\begin{array}{c}
-\textbf{F}\\
-\textbf{Q}\\
-0
-\end{array} \right \}
+\textbf{M}_{dd} \widehat{\ddot{\textbf{d}}} + \textbf{C}_{dd} \widehat{\dot{\textbf{d}}} + \textbf{K}_{dd} \widehat{\textbf{d}} + \textbf{K}_{d\phi} \widehat{\boldsymbol{\phi}} = \textbf{F} - \textbf{G}^T \boldsymbol{\lambda},
 \label{eq:motion}
 \end{eqnarray}
-where \(\textbf{M}_{dd}\), \(\textbf{C}_{dd}\), \(\textbf{K}_{dd}\) are 
-structural mass, damping and stiffness matrices, respectively; 
-\(\textbf{K}_{\phi 
-d}={\textbf{K}_{d\phi}}^T\) are piezoelectric coupling matrix; 
-\(\textbf{K}_{\phi 
-\phi}\) is the dielectric permittivity matrix, \(\widehat{\textbf{d}}\) is the 
-nodal displacements and \(\widehat{\bphi}\) is the electric potential; 
-\(\textbf{F}\) the nodal external force vector, \(\textbf{Q}\) is the nodal 
-externally applied charge vector, \(\blambda\) is the vector of Lagrange 
-multipliers, and \(\textbf{G}\) is the Lagrange multiplier matrix; \((\dot{\ 
-})=\frac{\partial}{\partial t}\).
-The formulae of matrices are provided in App.~\ref{app:matrices}.
-The coupling is realized by imposing the traction forces, represented by a vector of Lagrange multipliers. 
+\begin{eqnarray}
+\textbf{K}_{\phi d}\widehat{\textbf{d}} + \textbf{K}_{\phi \phi} \widehat{\boldsymbol{\phi}} = \textbf{Q}
+\label{eq:piezocoupling}
+\end{eqnarray} 
+
+where \(\textbf{M}_{dd}\), \(\textbf{C}_{dd}\), \(\textbf{K}_{dd}\) are structural mass, damping and stiffness matrices, respectively; \(\textbf{K}_{\phi d}={\textbf{K}_{d\phi}}^T\) are piezoelectric coupling matrices; \(\textbf{K}_{\phi \phi}\) is the dielectric permittivity matrix, \(\widehat{\textbf{d}}\) is the vector of unknown nodal displacements, and \(\widehat{\boldsymbol{\phi}}\) is the electric potential vector; \(\textbf{F}\) the nodal external force vector, \(\textbf{Q}\) is the nodal charge vector, \(\boldsymbol{\lambda}\) is the Lagrange multipliers vector, and \(\textbf{G}\) is the interface coupling matrix; \((\dot{\ })=\frac{\partial}{\partial t}\).
+The formulae of the matrices are provided in App.~\ref{app:matrices}.
+The coupling is realised by imposing the traction forces, represented by a vector of Lagrange multipliers. 
 
 \subsection{Transformation of the core elements}
 \label{sec:transformation}
 All core elements are rotated relative to both skins, so it is necessary to transform degrees of freedom from the local core's coordinate system to the global system.
 For this purpose, an additional sixth global dof has been incorporated, i.e. rotation with respect to the z-axis.
-Firstly, a part of mass matrix accounted for rotary inertia (see App. \ref{app:matrices}) is globalised as follow:
-	\begin{eqnarray}
-		\textbf{M}_R^g=\textbf{a}\,\textbf{M}_R^l\,\textbf{a}^{-1}
-		\label{eq:inertia}
-	\end{eqnarray}
-where \(\textbf{a}\) is general rotation matrix obtained from multiplication of basic rotation matrices, and for the regular hexagonal core a is equal to:
+Firstly, a part of the mass matrix accounted for rotary inertia (see App. \ref{app:matrices}) is globalised as follows:
 \begin{eqnarray}
-	\textbf{a}=\left [ 
-	\begin{array}{ccc}
-	m & -n & 0\\
-	0 & 0 & -1\\
-	n & m & 0\\
-	\end{array}
-	\right ]
+\textbf{M}_R^g=\textbf{a}\,\textbf{M}_R^l\,\textbf{a}^{-1}
+\label{eq:inertia}
+\end{eqnarray}
+where \(\textbf{a}\) is general rotation matrix obtained from the multiplication of basic rotation matrices, and for the regular hexagonal core a is equal to:
+\begin{eqnarray}
+\textbf{a}=\left [ 
+\begin{array}{ccc}
+m & -n & 0\\
+0 & 0 & -1\\
+n & m & 0\\
+\end{array}
+\right ]
 \label{eq:rotation}
 \end{eqnarray}
-where \(m=\cos(\alpha),\:n=\sin(\alpha)\), for \(\alpha\in{(0^\circ,\,60^\circ,\,120^\circ,180^\circ,\,240^\circ,\,300^\circ)}\) depending on which wall of the cell it is applied to.
+where \(m=\cos(\alpha),\:n=\sin(\alpha)\), for \(\alpha\in{[0^\circ,\,60^\circ,\,120^\circ,180^\circ,\,240^\circ,\,300^\circ]}\) depending on which wall of the cell it is applied to.
 
-The stiffness--strain relationship in local and global frame is given by:
+The stiffness--strain relationship in local and global coordinate systems is given by:
 \begin{eqnarray}
 \begin{array}{ccc}
 \left [
@@ -569,7 +447,7 @@ The stiffness--strain relationship in local and global frame is given by:
 \end{array}
 \label{eq:stress_global}
 \end{eqnarray}
-The global form of stiffness matrix \(K\), involves the determination of stiffness tensor \(\bar{c}\) from Eq.~\ref{eq:stress_global}.
+The global form of the stiffness matrix \(K\), involves the determination of stiffness tensor \(\bar{c}\) from Eq.~\ref{eq:stress_global}.
 The transformation of the stress tensor is expressed as:
 \begin{eqnarray}
 \left [ 
@@ -591,7 +469,7 @@ The transformation of the stress tensor is expressed as:
 \,\textbf{a}^T
 \label{eq:sigma_tensor}
 \end{eqnarray}
-After multiplication of matrices and using the symmetry of the stress tensor Eq.~\ref{eq:sigma_tensor} can be rewritten in simplified form:
+After the multiplication of matrices and using the symmetry of the stress tensor Eq.~\ref{eq:sigma_tensor} can be rewritten in a simplified form:
 
 \begin{eqnarray}
 \left [
@@ -617,7 +495,7 @@ After multiplication of matrices and using the symmetry of the stress tensor Eq.
 \label{eq:stress}
 \end{eqnarray}
 
-Analogously, strain relationship also is given in the form:
+Analogously, a strain relationship also is given in the form:
 \begin{eqnarray}
 \begin{array}{ccc}
 \left [
@@ -676,7 +554,7 @@ where \(\textbf{R}\) is the Reuter's matrix, defined as:
 \right ]
 \label{eq:reuters}
 \end{eqnarray}
-Using the Eqs.~\ref{eq:rotation} through \ref{eq:reuters} the relationship of stress--strain in the global frame can be expressed as:
+Using the Eqs.~\ref{eq:rotation} through \ref{eq:reuters}, the relationship of stress--strain in the global frame can be expressed as:
 \begin{eqnarray}
 \left [
 \begin{array}{c}
@@ -706,99 +584,76 @@ Therefore, transformed stiffness tensor for the core's elements is equal:
 \bar{\textbf{c}}=\textbf{T}\,\textbf{c}\,\textbf{R}\,\textbf{T}^{-1}\,\textbf{R}^{-1}
 \label{eq:c_global}
 \end{eqnarray}
-
-
-\subsection{Time integration of the equation of motion}
+\subsection{A solution of the equation of motion}
 \label{sec:time_integration}
-Using a central difference scheme, equation (\ref{eq:motion}) can be rewritten as follow:
+Assuming \(\textbf{b}\) and \(\textbf{f}\) represent order lists of the electrodes nodes and free nodes of the PZT, respectively, the electrical potential vector is rewritten:
+\begin{eqnarray}
+\widehat{\boldsymbol{\phi}} = \left \{\begin{array}{cc}
+\widehat{\boldsymbol{\phi}}(\textbf{b}) &
+\widehat{\boldsymbol{\phi}}(\textbf{f})
+\end{array}\right \}^T
+\label{eq:potential}
+\end{eqnarray}
+Then, Eq. \ref{eq:piezocoupling} is expressed as:
+\begin{eqnarray}
+\left [\begin{array}{c}
+\textbf{K}_{\phi d}(\textbf{b},:) \\
+\textbf{K}_{\phi d}(\textbf{f},:)
+\end{array}\right]
+\left \{\widehat{\textbf{d}}\right\} +
+\left [\begin{array}{cc}
+\textbf{K}_{\phi \phi}(\textbf{b},\textbf{b}) & \textbf{K}_{\phi \phi}(\textbf{b},\textbf{f})\\
+\textbf{K}_{\phi \phi}(\textbf{f},\textbf{b}) & \textbf{K}_{\phi \phi}(\textbf{f},\textbf{f})
+\end{array}\right]
+\left \{\begin{array}{c}
+\widehat{\boldsymbol{\phi}}(\textbf{b}) \\
+\widehat{\boldsymbol{\phi}}(\textbf{f})
+\end{array}\right \} = 
+\left \{\begin{array}{c}
+\textbf{Q} \\
+\textbf{0}
+\end{array}\right \}
+\label{eq:piezoboundary}
+\end{eqnarray} 
+where the notation \(\textbf{K}(\textbf{row},\textbf{col})\) uses vectors \(\textbf{row}\) and \(\textbf{col}\) to extract rows and columns from the matrix \(\textbf{K}\), respectively, and \((:)\) means all rows or columns of \(\textbf{K}\).
+The electrical potential of the free nodes can be extracted from Eq. \ref{eq:piezoboundary}:
+\begin{eqnarray}
+\widehat{\boldsymbol{\phi}}(\textbf{f}) = -\textbf{K}_{\phi\phi}^{-1}(\textbf{f},\textbf{f})\left[\textbf{K}_{\phi d}(\textbf{f},:) \widehat{\textbf{d}} + \textbf{K}_{\phi\phi}(\textbf{f},\textbf{b})\widehat{\boldsymbol{\phi}}(\textbf{b}) \right]
+\label{eq:freePotetial}
+\end{eqnarray}
+Substituting Eq. \ref{eq:potential} and \ref{eq:freePotetial} into Eq. \ref{eq:motion}, the equation of motion can be rearranged into the form:
+\begin{eqnarray}
+\textbf{M}_{dd} \widehat{\ddot{\textbf{d}}} + \textbf{C}_{dd} \widehat{\dot{\textbf{d}}} + (\textbf{K}_{dd}-\textbf{K}_{s}) \widehat{\textbf{d}}  = \textbf{F} + \textbf{K}_{a} \widehat{\boldsymbol{\phi}}(b) - \textbf{G}^T \boldsymbol{\lambda},
+\label{eq:motionD}
+\end{eqnarray}
+where  \(\textbf{K}_a=\textbf{K}_{d\phi}(:,f)\textbf{K}_{\phi \phi}^{-1}(f,f)\textbf{K}_{\phi \phi}(\textbf{f},\textbf{b})-\textbf{K}_{d\phi}(:,\textbf{b})\), \(\textbf{K}_s=\textbf{K}_{d \phi}(:,\textbf{f})\textbf{K}_{\phi \phi}^{-1}(\textbf{f},\textbf{f})\textbf{K}_{\phi d}(\textbf{f},:)\).
+The unknown vector of displacements \(\widehat{\textbf{d}}_t\) is found using a central difference algorithm \cite{kudela20093d}.
+Thus, Eq.~(\ref{eq:motionD}) is rewritten as:
 \begin{eqnarray}
 \left(\frac{1}{\Delta t^2}\textbf{M}_{dd}+\frac{1}{2\Delta t}\textbf{C}_{dd} \right)\widehat{\textbf{d}}_{t+\Delta t}=
-\textbf{F}_t+\textbf{K}_s\bphi_t^P-\left( \textbf{K}_{dd}-\textbf{K}_a\right)\widehat{\textbf{d}}_t\nonumber\\
-+\frac{2}{\Delta t^2}\textbf{M}_{dd}\widehat{\textbf{d}}_t-\left(\frac{1}{\Delta t^2}\textbf{M}_{dd}-\frac{1}{2\Delta t}\textbf{C}_{dd}\right)\widehat{\textbf{d}}_{t-\Delta t}-\textbf{G}^T\blambda_t
+\textbf{F}_t+\textbf{K}_a\widehat{\boldsymbol{\phi}}_t(b)-\left( \textbf{K}_{dd}-\textbf{K}_s\right)\widehat{\textbf{d}}_t\nonumber\\
++\frac{2}{\Delta t^2}\textbf{M}_{dd}\widehat{\textbf{d}}_t-\left(\frac{1}{\Delta t^2}\textbf{M}_{dd}-\frac{1}{2\Delta t}\textbf{C}_{dd}\right)\widehat{\textbf{d}}_{t-\Delta t}-\textbf{G}^T\boldsymbol{\lambda}_t
 \label{eq:CDE}
 \end{eqnarray}
-where  \(\textbf{K}_s=\textbf{K}_{d\phi}^A{\textbf{K}_{\phi 
-\phi}^{A,A}}^{-1}\textbf{K}_{\phi \phi}^{A,P}-\textbf{K}_{d\phi}^P\), 
-\(\textbf{K}_a=\textbf{K}_{d \phi}^A{\textbf{K}_{\phi 
-\phi}^{A,A}}^{-1}\textbf{K}_{\phi d}^A\), 
-and \(\Delta t\) is the time increment. 
-\(\textbf{K}_{d \phi}^A\) and \(\textbf{K}_{d\phi}^P\) are sub-matrices of 
-matrix 
-\(\textbf{K}_{d\phi}\), 
-while \(\textbf{K}_{\phi \phi}^{A,P}\) and \(\textbf{K}_{\phi \phi}^{A,A}\) are 
-the sub-matrices of matrix \(\textbf{K}_{\phi \phi}\).
-Their formulation is realized by discarding appropriate rows and columns 
-according to imposed electrical boundary conditions. \(\textbf{K}_{d \phi}^P\) 
-contains columns selected from \(\textbf{K}_{d\phi}\) by vector \textbf{P}, and 
-\(\textbf{K}_{d\phi}^A\) contains columns selected from \(\textbf{K}_{d\phi}\) 
-by vector \textbf{A}. 
-\(\textbf{K}_{\phi \phi}^{A,P}\) contains columns from \(\textbf{K}_{\phi 
-\phi}\) selected by vector \textbf{P} and rows from the same matrix selected by 
-vector \textbf{A}, and \(\textbf{K}_{\phi \phi}^{A,A}\) contains rows and 
-columns selected from \(\textbf{K}_{\phi \phi}\) by vector \textbf{A}.
-Where \textbf{P} is a list of nodes assigned to the electrodes, and \textbf{A} 
-is a complement of \textbf{P} in the set of all nodes of the PZT.
+where \(\Delta t\) is the time increment.
 
-Unknown Lagrange multiplier vector \(\blambda_t\) is dependent on the load 
-acting on the structure, and it is calculated for each time step from 
-Eq.~(\ref{eq:CDE}) by imposing the constraint Eq.~(\ref{eq:cond_disp}).
-\begin{eqnarray}
-\blambda_t &= &{\left(\textbf{G}\textbf{L}_+^{-1}\textbf{G}^T \right)}^{-1}\textbf{G}\textbf{L}_+^{-1} \Bigg[ \textbf{F}_t+\textbf{K}_s\bphi_t^P\nonumber\\
-& & +\left.\left(\frac{2}{\Delta t^2}\textbf{M}_{dd}-\textbf{K}_{dd}+\textbf{K}_a\right)\textbf{d}_t -\textbf{L}_-\textbf{u}_{t-\Delta t} \right]
+Imposing the constrain Eq. \ref{eq:cond_disp}, the vector of Lagrange multipliers \(\boldsymbol{\lambda}_t\) can be extracted from Eq. \ref{eq:CDE}:\begin{eqnarray}
+\boldsymbol{\lambda}_t = {\left(\textbf{G}\textbf{L}_+^{-1}\textbf{G}^T \right)}^{-1}\textbf{G}\textbf{L}_+^{-1} \Bigg[ \textbf{F}_t+\textbf{K}_a\widehat{\boldsymbol{\phi}}_t(b)+\left.\left(\frac{2}{\Delta t^2}\textbf{M}_{dd}-\textbf{K}_{dd}+\textbf{K}_s\right)\widehat{\textbf{d}}_t -\textbf{L}_-\widehat{\textbf{d}}_{t-\Delta t} \right]
+\label{eq:lambda}
 \end{eqnarray}
-where \(\textbf{L}_+=\frac{1}{\Delta t^2}\textbf{M}_{dd}+\frac{1}{2\Delta 
-t}\textbf{C}_{dd}\) and \(\textbf{L}_-=\frac{1}{\Delta 
-t^2}\textbf{M}_{dd}-\frac{1}{2\Delta t}\textbf{C}_{dd}\).
-
-\section{Numerical simulations}
-\label{sec:numerical}
-\subsection{Sample configuration}
-\label{sec:sample}
-The sample consists of aluminum honeycomb attached between two carbon fiber 
-reinforced polymer (CFRP) plates by the adhesive layers 
-(Fig.~\ref{fig:honeycomb}a)).
-Material properties used in the simulations are gathered in 
-App.~\ref{app:properties}.
-One pair of circular PZT transducers were mounted on the top skin to generate 
-and receive of guided waves signals.
-Glue under the transducers were not considered.
-
-In the middle of the structure, the circular area of the adhesive layer between 
-the bottom skin and core was removed to simulate the disbonds in the HSC.
-This model is simple for implementation and does not effect on the convergence of the time integration.
-However, it does not take into account the contact between the structures, so the nodes of particular elements in this area may intersect with each other.
-The size of the disbonds was the subject of the parametric study aiming at 
-finding the damage effect on GW propagation.
-
-The following dimensions and parameters were assumed:
-\begin{itemize}
-	\item CFRP skins --- L = 500, W = 314, H = 1 mm, fibers volume fraction 
-	50\%, stacking sequence 
-	\([0^\circ,90^\circ,0^\circ,90^\circ,0^\circ,90^\circ,0^\circ,90^\circ]\),
-	\item Core --- \(\Phi\) = 19, h = 10, w = 0.07 mm 
-	(Fig.~\ref{fig:honeycomb}b)),
-	\item Adhesive --- L = 500, W = 314, H = 0.5 mm,
-	\item PZT --- \(\Phi\) = 10, h = 0.5 mm, location \#1 \((x_1,y_1)=(-80,0)\) 
-	mm,	\#2 \((x_2,y_2)=(80,0)\) mm,
-	\item Disbonds \(\Phi = \left [0, 20, 40, 60, 80, 100, 120 \right ]\).
-\end{itemize}
-
-\begin{figure}
-	\begin{center}
-		\includegraphics[width=1\linewidth]{../../../figures/eps/honeycomb.eps}
-	\end{center}
-	\caption{Sample configuration: a) top view of the sample, b) honeycomb sandwich substructures, c) detail of the honeycomb cell}
-	\label{fig:honeycomb}
-\end{figure}
+where \(\textbf{L}_{\pm}=\frac{1}{\Delta t^2}\textbf{M}_{dd}\pm\frac{1}{2\Delta t}\textbf{C}_{dd}\).
 
 \subsection{Simulation parameters}
 \label{sec:simulation}
-The present model is composed of \(4 \times 4\) and \(4 \times 4 \times 4\) node spectral elements for 2D and 3D components, respectively.
-To decrease the number of non-zero values of the \(\textbf{G}\)~matrix, the following steps had been taken during the preparation of the mesh.
-One spectral element covers the wall of the honeycomb core, while the meshes of the skin plates and the adhesive layers were divided by elements in the shape of a rhombus, three per area under each cell.
+The inversion of the matrix \(\left [\textbf{GL}_+^{-1}\textbf{G}^T\right ]\) is necessary to calculate the vector of Lagrange multipliers in Eq. \ref{eq:lambda}).
+While \(\textbf{L}_+\) is a diagonal matrix, the sparsity of the matrix \(\textbf{G}\) has a significant influence on the computation cost.
+Therefore, during the generation of the mesh, the following steps were taken to reduce the number of non-zero matrix values in the matrix \(\textbf{G}\).
+
+One spectral element was intended for each wall of the honeycomb core, while the meshes of the skin plates and the adhesive layers were divided by three rhombus elements per area under the core cell.
 In this way, the interface nodes coincide with the nodes lying on the hexagon edges (thick line on Fig. \ref{fig:skin_mesh} b)).
 In the case of PZT transducers, the mesh was generated by using external GMSH software \cite{geuzaine2009gmsh} (see Fig.~\ref{fig:skin_mesh} c)).
-The prepared meshes ensure at least 6 nodes per wavelength.
+To achieve at least six nodes per wavelength within the assumed excitation range, 2D and 3D elements consist of \(4 \times 4\) and \(4 \times 4 \times 4\) nodes, respectively. 
+
 \begin{figure}
 	\begin{center}
 		\includegraphics[width=1\linewidth]{../../../figures/eps/skin_mesh.eps}
@@ -806,59 +661,82 @@ The prepared meshes ensure at least 6 nodes per wavelength.
 	\caption{The mesh with the nodes distribution, a) spectral element of the core's wall, b) excerpt of the skin plate, c) top view of the PZT transducer mesh}
 	\label{fig:skin_mesh}
 \end{figure}
-
-The analysis was conducted with the wide bandwidth chirp signal (Fig.~\ref{fig:chirp}).
-Total calculation time was set to 2 ms with time increment \(\Delta 
-t=10\) ns.
-The assigned excitation signal had the significant values in frequency domain between 0 and 20 kHz with resolution of 500 Hz.
 \begin{figure}
 	\begin{center}
-		\includegraphics[width=1\linewidth]{../../../figures/eps/chirp_0_20.eps}
+		\includegraphics[width=1\linewidth]{../../../figures/eps/pulse20.eps}
 	\end{center}
-	\caption{Chirp signal}
-	\label{fig:chirp}
+	\caption{Excitation signal, five-cycle sine pulse with central frequency 20 kHz}
+	\label{fig:signal}
 \end{figure}
+
+The analysis was conducted with a narrowband excitation signal in the form of five-cycles sine pulse in a Hanning window with the central frequency 20 kHz (Fig.~\ref{fig:signal}).
+
+\subsection{Homogenised model}
+\label{sec:homogenization}
+In the paper, comparative studies were carried out between the current model and the homogenised one. 
+In the homogenised model, the values of material constants of the panel core were calculated according to the method presented by Malek and Gibson \cite{malek2015effective}.
+The orthotropic mechanical properties for aluminium core are gathered in Table \ref{tab:properties_eff}, while the properties for other structures, i.e. skins, adhesive layers and sensors remained unchanged.
 
 \section{Results}
 \label{sec:results}
-The wave propagating through the sample interact with damage boundary, so the amplitude of the transmitted wave is expected to vary according to the size of the failure.
-One can observe on the Fig. \ref{fig:wavefield} that only a portion of the wave reached the sensor, while part of the wave is entrapped within the damage. Besides, the wave also interacts with the cells, due to modelling with respect to the real geometry of the core.
+\subsection{Comparison of the models}
+The advantage of the present model in comparison to the homogenised one can be immediately pointed out by analysis of the propagating wavefield (see Fig. \ref{fig:wavefield}).
+The wavefield of the proposed model is much more realistic.
+It reveals wave entrapment in the honeycomb cells.
+Such an effect is not present in the homogenised model.
+It also causes, that S0 to A0 mode conversion at sensor location is much more visible in the homogenised model (Fig.~\ref{fig:wavefield} left) than in the proposed model (Fig. \ref{fig:wavefield} right).
+
+It can be noticed in Fig.~\ref{fig:wavefield}) that the wave propagates in a manner typical for orthotropic material in case of both models, i.e. the wave velocity depends on the angle of propagation.
+In addition to the material properties of skins, velocity profiles highly depend on the core properties.
+This behaviour can be observed for both models.
+The highest velocities of A0 and S0 mode are observed in $0^{\circ}$ direction, while the minimum values are for $45^{\circ}$ (see. Fig.~\ref{fig:speed}).
+The A0 mode velocities are significantly lower in the current model than in the homogenised one.
+The differences are in a range from 12 to 29\%, and only up to 3\% for S0 mode.  
+
+In Fig.~\ref{fig:velocity} d) one can also notice differences in the particles velocity amplitude after the pulse has passed.
+For that period, the amplitude of particle velocity \(V_z\) is 2.8 times higher for the present model, due to reflections of the wave within the core walls.
+
+\label{comparison}
 \begin{figure}
 	\begin{center}
-		\includegraphics[width=1\linewidth]{../../../figures/eps/wavefield.eps}
+		\includegraphics[width=1\linewidth]{../../../figures/eps/wavefield_1.eps}
 	\end{center}
-	\caption{Full wavefield}
+	\caption{Full wavefield of the guided waves propagating in the sandwich for the present model and the homogenised one}
 	\label{fig:wavefield}
 \end{figure}
+\begin{figure}
+	\begin{center}
+		\includegraphics[width=1\linewidth]{../../../figures/eps/velocity.eps}
+	\end{center}
+	\caption{Particle velocity at point: a, b) P0(-86,0) mm, and c, d) P1(114,0) mm}
+	\label{fig:velocity}
+\end{figure}
+\begin{figure}
+	\begin{center}
+		\includegraphics[width=1\linewidth]{../../../figures/eps/cg.eps}
+	\end{center}
+	\caption{Group velocity in the function of propagation angle}
+	\label{fig:speed}
+\end{figure}
 
-To determine the effect of the damage size on GW propagation, the signal obtained by the sensor was taken into account.
-The signal represents an average value of the electrical potential of the nodes belonging to the upper layer of the sensor, calculated in each time step for different damage diameter.
-For further analysis, the time domain characteristics were transformed to frequency domain by the discrete Fourier transform, \(\Phi(f)=DFT(\Phi(t))\).
-It can be noticed on the Fig. \ref{fig:signals}a) that the signals values do not always decrease with the increasing of damage diameter.
-Therefore the MADIF is only defined for the frequency in which the function is monotonous.
+Therefore, differences in values recorded by the sensor are expected, as shown in Fig. \ref{fig:voltage}.
+
 \begin{figure}
 	\begin{center}
-		\includegraphics[width=1\linewidth]{../../../figures/pdf/time_fft.pdf}
+		\includegraphics[width=1\linewidth]{../../../figures/eps/voltage.eps}
 	\end{center}
-	\caption{The sensor signal in frequency domain a) full excitation bandwidth, b) bandwidth \#1, c) bandwidth \#2}
-	\label{fig:signals}
+	\caption{Comparison of the voltage response of the sensors}
+	\label{fig:voltage}
 \end{figure}
-This assumption is fulfilled by the frequency 16.5 kHz (Fig. \ref{fig:signals}c)).
-Moreover, normalized the MADIF values are within a wide range, i.e. 0.2--1.0 (Fig. \ref{fig:madif}).
-\begin{figure}
-	\begin{center}
-		\includegraphics[width=1\linewidth]{../../../figures/eps/madif.eps}
-	\end{center}
-	\caption{madif}
-	\label{fig:madif}
-\end{figure}
-This function can be used to identify damage to the physical sample associated with the model.
-The severity of the failure shall be read from the determined characteristic for the value of the sensor voltage which has been measured according to the simulation scheme.
 
 \section{Conclusions}
 \label{sec:conc}
-The paper presents the preliminary study on the possibility usage of model-assisted approach to identify a severity of damage in composite structures. 
-numerical analysis of GW propagation in the sandwich composite panel.  
+In the paper, numerical model of sandwich panel has been implemented with the actual geometry of the honeycomb core.
+In contrast to  full structure homogenisation, which is the most common HSC model found in the literature, the interaction of the propagating wave with core cell walls is visible in the current model.
+Moreover, the model is computationally efficient due to the use of SEM and 2D elements.
+The present model has 25 times less number of DOF than a full 3D model (according to \cite{kudela2016parallel}, estimated no of DOF is twelve million) and only 1.2 more than the homogenised model.
+
+In the future works, the model will be adapted to parallel calculations using a multi-core graphics card, which will further reduce solution time. Experimental research will also be conducted to test the proposed method on physical samples.
 \appendix
 \section{}
 \label{app:matrices}
@@ -920,40 +798,38 @@ piezoelectric coupling matrix \(\textbf{K}_{u \phi}^e\) are defined:
 
 \section{}
 \label{app:properties}
-Mechanical properties of carbon fibres, epoxy resin and the adhesive layer are 
-presented in a table~\ref{tab:properties} and evaluated effective elastic 
-properties for a single layer in a table~\ref{tab:properties_layer}.
+The mechanical properties of materials used in the simulations are gathered in Table~\ref{tab:properties}, and effective elastic properties for a single layer of unidirectional CRFP are presented in Table~\ref{tab:properties_eff}.
 \begin{table}
-\centering
-\caption{\label{tab:properties}Material properties of carbon fibres, epoxy 
-resin and the adhesive layer}
-\begin{tabular}{ccccc}\hline
-Material & \(E_{11}\) &  \(E_{33}\) & \(\nu_{12}\) & \(\rho\) \\
- & [GPa] &  [GPa] & [-] & [\(kg/m^3\)]\\
-\hline
-Carbon & 275.6 & 27.6 & 0.2 & 1900\\
-Epoxy & 3.43 & 3.43 & 0.35 & 1250\\
-Adhesive & 1.7 & 1.7 & 0.34 & 1200\\
-\end{tabular}
+	\centering
+	\caption{\label{tab:properties}The mechanical properties of materials}
+	\begin{tabular}{ccccc}\hline
+		Material & \(E_{11}\) &  \(E_{33}\) & \(\nu_{12}\) & \(\rho\) \\
+		& [GPa] &  [GPa] & [-] & [\(kg/m^3\)]\\
+		\hline
+		Carbon & 275.6 & 27.6 & 0.2 & 1900\\
+		Epoxy & 3.43 & 3.43 & 0.35 & 1250\\
+		Adhesive & 1.7 & 1.7 & 0.34 & 1200\\
+	\end{tabular}
 \end{table}
 
 \begin{table}
-\centering
-\caption{\label{tab:properties_layer}Effective material properties of a single 
-layer}
-\begin{tabular}{cccccccc}
-\hline
- \(E_{11}\) & \(E_{22}\) & \(E_{33}\) & \(G_{12}\) & \(G_{23}\) & \(\nu_{12}\) 
- & \(\nu_{23}\) & \(\rho\) \\
-\([\)GPa] & [GPa] & [GPa] & [GPa] & [GPa] & [-] & [-] & [\(kg/m^3\)]\\
-\hline
-137 & 8.7 & 8.7 & 3.61 & 3.19 & 0.28 & 0.37 & 1569\\
-\hline
-\end{tabular}
+	\centering
+	\caption{\label{tab:properties_eff} Equivalent mechanical properties}
+	\begin{tabular}{ccccccccc}
+		\hline
+		Material & \(E_{11}\) & \(E_{22}\) & \(E_{33}\) & \(G_{12}\) & \(G_{23}\) & \(\nu_{12}\) 
+		& \(\nu_{23}\) & \(\rho\) \\
+		& \([\)GPa] & [GPa] & [GPa] & [GPa] & [GPa] & [-] & [-] & [\(kg/m^3\)]\\
+		\hline
+		CFRP & 137 & 8.7 & 8.7 & 3.61 & 3.19 & 0.28 & 0.37 & 1569\\
+		single layer & & & & & & & &\\ \hline
+		aluminium & 40.0e-6 & 40.0e-6 & 663.2e-3 & 24.0e-6 & 148.0e-3 & 0.998 & 0.02e-3 & 25.36\\
+		honeycomb & & & & & & & &\\
+		\hline
+	\end{tabular}
 \end{table}
 
-
-Material properties of the PZT transducer:
+Mechanical and piezoelectric properties of the PZT transducers are:
 \begin{eqnarray}
 \textbf{c}^E=\left [ 
 \begin{array}{cccccc}
@@ -964,7 +840,7 @@ Material properties of the PZT transducer:
 0 & 0 & 0 & 0 & 20.5 & 0 \\
 0 & 0 & 0 & 0 & 0 & 22.4 \nonumber \\
 \end{array}
-\right ] \left [ GPa \right ] 
+\right ] \left [ GPa \right ]
 \end{eqnarray}
 \begin{eqnarray}
 \textbf{e}=\left[
@@ -976,7 +852,7 @@ Material properties of the PZT transducer:
 \right] \left[C\,m^{-2}\right]
 \end{eqnarray}
 \begin{eqnarray}
-\bepsilon^S_r=\left[
+\boldsymbol{\epsilon}^S_r=\left[
 \begin{array}{ccc}
 906 & 0 & 0\\
 0 & 906 & 0\\

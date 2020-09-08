@@ -33,5 +33,5 @@ plt.yticks(np.arange(-1,1.5,0.5))
 
 plt.subplots_adjust(left=0.12, right=0.90,bottom=0.15, top=0.90, hspace=0.20, wspace=0.20)
 
-plt.savefig("E:/model_hc/reports/figures/eps/chirp_0_20.eps", format="eps")
+# plt.savefig("E:/model_hc/reports/figures/eps/chirp_0_20.eps", format="eps")
 plt.show()

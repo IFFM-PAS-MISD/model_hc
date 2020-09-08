@@ -1,5 +1,5 @@
 % input data for plate
-% name_project='interface';, parentFolder='E:\model_hc'; 'model_hc','E:\model_hc'
+% name_project='interface';, parentFolder='E:\model_hc'; 'interface','E:\model_hc'
 if  exist('structure','var'); clear structure; end
 plotStyle = ['k+';'b+';'k+';'r+';'b+';'r+';'r+';'r+';'r+'];
 disp('.. Reading input data');

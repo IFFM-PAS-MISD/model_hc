@@ -1,0 +1,186 @@
+\documentclass[a4paper,11pt]{article}
+%\usepackage{latexsym}
+\usepackage[MeX]{polski}
+\usepackage[cp1250]{inputenc}% ew. utf8 lub cp1250
+\usepackage{graphicx}
+\usepackage{enumitem}
+\usepackage[square,sort&compress,comma,numbers]{natbib}
+\usepackage{nopageno}
+\usepackage{geometry}
+\newgeometry{tmargin=1.5cm, bmargin=1.5cm, lmargin=2.5cm, rmargin=2.5cm}
+\bibliographystyle{IEEEtran}
+% Zdefiniowanie autora i~tytu³u:
+\author{Piotr Fiborek}
+%\date{}
+\title{Raport koñcowy projektu nr FBW42:\\
+	\textit{Analiza numeryczna propagacji fal prowadzonych w wielowarstwowych materia³ach przek³adkowych z rdzeniem o strukturze plastra miodu}}
+
+\begin{document}
+\maketitle
+\thispagestyle{empty}
+\section{Wstêp}
+\label{sec:intro}
+Przek³adkowe p³yty kompozytowe to rodzaj wielowarstwowej struktury, sk³adaj¹cej siê z lekkiego rdzenia przyklejonego do cienkoœciennych ok³adzin, wykonanych z materia³ów o wysokiej wytrzyma³oœci, np. kompozyty polimerowe wzmacniane w³óknem wêglowym (Carbon Fiber Reinforced Polymer, CFRP) lub aluminium.
+Najczêœciej spotykan¹ form¹ rdzenia jest struktura typu ``plaster miodu'' oraz pianki poliuretanowe.
+Kompozyty przek³adkowe znajduj¹ szerokie zastosowanie w przemyœle lotniczym, morskim i motoryzacyjnym ze wzglêdu na wysoki wspó³czynnik wytrzyma³oœci do masy, wysok¹ zdolnoœæ poch³aniania energii i skuteczn¹ izolacjê akustyczn¹.
+Jednak, te z³o¿one struktury nara¿one s¹ na ryzyko ró¿nego rodzaju awarii, takich jak niewidoczne odklejenie ok³adzin od rdzenia, rozwarstwienie laminatu ok³adziny lub uszkodzenie rdzenia w wyniku uderzenia.
+
+Uszkodzenia mog¹ wyst¹piæ zarówno podczas procesu produkcyjnego, magazynowania, jak i~w~trakcie eksploatacji.
+Ze wzglêdu na specyfikê uszkodzeñ i w³aœciwoœci mechaniczne kompozytów, klasyczne techniki nieniszcz¹ce (Non--Destructive Techniques, NDT), takie jak metoda ultradŸwiêkowa, metoda termografii, s¹ nieskuteczne.
+Dlatego wymagane s¹ zaawansowane metody wykrywania uszkodzeñ.
+Technika o bardzo wysokim potencjale zastosowania w~NDT i~w~monitorowaniu stanu technicznego konstrukcji (Structural Health Monitoring, SHM) jest metoda wykorzystuj¹ca zjawisko propagacji fal prowadzonych (Guided Waves, GW).
+GW s¹ to fale elastyczne rozchodz¹ce siê w ograniczonym oœrodku sprê¿ystym, np. prêty, belki, cylindry, p³yty i pow³oki. 
+
+Wzbudzenie i detekcja GW mo¿e byæ zrealizowana za pomoc¹ lekkich i niedrogich przetworników piezoelektrycznych (PZT) \cite{giurgiutiumicromechatronics}.
+Niewielkich rozmiarów czujniki PZT mo¿na na sta³e po³¹czyæ z powierzchni¹ badanej konstrukcji, a nawet wbudowaæ pomiêdzy warstwami laminatów, tak aby pomiary mog³y byæ prowadzone w czasie rzeczywistym.
+Przetworniki PZT generuj¹ du¿e si³y z~czêstotliwoœci¹ szerokopasmow¹, wiêc metody oparte o propagacjê GW mog¹ wykrywaæ uszkodzenia o ró¿nych rozmiarach, na du¿ym obszarze \cite{su2006guided}.
+Wœród wielu opracowanych technik do wykrywania i lokalizacji uszkodzeñ najbardziej popularne s¹ ``pitch--catch'' \cite{ihn2008pitch}, ``pulse--echo'' \cite{guo1993interaction, kudela2008damage}, ``phase--array'' \cite{lu2006crack, ostachowicz2008elastic} i ``time--reversal mirror'' \cite{fink1992time, eremin2016analytically}.
+
+\textbf{G³ównym celem projektu} by³o opracowanie nowego modelu numerycznego propagacji GW w panelu sk³adaj¹cego siê z ok³adzin wykonanych z CFRP oraz aluminiowego rdzenia typu ``plaster miodu'' (Composite Honeycomb Sandwitch Panel, CHSP). W tym celu wykorzystano metodê spektralnych elementów skoñczonych (Spectral Element Method, SEM).
+
+\section{Znaczenie prowadzonych badañ}
+
+\subsection{Dotychczasowy stan wiedzy}
+Najczêœciej spotykanym w literaturze numerycznym modelowaniem zjawiska propagacji GW w CHSP jest obliczanie efektywnych w³aœciwoœci materia³owych struktury plastra miodu poprzez proces homogenizacji \cite{shi1995derivation, qi2008ultrasonic, mustapha2014leaky, baid2015dispersion, sikdar2016guided}.
+Metoda ta nie jest jednak w stanie odpowiednio przedstawiæ zjawiska rozprzestrzeniania siê fal sprê¿ystych w takim materiale.
+Dok³adniejszy model zostanie osi¹gniêty, jeœli zachowana zostanie rzeczywista geometria komórki szeœciok¹tnej.
+
+Obecnie do przeprowadzenia symulacji numerycznych propagacji fali w CHSP stosuje siê komercyjne programy wspomagaj¹cych obliczenia metod¹ elementów skoñczonych (Finite Element Method, FEM) \cite{ruzzene2003wave,song2009guided, hosseini2013numerical, tian2015wavenumber, zhao2018wave}.
+Jednak¿e, metoda ta w przypadku zagadnieñ falowych jest nieefektywna, poniewa¿ wymaga znacznej iloœci pamiêci operacyjnej i jest czasoch³onna.
+
+Wydajnoœæ obliczeniowa w przypadku modelowania GW w CHSP mo¿e byæ poprawiona poprzez zastosowanie metody spektralnych elementów skoñczonych (Spectral Element Method, SEM). Oryginalnie metoda SEM zaproponowana przez Paterê wykorzystywana by³a do obliczeñ przep³ywu cieczy \cite{patera1984spectral}, jednak¿e z powodzeniem zosta³a równie¿ zaadoptowana do analizy propagacji fal sprê¿ystych \cite{ostachowicz2011guided}.
+Efektywnoœæ obliczeniowa SEM wynika przede wszystkim z szybkiej zbie¿noœci rozwi¹zania, któr¹ osi¹ga siê ju¿ od szeœæ wêz³ów na d³ugoœæ fali.
+Dla porównania metoda FEM wymaga przynajmniej piêtnaœcie wêz³ów na d³ugoœæ fali.
+Dodatkowo, w wyniku ca³kowania metod¹ Gauss-Lobatto-Legendre otrzymuje siê diagonaln¹ macierz mas.
+ 
+W przypadku paneli CHSP, Kudela zaproponowa³ trójwymiarowy model rdzenia z zachowaniem geometrii komórek poprzez równoleg³¹ implementacjê SEM \cite{kudela2016parallel}.
+Pomimo, ¿e analizowany przypadek dotyczy³ tylko jednej warstwy ok³adziny z rdzeniem o niewielkich rozmiarach (\(179 \times 159 \) mm), liczba stopni swobody (Degree of Freedom, DOF) wynios³a 1.5 mln. Tak du¿a liczba DOF wynika z zastosowania elementów 3D, przez co siatka jest nadmiernie zagêszczona. 
+
+Wy¿ej wymienione wady by³y motywacj¹ do zaproponowania nowego modelu CHSP, w którym ok³adziny, warstwy kleju oraz ka¿da œcianka szeœciok¹tnej komórki rdzenia zosta³y zamodelowane przy u¿yciu dwuwymiarowych (2D) elementów spektralnych.
+Tego typu podejœcie pozwoli³o znacz¹co obni¿yæ liczbê DOF, a zatem poprawiæ efektywnoœæ obliczeniow¹.
+\subsection{Uzasadnienie podjêcia problemu badawczego}
+
+Pierwszy z aksjomatów SHM stanowi, i¿ ka¿dy materia³, niezale¿nie czy jest to klasyczny stop metalu, tworzywo sztuczne, czy nowoczesny kompozyt przek³adkowy, posiada nieod³¹czne wady lub uszkodzenia \cite{worden2007fundamental}. Niekontrolowany rozwój uszkodzenia mo¿e doprowadziæ do katastrofalnych skutków, a w przypadku materia³ów kompozytowych nawet niewielka wada powoduje istotn¹ zmianê w³aœciwoœci mechanicznych materia³u.
+Kolejny z aksjomatów SHM stwierdza, ¿e identyfikacja oraz okreœlenie skali uszkodzenia mo¿liwe jest tylko w trybie uczenia siê pod nadzorem eksperta.
+
+Dlatego te¿, precyzyjny i efektywny model numeryczny wykorzystywany bêdzie do zdobycia wiedzy o wp³ywie wielkoœci uszkodzenia na propagacjê fal sprê¿ystych w CHSP.
+Za pomoc¹ symulacji komputerowych przeprowadzono studium parametryczne okreœlaj¹ce zale¿noœæ uszkodzenia na propaguj¹ce fale sprê¿yste w danym materiale.
+Wyznaczenie takiej zale¿noœci w drodze eksperymentów laboratoryjnych wi¹za³oby siê z wysokimi nak³adami finansowymi celem przygotowania du¿ej liczby próbek.
+
+\subsection{Uzasadnienie nowatorskiego charakteru badañ}
+
+W ramach projektu zrealizowano nastêpuj¹ce zadania, które stanowi¹ nowatorski wk³ad w dziedzinie modelowania propagacji fal sprê¿ystych w materia³ach kompozytowych:
+\begin{itemize}
+	\item zastosowanie dwuwymiarowych elementów spektralnych SEM w modelowaniu CHSP z rzeczywist¹ geometri¹ rdzenia --- dotychczasowe modele sk³adaj¹ce siê z elementów 3D lub realizowane za pomoc¹ oprogramowania komercyjnego FEM wymagaj¹ znacz¹cych zasobów pamiêci operacyjnej, co wyklucza wykonanie obliczeñ dla modeli o du¿ej liczbie stopni swobody. 
+	\item opracowanie interfejsu ³¹cz¹cego przemieszczenia przylegaj¹cych do siebie elementów o niedopasowanych wzajemnie wêz³ach siatek --- do tej pory generowano siatki, tak aby s¹siaduj¹ce elementy posiada³y wspólne wêz³y, co skutkowa³o przewymiarowaniem siatki, zwiêkszaj¹c liczbê stopni swobody oraz wymusza³o zmniejszenie kroku czasowego celem zbie¿noœci rozwi¹zania równania ruchu. 
+\end{itemize}
+
+\subsection{Znaczenie wyników dla rozwoju danej dziedziny i dyscypliny naukowej}
+
+Projekt podejmuje podstawowe kwestie dotycz¹ce bezpieczeñstwa w stosowaniu z³o¿onych struktur kompozytowych.
+Opracowano dok³adny model numeryczny propagacji fal sprê¿ystych w panelach przek³adkowych, który zostanie wykorzystany w technikach SHM do identyfikacji uszkodzeñ materia³ów kompozytowych. 
+
+\section{Wyniki badañ}
+
+\subsection{Model numeryczny panelu CHSP}
+
+Zaimplementowano model panelu CHSP za pomoc¹ SEM. Modelowany panel sk³ada³ siê z aluminiowego rdzenia typu ``plaster miodu'', przyklejonego do dwóch ok³adzin wykonanych z kompozytu CRFP.
+Do górnej ok³adziny zamocowano parê przetworników piezoelektrycznych, pe³ni¹cych rolê odpowiednio wzbudnika i czujnika fal sprê¿ystych.
+W modelu uwzglêdniono warstwy adhezyjne pomiêdzy ok³adzinami i rdzeniem, natomiast klej mocuj¹cy przetworniki zosta³ pominiêty.
+Ok³adziny, œciany komórek rdzenia oraz warstwy adhezyjne modelowane s¹ z wykorzystaniem elementów p³ytowych.
+Natomiast czujniki PZT za pomoc¹ elementów 3D.
+
+Poniewa¿ w elementach p³ytowych wêz³y umiejscowione s¹ tylko w p³aszczyŸnie obojêtnej, przylegaj¹ce elementy nie posiadaj¹ wspó³nych wêz³ów.
+Dlatego zastosowano sprzê¿enie pomiêdzy nimi, aby zagwarantowaæ zgodnoœæ przemieszczeñ wspólnych punktów geometrycznych.
+Sprzê¿enie zosta³o zrealizowane za pomoc¹ interfejsu opartego o mno¿niki Lagrange'a \cite{fiborek20192d}.
+
+W centralnej czêœci panelu, pomiêdzy górn¹ warstw¹ adhezyjn¹ a rdzeniem wstawiono niedoklejenie w kszta³cie ko³a.
+Model niedoklejenia zrealizowano poprzez usuniêcie interfejsu z wêz³ów z obszaru uszkodzenia.
+
+\subsection{Wp³yw wielkoœci uszkodzenia na amplitudê fali propaguj¹cej}
+
+W celu wyznaczenia wp³ywu wielkoœci uszkodzenia na amplitudê fali propaguj¹cej w panelu, zadano sygna³ szerokopasmowy typu ``chirp'' w zakresie czêstotliwoœci 0--20 kHz, dla próbek o~ró¿nym obszarze niedoklejenia.
+Œrednica niedoklejenia zosta³a przyjêta w zakresie 0--120 mm.
+Nastêpnie wyznaczono dla ka¿dej z próbek za pomoc¹ dyskretnej transformaty Fouriera (DFT) charakterystyki czêstotliwoœciowe sygna³ów zarejestrowanych przez czujnik PZT (Rys. \ref{fig:mgntPhiFFT}a)).
+
+Do wyznaczenia funkcji wp³ywu uszkodzenia wybrano czêstotliwoœæ dla której wartoœæ amplitudy stale maleje wraz ze wzrostem obszaru niedoklejenia.
+Przyk³adowo w~paœmie \#1 (Rys.~\ref{fig:mgntPhiFFT}b)) ¿adna z czêstotliwoœci nie spe³nia tego warunku, natomiast w paœmie \#2 (Rys.~\ref{fig:mgntPhiFFT}c)) jest to 16 i 16,5 kHz.
+Na Rys. \ref{fig:madif} przedstawiono wykres funkcji wp³ywu wielkoœci uszkodzenia na amplitudê fali propaguj¹cej dla czêstotliwoœci 16.5 kHz. Wyznaczona funkcja jest stale monotoniczna w za³o¿onym przedziale obszaru niedoklejenia, a jej znormalizowane wartoœci s¹ w~zakresie 0.2--1.0
+\begin{figure}
+	\includegraphics[width=1\textwidth]{../../../figures/eps/mgntPhiFFT.eps}
+	\caption{Napiêcie czujnika PZT w funkcji czêstotliwoœci a) w szerokim zakresie od 0--20 kHz, b) w w¹skim paœmie \#1 od 5.5--7.5 kHz, c) w w¹skim paœmie \#2 od 15.0--17 kHz.}
+	\label{fig:mgntPhiFFT}
+\end{figure}
+\begin{figure}
+	\includegraphics[width=1\textwidth]{../../../figures/eps/madif.eps}
+	\caption{Funkcja wp³ywu wielkoœci uszkodzenia dla sygna³u o czêstotliwoœci 16,5 kHz}
+	\label{fig:madif}
+\end{figure}
+
+\subsection{Porównanie z modelem homogenizowanym}
+
+Ponadto dokonano analizy porównawczej prezentowanego modelu z modelem otrzymanym w drodze homogenizacji w³aœciwoœci materia³owych, które wyznaczono stosuj¹c metodê zaproponowan¹ przez Malek i Gibson \cite{malek2015effective}.
+\begin{figure}
+	\includegraphics[width=1\textwidth]{../../../figures/eps/wavefield_1.eps}
+	\caption{Pe³ne pole prêdkoœci górnej ok³adziny}
+	\label{fig:wavefield}
+\end{figure}
+
+Zaleta obecnego modelu w porównaniu z modelem homogenizowanym widoczna jest w poprzez analizê pola propaguj¹cej siê fali (Rys.~\ref{fig:wavefield}).
+Pe³ne pole fali proponowanego modelu jest bardziej rzeczywiste.
+Widoczne s¹ odbicia fali od œcianek komórek rdzenia, które nie wystêpuj¹ w drugim przypadku.
+Powoduje to równie¿, ¿e konwersja modu S0 do A0 w lokalizacji czujnika jest znacznie bardziej widoczna w modelu homogenizowanym (Rys.~\ref{fig:wavefield} po lewej stronie) ni¿ w proponowanym modelu (Rys.~\ref{fig:wavefield} po prawej stronie).
+
+Na Rys.~\ref{fig:wavefield}) mo¿na zauwa¿yæ, ¿e fala propaguje siê w sposób typowy dla materia³u ortotropowego, tj. prêdkoœæ fali zale¿y od k¹ta propagacji.
+Wp³yw na to maj¹ w³aœciwoœci materia³owe pow³oki oraz w du¿ym stopniu w³aœciwoœci rdzenia.
+Takie zachowanie mo¿na zaobserwowaæ w przypadku obu modeli.
+Najwy¿sze prêdkoœci modu A0 i S0 obserwowane s¹ w kierunku $0^{\circ}$, natomiast wartoœci minimalne s¹ dla $45^{\circ}$ (Rys.~\ref{fig:speed}).
+Prêdkoœci w trybie A0 s¹ znacznie ni¿sze w bie¿¹cym modelu ni¿ w modelu homogenizowanym i ró¿ni¹ siê w zakresie od 12 do 29\%.
+Natomiast ró¿nica prêdkoœci modu S0 nie przekracza 3\%.  
+
+Na Rys.~\ref{fig:velocity} d) mo¿na równie¿ zauwa¿yæ ró¿nice w amplitudzie prêdkoœci cz¹stek po przejœciu impulsu.
+W tym okresie amplituda \(V_z\) jest 2,8 razy wiêksza dla obecnego modelu, ze wzglêdu na odbicia fali od œcianek rdzenia.
+
+\label{comparison}
+
+\begin{figure}
+	\begin{center}
+		\includegraphics[width=1\linewidth]{../../../figures/eps/velocity.eps}
+	\end{center}
+	\caption{Prêdkoœæ cz¹stek górnej ok³adziny w punkcie: a, b) P0(-86,0) mm, oraz c, d) P1(114,0) mm}
+	\label{fig:velocity}
+\end{figure}
+\begin{figure}
+	\begin{center}
+		\includegraphics[width=1\linewidth]{../../../figures/eps/cg.eps}
+	\end{center}
+	\caption{Prêdkoœæ grupowa w funkcji k¹ta propagacji fali}
+	\label{fig:speed}
+\end{figure}
+
+W zwi¹zku z powy¿szym, oczekiwane s¹ ró¿nice w wartoœciach sygna³ów zarejestrowanych przez czujnik PZT, jak pokazano na Rys. \ref{fig:voltage}.
+
+\begin{figure}
+	\begin{center}
+		\includegraphics[width=1\linewidth]{../../../figures/eps/voltage.eps}
+	\end{center}
+	\caption{Porównanie sygna³ów zarejestrowanych przez czujnik PZT}
+	\label{fig:voltage}
+\end{figure}
+
+\section{Podsumowanie}
+\label{sec:conc}
+W ramach projektu zaimplementowano nowy model panelu HSC z rzeczywist¹ geometri¹ rdzenia plastra miodu za pomoc¹ SEM.
+W przeciwieñstwie do modelu homogenizowanego, który jest najczêœciej spotykanym modelem CHSP w literaturze, w obecnym modelu widoczne jest oddzia³ywanie fali ze œcianami komórek rdzenia.
+Co wiêcej, model ten jest wydajny obliczeniowo dziêki zastosowaniu elementów SEM i 2D.
+Obecny model ma 25 razy mniejsz¹ liczbê DOF ni¿ pe³ny model 3D (wed³ug \cite{kudela2016parallel}, szacowany brak DOF wynosi 12 milionów) i tylko 1,2 wiêcej ni¿ model homogenizowany.
+ 
+Przedstawiono równie¿ wstêpne badania nad mo¿liwoœci¹ zastosowania modelowego podejœcia do identyfikacji stopnia uszkodzenia w strukturze kompozytowej z wykorzystaniem propagacji GW. 
+W przysz³oœci model bêdzie przystosowany do obliczeñ równoleg³ych z wykorzystaniem wielordzeniowej karty graficznej, co dodatkowo skróci czas symulacji.
+Zostan¹ przeprowadzone równie¿ badania eksperymentalne w celu walidacji proponowanego modelu z próbkami rzeczywistymi.
+
+
+\section*{Podziêkowanie}
+Autor chcia³by podziêkowaæ Dyrektorowi IMP PAN za udzielone wsparcie finansowe w formie Minigrantu nr FBW42.
+\bibliography{../../../../../BibTex/Rozprawa}{}
+\end{document}
