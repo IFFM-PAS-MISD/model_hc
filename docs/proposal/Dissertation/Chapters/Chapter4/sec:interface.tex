@@ -1,0 +1,59 @@
+%% SECTION HEADER /////////////////////////////////////////////////////////////////////////////////////
+\section{Displacements Coupling at the Substructures Interface}
+\label{sec:interface}
+
+%% SECTION CONTENT ////////////////////////////////////////////////////////////////////////////////////
+
+The present model of the sandwich panel consists of \ac{2d} and \ac{3d} elements. 
+Moreover, there are non-matching grids between two adjacent substructures. 
+These involve connecting them by imposing the compatibility of the displacements at the interface, see Fig.~\ref{fig:interface}.
+This type of connection is implemented through the interface elements based on Lagrange multipliers, which are interpreted as forces responsible for determining the appropriate displacements of nodes.
+The coupling can be expressed as:
+\begin{eqnarray}
+	\left\{\begin{array}{c}
+		\textbf{u}\\
+		\textbf{v}\\
+		\textbf{w}
+	\end{array}\right\}_{s_{i1}}^{\Gamma^i}-
+	\left\{\begin{array}{c}
+		\textbf{u}\\
+		\textbf{v}\\
+		\textbf{w}
+	\end{array}\right\}_{s_{i2}}^{\Gamma^i}=
+	\left\{\begin{array}{c}
+		\textbf{0}\\
+		\textbf{0}\\
+		\textbf{0}
+	\end{array}\right\},
+	\label{eq:coupling}
+\end{eqnarray}
+\begin{figure}
+	\begin{center}
+		\includegraphics[scale=0.8]{Chapter_4/interface_2D3D}
+	\end{center}
+	\caption{Non-matching interface setup: a) interface coupling, b) degrees-of-freedom of the interface and the substructures.}
+	\label{fig:interface}
+\end{figure}
+where \(s_{i1}\) and \(s_{i2}\) are substructures connected by the interface \(\Gamma^i\). For the whole structure, the Eq.~(\ref{eq:coupling}) can be written in the matrix form:
+\begin{eqnarray}
+	\textbf{G}\textbf{d}=\textbf{0},
+	\label{eq:cond_disp}
+\end{eqnarray}
+where \textbf{G} is the coupling matrix which contains the equations to interpolate the substructures displacements at the interfaces, and \(\textbf{d}\) is a global displacement field for \(nS\) number of substructures, composed as:
+\begin{eqnarray}
+	\textbf{d} = \left\{\begin{array}{cccc}
+		\textbf{d}_1, & \textbf{d}_2, &\ldots, & \textbf{d}_{nS}
+	\end{array}\right\}^T.
+	\label{eq:displacements}
+\end{eqnarray}
+
+General formulation of the matrix \textbf{G} is presented in Algorithm \ref{alg:G_matrix} from Appendix \ref{app:algorithm}.
+The main task of the algorithm is to calculate shape functions for each adjacent substructures at the points \(X_p=(x_p^k,y_p^k)\), which are projections of the interface nodes onto these substructures.
+The shape function can be calculated after finding an owner element and local coordinates of the points.
+Owner element is a spectral element in the domain of the substructure \(s_{ij}\) which contains interface node, for example, interface node \(k_\Gamma=36\) (see~Fig.~\ref{fig:interface}a)) is located in the element \(e^{I}_{3D}\) and \(e^{III}_{2D}\) for the substructures \(s_{11}\) and \(s_{12}\), respectively.
+It can be found within two ways: using Matlab's built-in function \verb+inpolygon+ or more efficient procedure proposed by Silva et al. \cite{silva2009exact} which was used in the current implementation.
+The transformation from global to local coordinates was realized by the iterative method presented in the work of Li et al.~\cite{li2014efficient}.
+The computational effectiveness of Algorithm~\ref{alg:G_matrix} can be easily improved if certain precautions are taken.
+Firstly, the mesh of the interface has to be based on the mesh from one of the substructures \(s_{i1}\), \(s_{i2}\), which may be referred to as a slave.
+So, the shape function takes only the values of one and zeros.
+Moreover, the code can be implemented in vectorized form rather than using a for-loops.

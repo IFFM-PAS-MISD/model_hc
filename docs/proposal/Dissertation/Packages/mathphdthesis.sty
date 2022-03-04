@@ -58,7 +58,7 @@
 % Set the paragraph spacing
 \setlength{\parskip}{6pt}
 % Set the paragraph indentation level
-\setlength{\parindent}{0pt}
+\setlength{\parindent}{0.5in}
 
 
 % Load the graphicx package (see http://ctan.org/pkg/graphicx)
@@ -128,6 +128,8 @@
 
 % Booktabs package for tables
 \usepackage{booktabs}
+% Booktabs package for tables
+\usepackage{booktabs}
 
 % Caption package
 \usepackage{caption} 
@@ -157,10 +159,10 @@
 % URL#1: http://tex.stackexchange.com/questions/13509/biblatex-for-idiots
 % URL#2: https://www.sharelatex.com/blog/2013/07/31/getting-started-with-biblatex.html
 %\usepackage[style=authoryear,backend=biber]{biblatex}
-\usepackage[citestyle=numeric-comp,style=authoryear-comp,dashed=false,minbibnames=10,maxbibnames=10,defernumbers=true,maxcitenames=1,firstinits=true,backend=bibtex]{biblatex}
+\usepackage[citestyle=numeric-comp,style=numeric,defernumbers=true,maxcitenames=1,firstinits=true,backend=bibtex]{biblatex}
 % Sort always by last name then first name
 % URL: http://tex.stackexchange.com/questions/12806/guidelines-for-customizing-biblatex-styles/13076#13076
-\DeclareNameAlias{sortname}{last-first}
+%\DeclareNameAlias{sortname}{last-first}
 \bibliography{References/thesis}
 
 % Color package (see http://ctan.org/pkg/xcolor)

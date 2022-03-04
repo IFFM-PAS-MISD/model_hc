@@ -1,0 +1,72 @@
+%% SECTION HEADER /////////////////////////////////////////////////////////////////////////////////////
+\section{Transformation of the Core Elements}
+\label{sec:transformation}
+
+%% SECTION CONTENT ////////////////////////////////////////////////////////////////////////////////////
+All core elements are rotated relative to both skins, and thus it is necessary to transform the degrees of freedom from the local coordinate system of the core to the global coordinate system.
+For this purpose, an additional sixth \ac{dof} is incorporated, i.e., rotation with respect to the \textit{z}-axis:
+\begin{eqnarray}
+	\widehat{\textbf{d}}^e_g = \left \{\begin{array}{cccccc}
+		\widehat{\textbf{u}}^e & \widehat{\textbf{v}}^e &
+		\widehat{\textbf{w}}^e & \widehat{\boldsymbol{\varphi}}_x^e &
+		\widehat{\boldsymbol{\varphi}}_y^e & \widehat{\boldsymbol{\varphi}}_z^e
+	\end{array}\right \}^T_g.
+	\label{eq:d6}
+\end{eqnarray}
+
+First, the displacement vector is transformed from the global to local coordinate system by the direction cosines as follows:
+\begin{eqnarray}
+	\widehat{\textbf{d}}^e_l = \left \{\begin{array}{c}
+		\widehat{\textbf{u}}^e \\ \widehat{\textbf{v}}^e \\
+		\widehat{\textbf{w}}^e \\ \widehat{\boldsymbol{\varphi}}_x^e \\
+		\widehat{\boldsymbol{\varphi}}_y^e
+	\end{array}\right \}_l = 
+	\left [\begin{array}{ccccc}
+		\textbf{V}^e_1, & \textbf{V}^e_2, & \textbf{V}^e_3, & \textbf{0} & \textbf{0} \\
+		\textbf{0} & \textbf{0} & \textbf{0} & \textbf{V}^e_1, & \textbf{V}^e_2
+	\end{array}\right ]^T
+	\left \{\begin{array}{c}
+		\widehat{\textbf{u}}^e \\ \widehat{\textbf{v}}^e \\
+		\widehat{\textbf{w}}^e \\ \widehat{\boldsymbol{\varphi}}_x^e \\
+		\widehat{\boldsymbol{\varphi}}_y^e\\
+		\widehat{\boldsymbol{\varphi}}_z^e
+	\end{array}\right \}_g,
+	\label{eq:d_local}
+\end{eqnarray}
+where \(\textbf{V}^e_1\),\(\textbf{V}^e_2\) and \(\textbf{V}^e_3\) are direction cosines of the core element. Then, internal forces are calculated according to guideline from Section \ref{sec:f_internal} and transformed to a global coordinated~system:
+\begin{eqnarray}
+	\left\{\textbf{F}_{int}\right\}^e_g =
+	\left [\begin{array}{ccccc}
+		\textbf{V}^e_1, & \textbf{V}^e_2, & \textbf{V}^e_3, & \textbf{0} & \textbf{0} \\
+		\textbf{0} & \textbf{0} & \textbf{0} & \textbf{V}^e_1, & \textbf{V}^e_2
+	\end{array}\right ]
+	\left \{\begin{array}{c}
+		\textbf{F}^1_{int} \\
+		\textbf{F}^2_{int} \\
+		\textbf{F}^3_{int} \\
+		\textbf{F}^4_{int} \\
+		\textbf{F}^5_{int} \\
+	\end{array}\right \}_l^e.
+	\label{eq:f_global}
+\end{eqnarray}
+
+Additionally, a part of the mass matrix accounted for rotary inertia has to be transformed, and, in contrast to the internal forces vector, this has to be done only once in pre-processing as follows:
+
+\begin{eqnarray}
+	\textbf{J}_g=\left [ 
+	\begin{array}{ccc}
+		\left (\textbf{J}_{11}\right )_g & \left (\textbf{J}_{12}\right )_g & \left (\textbf{J}_{13}\right )_g\\
+		& \left (\textbf{J}_{22}\right )_g & \left (\textbf{J}_{23}\right )_g\\
+		Sym. &  & \left (\textbf{J}_{33}\right )_g\\
+	\end{array}
+	\right ]
+	=\left[\begin{array}{ccc}
+		\textbf{V}_1, \textbf{V}_2, \textbf{V}_3 \end{array}\right ]^T
+	\,\textbf{J}_l\,
+	\left[\begin{array}{ccc}
+		\textbf{V}_1, \textbf{V}_2, \textbf{V}_3 \end{array}\right ].
+	\label{eq:inertia}
+\end{eqnarray}
+
+As the matrix becomes non-diagonal after transformation, some approximation is necessary.
+Off-diagonal terms in the matrix given in Equation~(\ref{eq:inertia}) are neglected following the analysis performed in \cite{surana1980transition}.

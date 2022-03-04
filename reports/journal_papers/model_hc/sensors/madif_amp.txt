@@ -1,0 +1,38 @@
+\begin{figure}[h!]
+	\centering
+	\begin{subfigure}{0.49\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{figures/png/Amplitude_75kHz.png}
+		\caption[]
+		{{\small 75 kHz}}
+		\label{fig:Amplitude_75kHz}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}{0.49\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{figures/png/Amplitude_100kHz.png}
+		\caption[]
+		{{\small 100 kHz}}
+		\label{fig:Amplitude_100kHz}
+	\end{subfigure}
+	\vskip\baselineskip
+	\begin{subfigure}{0.49\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{figures/png/Amplitude_125kHz.png}
+		\caption[]
+		{{\small 125 kHz}}
+		\label{fig:Amplitude_125kHz}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}{0.49\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{figures/png/Amplitude_150kHz.png}
+		\caption[]
+		{{\small 150 kHz}}
+		\label{fig:Amplitude_150kHz}
+	\end{subfigure}
+	\vskip\baselineskip
+	\caption[]
+	{Relative change of the maximum amplitude of the first package in the function of damage size.}
+	\label{fig:madif_amp}
+\end{figure}

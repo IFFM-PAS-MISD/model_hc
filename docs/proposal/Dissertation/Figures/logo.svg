@@ -16,10 +16,10 @@
    height="126.4"
    viewBox="0 0 771.84003 126.4"
    sodipodi:docname="logo.svg"
-   inkscape:export-filename="E:\model_hc\docs\proposal\Dissertation\Figures\imp_logo.png"
+   inkscape:export-filename="/home/pfiborek/Documents/GITHub/model_hc/docs/proposal/Dissertation/Figures/imp_logo.png"
    inkscape:export-xdpi="600"
    inkscape:export-ydpi="600"
-   inkscape:version="0.92.4 (5da689c313, 2019-01-14)">
+   inkscape:version="0.92.5 (2060ec1f9f, 2020-04-08)">
   <metadata
      id="metadata8">
     <rdf:RDF>
@@ -28,7 +28,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -44,14 +44,14 @@
      inkscape:pageopacity="0"
      inkscape:pageshadow="2"
      inkscape:window-width="1920"
-     inkscape:window-height="1137"
+     inkscape:window-height="948"
      id="namedview4"
      showgrid="false"
      inkscape:zoom="0.7384018"
-     inkscape:cx="426.43468"
-     inkscape:cy="18.810943"
-     inkscape:window-x="1912"
-     inkscape:window-y="-8"
+     inkscape:cx="181.98782"
+     inkscape:cy="13.393838"
+     inkscape:window-x="0"
+     inkscape:window-y="27"
      inkscape:window-maximized="1"
      inkscape:current-layer="svg2" />
   <image

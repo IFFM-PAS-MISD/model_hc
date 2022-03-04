@@ -1,0 +1,78 @@
+%% SECTION HEADER /////////////////////////////////////////////////////////////////////////////////////
+\section{2D Spectral Modelling}
+\label{sec:2Dmodel}
+
+%% SECTION CONTENT ////////////////////////////////////////////////////////////////////////////////////
+
+According to the first-order shear deformation theory~\cite{reissner1945effect, mindlin1951influence}, the displacement field is expressed as:
+\begin{eqnarray}
+	\left \{ \begin{array}{c}
+		\textbf{u}^e(\xi,\eta) \\
+		\textbf{v}^e(\xi,\eta) \\
+		\textbf{w}^e(\xi,\eta)
+	\end{array} \right\} = 
+	\left \{ \begin{array}{c}
+		\textbf{u}_0^e(\xi,\eta) + z\boldsymbol{\varphi}_x^e(\xi,\eta)\\
+		\textbf{v}_0^e(\xi,\eta) + z\boldsymbol{\varphi}_y^e(\xi,\eta)\\
+		\textbf{w}_0^e(\xi,\eta) \\
+	\end{array} \right\},
+\end{eqnarray}
+where \(\textbf{u}_0^e\), \(\textbf{v}_0^e\) and \(\textbf{w}_0^e\) are nodal displacements, \(\boldsymbol{\varphi}_x^e\), \(\boldsymbol{\varphi}_y^e\) are the rotations of the normal to the mid-plane with respect to the axes \textit{x} and \textit{y}, respectively.
+\begin{eqnarray}
+	\left \{\begin{array}{c}
+		\textbf{u}_0^e(\xi,\eta) \\
+		\textbf{v}_0^e(\xi,\eta) \\
+		\textbf{w}_0^e(\xi,\eta) \\
+		\boldsymbol{\varphi}_x^e(\xi,\eta) \\
+		\boldsymbol{\varphi}_y^e(\xi,\eta)
+	\end{array} \right\}
+	= \textbf{N}^e(\xi,\eta)\widehat{\textbf{d}}^e
+	= \sum_{n=1}^q\sum_{m=1}^p\textbf{N}_m^e(\xi)\textbf{N}_n^e(\eta)
+	\left \{ \begin{array}{c}
+		\widehat{\textbf{u}}_0^e \\
+		\widehat{\textbf{v}}_0^e \\
+		\widehat{\textbf{w}}_0^e \\
+		\widehat{\boldsymbol{\varphi}}_x^e \\
+		\widehat{\boldsymbol{\varphi}}_y^e
+	\end{array} \right \}.
+\end{eqnarray}
+
+The nodal bending strain--displacement relations are given in the form:
+\begin{eqnarray}
+	\boldsymbol{\epsilon}_b^e =
+	\textbf{B}_b^e\widehat{\textbf{d}}^e = 
+	\left [
+	\begin{array}{ccccc}
+		\frac{\partial N^e}{\partial x} & 0 & 0 & 0 & 0\\
+		0 & \frac{\partial N^e}{\partial y} & 0 & 0 & 0\\
+		\frac{\partial N^e}{\partial y} & \frac{\partial N^e}{\partial x} & 0 & 0 & 0\\
+		0 & 0 & 0 & -\frac{\partial N^e}{\partial x} & 0\\
+		0 & 0 & 0 & 0 & -\frac{\partial N^e}{\partial y}\\
+		0 & 0 & 0 & -\frac{\partial N^e}{\partial y} & -\frac{\partial N^e}{\partial x}
+	\end{array} \right]
+	\left \{ \begin{array}{c}
+		\widehat{\textbf{u}}_0^e \\
+		\widehat{\textbf{v}}_0^e \\
+		\widehat{\textbf{w}}_0^e \\
+		\widehat{\boldsymbol{\varphi}}_x^e \\
+		\widehat{\boldsymbol{\varphi}}_y^e
+	\end{array} \right\}.
+\end{eqnarray}
+
+The nodal shear strain--displacement relations are given in the form:
+\begin{eqnarray}
+	\boldsymbol{\epsilon}_s^e =
+	\textbf{B}_s^e\widehat{\textbf{d}}^e = 
+	\left [
+	\begin{array}{ccccc}
+		0 & 0 & \frac{\partial N^e}{\partial y} & -1 & 0\\
+		0 & 0 & \frac{\partial N^e}{\partial y} & 0 & -1
+	\end{array} \right]
+	\left \{ \begin{array}{c}
+		\widehat{\textbf{u}}_0^e \\
+		\widehat{\textbf{v}}_0^e \\
+		\widehat{\textbf{w}}_0^e \\
+		\boldsymbol{\varphi}_x^e \\
+		\boldsymbol{\varphi}_y^e
+	\end{array} \right\}.
+\end{eqnarray}

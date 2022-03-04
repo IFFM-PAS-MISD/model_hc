@@ -3,9 +3,57 @@
 % brackets will appear in the main thesis.
 
 %% APPENDIX HEADER ////////////////////////////////////////////////////////////////////////////////////
-\chapter[Appendix 1]{Appendix 1}
-\label{appa}
-
+\chapter{Elementary matrices of the equation of motion.}
+\label{app:matrices}
 %% APPENDIX CONTENT ///////////////////////////////////////////////////////////////////////////////////
 
-\lipsum[1]
+\section{Mass and stiffness matrices}
+The formulae of matrices for 3D elements are:
+\begin{eqnarray}
+	\textbf{M}_{dd}^e & = & \int_{V_e}\textbf{N}^T\rho \textbf{N} dV_e,\\
+	\textbf{K}_{dd}^e & = & \int_{V_e}{\textbf{B}_d^e}^T\textbf{c}\textbf{B}_d^edV_e,
+\end{eqnarray}
+where \textbf{c} is the stiffness tensor, \(\rho\) is mass density, and \(V_e\) is the element volume.
+
+In the case of the 2D elements, matrices are defined as:
+\begin{eqnarray}
+	\textbf{M}_{dd}^e & = &
+	\left [
+	\begin{array}{cc}
+		\textbf{M}^e & 0\\
+		0 & \textbf{J}^e
+	\end{array}
+	\right] =
+	\int_{\Omega_e}\textbf{N}^T\rho
+	\left [
+	\begin{array}{ccccc}
+		h & 0 & 0 & 0 & 0 \\
+		& h & 0 & 0 & 0 \\
+		&  & h & 0 & 0\\
+		&  &  & \frac{h^3}{12} & 0\\
+		Sym. &  &  &  & \frac{h^3}{12}
+	\end{array} \right]
+	\textbf{N} d\Omega_e,\\
+	\textbf{K}_{dd}^e & = & \int_{\Omega_e}{\textbf{B}_b^e}^T
+	\left[
+	\begin{array}{cc}
+		\textbf{A} & \textbf{B}\\
+		\textbf{B} & \textbf{D}
+	\end{array} \right]
+	\textbf{B}_b^ed \Omega_e+\int_{\Omega_e}{\textbf{B}_s^e}^T\hat{\textbf{A}}\textbf{B}_s^ed \Omega_e,
+\end{eqnarray}
+where \(h=h_t+h_b\) is the element thickness, while \(h_{t(b)}\) is the distance between mid-plane and top(bottom) surface of the element, and \(\Omega_e\) is the element area:
+\begin{eqnarray}
+	\textbf{A} & = & \textbf{c}_{ij}\,(h_t-h_b),\qquad i,j=1,2,6\nonumber\\
+	\textbf{B} & = & 1/2\, \textbf{c}_{ij}\,(h_t^2-h_b^2),\qquad i,j=1,2,6\nonumber\\
+	\textbf{D} & = & 1/3\, \textbf{c}_{ij}\,(h_t^3-h_b^3),\qquad i,j=1,2,6\nonumber\\
+	\hat{\textbf{A}} & = & 5/4\, \textbf{c}_{ij}\,\left[h_t-h_b-4/3\left(h_t^3-h_b^3\right)/h^2\right],\qquad i,j=4,5.
+\end{eqnarray}
+\section{\ac{pzt} matrices}
+
+The dielectric conductivity matrix \(\textbf{K}_{\phi \phi}^e\) and piezoelectric coupling matrix \(\textbf{K}_{u \phi}^e\) are defined:
+\begin{eqnarray}
+	\textbf{K}_{d\phi}^e & = & \int_{V_e}{\textbf{B}_d^e}^T\textbf{e}^T \textbf{B}_{\phi}^ed V_e,\\
+	\textbf{K}_{\phi \phi}^e & = & -\int_{V_e}{\textbf{B}_{\phi}^e}^T 
+	{\textbf{\(\epsilon\)}^S}^T \textbf{B}_{\phi}^edV_e.
+\end{eqnarray}

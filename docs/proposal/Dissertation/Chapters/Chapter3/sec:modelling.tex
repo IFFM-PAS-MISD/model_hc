@@ -1,0 +1,41 @@
+%% SECTION HEADER /////////////////////////////////////////////////////////////////////////////////////
+\section{Modelling of the GW Propagation in the SCS}
+\label{sec:modelling}
+
+%% SECTION CONTENT ////////////////////////////////////////////////////////////////////////////////////
+
+%% SUBSECTION HEADER //////////////////////////////////////////////////////////////////////////////////
+
+The most common numerical modeling of the phenomenon of \ac{gw} in \acp{hsc} found in the literature is a calculation of the effective material properties of the honeycomb structure \cite{baid2015dispersion, mustapha2014leaky, qi2008ultrasonic,  shi1995derivation, sikdar2016guided}.
+The properties are obtained from the analytical \cite{gibson1982mechanics, malek2015effective} or \ac{fem} \cite{catapano2014multi, chen2014analysis} analysis of the honeycomb \ac{rve}.
+A comprehensive literature review on the homogenization of the honeycomb structure is presented in work of Ahmed \cite{ahmed2019homogenization}.
+Replacing the core geometry with a homogeneous material has many advantages.
+First and foremost, it simplifies the domain mesh so that convergence of the solution requires fewer working memory resources and increases the value of the critical time step.
+In addition, the wave propagation velocity is determined by the simulation is in good agreement with the experiment.
+
+However, this method cannot adequately represent the phenomenon of propagating wave interaction in honeycomb cells.
+It causes the signal energy not to dissipate as it would in a real structure.
+Song et al. \cite{song2009guided} analyzed the degree of energy dispersion function of core geometry and signal frequency.
+A more accurate model will be achieved if the real geometry of the hexagonal cell is retained.
+Ruzzenne et al. presented a parametric study to evaluate the dynamic behavior of the honeycomb and cellular structures through the \ac{fem} and the application of the theory of periodic structures \cite{ruzzene2003wave}.
+Recently, the simulations of the wave propagation in the \acp{hsc} have been conducted with commercially available finite element code~\cite{ hosseini2013numerical,song2009guided, tian2015wavenumber, zhao2018wave}.
+
+However, the finite element method \ac{pzt} modeling of \ac{gw} is inefficient as it requires a significant amount of memory and is time-consuming.
+The computational efficiency of the \ac{fem} in case of \ac{gw} modeling in the \acp{hsc} can be improved by using the time-domain \ac{sem}.
+The \ac{sem} was originally used for the numerical solution of the fluid flow in a channel by Patera \cite{patera1984spectral} but has also been successfully developed for elastic wave propagation~\cite{ostachowicz2011guided}.
+
+Kudela proposed a model of the \ac{gw} in \acp{hsc} by the parallel implementation of the \ac{sem} \cite{kudela2016parallel}.
+The wave excitation was realized by an external force applied at the point of the panel.
+However, this model had a large number (1.5 million) of \acp{dof}, because cells of the core and skin plate were modeled by the \ac{3d} spectral elements; however, the simulation was limited to only one skin plate and a small dimension of the \ac{hsc} (\(179 \times 159 \) mm).
+
+The above-mentioned drawbacks were motivation to propose a new model of the \ac{hsc}.
+In the present paper, the skin plates, adhesive layers and each wall of the hexagonal core were modeled by the \ac{2d} spectral elements.
+However, \ac{2d} elements have nodes only in a mid-plane; therefore, there is no direct linking between the two adjacent structures.
+This connection was implemented by interface elements based on Lagrange multipliers \cite{ashwin2014formulation, fiborek20192d}.
+
+Additionally, the signal was generated and recorded with \acp{pzt}.
+A non-matching interface between the transducers and the skin was used to avoid a too complex mesh-likewise to the interfaces developed for the \ac{fem} \cite{flemisch2000elasto, flemisch2012non}. 
+To the best of the authors’ knowledge, the present model has not been implemented yet for \acp{hsc}.
+
+The parametric study conducted in the paper leads to the determination of a \ac{madif}, which defines the influence of the size of the composite defect on wave propagation.
+In this case, the defect is assumed to be a disbond between the skin and the core.

@@ -1,0 +1,38 @@
+%% SECTION HEADER /////////////////////////////////////////////////////////////////////////////////////
+\section{The Spectral Element Method}
+\label{sec:sem}
+
+%% SECTION CONTENT ////////////////////////////////////////////////////////////////////////////////////
+
+The general concept of the \ac{sem} is based on the idea of the \ac{fem}.
+The similarity of both methods lies in the fact that the modeled domain is divided into non-overlapping finite elements, and external forces and arbitrary boundary conditions are imposed in the particular nodes.
+The main difference between those methods is a choice of the shape function \( N=N(\xi )\), which is interpolated by a Lagrange polynomial that passes through the element nodes. The nodes are localized on the endpoint of an interval, \(\xi\in[-1,1]\), and the roots of the first derivative of Legendre polynomial P of degree \(p-1\):
+\begin{eqnarray}
+	(1-\xi^2)P'_{p-1}(\xi)=0.
+	\label{eq:nodes}
+\end{eqnarray}
+
+The approximation of an integral over the elements is achieved according to \ac{gll} rule at points coinciding with the element nodes, 
+and the weights \(w=w(\xi)\) calculated as:
+\begin{eqnarray}
+	{w(\xi)} = \frac{2}{p(p-1)(P_{p-1}(\xi))^2}.
+	\label{eq:weights}
+\end{eqnarray}
+
+This approach guarantees a diagonal mass matrix.
+The shape functions and the weights for \ac{2d} or \ac{3d} elements are obtained by the Kronecker product of vectors of individual axes, denoted by \(\otimes\) as follows:
+\begin{eqnarray}
+	N(\xi,\eta) = N(\xi)\otimes N(\eta), & N(\xi,\eta,\zeta) = N(\xi)\otimes N(\eta)\otimes N(\zeta), \nonumber\\
+	w(\xi,\eta) = w(\xi)\otimes w(\eta), & w(\xi,\eta,\zeta) = w(\xi)\otimes w(\eta)\otimes w(\zeta).
+	\label{eq:3Dshape_weights}
+\end{eqnarray}
+
+The elementary equations of motion is defined as:
+\begin{eqnarray}
+	\label{eq:motion}
+	\textbf{M} \ddot{\textbf{d}} + \textbf{D} \dot{\textbf{d}} + \textbf{K} \textbf{d} = \textbf{F}_{ext}
+\end{eqnarray}
+where \textbf{d} is the displacement vector; \textbf{M}, \textbf{D}, \textbf{K} are structural mass, damping and stiffness matrices, respectively; \textbf{F}$_{ext}$ is the external forces vector; \((\dot{\ })=\frac{\partial}{\partial t}\). Construction of the \textbf{M}, \textbf{D}, \textbf{K} matrices is similar to the classical approach in \ac{fem}.
+
+The convergence of the equation~(\ref{eq:motion}) in the \ac{sem} is already achieved for six nodes per wavelength, while at least fifteen nodes are needed in case of linear elements in classic \ac{fem}~\cite{wee2017simulating}. Moreover, the mass matrix is diagonal when the \ac{gll} approach is used.
+
