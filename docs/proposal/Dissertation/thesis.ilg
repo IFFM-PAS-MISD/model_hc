@@ -1,4 +1,17 @@
 This is makeindex, version 2.16 [MiKTeX 22.1].
-Scanning input file thesis.idx...done (0 entries accepted, 0 rejected).
-Nothing written in thesis.ind.
+Scanning style file /home/pfiborek/.miktex/texmfs/install/makeindex/nomencl/nomencl.ist........
+** Input style error (file = /home/pfiborek/.miktex/texmfs/install/makeindex/nomencl/nomencl.ist, line = 36):
+   -- Unknown specifier lethead_prefix.
+** Input style error (file = /home/pfiborek/.miktex/texmfs/install/makeindex/nomencl/nomencl.ist, line = 37):
+   -- Unknown specifier lethead_suffix.
+** Input style error (file = /home/pfiborek/.miktex/texmfs/install/makeindex/nomencl/nomencl.ist, line = 38):
+   -- Unknown specifier lethead_flag.
+....done (12 attributes redefined, 3 ignored).
+Scanning input file thesis.nlo....
+!! Input index error (file = thesis.nlo, line = 16):
+   -- Unknown index keyword mpageref}.
+done (15 entries accepted, 1 rejected).
+Sorting entries....done (56 comparisons).
+Generating output file thesis.nls....done (22 lines written, 0 warnings).
+Output written in thesis.nls.
 Transcript written in thesis.ilg.

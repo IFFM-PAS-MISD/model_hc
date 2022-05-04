@@ -1,113 +1,58 @@
-\boolfalse {citerequest}\boolfalse {citetracker}\boolfalse {pagetracker}\boolfalse {backtracker}\relax 
-\defcounter {refsection}{0}\relax 
 \contentsline {chapter}{LIST OF TABLES}{iv}{chapter*.4}%
-\defcounter {refsection}{0}\relax 
 \contentsline {chapter}{LIST OF FIGURES}{v}{chapter*.5}%
-\defcounter {refsection}{0}\relax 
 \acswitchoff 
-\defcounter {refsection}{0}\relax 
 \contentsline {chapter}{NOMENCLATURE}{vii}{chapter*.6}%
-\defcounter {refsection}{0}\relax 
 \contentsline {chapter}{ACRONYMS}{viii}{chapter*.7}%
-\defcounter {refsection}{0}\relax 
 \contentsline {chapter}{\numberline {1}Introduction}{1}{chapter.1}%
-\defcounter {refsection}{0}\relax 
 \contentsline {section}{\numberline {1.1}Sandwich Composite Structures}{1}{section.1.1}%
-\defcounter {refsection}{0}\relax 
 \contentsline {section}{\numberline {1.2}Structural Health Monitoring}{2}{section.1.2}%
-\defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {1.3}Piezoelectric Transducers}{4}{section.1.3}%
-\defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {1.4}Challenges in Damage Assessment in the SCS}{4}{section.1.4}%
-\defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {1.5}Conclusions}{4}{section.1.5}%
-\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {1.3}Piezoelectric Transducers}{3}{section.1.3}%
+\contentsline {section}{\numberline {1.4}Chosen \ac {shm} techniques using \acp {pzt}}{4}{section.1.4}%
+\contentsline {subsection}{\numberline {1.4.1}Guided waves based techniques}{4}{subsection.1.4.1}%
+\contentsline {subsection}{\numberline {1.4.2}Electromechanical impedance methods}{5}{subsection.1.4.2}%
+\contentsline {section}{\numberline {1.5}Challenges in Damage Assessment in the \ac {hsc}}{6}{section.1.5}%
+\contentsline {section}{\numberline {1.6}Conclusions}{7}{section.1.6}%
 \contentsline {chapter}{\numberline {2}Problem Statement}{1}{chapter.2}%
-\defcounter {refsection}{0}\relax 
 \contentsline {chapter}{\numberline {3}Concept of the Method}{2}{chapter.3}%
-\defcounter {refsection}{0}\relax 
 \contentsline {section}{\numberline {3.1}Modelling of the GW Propagation in the SCS}{2}{section.3.1}%
-\defcounter {refsection}{0}\relax 
 \contentsline {section}{\numberline {3.2}Temperature Effect on the GW Propagation}{3}{section.3.2}%
-\defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {3.3}Model-Assisted Damage Identification Function}{4}{section.3.3}%
-\defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {3.4}Conclusions}{4}{section.3.4}%
-\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {3.3}Conclusions}{4}{section.3.3}%
 \contentsline {chapter}{\numberline {4}Time-Domain Spectral Element Method Formulation}{5}{chapter.4}%
-\defcounter {refsection}{0}\relax 
 \contentsline {section}{\numberline {4.1}The Spectral Element Method}{5}{section.4.1}%
-\defcounter {refsection}{0}\relax 
 \contentsline {section}{\numberline {4.2}2D Spectral Modelling}{6}{section.4.2}%
-\defcounter {refsection}{0}\relax 
 \contentsline {section}{\numberline {4.3}3D Model of the PZT transducers}{7}{section.4.3}%
-\defcounter {refsection}{0}\relax 
 \contentsline {section}{\numberline {4.4}Displacements Coupling at the Substructures Interface}{7}{section.4.4}%
-\defcounter {refsection}{0}\relax 
 \contentsline {section}{\numberline {4.5}Time Integration}{9}{section.4.5}%
-\defcounter {refsection}{0}\relax 
 \contentsline {section}{\numberline {4.6}Parallel Implementation of the Internal Force Vector Calculation}{10}{section.4.6}%
-\defcounter {refsection}{0}\relax 
 \contentsline {section}{\numberline {4.7}Transformation of the Core Elements}{12}{section.4.7}%
-\defcounter {refsection}{0}\relax 
 \contentsline {section}{\numberline {4.8}Conclusions}{13}{section.4.8}%
-\defcounter {refsection}{0}\relax 
 \contentsline {chapter}{\numberline {5}Numerical simulation of the GW in the SCS}{14}{chapter.5}%
-\defcounter {refsection}{0}\relax 
 \contentsline {section}{\numberline {5.1}Sample Configuration}{14}{section.5.1}%
-\defcounter {refsection}{0}\relax 
 \contentsline {section}{\numberline {5.2}Excitation Signal}{14}{section.5.2}%
-\defcounter {refsection}{0}\relax 
 \contentsline {section}{\numberline {5.3}GW Propagation in the Homogenized Core Model}{14}{section.5.3}%
-\defcounter {refsection}{0}\relax 
 \contentsline {section}{\numberline {5.4}GW Propagation in the Real Honeycomb Core Model}{14}{section.5.4}%
-\defcounter {refsection}{0}\relax 
 \contentsline {section}{\numberline {5.5}GW Propagation in the Damaged Structure}{15}{section.5.5}%
-\defcounter {refsection}{0}\relax 
 \contentsline {section}{\numberline {5.6}Conclusions}{16}{section.5.6}%
-\defcounter {refsection}{0}\relax 
 \contentsline {chapter}{\numberline {6}Experimental Validation}{17}{chapter.6}%
-\defcounter {refsection}{0}\relax 
 \contentsline {section}{\numberline {6.1}Experimental Setup Configuration}{17}{section.6.1}%
-\defcounter {refsection}{0}\relax 
 \contentsline {section}{\numberline {6.2}Results}{20}{section.6.2}%
-\defcounter {refsection}{0}\relax 
 \contentsline {section}{\numberline {6.3}Conclusions}{21}{section.6.3}%
-\defcounter {refsection}{0}\relax 
 \contentsline {chapter}{\numberline {7}GW Propagation under Variable Temperature Conditions}{22}{chapter.7}%
-\defcounter {refsection}{0}\relax 
 \contentsline {section}{\numberline {7.1}Temperature-Dependent Elastic Properties}{22}{section.7.1}%
-\defcounter {refsection}{0}\relax 
 \contentsline {section}{\numberline {7.2}Experimental Validation of Temperature Effects on the GW propagation}{22}{section.7.2}%
-\defcounter {refsection}{0}\relax 
 \contentsline {section}{\numberline {7.3}Results}{22}{section.7.3}%
-\defcounter {refsection}{0}\relax 
 \contentsline {section}{\numberline {7.4}Conclusions}{22}{section.7.4}%
-\defcounter {refsection}{0}\relax 
 \contentsline {chapter}{\numberline {8}The Severity of Damage Estimation}{23}{chapter.8}%
-\defcounter {refsection}{0}\relax 
 \contentsline {section}{\numberline {8.1}Model-Assisted Damage Identification Function}{23}{section.8.1}%
-\defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {8.2}Determination of the MADIF}{25}{section.8.2}%
-\defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {8.3}Temperature Compensation}{25}{section.8.3}%
-\defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {8.4}Conclusions}{25}{section.8.4}%
-\defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {9}Conclusions}{26}{chapter.9}%
-\defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {9.1}Concluding remarks}{26}{section.9.1}%
-\defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {9.2}Contributions}{26}{section.9.2}%
-\defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {A}Elementary matrices of the equation of motion.}{27}{appendix.A}%
-\defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {A.1}Mass and stiffness matrices}{27}{section.A.1}%
-\defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {A.2}\ac {pzt} matrices}{28}{section.A.2}%
-\defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {B}Interfaces coupling matrix}{29}{appendix.B}%
-\defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {C}Material properties}{31}{appendix.C}%
-\defcounter {refsection}{0}\relax 
-\contentsline {chapter}{References/Bibliography}{32}{table.caption.20}%
+\contentsline {section}{\numberline {8.2}Determination of the MADIF}{24}{section.8.2}%
+\contentsline {section}{\numberline {8.3}Temperature Compensation}{24}{section.8.3}%
+\contentsline {section}{\numberline {8.4}Conclusions}{24}{section.8.4}%
+\contentsline {chapter}{\numberline {9}Conclusions}{25}{chapter.9}%
+\contentsline {section}{\numberline {9.1}Concluding remarks}{25}{section.9.1}%
+\contentsline {section}{\numberline {9.2}Contributions}{25}{section.9.2}%
+\contentsline {chapter}{\numberline {A}Elementary matrices of the equation of motion.}{26}{appendix.A}%
+\contentsline {section}{\numberline {A.1}Mass and stiffness matrices}{26}{section.A.1}%
+\contentsline {section}{\numberline {A.2}\ac {pzt} matrices}{27}{section.A.2}%
+\contentsline {chapter}{\numberline {B}Interfaces coupling matrix}{28}{appendix.B}%
+\contentsline {chapter}{\numberline {C}Material properties}{30}{appendix.C}%
+\contentsline {chapter}{References/Bibliography}{31}{table.caption.21}%

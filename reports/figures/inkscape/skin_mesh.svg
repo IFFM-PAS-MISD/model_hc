@@ -46,8 +46,8 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="1.4142135"
-     inkscape:cx="277.29334"
-     inkscape:cy="72.263889"
+     inkscape:cx="252.19643"
+     inkscape:cy="11.673483"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -134,26 +134,26 @@
          x="394.64001"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:22.5px;line-height:125%;font-family:Arial;-inkscape-font-specification:Arial;text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.93750006px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
          xml:space="preserve"><tspan
-           style="font-size:15px;stroke-width:0.93750006px"
+           style="font-size:15px;stroke-width:0.93750006px;-inkscape-font-specification:'TeX Gyre DejaVu Math';font-family:'TeX Gyre DejaVu Math';font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal"
            y="1001.767"
            x="394.64001"
            id="tspan4286"
            sodipodi:role="line">x<tspan
    id="tspan4290"
-   style="font-size:64.99999762%;baseline-shift:sub">g</tspan></tspan></text>
+   style="font-size:64.99999762%;baseline-shift:sub;-inkscape-font-specification:'TeX Gyre DejaVu Math';font-family:'TeX Gyre DejaVu Math';font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal">g</tspan></tspan></text>
       <text
          id="text4304"
          y="928.70612"
          x="319.23544"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:22.5px;line-height:125%;font-family:Arial;-inkscape-font-specification:Arial;text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.93750006px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
          xml:space="preserve"><tspan
-           style="font-size:15px;stroke-width:0.93750006px"
+           style="font-size:15px;stroke-width:0.93750006px;-inkscape-font-specification:'TeX Gyre DejaVu Math';font-family:'TeX Gyre DejaVu Math';font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal"
            y="928.70612"
            x="319.23544"
            id="tspan4302"
            sodipodi:role="line">y<tspan
    id="tspan4306"
-   style="font-size:64.99999762%;baseline-shift:sub">g</tspan></tspan></text>
+   style="font-size:64.99999762%;baseline-shift:sub;-inkscape-font-specification:'TeX Gyre DejaVu Math';font-family:'TeX Gyre DejaVu Math';font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal">g</tspan></tspan></text>
     </g>
     <path
        style="fill:#efefef;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:0.93750006px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
@@ -329,11 +329,9 @@
            id="tspan16350"
            x="394.64001"
            y="1001.767"
-           style="font-size:15px;stroke-width:0.93750006px">x<tspan
-   style="font-size:64.99999762%;baseline-shift:sub"
-   id="tspan16364">l</tspan><tspan
-   style="font-size:64.99999762%;baseline-shift:sub"
-   id="tspan16348" /></tspan></text>
+           style="font-size:15px;stroke-width:0.93750006px;-inkscape-font-specification:'TeX Gyre DejaVu Math';font-family:'TeX Gyre DejaVu Math';font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal">x<tspan
+   style="font-size:64.99999762%;baseline-shift:sub;-inkscape-font-specification:'TeX Gyre DejaVu Math';font-family:'TeX Gyre DejaVu Math';font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal"
+   id="tspan16364">l</tspan></tspan></text>
       <text
          xml:space="preserve"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:22.5px;line-height:125%;font-family:Arial;-inkscape-font-specification:Arial;text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.93750006px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
@@ -344,11 +342,9 @@
            id="tspan16356"
            x="319.23544"
            y="928.70612"
-           style="font-size:15px;stroke-width:0.93750006px">y<tspan
-   style="font-size:64.99999762%;baseline-shift:sub"
-   id="tspan16362">l</tspan><tspan
-   style="font-size:64.99999762%;baseline-shift:sub"
-   id="tspan16354" /></tspan></text>
+           style="font-size:15px;stroke-width:0.93750006px;-inkscape-font-specification:'TeX Gyre DejaVu Math';font-family:'TeX Gyre DejaVu Math';font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal">y<tspan
+   style="font-size:64.99999762%;baseline-shift:sub;-inkscape-font-specification:'TeX Gyre DejaVu Math';font-family:'TeX Gyre DejaVu Math';font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal"
+   id="tspan16362">l</tspan></tspan></text>
     </g>
     <circle
        style="opacity:0.953;fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:1.00031257;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:1.00031253, 2.00062507;stroke-dashoffset:0;stroke-opacity:1"

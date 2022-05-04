@@ -200,9 +200,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.7"
-     inkscape:cx="679.49408"
-     inkscape:cy="162.90502"
+     inkscape:zoom="0.98994949"
+     inkscape:cx="273.27863"
+     inkscape:cy="262.6225"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -223,7 +223,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -235,15 +235,17 @@
     <flowRoot
        xml:space="preserve"
        id="flowRoot2181"
-       style="font-style:normal;font-weight:normal;font-size:16px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none"
+       style="font-style:normal;font-weight:normal;font-size:16px;line-height:1.25;font-family:'TeX Gyre DejaVu Math';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;-inkscape-font-specification:'TeX Gyre DejaVu Math';font-stretch:normal;font-variant:normal;"
        transform="scale(0.26458333)"><flowRegion
-         id="flowRegion2183"><rect
+         id="flowRegion2183"
+         style="-inkscape-font-specification:'TeX Gyre DejaVu Math';font-family:'TeX Gyre DejaVu Math';font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal;"><rect
            id="rect2185"
            width="97.85714"
            height="21.428572"
            x="24.285715"
-           y="299.66254" /></flowRegion><flowPara
-         id="flowPara2187"></flowPara></flowRoot>    <rect
+           y="299.66254"
+           style="-inkscape-font-specification:'TeX Gyre DejaVu Math';font-family:'TeX Gyre DejaVu Math';font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal;" /></flowRegion><flowPara
+         id="flowPara2187" /></flowRoot>    <rect
        rx="12.828938"
        ry="12.828938"
        y="190.80463"
@@ -254,7 +256,7 @@
        style="fill:#c6e9af;fill-opacity:1;stroke:#000000;stroke-width:0.26499999;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
     <text
        xml:space="preserve"
-       style="font-style:normal;font-weight:normal;font-size:4.23333311px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       style="font-style:normal;font-weight:normal;font-size:4.23333311px;line-height:1.25;font-family:'TeX Gyre DejaVu Math';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332;-inkscape-font-specification:'TeX Gyre DejaVu Math';font-stretch:normal;font-variant:normal;"
        x="37.992165"
        y="198.45612"
        id="text2175"><tspan
@@ -262,11 +264,11 @@
          id="tspan2173"
          x="37.992165"
          y="198.45612"
-         style="text-align:center;text-anchor:middle;stroke-width:0.26458332">Reference measurement</tspan><tspan
+         style="text-align:center;text-anchor:middle;stroke-width:0.26458332;-inkscape-font-specification:'TeX Gyre DejaVu Math';font-family:'TeX Gyre DejaVu Math';font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal;">Reference measurement</tspan><tspan
          sodipodi:role="line"
          x="37.992165"
          y="203.74779"
-         style="text-align:center;text-anchor:middle;stroke-width:0.26458332"
+         style="text-align:center;text-anchor:middle;stroke-width:0.26458332;-inkscape-font-specification:'TeX Gyre DejaVu Math';font-family:'TeX Gyre DejaVu Math';font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal;"
          id="tspan2177">on a pristine sample</tspan></text>
     <g
        id="g14673">
@@ -281,20 +283,20 @@
          style="fill:#c6e9af;fill-opacity:1;stroke:#000000;stroke-width:0.26499999;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
       <text
          xml:space="preserve"
-         style="font-style:normal;font-weight:normal;font-size:4.23333311px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+         style="font-style:normal;font-weight:normal;font-size:4.23333311px;line-height:1.25;font-family:'TeX Gyre DejaVu Math';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332;-inkscape-font-specification:'TeX Gyre DejaVu Math';font-stretch:normal;font-variant:normal;"
          x="107.09938"
          y="198.45612"
          id="text2197"><tspan
            sodipodi:role="line"
            x="107.77221"
            y="198.45612"
-           style="text-align:center;text-anchor:middle;stroke-width:0.26458332"
+           style="text-align:center;text-anchor:middle;stroke-width:0.26458332;-inkscape-font-specification:'TeX Gyre DejaVu Math';font-family:'TeX Gyre DejaVu Math';font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal;"
            id="tspan2195">Experimental measurement </tspan><tspan
            id="tspan2201"
            sodipodi:role="line"
            x="107.09938"
            y="203.74779"
-           style="text-align:center;text-anchor:middle;stroke-width:0.26458332">on an inspected sample</tspan></text>
+           style="text-align:center;text-anchor:middle;stroke-width:0.26458332;-inkscape-font-specification:'TeX Gyre DejaVu Math';font-family:'TeX Gyre DejaVu Math';font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal;">on an inspected sample</tspan></text>
     </g>
     <g
        id="g12718"
@@ -312,9 +314,9 @@
          id="text2211"
          y="203.2444"
          x="88.248856"
-         style="font-style:normal;font-weight:normal;font-size:4.23333311px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+         style="font-style:normal;font-weight:normal;font-size:4.23333311px;line-height:1.25;font-family:'TeX Gyre DejaVu Math';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332;-inkscape-font-specification:'TeX Gyre DejaVu Math';font-stretch:normal;font-variant:normal;"
          xml:space="preserve"><tspan
-           style="stroke-width:0.26458332"
+           style="stroke-width:0.26458332;-inkscape-font-specification:'TeX Gyre DejaVu Math';font-family:'TeX Gyre DejaVu Math';font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal;"
            y="203.2444"
            x="88.248856"
            id="tspan2209"
@@ -336,15 +338,15 @@
          id="text2217"
          y="229.00131"
          x="106.87717"
-         style="font-style:normal;font-weight:normal;font-size:4.23333311px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+         style="font-style:normal;font-weight:normal;font-size:4.23333311px;line-height:1.25;font-family:'TeX Gyre DejaVu Math';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332;-inkscape-font-specification:'TeX Gyre DejaVu Math';font-stretch:normal;font-variant:normal;"
          xml:space="preserve"><tspan
-           style="text-align:center;text-anchor:middle;stroke-width:0.26458332"
+           style="text-align:center;text-anchor:middle;stroke-width:0.26458332;-inkscape-font-specification:'TeX Gyre DejaVu Math';font-family:'TeX Gyre DejaVu Math';font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal;"
            y="229.00131"
            x="106.87717"
            id="tspan2215"
            sodipodi:role="line">Amplitude ratio</tspan><tspan
            id="tspan2227"
-           style="text-align:center;text-anchor:middle;stroke-width:0.26458332"
+           style="text-align:center;text-anchor:middle;stroke-width:0.26458332;-inkscape-font-specification:'TeX Gyre DejaVu Math';font-family:'TeX Gyre DejaVu Math';font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal;"
            y="234.29298"
            x="106.87717"
            sodipodi:role="line"> determination</tspan></text>
@@ -365,15 +367,15 @@
          id="text2223"
          y="277.62503"
          x="106.57021"
-         style="font-style:normal;font-weight:normal;font-size:4.23333311px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+         style="font-style:normal;font-weight:normal;font-size:4.23333311px;line-height:1.25;font-family:'TeX Gyre DejaVu Math';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332;-inkscape-font-specification:'TeX Gyre DejaVu Math';font-stretch:normal;font-variant:normal;"
          xml:space="preserve"><tspan
-           style="text-align:center;text-anchor:middle;stroke-width:0.26458332"
+           style="text-align:center;text-anchor:middle;stroke-width:0.26458332;-inkscape-font-specification:'TeX Gyre DejaVu Math';font-family:'TeX Gyre DejaVu Math';font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal;"
            y="277.62503"
            x="107.24304"
            id="tspan2221"
            sodipodi:role="line">Damage size est. </tspan><tspan
            id="tspan2225"
-           style="text-align:center;text-anchor:middle;stroke-width:0.26458332"
+           style="text-align:center;text-anchor:middle;stroke-width:0.26458332;-inkscape-font-specification:'TeX Gyre DejaVu Math';font-family:'TeX Gyre DejaVu Math';font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal;"
            y="282.91669"
            x="106.57021"
            sodipodi:role="line">from MADIF</tspan></text>
@@ -383,11 +385,6 @@
        id="path2581"
        d="M 37.567381,257.86498 H 60.418931 85.80953"
        style="fill:none;stroke:#000000;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-mid:url(#marker2585)" />
-    <path
-       style="fill:none;stroke:#000000;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-mid:url(#marker2837)"
-       d="m -138.59143,250.70715 h 10.61272 11.79191"
-       id="path2833"
-       inkscape:connector-curvature="0" />
     <path
        style="fill:none;stroke:#000000;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-mid:url(#marker2999)"
        d="m 107.57976,236.59877 v 6.89981 7.66642"
@@ -414,9 +411,9 @@
          id="text12673"
          y="158.11427"
          x="162.72972"
-         style="font-style:normal;font-weight:normal;font-size:4.23333311px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+         style="font-style:normal;font-weight:normal;font-size:4.23333311px;line-height:1.25;font-family:'TeX Gyre DejaVu Math';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332;-inkscape-font-specification:'TeX Gyre DejaVu Math';font-stretch:normal;font-variant:normal;"
          xml:space="preserve"><tspan
-           style="stroke-width:0.26458332"
+           style="stroke-width:0.26458332;-inkscape-font-specification:'TeX Gyre DejaVu Math';font-family:'TeX Gyre DejaVu Math';font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal;"
            y="158.11427"
            x="162.72972"
            id="tspan12671"
@@ -437,9 +434,9 @@
          id="text12679"
          y="231.04044"
          x="153.01289"
-         style="font-style:normal;font-weight:normal;font-size:4.23333311px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+         style="font-style:normal;font-weight:normal;font-size:4.23333311px;line-height:1.25;font-family:'TeX Gyre DejaVu Math';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332;-inkscape-font-specification:'TeX Gyre DejaVu Math';font-stretch:normal;font-variant:normal;"
          xml:space="preserve"><tspan
-           style="stroke-width:0.26458332"
+           style="stroke-width:0.26458332;-inkscape-font-specification:'TeX Gyre DejaVu Math';font-family:'TeX Gyre DejaVu Math';font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal;"
            y="231.04044"
            x="153.01289"
            id="tspan12677"
@@ -461,9 +458,9 @@
          id="text12685"
          y="247.05566"
          x="170.41214"
-         style="font-style:normal;font-weight:normal;font-size:4.23333311px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+         style="font-style:normal;font-weight:normal;font-size:4.23333311px;line-height:1.25;font-family:'TeX Gyre DejaVu Math';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332;-inkscape-font-specification:'TeX Gyre DejaVu Math';font-stretch:normal;font-variant:normal;"
          xml:space="preserve"><tspan
-           style="stroke-width:0.26458332"
+           style="stroke-width:0.26458332;-inkscape-font-specification:'TeX Gyre DejaVu Math';font-family:'TeX Gyre DejaVu Math';font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal;"
            y="247.05566"
            x="170.41214"
            id="tspan12683"
@@ -506,5 +503,15 @@
        id="path14567"
        d="m 175.95858,278.69268 h -6.30999 -3.57913"
        style="fill:none;stroke:#000000;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-mid:url(#marker14571)" />
-  </g>
+    <flowRoot
+       xml:space="preserve"
+       id="flowRoot1080"
+       style="fill:black;fill-opacity:1;stroke:none;font-family:'TeX Gyre DejaVu Math';font-style:normal;font-weight:normal;font-size:13.33333333px;line-height:1.25;letter-spacing:0px;word-spacing:0px;-inkscape-font-specification:'TeX Gyre DejaVu Math';font-stretch:normal;font-variant:normal"><flowRegion
+         id="flowRegion1082"><rect
+           id="rect1084"
+           width="705.71429"
+           height="385.71429"
+           x="-762.85712"
+           y="131.13611" /></flowRegion><flowPara
+         id="flowPara1086"></flowPara></flowRoot>  </g>
 </svg>

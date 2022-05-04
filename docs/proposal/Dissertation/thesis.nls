@@ -2,7 +2,7 @@
 \begin{thenomenclature} 
 \nomgroup{D}
   \item [{\( \xi , \eta , \zeta \)}]\begingroup \nomdescr {local coordinates}\DefinitionCol {-}\nomeqref {0}\nompageref{vi}
-  \item [{\( w \)}]\begingroup \nomdescr {weighing factor}\DefinitionCol {$\frac {2}{p(p-1)\left (P_{p-1}(\xi )\right )^2}$}\nomeqref {0}\nompageref{vi}
+  \item [{\( w \)}]\begingroup \nomdescr {weighting factor}\DefinitionCol {$\frac {2}{p(p-1)\left (P_{p-1}(\xi )\right )^2}$}\nomeqref {0}\nompageref{vi}
 \nomgroup{G}
   \item [{\( \delta \)}]\begingroup \nomdescr {Boundary layer thickness}\DimensUnits {-}{m}\nomeqref {0}\nompageref{vi}
   \item [{\( \lambda \)}]\begingroup \nomdescr {Full scale to model scale ratio}\DimensUnits {$\frac {L_{s}}{L_{m}}$}{-}\nomeqref {0}\nompageref{vi}

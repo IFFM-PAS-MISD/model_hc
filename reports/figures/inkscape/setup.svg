@@ -303,9 +303,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.49497475"
-     inkscape:cx="296.1456"
-     inkscape:cy="238.3757"
+     inkscape:zoom="0.24748738"
+     inkscape:cx="-440.96689"
+     inkscape:cy="250.80707"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -342,7 +342,7 @@
        rx="7.4650297" />
     <text
        xml:space="preserve"
-       style="font-style:normal;font-weight:normal;font-size:4.23333311px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       style="font-style:normal;font-weight:normal;font-size:4.23333311px;line-height:1.25;font-family:'TeX Gyre DejaVu Math';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332;-inkscape-font-specification:'TeX Gyre DejaVu Math';font-stretch:normal;font-variant:normal;"
        x="22.390795"
        y="211.31615"
        id="text1927"><tspan
@@ -350,7 +350,7 @@
          id="tspan1925"
          x="22.390795"
          y="211.31615"
-         style="stroke-width:0.26458332">Voltage Amplifier</tspan></text>
+         style="stroke-width:0.26458332;-inkscape-font-specification:'TeX Gyre DejaVu Math';font-family:'TeX Gyre DejaVu Math';font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal;">Voltage Amplifier</tspan></text>
     <rect
        rx="7.4650297"
        ry="2.9214451"
@@ -362,7 +362,7 @@
        style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:0.289;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
     <text
        xml:space="preserve"
-       style="font-style:normal;font-weight:normal;font-size:4.23333311px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       style="font-style:normal;font-weight:normal;font-size:4.23333311px;line-height:1.25;font-family:'TeX Gyre DejaVu Math';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332;-inkscape-font-specification:'TeX Gyre DejaVu Math';font-stretch:normal;font-variant:normal;"
        x="96.689995"
        y="211.72647"
        id="text1933"><tspan
@@ -370,7 +370,7 @@
          id="tspan1931"
          x="96.689995"
          y="211.72647"
-         style="stroke-width:0.26458332">SDLV Head</tspan></text>
+         style="stroke-width:0.26458332;-inkscape-font-specification:'TeX Gyre DejaVu Math';font-family:'TeX Gyre DejaVu Math';font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal;">SDLV Head</tspan></text>
     <rect
        rx="7.4650297"
        ry="2.9214451"
@@ -382,7 +382,7 @@
        style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:0.289;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
     <text
        xml:space="preserve"
-       style="font-style:normal;font-weight:normal;font-size:4.23333311px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       style="font-style:normal;font-weight:normal;font-size:4.23333311px;line-height:1.25;font-family:'TeX Gyre DejaVu Math';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332;-inkscape-font-specification:'TeX Gyre DejaVu Math';font-stretch:normal;font-variant:normal;"
        x="23.253792"
        y="259.73224"
        id="text1939"><tspan
@@ -390,7 +390,7 @@
          id="tspan1937"
          x="23.253792"
          y="259.73224"
-         style="stroke-width:0.26458332">Wave Generator</tspan></text>
+         style="stroke-width:0.26458332;-inkscape-font-specification:'TeX Gyre DejaVu Math';font-family:'TeX Gyre DejaVu Math';font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal;">Wave Generator</tspan></text>
     <rect
        style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:0.289;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
        id="rect1941"
@@ -402,7 +402,7 @@
        rx="7.4650297" />
     <text
        xml:space="preserve"
-       style="font-style:normal;font-weight:normal;font-size:4.23333311px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       style="font-style:normal;font-weight:normal;font-size:4.23333311px;line-height:1.25;font-family:'TeX Gyre DejaVu Math';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332;-inkscape-font-specification:'TeX Gyre DejaVu Math';font-stretch:normal;font-variant:normal;"
        x="156.23955"
        y="259.35916"
        id="text1945"><tspan
@@ -410,7 +410,7 @@
          id="tspan1943"
          x="156.23955"
          y="259.35916"
-         style="stroke-width:0.26458332">Oscilloscope</tspan></text>
+         style="stroke-width:0.26458332;-inkscape-font-specification:'TeX Gyre DejaVu Math';font-family:'TeX Gyre DejaVu Math';font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal;">Oscilloscope</tspan></text>
     <rect
        style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:0.289;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
        id="rect1947"
@@ -431,7 +431,7 @@
        rx="7.4650297" />
     <text
        xml:space="preserve"
-       style="font-style:normal;font-weight:normal;font-size:4.23333311px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       style="font-style:normal;font-weight:normal;font-size:4.23333311px;line-height:1.25;font-family:'TeX Gyre DejaVu Math';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332;-inkscape-font-specification:'TeX Gyre DejaVu Math';font-stretch:normal;font-variant:normal;"
        x="108.60781"
        y="256.71332"
        id="text1975"><tspan
@@ -439,11 +439,11 @@
          id="tspan1973"
          x="109.28064"
          y="256.71332"
-         style="text-align:center;text-anchor:middle;stroke-width:0.26458332">SDLV data acquisition </tspan><tspan
+         style="text-align:center;text-anchor:middle;stroke-width:0.26458332;-inkscape-font-specification:'TeX Gyre DejaVu Math';font-family:'TeX Gyre DejaVu Math';font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal;">SDLV data acquisition </tspan><tspan
          sodipodi:role="line"
          x="108.60781"
          y="262.00497"
-         style="text-align:center;text-anchor:middle;stroke-width:0.26458332"
+         style="text-align:center;text-anchor:middle;stroke-width:0.26458332;-inkscape-font-specification:'TeX Gyre DejaVu Math';font-family:'TeX Gyre DejaVu Math';font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal;"
          id="tspan1977">and control system</tspan></text>
     <rect
        style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:0.289;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
@@ -456,7 +456,7 @@
        rx="7.4650297" />
     <text
        xml:space="preserve"
-       style="font-style:normal;font-weight:normal;font-size:4.23333311px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       style="font-style:normal;font-weight:normal;font-size:4.23333311px;line-height:1.25;font-family:'TeX Gyre DejaVu Math';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332;-inkscape-font-specification:'TeX Gyre DejaVu Math';font-stretch:normal;font-variant:normal;"
        x="99.839455"
        y="287.27319"
        id="text1983"><tspan
@@ -464,7 +464,7 @@
          id="tspan1981"
          x="99.839455"
          y="287.27319"
-         style="stroke-width:0.26458332">Computer</tspan></text>
+         style="stroke-width:0.26458332;-inkscape-font-specification:'TeX Gyre DejaVu Math';font-family:'TeX Gyre DejaVu Math';font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal;">Computer</tspan></text>
     <image
        y="75.506706"
        x="65.246315"
@@ -536,7 +536,7 @@
        inkscape:connector-curvature="0" />
     <text
        xml:space="preserve"
-       style="font-style:normal;font-weight:normal;font-size:4.23333311px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       style="font-style:normal;font-weight:normal;font-size:4.23333311px;line-height:1.25;font-family:'TeX Gyre DejaVu Math';letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.26458332;-inkscape-font-specification:'TeX Gyre DejaVu Math';font-stretch:normal;font-variant:normal;"
        x="69.358635"
        y="84.38839"
        id="text9498"><tspan
@@ -544,10 +544,10 @@
          id="tspan9496"
          x="69.358635"
          y="84.38839"
-         style="fill:#ffffff;stroke-width:0.26458332">Sample - top view</tspan></text>
+         style="fill:#ffffff;stroke-width:0.26458332;-inkscape-font-specification:'TeX Gyre DejaVu Math';font-family:'TeX Gyre DejaVu Math';font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal;">Sample - top view</tspan></text>
     <text
        xml:space="preserve"
-       style="font-style:normal;font-weight:normal;font-size:4.23333311px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       style="font-style:normal;font-weight:normal;font-size:4.23333311px;line-height:1.25;font-family:'TeX Gyre DejaVu Math';letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.26458332;-inkscape-font-specification:'TeX Gyre DejaVu Math';font-stretch:normal;font-variant:normal;"
        x="72.004463"
        y="124.45387"
        id="text9502"><tspan
@@ -555,10 +555,10 @@
          id="tspan9500"
          x="72.004463"
          y="124.45387"
-         style="fill:#ffffff;stroke-width:0.26458332">PZT Actuator</tspan></text>
+         style="fill:#ffffff;stroke-width:0.26458332;-inkscape-font-specification:'TeX Gyre DejaVu Math';font-family:'TeX Gyre DejaVu Math';font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal;">PZT Actuator</tspan></text>
     <text
        xml:space="preserve"
-       style="font-style:normal;font-weight:normal;font-size:4.23333311px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       style="font-style:normal;font-weight:normal;font-size:4.23333311px;line-height:1.25;font-family:'TeX Gyre DejaVu Math';letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.26458332;-inkscape-font-specification:'TeX Gyre DejaVu Math';font-stretch:normal;font-variant:normal;"
        x="116.98363"
        y="124.45387"
        id="text9506"><tspan
@@ -566,7 +566,7 @@
          id="tspan9504"
          x="116.98363"
          y="124.45387"
-         style="fill:#ffffff;stroke-width:0.26458332">PZT sensor</tspan></text>
+         style="fill:#ffffff;stroke-width:0.26458332;-inkscape-font-specification:'TeX Gyre DejaVu Math';font-family:'TeX Gyre DejaVu Math';font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal;">PZT sensor</tspan></text>
     <path
        inkscape:connector-curvature="0"
        id="path9711"
@@ -574,7 +574,7 @@
        style="fill:none;stroke:#000000;stroke-width:0.465;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:1.86000001, 1.86000001;stroke-dashoffset:0;stroke-opacity:1;marker-start:url(#marker9715);marker-end:url(#marker9833)" />
     <text
        xml:space="preserve"
-       style="font-style:normal;font-weight:normal;font-size:4.23333311px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       style="font-style:normal;font-weight:normal;font-size:4.23333311px;line-height:1.25;font-family:'TeX Gyre DejaVu Math';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332;-inkscape-font-specification:'TeX Gyre DejaVu Math';font-stretch:normal;font-variant:normal;"
        x="111.125"
        y="186.25298"
        id="text10461"><tspan
@@ -582,39 +582,7 @@
          id="tspan10459"
          x="111.125"
          y="186.25298"
-         style="stroke-width:0.26458332">Laser beam</tspan></text>
-    <text
-       xml:space="preserve"
-       style="font-style:normal;font-weight:normal;font-size:4.23333311px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
-       x="19.692556"
-       y="14.462789"
-       id="text912"><tspan
-         sodipodi:role="line"
-         id="tspan910"
-         x="19.692556"
-         y="14.462789"
-         style="fill:#ffffff;stroke-width:0.26458332">Pristine sample - </tspan><tspan
-         sodipodi:role="line"
-         x="19.692556"
-         y="19.754456"
-         style="fill:#ffffff;stroke-width:0.26458332"
-         id="tspan914">bottom view</tspan></text>
-    <text
-       xml:space="preserve"
-       style="font-style:normal;font-weight:normal;font-size:4.23333311px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
-       x="133.99249"
-       y="14.462789"
-       id="text926"><tspan
-         sodipodi:role="line"
-         id="tspan922"
-         x="133.99249"
-         y="14.462789"
-         style="fill:#ffffff;stroke-width:0.26458332">Damage 130 mm sample - </tspan><tspan
-         sodipodi:role="line"
-         x="133.99249"
-         y="19.754456"
-         style="fill:#ffffff;stroke-width:0.26458332"
-         id="tspan924">bottom view</tspan></text>
+         style="stroke-width:0.26458332;-inkscape-font-specification:'TeX Gyre DejaVu Math';font-family:'TeX Gyre DejaVu Math';font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal;">Laser beam</tspan></text>
     <rect
        rx="7.4650297"
        ry="2.9214451"
@@ -633,9 +601,9 @@
        id="text1056"
        y="209.42627"
        x="159.89307"
-       style="font-style:normal;font-weight:normal;font-size:4.23333311px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       style="font-style:normal;font-weight:normal;font-size:4.23333311px;line-height:1.25;font-family:'TeX Gyre DejaVu Math';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332;-inkscape-font-specification:'TeX Gyre DejaVu Math';font-stretch:normal;font-variant:normal;"
        xml:space="preserve"><tspan
-         style="stroke-width:0.26458332"
+         style="stroke-width:0.26458332;-inkscape-font-specification:'TeX Gyre DejaVu Math';font-family:'TeX Gyre DejaVu Math';font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal;"
          y="209.42627"
          x="159.89307"
          id="tspan1054"
