@@ -1,0 +1,564 @@
+
+
+
+
+
+
+\documentclass[11pt,a4paper,final]{report}
+
+\makeindex
+\PassOptionsToPackage{nottoc}{tocbibind}
+
+\usepackage{Packages/mathphdthesis}
+
+\usepackage{acro}
+\clearpage{}
+\DeclareAcronym{2d}{
+	short=2D,
+	long=two-dimensional,
+}
+\DeclareAcronym{3d}{
+	short=3D,
+	long=three-dimensional,
+}
+\DeclareAcronym{a0}{
+	short=A$_0$,
+	long=antisymmetric fundamental Lamb wave mode,
+}
+\DeclareAcronym{ccd}{
+	short=CCD,
+	long=correlation coefficient deviation,
+}
+\DeclareAcronym{cfrp}{
+	short=CFRP,
+	long=carbon fibre reinforced polymer,
+}
+\DeclareAcronym{cpu}{
+	short=CPU,
+	long=central processing unit,
+}
+\DeclareAcronym{di}{
+	short=DI,
+	long=damage index,
+	plural-form=damage indices,
+}
+\DeclareAcronym{dau}{
+	short=DAU,
+	long=data acquisition unit,
+}
+\DeclareAcronym{dof}{
+	short=DOF,
+	long=degree of freedom,
+	plural-form=degrees of freedom,
+}
+\DeclareAcronym{emi}{
+	short=EMI,
+	long=electromechanical impedance,
+}
+\DeclareAcronym{fem}{
+	short=FEM,
+	long=finite element method,
+}
+\DeclareAcronym{fbg}{
+	short=FBG,
+	long=fibre Bragg grating,
+}
+\DeclareAcronym{fgm}{
+	short=FGM,
+	long=full geometry model,
+}
+\DeclareAcronym{gw}{
+	short=GW,
+	long=guided wave,
+}
+\DeclareAcronym{gll}{
+	short=GLL,
+	long=Gauss-Lobatto-Legendre,
+}
+\DeclareAcronym{gpu}{
+	short=GPU,
+	long=graphics processing unit,
+}
+\DeclareAcronym{hsc}{
+	short=HSC,
+	long=honeycomb sandwich composite,
+}
+\DeclareAcronym{lm}{
+	short=LM,
+	long=Lagrange multipliers,
+}
+\DeclareAcronym{ncn}{
+	short=NCN,
+	long=National Science Centre,
+}
+\DeclareAcronym{madif}{
+	short=MADIF,
+	long=model-assisted damage identification function,
+}
+\DeclareAcronym{mapd}{
+	short=MAPD,
+	long=mean-absolute-percentage deviation,
+}
+\DeclareAcronym{pnn}{
+	short=PNN,
+	long=probabilistic neural networks,
+}
+\DeclareAcronym{pzt}{
+	short=PZT,
+	long=piezoelectric transducer,
+}
+\DeclareAcronym{rms}{
+	short=RMS,
+	long=root-mean-square,
+}
+\DeclareAcronym{rmsd}{
+	short=RMSD,
+	long=root-mean-square deviation,
+}
+\DeclareAcronym{rve}{
+	short=RVE,
+	long=representative volume element,
+}
+\DeclareAcronym{s0}{
+	short=S$_0$,
+	long=symmetric fundamental Lamb wave mode,
+}
+\DeclareAcronym{sem}{
+	short=SEM,
+	long=time domain spectral element method,
+}
+\DeclareAcronym{scs}{
+	short=SCS,
+	long=sandwich composite structure,
+}
+\DeclareAcronym{shm}{
+	short=SHM,
+	long=structural health monitoring,
+}
+\DeclareAcronym{sldv}{
+	short=SLVD,
+	long=scanning laser Doppler vibrometer,
+}
+\clearpage{}
+\usepackage[ruled,vlined]{algorithm2e}
+\usepackage{multirow}
+\graphicspath{{Figures/}} 
+
+\includeonly{
+Frontbackmatter/prelude 	,Frontbackmatter/newcom 	,Nomenclature/nomenclature  ,Acronyms/acronyms			,Chapters/Intro/intro  	    ,Chapters/Chapter2/ch:problem 	,Chapters/Chapter3/ch:method 	,Chapters/Chapter4/ch:sem 		,Chapters/Chapter5/ch:simulation 		,Chapters/Chapter6/ch:validation 	,Chapters/Chapter7/ch:tempEffect 	,Chapters/Chapter8/ch:severity 	,Chapters/Chapter9/ch:conclusions	,Appendices/app0   			,index  					}
+
+\begin{document}
+
+\clearpage{}
+
+\titlepgtrue 												\signaturepagetrue 											\copyrighttrue 												\abswithesistrue 											\acktrue 													\tablecontentstrue 											\tablespagetrue 											\figurespagetrue 											
+
+\title{Modelling of sandwich plates and piezoelectric transducers to identify the severity of mechanical damage}							\author{Piotr Fiborek} 	\prevdegrees{M.Sc. Eng.}              			\institute{Mechanics of Intelligent Structures Department}								
+
+\submittedfor{A dissertation submitted to the Scientific Board of the Szewalski Institute of Fluid Flow Machinery, Polish Academy of Sciences in partial fulfillment of the requirements for the Degree of Doctor of Philosophy}			\advisor{ Pawe\l{} Kudela, D.Sc. Ph.D. Eng.} \dept{The Szewalski Institute of Fluid Flow Machinery, Polish Academy of Sciences}
+\submitdate{June, 2022}						
+
+\newcommand{\abstextwithesis}
+{
+...
+}
+
+\newcommand{\acknowledgement}
+{
+}
+
+\newcommand{\engineeringquote}
+{
+\null\vskip1.8in
+\begin{quote}
+"Engineering ."\begin{flushright}- aaa 
+\end{flushright}
+\end{quote}
+}
+
+\renewcommand{\bibname}{References/Bibliography}
+\setlength\bibitemsep{1.5\itemsep}
+
+\newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{R}[1]{>{\raggedleft\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+
+\beforepreface
+\afterpreface
+\clearpage{}
+\clearpage{}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newcommand{\bfx}{{\ensuremath{\mathbf{x}}}}
+\clearpage{}
+\clearpage{}
+
+\chapter*{NOMENCLATURE}
+\addcontentsline{toc}{chapter}{NOMENCLATURE}
+\label{nomenclature}
+
+
+
+\nomtypeG{\( \lambda \)}{Full scale to model scale ratio}{$\frac{L_{s}}{L_{m}}$}{-}
+\nomtypeG{\( \delta \)}{Boundary layer thickness}{-}{m}
+\nomtypeG{\( \rho \)}{Mass density}{-}{kg/m\textsuperscript{3}}
+\nomtypeG{\( \nu \)}{Kinematic viscosity}{$\frac{\mu}{\rho}$}{m\textsuperscript{2}/s}
+\nomtypeG{\( \mu \)}{Viscosity}{$\frac{\mu}{\rho}$}{kg/ms}
+
+
+
+\nomtypeD{\( \xi, \eta, \zeta \)}{local coordinates}{-}
+\nomtypeD{\( w \)}{weighting factor}{$\frac{2}{p(p-1)\left(P_{p-1}(\xi)\right)^2}$}
+
+
+\nomtypeR[AN]{A\textsubscript{N}}{Nozzle discharge area}{-}{m\textsuperscript{2}}
+\nomtypeR[AS]{A\textsubscript{S}}{Cross sectional area at station $s$}{-}{m\textsuperscript{2}}
+\nomtypeR[SS]{S\textsubscript{S}}{Wetted surface area}{-}{m\textsuperscript{2}}
+
+\nomtypeR[T]{T}{Draft}{-}{$m$}
+\nomtypeR[LOA]{L\textsubscript{OA}}{Length overall}{-}{m}
+\nomtypeR[LWL]{L\textsubscript{WL}}{Length waterline}{-}{m}
+\nomtypeR[B]{B}{Moulded breadth}{-}{m}
+\nomtypeR[Bhullm]{B\textsubscript{hull, m}}{Beam of model hull}{-}{m}
+
+\printnomenclature[6em]
+\clearpage{}
+\clearpage{}
+
+\chapter*{ACRONYMS}
+\addcontentsline{toc}{chapter}{ACRONYMS}
+\label{acronyms}
+\printacronyms[heading=none,pages={display=first}]\clearpage{}
+\clearpage{}\pagenumbering{arabic}
+
+
+
+\chapter[Introduction]{Introduction}
+\label{ch:intro}
+The dissertation results from the author’s work as an assistant in the Department of Mechanics of Intelligent Structures, Institute of Fluid Flow Machinery, Polish Academy of Sciences.
+Most of the work has been carried out within the framework of a research project titled ‘Model-assisted damage identification function for Structural Health Monitoring of composite structures under a varied environmental condition', which was granted to the author by the National Science Centre, Poland.
+The primary objective was to develop a new approach to a sandwich structure assessment based on guided waves techniques under varied operating conditions.
+The essence of the proposed method is to establish an accurate and numerically efficient model of the wave propagation in the sandwich structure to determine the severity of the damage.
+A better understanding of guided wave behaviour in such structures and their interaction with damage will help develop more precise structural health monitoring strategies, reducing costs without compromising the safety of the liable systems.
+
+
+\section{Sandwich Composite Structures}
+\label{sec:scs}
+
+Composites consist of two or more different materials, such as plastics, resins, metal alloys, glass, carbon or bio-based fibres. The combination gives  structure benefits from the properties of the component materials, e.g., the strength of carbon fibres and the low density of the polymer resin in the case of \ac{cfrp}.
+The contribution of lightweight composite materials to the production of structural components has been increasing rapidly since the middle of the last century.
+Due to the high strength-to-weight ratio, higher operating temperatures, greater stiffness and higherreliability, composite materials are extensively used in the aircraft and aerospace industry and civil constructions.
+Composites account for more than 50\% of the total weight of the aircraft Boeing B787 and Airbus A350 \cite{giurgiutiu2015structural}.
+
+One group of composites includes sandwich panels, which is a type of multi-layered structure that are composed of the mid-core sandwiched between thin skins.
+The skins, made of high strength materials, are designed to carry tensile or compressive stresses from longitudinal forces and bending moments.
+On the other hand, the core transmits mainly shear stresses from transverse forces.
+It also separates the skins, which increases structural stiffness for thin layers, improves insulation properties, and reduces weight while maintaining strength properties similar to the solid construction of the same density.
+A popular core used in engineering structures is a honeycomb geometry core.
+Fig.~\ref{fig:hcp} shows the construction of the \ac{hsc}.
+The core can be made of aluminium, cardboard or Nomex. 
+\begin{figure}[H] \begin{center}
+		\includegraphics[width=1\linewidth]{Intro/honeycomb_plate}
+		\caption{
+			\label{fig:hcp} Structure of the honeycomb sandwich composite.}
+		\vspace{-0.5cm}
+	\end{center}
+\end{figure}
+
+However, these complex structures are exposed to various types of damage that are not found in metal alloy materials, e.g., hidden disbonds between the skin and the core, delamination of the composite skins, or the core impact damage.
+They can occur either during a manufacturing process, storage or in-service life.
+Therefore, advanced methods are required for online damage detection.
+Thus, the use of composites has forced the development of progressive approaches to structural inspections. \section{Structural Health Monitoring}
+\label{sec:scm}
+
+\Ac{shm} is the process of implementing an advanced damage identification strategy for structural or mechanical systems \cite{farrar2007introduction}.
+The \ac{shm} systems usually consist of a sensor network, a \ac{dau}, and a central processor.
+The \ac{dau} is responsible for collecting the data measured by the sensor network and the intact structure data if used \ac{shm} technique requires it.
+A central unit then determines the current state of the structure through signal processing and statistical classification.
+The implementation of \ac{shm} aims to extend the safe life of the monitored system, or usage of lightweight materials, which leads to cost reduction in production and operation.
+For example, composites and adhesive bonding techniques reduces the aircraft's overall weight, reducing fuel consumption \cite{scelsi2011potential}.
+\ac{shm} is most commonly found in structures, such as aerospace, civil and mechanical engineering, where damage can have catastrophic consequences.
+
+Rytter, in his dissertation \cite{rytter1993vibrational}, classified the \ac{shm} system advancement into the following four levels:
+\begin{itemize}
+	\item[] \textbf{Level 1}: Detection.
+	\item[] \textbf{Level 2}: Localization.
+	\item[] \textbf{Level 3}: Assessment.
+	\item[] \textbf{Level 4}: Consequence.
+\end{itemize}
+The first level determines if any adverse change in the geometric has occurred or material characteristics of the system. The second level leads to the localization of the damage.
+The third and fourth level systems determine the size of the flaw and decide whether any maintenance is necessary, respectively.
+The existence and location of faults can be defined in unsupervised learning mode by taking a threshold value for a measurable, damage-sensitive system feature. The threshold should be compensated depending on the prevailing operational and environmental conditions.
+In contrast, damage size is determined in supervised learning mode based on an analytical model or data extracted experimentally from the structure \cite{worden2007fundamental}. \section{Piezoelectric Transducers}
+\label{sec:PZT}
+
+The piezoelectric phenomenon is the generation of an electrical charge on the surface of materials under mechanical deformation in crystalline materials with no inversion symmetry.
+The magnitude of the generated charge is proportional to the strain and the direction of polarization.
+Those materials also exhibit the opposite effect: a change in size due to an applied electric field.
+Piezoelectric materials are widely used in engineering as electroacoustic transducers, high voltage generators and power sources, energy harvesters, micro motors and actuators.
+\begin{figure}[H]
+\includegraphics[width=1\linewidth]{Intro/piezo}
+\caption{Various types of piezoelectric transducers.}
+	\label{fig:piezo}
+\end{figure}
+\Acp{pzt}, the acronym derived from the chemical formula of the most commonly used piezoelectric ceramic, i.e. Pb[Zr\(_x\)Ti\(_{1-x}\)]O\(_3\) (lead zirconate titanate), are lightweight, various size and shape structures. 
+They can be permanently mounted on the structure surface, embedded within the material, or even be a smart composite material.
+In \ac{shm}, they are mainly used in elastic wave propagation, modal analysis, and \ac{emi} methods. \section{Chosen \ac{shm} techniques using \acp{pzt}}
+\label{sec:techniques}
+
+
+
+\subsection{Guided waves based techniques}
+
+
+\Acp{gw} are mechanical vibrations being a superposition of shear and longitudinal waves propagating in a bounded elastic medium, e.g., bars, beams, rods, plates and shells. 
+Guided waves are multi-modal and dispersive, i.e. more than one mode travels simultaneously through the medium with the phase velocity depending on the frequency.
+Fig.~\ref{fig:dispersion} shows an example of dispersion curves generated by the Dispersion Calculator~\cite{huber2021dispersion} software tool for a 1 mm thick \ac{cfrp} plate in the frequency range 0-2000 kHz.
+\Ac{a0} and \ac{s0}, considering the distribution of particle displacements on the upper and lower free surface relative to a central surface, are observed for low frequencies.
+The mode shapes are pictured in Fig.~\ref{fig:mode_shape}, with the \ac{s0} particle displacements being dominant in-plane, while the \ac{a0} is dominated by out-of-plane.
+Moreover, higher harmonic modes appear over the cut-off frequency, as shown in Fig.~\ref{fig:dispersion}.
+\begin{figure}
+\includegraphics[width=1\linewidth]{Intro/dispersion}
+\caption{Dispersion diagram for a 1 mm \ac{cfrp} plate (adopted from Dispersion Calculator~\cite{huber2021dispersion}). Red and blue solid curves represent symmetric and antisymmetric modes, respectively; a black dashed line indicates the cut-off frequency for higher modes.}
+	\label{fig:dispersion}
+\end{figure}
+\begin{figure}
+\includegraphics[width=1\linewidth]{Intro/mode_shape}
+\caption{Mode shape of the \textbf{(a)} \ac{a0} and \textbf{(b)} \ac{s0} at 100 kHz for \(\phi=0^{\circ}\) in 2 mm composite plate (exported from Dispersion Calculator~\cite{huber2021dispersion}).}
+	\label{fig:mode_shape}
+\end{figure}
+
+Detection schemes based on \acp{gw} exploit reflection, attenuation, and mode conversion when the propagating wave encounters a discontinuity in the structure \cite{alleyne1992interaction}.
+Thus, this technique is efficient in detecting various types of defects, such as delamination \cite{sohn2011delamination,tian2015delamination}, adhesive disbonds \cite{rucka2018damage,balasubramaniam2021ultrasonic}, corrosion changes \cite{alleyne1995long,lowe1998defect}, cracks \cite{tua2004detection,lu2006crack,zima2020detection} and failures occurring in \acp{hsc} \cite{mustapha2011assessment, sikdar2016guided, sikdar2016ultrasonic,radzienski2016assessment, yu2019core}.
+Many techniques based on \ac{gw} propagation have been developed for damage detection and localization.
+A pitch-catch technique \cite{ihn2008pitch, sikdar2017structural} uses a pair of detached sensors, one excites, and the other receives a signal.
+If the wave encounters a defect between the sensors, it will scatter, and the recorded signal will be distorted.
+In the case of the pulse-echo technique \cite{guo1993interaction, kudela2008damage}, there is one sensor that excites the wave and, at the same time, registers possible echoes from the damage.
+The damage localization can be determined if the wave speed is known and the time of flight is measured.
+The radar principles were utilized in a phased array technique for plate inspection \cite{giurgiutiu2004embedded, ostachowicz2008elastic, kudela2018structural}.
+The technique uses an array of transducers, each excited with an appropriate time offset, to focus all the waves at a single grid point of the area to be inspected.
+A damage map is determined once the signals are obtained and processed for the entire grid.
+Fink proposed a different approach, developing what he called a time-reversal mirror \cite{fink1992time}.
+In this method, the wave propagates from one sensor to another, and then after time-reversal and dispersion compensation, the wave is re-emitted to the origin sensor.
+The resulting signal will be a mirror image of the forcing signal only if the wave does not encounter damage along the way \cite{park2007time, eremin2016analytically}.
+
+The \acp{pzt} can be used mutually as actuator-receiver pairs or as a single actuator with other types of devices, e.g. \ac{sldv}, \ac{fbg} sensors.
+The \acp{pzt} generate high forces with broadband frequency, so methods based on \ac{gw} can detect various damage types of different sizes in a large inspected area.
+Moreover, specific algorithms do not require a baseline model, and the method implementation is economically efficient.
+
+\subsection{Electromechanical impedance methods}
+\Ac{emi} spectroscopy is also an effective and powerful technique in \ac{shm} for real-time structural damage assessment \cite{park2003overview}.
+The basis of this method is the influence of the mechanical impedance of the inspected host structure on the electrical impedance of the \ac{pzt} attached to the structure.
+Assuming that the mechanical property of the sensor remains unchanged over the monitoring period, any changes in measurements of the electrical impedance can be considered a difference in the structure stiffness, which in turn can indicate that a defect has occurred.
+
+Fundamentals of the \ac{emi} method were introduced by Liang et al. \cite{liang1994impedance}.
+An analytical model of a \ac{pzt} actuator bonded to one end of a single degree of freedom mass-spring-damper system was presented in this pioneering work.
+In the early papers, the authors adopted quasi-static sensor approximation until  Giurgiutiu and Zagrai \cite{giurgiutiu2000characterization} derived an expression where the sensor dynamic was incorporated.
+The dynamics of a single \ac{pzt} with various boundary conditions (free, clamped and elastically constrained) and sensor attached to a beam were considered.
+Further investigation was performed for the sensor bonded to the host structures was performed \cite{zagrai2001electro, giurgiutiu2005damage}.
+Damage detection is realized by comparing the state of the structure with the reference state using overall statistical damage indices, e.g., the \ac{rmsd}, the \ac{mapd}, \ac{ccd} and \ac{pnn}.
+Malinowski et al. \cite{malinowski2014characterisation, malinowski2015use} investigated the effects of \ac{emi} changes related to the state of the adhesive layer between two composite plates.
+The technique has been used to evaluate weak bonds due to inadequate adhesive curing temperature, release agent and moisture contamination. This type of damage is not detectable using the method based on \ac{gw} propagation.
+Experimental testing was conducted on weakened samples and compared with a reference.
+The \ac{rms} of the conductance in the range of 3-5 MHz and the first thickness resonant frequency shift were considered for bond-line assessment.
+
+An and Sohn \cite{an2012integrated} proposed a new damage detection technique that combines \ac{emi} and \ac{gw} advantages.
+In the method, measured admittance characteristic is separated into two parts: active and passive.
+\Ac{di} is a weighted sum of two indicators obtained from \ac{gw} signal and active admittance.
+Because passive impedance is only sensitive to temperature variation, it is used for temperature compensation on both mentioned signals.
+Instead of two \acp{di}, Sevillano et al. \cite{sevillano2016damage} proposed more integrated \ac{di} based on the electromechanical power dissipation of the \ac{pzt} sensor.
+
+The \ac{emi} technique can detect damage, such as delamination or cracks, but is also sensitive to changes, such as weak bonds, which the \ac{gw} method is ineffective at detecting.
+However, the \ac{emi} is a local method for the high frequency.
+Giurgiutiu et al. \cite{giurgiutiu2001electro} obtained consistent results for crack detection in distances up to 40 mm in the frequency range 300-450 kHz. 
+This method is also sensitive to environmental conditions such as temperature and humidity fluctuations\cite{bhalla2002practical} or loading variations \cite{lim2011impedance}.
+
+%
+ \section{Challenges in Damage Assessment in the \ac{hsc}}
+\label{sec:challenges}
+
+The assessment of the damage magnitude in structural materials requires the development of a database of the effect of damage on system response \cite{worden2007fundamental}.
+In the case of \ac{hsc}, many factors affect the \ac{di} magnitude, such as damage localization, material properties and dimensions, the sensor position relative to the core cell and the boundary conditions.
+Considering all the factors, the determination of DI by experimental means becomes very complicated, expensive and time-consuming.
+Therefore, numerical analysis and computer simulations become the only practical tool to achieve the goal.
+
+The most common \ac{hsc} numerical model used in analysing \acp{gw} and \ac{emi} found in the literature is the model based on the \ac{fem}.
+Although the numerical results are consistent with the experimental results, the models have some limitations in performing the simulations in a reasonable computation time and operating memory consumption.
+The improvements include:
+\begin{itemize}
+\item reduction of the sample dimensions \cite{hosseini2013numerical, tian2015wavenumber};
+\item homogenisation of the core properties \cite{catapano2014multi, zhou2020debonding};
+\item a simplified \ac{2d} model based on a cross-section of the panel \cite{li2019detection};
+\item neglect of an adhesive layer \cite{mustapha2013non}.
+\end{itemize}
+The time and memory consumption of the FEM simulations is due to the high spatial resolution needed to converge the numerical results.
+When first-order elements are used, up to twenty nodes per the shortest wavelength of interest is recommended by Moser et al. \cite{moser1999modeling}.
+Therefore, implementations with higher-order elements have been developed in recent years, achieving convergence even at six nodes \cite{willberg2012comparison}.
+One is a method based on Lagrange polynomials as a shape function and \ac{gll} for integration scheme, termed \ac{sem}.
+The \ac{sem} has initially developed for the numerical solution of the fluid flow in a channel by Patera \cite{patera1984spectral}. The method has also been successfully employed for elastic wave propagation by many researchers \cite{seriani1994spectral, kudela2007wave, ostachowicz2011guided, rucka2010experimental, schulte2011simulation, lonkar2014modeling, rekatsinas2017cubic, yu2020time, li2021hybrid}.
+
+Due to the fast convergence and flexibility of the \ac{sem}, Kudela applied the method to model \ac{hsc} with full core geometry.
+Despite the small size of the plate ($179 \times 159$ mm), the model has more than 1.5 million \acp{dof} because the skins and the core are composed of 3D elements.
+The model size could be reduced if the shell element replaced the solid one.
+In addition, the surface-mounted \ac{pzt} is omitted in the above model, and a concentrated force is used as the disturbance source.
+The sensors mesh would have to coincide with the plate mesh or use the coupling between both meshes to include the \acp{pzt} in the simulation.
+Such coupling can be realized using an interface based on Lagrange multipliers proposed by Farhat and Roux for domain decomposition in \ac{fem} \cite{farhat1991method}.
+Ashwin et al. implemented the interface for the \ac{sem} but did not adopt it to non-matching grids \cite{ashwin2014formulation}, which is required for model generalization.
+
+The efficient model and the computational hardware play a significant role in the simulation speed. 
+Kudela presented the \ac{sem} algorithm for parallel calculation on the \ac{gpu} in the paper mentioned above.
+The multi-core architecture of the \ac{gpu} enables simultaneous vector operations, making simulations over 14 times as fast as those performed by a \ac{cpu}.
+Therefore, using the card will make it more convenient to perform simulations of models with numerous \acp{dof} to determine the effect of damage size on system response.
+ \section{Conclusions}
+\label{sec:conclusionsIntro}
+
+In the Introduction, a brief overview of the issues undertaken in the dissertation has been presented,  i.e., composite materials, construction and their applications;  definition of the \ac{shm} and application of \ac{pzt} sensors in damage detection; and challenges in severity damage assessment in \acp{hsc}.
+The literature review revealed the need for a practical tool failure estimation to fully exploit composites advantages in engineering structures. \clearpage{}
+\clearpage{}\pagenumbering{arabic}
+
+
+
+\chapter[Problem Statement]{Problem Statement}
+\label{ch:problem}
+
+
+
+
+
+Composite materials are used as structural components whose failure can have catastrophic consequences.
+Although \ac{gw} based methods are promising for damage identification and localization, they have not been widely reported to estimate the failure size.
+A better understanding of the effect of damage on elastic wave propagation in \acp{hsc} will allow the development of robust and practical tools to evaluate this structure.
+
+The principal aim of this dissertation was to propose a new approach for the severity of damage identification in the \ac{hsc} employing the \ac{pzt} sensors.
+The essence of the method is the determination of damage influence function on characteristic parameters of the propagating waves in the structure.
+This function was defined using a numerical model developed by the \ac{sem}.
+
+Initially, the model is prepared for the pristine sample under various operating conditions such as ambient temperature.
+Then parametric simulations for different damage scenarios are performed.
+The \ac{madif} is determined based on the obtained results. 
+This function determines the flaw size depending on the \acp{pzt} response.
+Damage is considered to be a debonding between the core and the skin. 
+The following objectives of the dissertation are:
+\begin{itemize}
+	\item Develop a robust and efficient numerical model of the propagating \ac{gw} in the \ac{hsc} under varying ambient temperatures.
+	\item Validate the model experimentally.
+	\item Determine the \ac{madif} to define damage influence on the propagating waves.
+	\item Investigate the structure experimentally under varied temperature conditions.
+	\item Propose a framework of damage detection based on the \ac{madif}.
+\end{itemize}
+
+The imposed objectives lead to the proof of the thesis that it is possible to determine the function of damage severity in \acp{hsc} by numerical simulations.
+
+Chapter \ref{ch:method} presents the methods for developing a model-assisted damage severity assessment scheme.
+
+Chapter \ref{ch:sem} gives a theoretical background of the \ac{sem} for \ac{gw} propagation.
+It includes mass, stiffness and damping matrices for 2D and 3D formulation; interface coupling algorithm; time integration scheme; and parallel implementation for GPU calculation.
+
+Chapter \ref{ch:simulation} provides the details of the sample configuration for the full geometry and homogenized core models. The individual sample component grids, the signal parameters, and the damage model are presented.
+
+The simulations and experimental validation results are presented in Chapter \ref{ch:validation}.
+
+Chapter \ref{ch:tempEffects} includes the analysis of the GW propagation under variable temperature conditions.
+
+The crucial part of the dissertation appears in Chapter \ref{ch:severity}. Based on the simulations performed and their validation experimentally, the function of the damage size effect on the elastic wave propagation in \ac{hsc} is revealed, termed \ac{madif}.
+
+The conclusion of the dissertation and final remarks are provided in Chapter \ref{ch:conclusions}.
+
+\clearpage{}
+\clearpage{}
+
+\chapter[Concept of the Method]{Concept of the Method}
+\label{ch:method}
+
+
+
+
+
+
+
+
+\clearpage{}
+\clearpage{}
+
+\chapter[Time-Domain Spectral Element Method Formulation]{Time-Domain Spectral Element Method Formulation}
+\label{ch:sem}
+
+
+
+
+
+\clearpage{}
+\clearpage{}
+
+\chapter[Numerical simulation of the GW in the SCS]{Numerical simulation of the GW in the SCS}
+\label{ch:simulation}
+
+
+
+
+
+\clearpage{}
+\clearpage{}
+
+\chapter[Experimental Validation]{Experimental Validation}
+\label{ch:validation}
+
+
+
+
+
+
+%
+\clearpage{}
+\clearpage{}
+
+\chapter[GW Propagation under Variable Temperature Conditions]{GW Propagation under Variable Temperature Conditions}
+\label{ch:tempEffects}
+
+
+
+
+
+
+%
+\clearpage{}
+\clearpage{}
+
+\chapter[The Severity of Damage Estimation]{The Severity of Damage Estimation}
+\label{ch:severity}
+
+
+
+
+
+%
+\clearpage{}
+\clearpage{}
+
+\chapter[Conclusions]{Conclusions}
+\label{ch:conclusions}
+
+
+
+
+
+
+
+%
+\clearpage{}
+\clearpage{}
+
+
+
+
+
+\appendix
+\clearpage{}
+\clearpage{}\printindex
+\clearpage{}
+
+\addcontentsline{toc}{chapter}{References/Bibliography}
+\printbibliography
+
+\end{document}

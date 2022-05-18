@@ -7,17 +7,18 @@
 The \ac{shm} systems usually consist of a sensor network, a \ac{dau}, and a central processor.
 The \ac{dau} is responsible for collecting the data measured by the sensor network and the intact structure data if used \ac{shm} technique requires it.
 A central unit then determines the current state of the structure through signal processing and statistical classification.
-\ac{shm} implementation aims to extend the safe life of equipment, use lightweight materials, and reduce manufacturing and operating costs.
-For example, the use of composites and adhesive bonding techniques reduces the aircraft's overall weight, thereby reducing fuel consumption \cite{scelsi2011potential}.
+The implementation of \ac{shm} aims to extend the safe life of the monitored system, or usage of lightweight materials, which leads to cost reduction in production and operation.
+For example, composites and adhesive bonding techniques reduces the aircraft's overall weight, reducing fuel consumption \cite{scelsi2011potential}.
 \ac{shm} is most commonly found in structures, such as aerospace, civil and mechanical engineering, where damage can have catastrophic consequences.
 
-In his dissertation \cite{rytter1993vibrational}, Rytter classified the \ac{shm} system advancement into the following four levels:
+Rytter, in his dissertation \cite{rytter1993vibrational}, classified the \ac{shm} system advancement into the following four levels:
 \begin{itemize}
-	\item[] \textbf{Level 1}: Detection
-	\item[] \textbf{Level 2}: Localization,
-	\item[] \textbf{Level 3}: Assessment,
+	\item[] \textbf{Level 1}: Detection.
+	\item[] \textbf{Level 2}: Localization.
+	\item[] \textbf{Level 3}: Assessment.
 	\item[] \textbf{Level 4}: Consequence.
 \end{itemize}
-The first level determines if there has been an adverse change in the geometric or material characteristics of the system, and the second level leads to localization of the damage.
+The first level determines if any adverse change in the geometric has occurred or material characteristics of the system. The second level leads to the localization of the damage.
 The third and fourth level systems determine the size of the flaw and decide whether any maintenance is necessary, respectively.
-While existence and location identification can be performed without knowledge of the intact state of the structure, the two last levels require a supervised learning mode \cite{worden2007fundamental}.
+The existence and location of faults can be defined in unsupervised learning mode by taking a threshold value for a measurable, damage-sensitive system feature. The threshold should be compensated depending on the prevailing operational and environmental conditions.
+In contrast, damage size is determined in supervised learning mode based on an analytical model or data extracted experimentally from the structure \cite{worden2007fundamental}.
