@@ -1,0 +1,48 @@
+%% SECTION HEADER /////////////////////////////////////////////////////////////////////////////////////
+\section{3D Spectral Modelling}
+\label{sec:3Dmodel}
+
+%% SECTION CONTENT ////////////////////////////////////////////////////////////////////////////////////
+The displacement vector of the \ac{3d} element is composed of three translational displacements defined as:
+\begin{eqnarray}
+	\left \{ \begin{array}{c}
+		\textbf{u}^e(\xi,\eta,\zeta) \\
+		\textbf{v}^e(\xi,\eta,\zeta) \\
+		\textbf{w}^e(\xi,\eta,\zeta)
+	\end{array} \right\}
+	= \textbf{N}^e(\xi,\eta, \zeta)\widehat{\textbf{d}}^e
+	= \sum_{l=1}^r\sum_{n=1}^q\sum_{m=1}^p\textbf{N}_m^e(\xi)\textbf{N}_n^e(\eta)\textbf{N}_l^e(\zeta)
+	\left \{ \begin{array}{c}
+		\widehat{\textbf{u}}^e(\xi_m,\eta_n,\zeta_l) \\
+		\widehat{\textbf{v}}^e(\xi_m,\eta_n,\zeta_l) \\
+		\widehat{\textbf{w}}^e(\xi_m,\eta_n,\zeta_l)
+	\end{array} \right\},
+	\label{eq:3D_displ}
+\end{eqnarray}
+where \(\widehat{\textbf{u}}^e\), \(\widehat{\textbf{v}}^e\) and 
+\(\widehat{\textbf{w}}^e\) are displacements of the element nodes in \(\xi,\eta\) and \(\zeta\) direction.
+
+The nodal strain--displacement relations are given as \cite{kudela20093d}:
+\begin{eqnarray}
+	\boldsymbol{\epsilon}^e=\textbf{B}_{d}^e\widehat{\textbf{d}}^e=
+	\left [
+	\begin{array}{ccc}
+		\frac{\partial N^e}{\partial x} & 0 & 0\\
+		0 & \frac{\partial N^e}{\partial y} & 0\\
+		0 & 0 & \frac{\partial N^e}{\partial z}\\
+		0 & \frac{\partial N^e}{\partial z} & \frac{\partial N^e}{\partial y}\\
+		\frac{\partial N^e}{\partial z} & 0 & \frac{\partial N^e}{\partial x}\\
+		\frac{\partial N^e}{\partial y} & \frac{\partial N^e}{\partial x} & 0
+	\end{array} \right]
+	\left \{ \begin{array}{c}
+		\widehat{\textbf{u}}^e \\
+		\widehat{\textbf{v}}^e \\
+		\widehat{\textbf{w}}^e
+	\end{array} \right\}.
+\end{eqnarray}
+The formulae of the structural matrices for 3D elements are:
+\begin{eqnarray}
+	\textbf{M}_{dd}^e & = & \int_{V_e}\textbf{N}^T\rho \textbf{N} \diff V_e,\\
+	\textbf{K}_{dd}^e & = & \int_{V_e}{\textbf{B}_d^e}^T\textbf{C}\textbf{B}_d^e \diff V_e,
+\end{eqnarray}
+where \textbf{C} is the stiffness tensor, \(\rho\) is mass density, and \(V_e\) is the element volume.

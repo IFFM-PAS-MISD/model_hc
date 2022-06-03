@@ -1,66 +1,85 @@
 %% SECTION HEADER /////////////////////////////////////////////////////////////////////////////////////
-\section{Time Integration}
+\section{The Time Integration}
 \label{sec:time}
 
 %% SECTION CONTENT ////////////////////////////////////////////////////////////////////////////////////
-Assuming \(\textbf{b}\) and \(\textbf{f}\) represent order lists of the electrode nodes and free nodes of the \ac{pzt}, respectively, the electrical potential vector is rewritten:
-\begin{eqnarray}
-	\widehat{\boldsymbol{\phi}} = \left \{\begin{array}{cc}
-		\widehat{\boldsymbol{\phi}}(\textbf{b}) &
-		\widehat{\boldsymbol{\phi}}(\textbf{f})
-	\end{array}\right \}^T.
-	\label{eq:potential}
-\end{eqnarray}
+Similar to the \ac{fem}, the time solution of the governing equation can be realized implicitly, e.g., by the the Crank-Nicolson
+scheme, or explicitly, e.g., by the central difference method \cite{bathe2006finite}.
+The first method for specific parameters is an absolutely stable algorithm, i.e., independent of the time step.
+In contrast, a much smaller time step in the explicit method than that required by the Nyquist-Shannon sampling theorem must be taken.
+The critical value of time increment (\(\Delta t_{cr}\)) depends on the mesh size and the wave mode velocity.
+The most significant advantage of this method is that only the sum of the mass and damping matrices needs to be inverted, which is trivial in the presented scheme because both matrices are diagonal.
 
-Then, Equation~(\ref{eq:piezocoupling}) is expressed as:
+Considering piezoelectric coupling \ref{eq:elecmechcoupling} and the displacement interface \ref{eq:cond_disp} the global equation of motion is expressed as:
+
 \begin{eqnarray}
-	\left [\begin{array}{c}
-		\textbf{K}_{\phi d}(\textbf{b},:) \\
-		\textbf{K}_{\phi d}(\textbf{f},:)
-	\end{array}\right]
-	\left \{\widehat{\textbf{d}}\right\} +
-	\left [\begin{array}{cc}
-		\textbf{K}_{\phi \phi}(\textbf{b},\textbf{b}) & \textbf{K}_{\phi \phi}(\textbf{b},\textbf{f})\\
-		\textbf{K}_{\phi \phi}(\textbf{f},\textbf{b}) & \textbf{K}_{\phi \phi}(\textbf{f},\textbf{f})
+	\label{eq:motion_coupling}
+	\textbf{M}_{dd} \widehat{\ddot{\textbf{d}}} +
+	\textbf{D}_{dd}	\widehat{\dot{\textbf{d}}} +
+	\left [\begin{array}{ccc}
+		\textbf{K}_{dd}&\textbf{K}_{d\phi}&\textbf{G}^T\\
+		\textbf{K}_{d\phi}^T&\textbf{K}_{\phi \phi}&\textbf{0}\\
+		\textbf{G}&\textbf{0}&\textbf{0}
 	\end{array}\right]
 	\left \{\begin{array}{c}
-		\widehat{\boldsymbol{\phi}}(\textbf{b}) \\
-		\widehat{\boldsymbol{\phi}}(\textbf{f})
-	\end{array}\right \} = 
+		\widehat{\textbf{d}}\\
+		\widehat{\boldsymbol{\phi}}\\
+		\widehat{\boldsymbol{\lambda}}
+	\end{array}\right\} =
 	\left \{\begin{array}{c}
-		\textbf{Q} \\
+		\widehat{\textbf{f}}_{ext} \\
+		\widehat{\textbf{Q}}\\
 		\textbf{0}
 	\end{array}\right \},
-	\label{eq:piezoboundary}
-\end{eqnarray} 
-where the notation \(\textbf{K}(\textbf{r},\textbf{c})\) uses vectors \(\textbf{r}\) and \(\textbf{c}\) to extract rows and columns from the matrix \(\textbf{K}\), respectively, and \((:)\) means all rows or columns of \(\textbf{K}\).
-The electrical potential of the free nodes can be extracted from Equation~(\ref{eq:piezoboundary}):
-\begin{eqnarray}
-	\widehat{\boldsymbol{\phi}}(\textbf{f}) = -\textbf{K}_{\phi\phi}^{-1}(\textbf{f},\textbf{f})\left[\textbf{K}_{\phi d}(\textbf{f},:) \widehat{\textbf{d}} + \textbf{K}_{\phi\phi}(\textbf{f},\textbf{b})\widehat{\boldsymbol{\phi}}(\textbf{b}) \right].
-	\label{eq:freePotetial}
 \end{eqnarray}
-
-Substituting Equations~(\ref{eq:potential}) and (\ref{eq:freePotetial}) into Equation~(\ref{eq:motion}), the equation of motion can be rearranged into the form:
+\(\widehat{\boldsymbol{\lambda}}\) is the nodal Lagrange multipliers vector.
+Substituting Equations~(\ref{eq:pztboundary}) and (\ref{eq:freePotetial}) into Equation~(\ref{eq:motion_coupling}), the equation of motion can be rearranged into the form:
 \begin{eqnarray}
-	\textbf{M}_{dd} \widehat{\ddot{\textbf{d}}} + \textbf{C}_{dd} \widehat{\dot{\textbf{d}}} + (\textbf{K}_{dd}-\textbf{K}_{s}) \widehat{\textbf{d}}  = \textbf{F} + \textbf{K}_{a} \widehat{\boldsymbol{\phi}}(b) - \textbf{G}^T \boldsymbol{\lambda},
+	\textbf{M}_{dd} \widehat{\ddot{\textbf{d}}} + \textbf{D}_{dd} \widehat{\dot{\textbf{d}}} + (\textbf{K}_{dd}-\textbf{K}_{s}) \widehat{\textbf{d}}  = \widehat{\textbf{f}}_{ext} + \widehat{\textbf{f}}_{a} - \textbf{G}^T \widehat{\boldsymbol{\lambda}}.
 	\label{eq:motionD}
 \end{eqnarray}
-where  \(\textbf{K}_a=\textbf{K}_{d\phi}(:,f)\textbf{K}_{\phi \phi}^{-1}(f,f)\textbf{K}_{\phi \phi}(\textbf{f},\textbf{b})-\textbf{K}_{d\phi}(:,\textbf{b})\), \(\textbf{K}_s=\textbf{K}_{d \phi}(:,\textbf{f})\textbf{K}_{\phi \phi}^{-1}(\textbf{f},\textbf{f})\textbf{K}_{\phi d}(\textbf{f},:)\).
-The unknown displacement vector \(\widehat{\textbf{d}}_t\) is found using a central difference algorithm \cite{kudela20093d}.
-Thus, Equation~(\ref{eq:motionD}) is rewritten as:
+In the scheme of central difference method, the velocity and acceleration at a certain time t is given by:
+\begin{eqnarray}
+	\label{eq:v}
+	\dot{\textbf{d}}_{t} = \frac{\textbf{d}_{t+\Delta t} - \textbf{d}_{t-\Delta t}}{2\Delta t},\\
+	\label{eq:a}
+	\ddot{\textbf{d}}_{t} = \frac{\textbf{d}_{t+\Delta t} - 2\textbf{d}_{t} + \textbf{d}_{t-\Delta t}}{\Delta t^2},
+\end{eqnarray}
+where \(\Delta t\) is the time increment, \(\textbf{d}_{t}\), \(\textbf{d}_{t-\Delta t}\) and \(\textbf{d}_{t+\Delta t}\) are the nodal displacements vectors in time t, one step back and forward, respectively. 
+Thus, substituting Equations \ref{eq:v} and \ref{eq:a} into Equation~(\ref{eq:motionD}) and after some modification global equation of motion can be expressed as:
 \begin{equation}
 	\begin{array}{c}
-		\left(\frac{1}{\Delta t^2}\textbf{M}_{dd}+\frac{1}{2\Delta t}\textbf{C}_{dd} \right)\widehat{\textbf{d}}_{t+\Delta t}=
-		\textbf{F}_t+\textbf{K}_a\widehat{\boldsymbol{\phi}}_t(b)-\left( \textbf{K}_{dd}-\textbf{K}_s\right)\widehat{\textbf{d}}_t+\\
-		+\frac{2}{\Delta t^2}\textbf{M}_{dd}\widehat{\textbf{d}}_t-\left(\frac{1}{\Delta t^2}\textbf{M}_{dd}-\frac{1}{2\Delta t}\textbf{C}_{dd}\right)\widehat{\textbf{d}}_{t-\Delta t}-\textbf{G}^T\boldsymbol{\lambda}_t,
+		\left(\frac{1}{\Delta t^2}\textbf{M}_{dd}+\frac{1}{2\Delta t}\textbf{D}_{dd} \right)\widehat{\textbf{d}}_{t+\Delta t}=
+		\widehat{\textbf{f}}_{ext} + \widehat{\textbf{f}}_{a} - \left( \textbf{K}_{dd}-\textbf{K}_s\right)\widehat{\textbf{d}}_t+\\
+		+\frac{2}{\Delta t^2}\textbf{M}_{dd}\widehat{\textbf{d}}_t-\left(\frac{1}{\Delta t^2}\textbf{M}_{dd}-\frac{1}{2\Delta t}\textbf{D}_{dd}\right)\widehat{\textbf{d}}_{t-\Delta t}-\textbf{G}^T\widehat{\boldsymbol{\lambda}}_t.
 	\end{array}
-	\label{eq:CDE}
+	\label{eq:cdm}
 \end{equation}
-where \(\Delta t\) is the time increment.
 
-Imposing the constrain Equation~(\ref{eq:cond_disp}), the vector of Lagrange multipliers \(\boldsymbol{\lambda}_t\) can be extracted from Equation~(\ref{eq:CDE}): 
+The vector of Lagrange multipliers \(\widehat{\boldsymbol{\lambda}}_t\) can be extracted from Equation~(\ref{eq:cdm}) by imposing the constrain (\ref{eq:cond_disp}): 
 \begin{eqnarray}
-	\boldsymbol{\lambda}_t = {\left(\textbf{G}\textbf{L}_+^{-1}\textbf{G}^T \right)}^{-1}\textbf{G}\textbf{L}_+^{-1} \Bigg[ \textbf{F}_t+\textbf{K}_a\widehat{\boldsymbol{\phi}}_t(b)+\left.\left(\frac{2}{\Delta t^2}\textbf{M}_{dd}-\textbf{K}_{dd}+\textbf{K}_s\right)\widehat{\textbf{d}}_t -\textbf{L}_-\widehat{\textbf{d}}_{t-\Delta t} \right],
+	\widehat{\boldsymbol{\lambda}}_t = {\left(\textbf{G}\textbf{L}_+^{-1}\textbf{G}^T \right)}^{-1}\textbf{G}\textbf{L}_+^{-1} \Bigg[ \widehat{\textbf{f}}_{ext} + \widehat{\textbf{f}}_{a} + \left.\left(\frac{2}{\Delta t^2}\textbf{M}_{dd}-\textbf{K}_{dd}+\textbf{K}_s\right)\widehat{\textbf{d}}_t -\textbf{L}_-\widehat{\textbf{d}}_{t-\Delta t} \right],
 	\label{eq:lambda}
 \end{eqnarray}
 where \(\textbf{L}_{\pm}=\frac{1}{\Delta t^2}\textbf{M}_{dd}\pm\frac{1}{2\Delta t}\textbf{C}_{dd}\).
+The implementation of the central difference method is presented in Algorithm~\ref{alg:cdm}.
+The implementation concerns the excitation and reception of the wave by a pair of \acp{pzt}.
+
+\begin{algorithm}[H]
+	\SetAlgoLined
+	\KwResult{nodal displacement vector \(\widehat\textbf{d}_{t+\Delta t}\) and sensore response \(\boldsymbol{\phi}_{t+\Delta t}\)}
+	initialise  \(\widehat{\textbf{d}}_0\), \(\widehat{\dot{\textbf{d}}}_0\), \(\widehat{\boldsymbol{\lambda}}_0\) and \(\boldsymbol{\phi}_{0}\)\\
+	calculate \(\widehat{\ddot{\textbf{d}}}_0\) from Equation~\ref{eq:motionD},\\
+	select time step \(\Delta t<=\Delta t_{cr}\),\\
+	extract \(\widehat{\textbf{d}}_{0-\Delta t}\) from Equations \ref{eq:v} and \ref{eq:a},\\
+	\For{each time step}{
+	calculate actuator forces \(\widehat{\textbf{f}}_a\) by Equation~\ref{eq:f_act},\\
+	calculate internal forces \(\widehat{\textbf{f}}_{int}=\left(\textbf{K}_{dd}-\textbf{K}_{s}\right)\,\widehat{\textbf{d}}_t\),\\
+	calculate Lagrange multipliers \(\widehat{\boldsymbol{\lambda}}\) by Equation~\ref{eq:lambda},\\
+	calculate following step displacement \(\widehat{\textbf{d}}_{t+\Delta t}\) solving equation of motion \ref{eq:cdm},\\
+	calculate sensore response \(\boldsymbol{\phi}_{t+\Delta t}\) by Equation \ref{eq:sensorResponse}.
+	}
+	\caption{Central difference method implementation}
+	\label{alg:cdm}
+\end{algorithm}
+

@@ -1,19 +1,25 @@
 %% SECTION HEADER /////////////////////////////////////////////////////////////////////////////////////
-\section{Model-Assisted Damage Identification Function}
+\section{Model-assisted severity damage assessment }
 \label{sec:madif}
 
 %% SECTION CONTENT ////////////////////////////////////////////////////////////////////////////////////
 
 %% SUBSECTION HEADER //////////////////////////////////////////////////////////////////////////////////
-The severity of damage was estimated based on the function determined with the numerical simulation.
-A simple flowchart given in Figure~\ref{fig:Flowchart} represents a process for the sample assessment.
-When the structure model is developed, several computer simulations for various damage sizes must be conducted to determine the \ac{madif}.
+The process of determining the damage size is shown in the flowchart in Fig. \ref{fig:Flowchart}.
+Before inspecting a given \ac{hsc} panel, a numerical analysis is performed to determine a function that describes the effect of damage on wave propagation.
+Then the model is subjected to experimental validation.
+If the simulation results do not agree with the measured results, the material parameters of the components should be adjusted.
+In the dissertation, the volume fraction fibre of the \ac{cfrp} is adjusted to determine a wave velocity \cite{kudela2007modelling} and a damping coefficient of the skin to set the magnitude of the registered signals \cite{wandowski2017guided}.
 \begin{figure}[H]
-	%	\begin{center}
+		\begin{center}
 	\includegraphics[width=1\linewidth]{Chapter_3/flowchart}
-	%	\end{center}
+		\end{center}
 	\caption{A flowchart representing the process for damage size estimation.}
 	\label{fig:Flowchart}
 \end{figure}
-The \ac{madif} indicates the damage size according to measured damage index \(I\) normalized by the value obtained for the pristine sample \(I_{ref}\).
-In the paper, two types of damage index \(I\) are considered: the energy \(I_{eng}\) and the maximum value of the half-width of the first package arrived in the sensor \(I_{amp}\), and these are defined as:
+
+When the structure model is developed, several computer simulations for various damage sizes must be conducted to determine the \ac{madif}, a cornerstone of the dissertation. This function determines the severity of the \ac{hsc} damage based on the signal received by the sensor.
+Several excitation signals and damage indices will be considered to select the best \ac{madif}.
+The selection criterion will be the monotonicity and the function slope over the considered range of the damage size. Then, the damage magnitude is obtained from the \ac{madif} for the measured signal and normalised to the reference one.
+
+

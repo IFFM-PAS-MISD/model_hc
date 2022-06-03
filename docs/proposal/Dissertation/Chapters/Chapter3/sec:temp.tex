@@ -5,9 +5,16 @@
 %% SECTION CONTENT ////////////////////////////////////////////////////////////////////////////////////
 
 %% SUBSECTION HEADER //////////////////////////////////////////////////////////////////////////////////
-In order to carry out the temperature dependent SE simulation and semi-analytical analysis of Lamb wave propagation in the \acp{hsc}, the elastic modulus of \acp{hsc} layers are calculated as per the methodology described in \cite{chamis1983simplified,salamone2009guided}. The calculation is done for a range of temperatures (+50\(^{\circ}\)C to -50\(^{\circ}\)C) generally occurred in practical operating scenarios. The obtained temperature-dependent elastic properties (E11 = E22, E33, G12, G13 = G23) for composite laminate and adhesive (E, G) are presented in Figure 7 and Figure 8, respectively.
+The measurements of \acp{gw} are within a range of milliseconds.
+The temperature changes of the inspected structure within that period are negligible.
+Therefore, \ac{gw} propagation can be modelled for the stationary temperature field.
+It is assumed that the temperature field can be obtained from temperature sensors at the moment of \ac{gw} excitation.
+A uniform temperature field was assumed in the model for simplicity.
 
-In this model \cite{salamone2009guided}, reduction of Young’s modulus of the resin \(E_m\) with variation in temperature is assumed as:
+In order to carry out the temperature-dependent \ac{sem} simulations, only changes in the elastic modulus of the \ac{hsc} components are considered.
+The density changes are neglected. For the \ac{cfrp} skin, the modulus is calculated as per the methodology described in \cite{chamis1983simplified,salamone2009guided}.
+The significant changes in mechanical properties under temperature occur mainly in the polymer matrix, while the variation in the carbon fibre properties has a negligible effect on wave propagation.
+In this model \cite{salamone2009guided,hopkins2012extreme}, the reduction of Young’s modulus of the resin \(E_m\) with temperature variation is assumed as:
 \begin{eqnarray}
 	E_m(T)=F_m E_{rm},
 	\label{eq:factor_temp}
@@ -17,4 +24,16 @@ where \(E_{rm}\) is the Young’s modulus of resin at the reference temperature 
 F_m=\sqrt{\frac{T_{g0}-T}{T_{g0}-T_r}},
 \label{eq:em_temp}
 \end{eqnarray}
-where \(T_{g0}\) is the glass transition temperature and \(T_r\) is the reference temperature. In the study, the value of \(T_{g0}=215^{\circ}\)C and \(T_r=20^{\circ}\)C is selected from Table 2 in \cite{chamis1983simplified}. 
+where \(T_{g0}\) is the glass transition temperature and \(T_r\) is the reference temperature.
+Equation \ref{eq:em_temp} is also applicable to determine the elastic modulus of the adhesive layer bonding the core to the skins, while for aluminium, the linear temperature dependence given by Hopkins et al. \cite{hopkins2012extreme} as:
+\begin{eqnarray}
+	E_a(T)=-\num{4e7}T+\num{8e10}.
+	\label{eq:aluminium_temp}
+\end{eqnarray}
+The Young modulus and Poisson ratio of the sensors are in the form proposed by Lanza et al. \cite{lanza2008temperature}:
+\begin{eqnarray}
+	Y_{pzt}(T)=Y_{pzt}(T_r) + \num{16e7}(T_r-T),\\
+	\nu_{pzt}(T)=\nu_{pzt}(T_r) + \num{13e-3}(T_r-T).
+	\label{eq:pzt_temp}
+\end{eqnarray}
+Additionally, the piezo- and electromechanical properties are taken into account based on the temperature characteristics provided by the manufacturer.

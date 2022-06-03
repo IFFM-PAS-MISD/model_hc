@@ -1,6 +1,9 @@
 %% SECTION HEADER /////////////////////////////////////////////////////////////////////////////////////
 \section{Conclusions}
 \label{sec:conclusionsSEM}
-
 %% SECTION CONTENT ////////////////////////////////////////////////////////////////////////////////////
-
+This chapter describes the \ac{sem} implementation for use in modelling \acp{hsc} with full core geometries.
+This model requires the development of structural matrices for \ac{2d} and \ac{3d} elements and a transformation of the nodal displacements between the local and global systems.
+An original approach was developed to connect elements with non-matching grids using an interface based on Lagrange multipliers.
+For this purpose, the shape fusions of common points in the space of connected elements were determined to calculate the traction forces necessary to provide joint displacements.
+In addition, a parallel central difference method implementation was optimized for even more efficient computation on the graphics card.

@@ -6,6 +6,7 @@
 
 %% SUBSECTION HEADER //////////////////////////////////////////////////////////////////////////////////
 
+In the dissertation, the \ac{hsc} composed of an aluminium honeycomb core and the skins made of \ac{cfrp} is assumed for further analysis.
 The most common numerical modeling of the phenomenon of \ac{gw} in \acp{hsc} found in the literature is a calculation of the effective material properties of the honeycomb structure \cite{baid2015dispersion, mustapha2014leaky, qi2008ultrasonic,  shi1995derivation, sikdar2016guided}.
 The properties are obtained from the analytical \cite{gibson1982mechanics, malek2015effective} or \ac{fem} \cite{catapano2014multi, chen2014analysis} analysis of the honeycomb \ac{rve}.
 A comprehensive literature review on the homogenisation of the honeycomb structure is presented in the work of Ahmed \cite{ahmed2019homogenization}.
@@ -27,14 +28,14 @@ Secondly, no \ac{pzt} sensors were considered in the simulation, so a concentrat
 To attach the transducers, the grids of the sensor and the host plate must coincide or use an interface between them. 
 
 The disadvantages mentioned above were motivation to propose a new model of the \ac{hsc}.
-In the proposed model, the core of the plate consists of \ac{2d} elements, one per each cell wall.
+In the proposed model, the core of the plate consists of \ac{2d} elements, one per cell wall.
 Since the neutral plane of the elements is oriented differently concerning the global coordinate system, the local displacements vector has to be transformed accordingly.
+The skin model will be developed according to the laminate theory presented by Vinson and Sierakowski \cite{vinson1993behavior}.
 In addition, two interfaces are used to connect the individual \ac{hsc} components.
 One with the non-matching grid was developed to join the sensors with the panel.
-It was done with the novel method based on the element shape function, described in details in the Chapter \ref{ch:sem}.
+It was done with the novel method based on the element shape function described in Chapter \ref{ch:sem}.
 The core and skin connection was implemented with a perfect matching interface.
-
-To the best of the authors’ knowledge, the present model has not been implemented yet for \acp{hsc}.
+To the best of the author's knowledge, the presented model has not been implemented yet for the \acp{hsc}.
 
 The parametric study conducted in the paper leads to the determination of a \ac{madif}, which defines the influence of the size of the composite defect on wave propagation.
 In this case, the defect is assumed to be a disbond between the skin and the core.

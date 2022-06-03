@@ -17,7 +17,7 @@ According to the first-order shear deformation theory~\cite{reissner1945effect, 
 		\textbf{w}_0^e(\xi,\eta) \\
 	\end{array} \right\},
 \end{eqnarray}
-where \(\textbf{u}_0^e\), \(\textbf{v}_0^e\) and \(\textbf{w}_0^e\) are nodal displacements, \(\boldsymbol{\varphi}_x^e\), \(\boldsymbol{\varphi}_y^e\) are the rotations of the normal to the mid-plane with respect to the axes \textit{x} and \textit{y}, respectively.
+where \(\textbf{u}_0^e\), \(\textbf{v}_0^e\) and \(\textbf{w}_0^e\) are nodal displacements, \(\boldsymbol{\varphi}_x^e\), \(\boldsymbol{\varphi}_y^e\) are the rotations of the normal to the mid-plane with respect to the axes \textit{x} and \textit{y}, respectively. They are defined as:
 \begin{eqnarray}
 	\left \{\begin{array}{c}
 		\textbf{u}_0^e(\xi,\eta) \\
@@ -34,8 +34,9 @@ where \(\textbf{u}_0^e\), \(\textbf{v}_0^e\) and \(\textbf{w}_0^e\) are nodal di
 		\widehat{\textbf{w}}_0^e \\
 		\widehat{\boldsymbol{\varphi}}_x^e \\
 		\widehat{\boldsymbol{\varphi}}_y^e
-	\end{array} \right \}.
+	\end{array} \right \},
 \end{eqnarray}
+where $\widehat{\textbf{d}}^e$ is a nodal displacements vector of the element $e$.
 
 The nodal bending strain--displacement relations are given in the form:
 \begin{eqnarray}
@@ -75,4 +76,39 @@ The nodal shear strain--displacement relations are given in the form:
 		\boldsymbol{\varphi}_x^e \\
 		\boldsymbol{\varphi}_y^e
 	\end{array} \right\}.
+\end{eqnarray}
+
+The mass and stiffness matrices for \ac{2d} elements are defined as:
+\begin{eqnarray}
+	\textbf{M}_{dd}^e & = &
+	\left [
+	\begin{array}{cc}
+		\textbf{M}^e & 0\\
+		0 & \textbf{J}^e
+	\end{array}
+	\right] =
+	\int_{\Omega_e}\textbf{N}^T\rho
+	\left [
+	\begin{array}{ccccc}
+		h & 0 & 0 & 0 & 0 \\
+		& h & 0 & 0 & 0 \\
+		&  & h & 0 & 0\\
+		&  &  & \frac{h^3}{12} & 0\\
+		Sym. &  &  &  & \frac{h^3}{12}
+	\end{array} \right]
+	\textbf{N} \diff\Omega_e,\\
+	\textbf{K}_{dd}^e & = & \int_{\Omega_e}{\textbf{B}_b^e}^T
+	\left[
+	\begin{array}{cc}
+		\textbf{A} & \textbf{B}\\
+		\textbf{B} & \textbf{D}
+	\end{array} \right]
+	\textbf{B}_b^e \diff \Omega_e+\int_{\Omega_e}{\textbf{B}_s^e}^T\hat{\textbf{A}}\textbf{B}_s^e\diff \Omega_e,
+\end{eqnarray}
+where \(h=h_t+h_b\) is the element thickness, while \(h_{t(b)}\) is the distance between mid-plane and top(bottom) surface of the element, and \(\Omega_e\) is the element area:
+\begin{eqnarray}
+	\textbf{A} & = & \textbf{c}_{ij}\,(h_t-h_b),\qquad i,j=1,2,6\nonumber\\
+	\textbf{B} & = & 1/2\, \textbf{c}_{ij}\,(h_t^2-h_b^2),\qquad i,j=1,2,6\nonumber\\
+	\textbf{D} & = & 1/3\, \textbf{c}_{ij}\,(h_t^3-h_b^3),\qquad i,j=1,2,6\nonumber\\
+	\hat{\textbf{A}} & = & 5/4\, \textbf{c}_{ij}\,\left[h_t-h_b-4/3\left(h_t^3-h_b^3\right)/h^2\right],\qquad i,j=4,5.
 \end{eqnarray}

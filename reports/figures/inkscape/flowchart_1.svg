@@ -1,0 +1,745 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="200mm"
+   height="151mm"
+   viewBox="0 0 200 151"
+   version="1.1"
+   id="svg1620"
+   inkscape:export-filename="/home/pfiborek/Documents/GITHub/model_hc/docs/proposal/Dissertation/Figures/Chapter_3/flowchart.png"
+   inkscape:export-xdpi="600"
+   inkscape:export-ydpi="600"
+   sodipodi:docname="flowchart_1.svg"
+   inkscape:version="0.92.5 (2060ec1f9f, 2020-04-08)">
+  <defs
+     id="defs1614">
+    <marker
+       inkscape:stockid="Arrow1Lend"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="marker5603"
+       style="overflow:visible"
+       inkscape:isstock="true">
+      <path
+         inkscape:connector-curvature="0"
+         id="path5601"
+         d="M 0,0 5,-5 -12.5,0 5,5 Z"
+         style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:1.00000003pt;stroke-opacity:1"
+         transform="matrix(-0.8,0,0,-0.8,-10,0)" />
+    </marker>
+    <marker
+       inkscape:isstock="true"
+       style="overflow:visible"
+       id="marker4555"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="Arrow1Lend"
+       inkscape:collect="always">
+      <path
+         transform="matrix(-0.8,0,0,-0.8,-10,0)"
+         style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:1.00000003pt;stroke-opacity:1"
+         d="M 0,0 5,-5 -12.5,0 5,5 Z"
+         id="path4553"
+         inkscape:connector-curvature="0" />
+    </marker>
+    <marker
+       inkscape:stockid="Arrow1Lend"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="marker4365"
+       style="overflow:visible"
+       inkscape:isstock="true">
+      <path
+         id="path4363"
+         d="M 0,0 5,-5 -12.5,0 5,5 Z"
+         style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:1.00000003pt;stroke-opacity:1"
+         transform="matrix(-0.8,0,0,-0.8,-10,0)"
+         inkscape:connector-curvature="0" />
+    </marker>
+    <marker
+       inkscape:isstock="true"
+       style="overflow:visible"
+       id="marker4245"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="Arrow1Lend"
+       inkscape:collect="always">
+      <path
+         inkscape:connector-curvature="0"
+         transform="matrix(-0.8,0,0,-0.8,-10,0)"
+         style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:1.00000003pt;stroke-opacity:1"
+         d="M 0,0 5,-5 -12.5,0 5,5 Z"
+         id="path4243" />
+    </marker>
+    <marker
+       inkscape:isstock="true"
+       style="overflow:visible"
+       id="marker3984"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="Arrow1Lend">
+      <path
+         transform="matrix(-0.8,0,0,-0.8,-10,0)"
+         style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:1.00000003pt;stroke-opacity:1"
+         d="M 0,0 5,-5 -12.5,0 5,5 Z"
+         id="path3982"
+         inkscape:connector-curvature="0" />
+    </marker>
+    <marker
+       inkscape:isstock="true"
+       style="overflow:visible"
+       id="marker2354"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="Arrow1Lend">
+      <path
+         transform="matrix(-0.8,0,0,-0.8,-10,0)"
+         style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:1.00000003pt;stroke-opacity:1"
+         d="M 0,0 5,-5 -12.5,0 5,5 Z"
+         id="path2352"
+         inkscape:connector-curvature="0" />
+    </marker>
+    <marker
+       inkscape:isstock="true"
+       style="overflow:visible"
+       id="marker1846"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="Arrow1Lend">
+      <path
+         transform="matrix(-0.8,0,0,-0.8,-10,0)"
+         style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:1.00000003pt;stroke-opacity:1"
+         d="M 0,0 5,-5 -12.5,0 5,5 Z"
+         id="path1844"
+         inkscape:connector-curvature="0" />
+    </marker>
+    <marker
+       inkscape:isstock="true"
+       style="overflow:visible"
+       id="marker14571"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="Arrow1Lend">
+      <path
+         transform="matrix(-0.8,0,0,-0.8,-10,0)"
+         style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:1.00000003pt;stroke-opacity:1"
+         d="M 0,0 5,-5 -12.5,0 5,5 Z"
+         id="path14569"
+         inkscape:connector-curvature="0" />
+    </marker>
+    <marker
+       inkscape:isstock="true"
+       style="overflow:visible"
+       id="marker14487"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="Arrow1Lend">
+      <path
+         transform="matrix(-0.8,0,0,-0.8,-10,0)"
+         style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:1.00000003pt;stroke-opacity:1"
+         d="M 0,0 5,-5 -12.5,0 5,5 Z"
+         id="path14485"
+         inkscape:connector-curvature="0" />
+    </marker>
+    <marker
+       inkscape:stockid="Arrow1Lend"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="marker13563"
+       style="overflow:visible"
+       inkscape:isstock="true"
+       inkscape:collect="always">
+      <path
+         inkscape:connector-curvature="0"
+         id="path13561"
+         d="M 0,0 5,-5 -12.5,0 5,5 Z"
+         style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:1.00000003pt;stroke-opacity:1"
+         transform="matrix(-0.8,0,0,-0.8,-10,0)" />
+    </marker>
+    <marker
+       inkscape:isstock="true"
+       style="overflow:visible"
+       id="marker13065"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="Arrow1Lend">
+      <path
+         transform="matrix(-0.8,0,0,-0.8,-10,0)"
+         style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:1.00000003pt;stroke-opacity:1"
+         d="M 0,0 5,-5 -12.5,0 5,5 Z"
+         id="path13063"
+         inkscape:connector-curvature="0" />
+    </marker>
+    <marker
+       inkscape:stockid="Arrow1Lend"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="marker12825"
+       style="overflow:visible"
+       inkscape:isstock="true"
+       inkscape:collect="always">
+      <path
+         inkscape:connector-curvature="0"
+         id="path12823"
+         d="M 0,0 5,-5 -12.5,0 5,5 Z"
+         style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:1.00000003pt;stroke-opacity:1"
+         transform="matrix(-0.8,0,0,-0.8,-10,0)" />
+    </marker>
+    <marker
+       inkscape:isstock="true"
+       style="overflow:visible"
+       id="marker3107"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="Arrow1Lend"
+       inkscape:collect="always">
+      <path
+         transform="matrix(-0.8,0,0,-0.8,-10,0)"
+         style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:1.00000003pt;stroke-opacity:1"
+         d="M 0,0 5,-5 -12.5,0 5,5 Z"
+         id="path3105"
+         inkscape:connector-curvature="0" />
+    </marker>
+    <marker
+       inkscape:stockid="Arrow1Lend"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="marker2999"
+       style="overflow:visible"
+       inkscape:isstock="true"
+       inkscape:collect="always">
+      <path
+         id="path2997"
+         d="M 0,0 5,-5 -12.5,0 5,5 Z"
+         style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:1.00000003pt;stroke-opacity:1"
+         transform="matrix(-0.8,0,0,-0.8,-10,0)"
+         inkscape:connector-curvature="0" />
+    </marker>
+    <marker
+       inkscape:stockid="Arrow1Lend"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="marker2837"
+       style="overflow:visible"
+       inkscape:isstock="true">
+      <path
+         id="path2835"
+         d="M 0,0 5,-5 -12.5,0 5,5 Z"
+         style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:1.00000003pt;stroke-opacity:1"
+         transform="matrix(-0.8,0,0,-0.8,-10,0)"
+         inkscape:connector-curvature="0" />
+    </marker>
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="0.7"
+     inkscape:cx="346.50066"
+     inkscape:cy="201.71949"
+     inkscape:document-units="mm"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     inkscape:window-width="1920"
+     inkscape:window-height="948"
+     inkscape:window-x="0"
+     inkscape:window-y="27"
+     inkscape:window-maximized="1"
+     fit-margin-top="0"
+     fit-margin-left="0"
+     fit-margin-right="0"
+     fit-margin-bottom="0"
+     width="200mm" />
+  <metadata
+     id="metadata1617">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-5.7779538,-140.4506)">
+    <flowRoot
+       xml:space="preserve"
+       id="flowRoot2181"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:16px;line-height:1.25;font-family:'TeX Gyre DejaVu Math';-inkscape-font-specification:'TeX Gyre DejaVu Math';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none"
+       transform="scale(0.26458333)"><flowRegion
+         id="flowRegion2183"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'TeX Gyre DejaVu Math';-inkscape-font-specification:'TeX Gyre DejaVu Math'"><rect
+           id="rect2185"
+           width="97.85714"
+           height="21.428572"
+           x="24.285715"
+           y="299.66254"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'TeX Gyre DejaVu Math';-inkscape-font-specification:'TeX Gyre DejaVu Math'" /></flowRegion><flowPara
+         id="flowPara2187" /></flowRoot>    <flowRoot
+       xml:space="preserve"
+       id="flowRoot1080"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.52777767px;line-height:1.25;font-family:'TeX Gyre DejaVu Math';-inkscape-font-specification:'TeX Gyre DejaVu Math';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none"><flowRegion
+         id="flowRegion1082"
+         style="font-size:3.52777767px"><rect
+           id="rect1084"
+           width="705.71429"
+           height="385.71429"
+           x="-762.85712"
+           y="131.13611"
+           style="font-size:3.52777767px" /></flowRegion><flowPara
+         id="flowPara1086" /></flowRoot>    <text
+       id="text1036"
+       y="175.2998"
+       x="167.1985"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.23333311px;line-height:1.25;font-family:'TeX Gyre DejaVu Math';-inkscape-font-specification:'TeX Gyre DejaVu Math';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       xml:space="preserve"><tspan
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.52777767px;font-family:'TeX Gyre DejaVu Math';-inkscape-font-specification:'TeX Gyre DejaVu Math';stroke-width:0.26458332"
+         y="179.18178"
+         x="167.1985"
+         id="tspan1034"
+         sodipodi:role="line" /></text>
+    <flowRoot
+       xml:space="preserve"
+       id="flowRoot1173"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:13.33333397px;line-height:1.25;font-family:'TeX Gyre DejaVu Math';-inkscape-font-specification:'TeX Gyre DejaVu Math';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none"
+       transform="matrix(0.26458333,0,0,0.26458333,5.7779538,186.4506)"><flowRegion
+         id="flowRegion1175"
+         style="font-size:13.33333397px"><rect
+           id="rect1177"
+           width="82.832512"
+           height="22.223356"
+           x="654.57886"
+           y="-92.063438"
+           style="font-size:13.33333397px" /></flowRegion><flowPara
+         id="flowPara1179" /></flowRoot>    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.52777767px;line-height:1.25;font-family:'TeX Gyre DejaVu Math';-inkscape-font-specification:'TeX Gyre DejaVu Math';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="170.95053"
+       y="194.43176"
+       id="text1803"><tspan
+         sodipodi:role="line"
+         id="tspan1801"
+         x="170.95053"
+         y="197.66673"
+         style="font-size:3.52777767px;stroke-width:0.26458332" /></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.52777767px;line-height:1.25;font-family:'TeX Gyre DejaVu Math';-inkscape-font-specification:'TeX Gyre DejaVu Math';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="182.04221"
+       y="192.56088"
+       id="text1810"><tspan
+         sodipodi:role="line"
+         id="tspan1808"
+         x="182.04221"
+         y="195.79585"
+         style="font-size:3.52777767px;stroke-width:0.26458332" /><tspan
+         sodipodi:role="line"
+         x="182.04221"
+         y="200.20558"
+         style="font-size:3.52777767px;stroke-width:0.26458332"
+         id="tspan1812" /></text>
+    <g
+       id="g2558"
+       transform="translate(14.993095,-43.712317)">
+      <rect
+         style="fill:#c6e9af;fill-opacity:1;stroke:#000000;stroke-width:0.26499999;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+         id="rect2171"
+         width="58.295376"
+         height="18.259001"
+         x="8.4196939"
+         y="190.80463"
+         ry="12.828938"
+         rx="12.828938" />
+      <text
+         id="text2175"
+         y="198.45612"
+         x="37.992165"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.23333311px;line-height:1.25;font-family:'TeX Gyre DejaVu Math';-inkscape-font-specification:'TeX Gyre DejaVu Math';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+         xml:space="preserve"><tspan
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.52777767px;font-family:'TeX Gyre DejaVu Math';-inkscape-font-specification:'TeX Gyre DejaVu Math';text-align:center;text-anchor:middle;stroke-width:0.26458332"
+           y="198.45612"
+           x="37.992165"
+           id="tspan2173"
+           sodipodi:role="line">Reference measurement</tspan><tspan
+           id="tspan2177"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.52777767px;font-family:'TeX Gyre DejaVu Math';-inkscape-font-specification:'TeX Gyre DejaVu Math';text-align:center;text-anchor:middle;stroke-width:0.26458332"
+           y="203.74779"
+           x="37.992165"
+           sodipodi:role="line">on a pristine sample</tspan></text>
+    </g>
+    <g
+       id="g14673"
+       transform="translate(-54.217477,-7.4725397)">
+      <rect
+         rx="12.828938"
+         ry="12.828938"
+         y="190.80463"
+         x="74.322975"
+         height="18.259001"
+         width="64.909958"
+         id="rect2203"
+         style="fill:#c6e9af;fill-opacity:1;stroke:#000000;stroke-width:0.26499999;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.23333311px;line-height:1.25;font-family:'TeX Gyre DejaVu Math';-inkscape-font-specification:'TeX Gyre DejaVu Math';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+         x="107.09938"
+         y="198.45612"
+         id="text2197"><tspan
+           sodipodi:role="line"
+           x="107.65853"
+           y="198.45612"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.52777767px;font-family:'TeX Gyre DejaVu Math';-inkscape-font-specification:'TeX Gyre DejaVu Math';text-align:center;text-anchor:middle;stroke-width:0.26458332"
+           id="tspan2195">Experimental measurement </tspan><tspan
+           id="tspan2201"
+           sodipodi:role="line"
+           x="107.09938"
+           y="203.74779"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.52777767px;font-family:'TeX Gyre DejaVu Math';-inkscape-font-specification:'TeX Gyre DejaVu Math';text-align:center;text-anchor:middle;stroke-width:0.26458332">on an inspected sample</tspan></text>
+    </g>
+    <rect
+       style="fill:#aaccff;fill-opacity:1;stroke:#000000;stroke-width:0.26499999;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="rect2207"
+       width="42.259205"
+       height="13.186389"
+       x="31.430874"
+       y="216.42229"
+       ry="12.828938"
+       rx="12.828938" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.23333311px;line-height:1.25;font-family:'TeX Gyre DejaVu Math';-inkscape-font-specification:'TeX Gyre DejaVu Math';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="52.560474"
+       y="221.31862"
+       id="text2211"><tspan
+         sodipodi:role="line"
+         id="tspan2209"
+         x="53.119625"
+         y="221.31862"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.52777767px;font-family:'TeX Gyre DejaVu Math';-inkscape-font-specification:'TeX Gyre DejaVu Math';text-align:center;text-anchor:middle;stroke-width:0.26458332">Signal </tspan><tspan
+         sodipodi:role="line"
+         x="52.560474"
+         y="226.61029"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.52777767px;font-family:'TeX Gyre DejaVu Math';-inkscape-font-specification:'TeX Gyre DejaVu Math';text-align:center;text-anchor:middle;stroke-width:0.26458332"
+         id="tspan6429">processing</tspan></text>
+    <rect
+       rx="12.828938"
+       ry="12.828938"
+       y="244.4399"
+       x="30.629066"
+       height="13.69365"
+       width="43.86282"
+       id="rect2213"
+       style="fill:#aaccff;fill-opacity:1;stroke:#000000;stroke-width:0.26499999;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.23333311px;line-height:1.25;font-family:'TeX Gyre DejaVu Math';-inkscape-font-specification:'TeX Gyre DejaVu Math';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="52.659691"
+       y="249.95674"
+       id="text2217"><tspan
+         sodipodi:role="line"
+         x="53.218842"
+         y="249.95674"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.52777767px;font-family:'TeX Gyre DejaVu Math';-inkscape-font-specification:'TeX Gyre DejaVu Math';text-align:center;text-anchor:middle;stroke-width:0.26458332"
+         id="tspan2227">Signal </tspan><tspan
+         id="tspan6420"
+         sodipodi:role="line"
+         x="52.659691"
+         y="255.2484"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.52777767px;font-family:'TeX Gyre DejaVu Math';-inkscape-font-specification:'TeX Gyre DejaVu Math';text-align:center;text-anchor:middle;stroke-width:0.26458332">normalisation</tspan></text>
+    <g
+       id="g12730"
+       transform="translate(2.8445704,-1.4589753)">
+      <rect
+         style="fill:#ffaaaa;fill-opacity:1;stroke:#000000;stroke-width:0.26499999;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+         id="rect2219"
+         width="48.467995"
+         height="15.150373"
+         x="82.543953"
+         y="271.11749"
+         ry="12.828938"
+         rx="12.828937" />
+      <text
+         id="text2223"
+         y="277.62503"
+         x="106.57021"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.23333311px;line-height:1.25;font-family:'TeX Gyre DejaVu Math';-inkscape-font-specification:'TeX Gyre DejaVu Math';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+         xml:space="preserve"><tspan
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.52777767px;font-family:'TeX Gyre DejaVu Math';-inkscape-font-specification:'TeX Gyre DejaVu Math';text-align:center;text-anchor:middle;stroke-width:0.26458332"
+           y="277.62503"
+           x="107.12936"
+           id="tspan2221"
+           sodipodi:role="line">Damage size est. </tspan><tspan
+           id="tspan2225"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.52777767px;font-family:'TeX Gyre DejaVu Math';-inkscape-font-specification:'TeX Gyre DejaVu Math';text-align:center;text-anchor:middle;stroke-width:0.26458332"
+           y="282.91669"
+           x="106.57021"
+           sodipodi:role="line">from MADIF</tspan></text>
+    </g>
+    <path
+       inkscape:connector-curvature="0"
+       id="path2581"
+       d="M 74.624387,251.28672 H 84.716892 95.930781"
+       style="fill:none;stroke:#000000;stroke-width:0.26500002;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-mid:url(#marker2999)"
+       d="m 52.560477,229.74116 v 8.64795 5.91828"
+       id="path2995"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="ccc" />
+    <path
+       inkscape:connector-curvature="0"
+       id="path3103"
+       d="m 95.930783,156.34968 v 45.04255 50.04719"
+       style="fill:none;stroke:#000000;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-mid:url(#marker3107)" />
+    <rect
+       rx="8.3118887"
+       ry="8.2583094"
+       y="147.09232"
+       x="148.30376"
+       height="10.2939"
+       width="36.885502"
+       id="rect12669"
+       style="fill:#ffeeaa;fill-opacity:1;stroke:#000000;stroke-width:0.26499999;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.73392868px;line-height:1.25;font-family:'TeX Gyre DejaVu Math';-inkscape-font-specification:'TeX Gyre DejaVu Math';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="156.03938"
+       y="154.04819"
+       id="text12673"
+       transform="scale(1.0032387,0.99677175)"><tspan
+         sodipodi:role="line"
+         id="tspan12671"
+         x="156.03938"
+         y="154.04819"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.52777767px;font-family:'TeX Gyre DejaVu Math';-inkscape-font-specification:'TeX Gyre DejaVu Math';stroke-width:0.26458332">HSC model</tspan></text>
+    <rect
+       style="fill:#ffeeaa;fill-opacity:1;stroke:#000000;stroke-width:0.26499999;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="rect12675"
+       width="49.407814"
+       height="13.852987"
+       x="142.0426"
+       y="215.75568"
+       ry="12.828938"
+       rx="12.828938" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.23333311px;line-height:1.25;font-family:'TeX Gyre DejaVu Math';-inkscape-font-specification:'TeX Gyre DejaVu Math';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="166.85059"
+       y="221.3522"
+       id="text12679"><tspan
+         sodipodi:role="line"
+         x="166.85059"
+         y="221.3522"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.52777767px;font-family:'TeX Gyre DejaVu Math';-inkscape-font-specification:'TeX Gyre DejaVu Math';text-align:center;text-anchor:middle;stroke-width:0.26458332"
+         id="tspan4460">Various damage</tspan><tspan
+         sodipodi:role="line"
+         x="166.85059"
+         y="226.64388"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.52777767px;font-family:'TeX Gyre DejaVu Math';-inkscape-font-specification:'TeX Gyre DejaVu Math';text-align:center;text-anchor:middle;stroke-width:0.26458332"
+         id="tspan1005"> simmulations</tspan></text>
+    <rect
+       rx="12.828938"
+       ry="12.828938"
+       y="244.6275"
+       x="142.98297"
+       height="13.318448"
+       width="47.527088"
+       id="rect12681"
+       style="fill:#ffeeaa;fill-opacity:1;stroke:#000000;stroke-width:0.26499999;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.23333311px;line-height:1.25;font-family:'TeX Gyre DejaVu Math';-inkscape-font-specification:'TeX Gyre DejaVu Math';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="166.7077"
+       y="249.90207"
+       id="text12685"><tspan
+         sodipodi:role="line"
+         id="tspan12683"
+         x="166.7077"
+         y="249.90207"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.52777767px;font-family:'TeX Gyre DejaVu Math';-inkscape-font-specification:'TeX Gyre DejaVu Math';text-align:center;text-anchor:middle;stroke-width:0.26458332">MADIF</tspan><tspan
+         sodipodi:role="line"
+         x="166.7077"
+         y="255.19374"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.52777767px;font-family:'TeX Gyre DejaVu Math';-inkscape-font-specification:'TeX Gyre DejaVu Math';text-align:center;text-anchor:middle;stroke-width:0.26458332"
+         id="tspan4133">determination</tspan></text>
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-mid:url(#marker12825)"
+       d="m 52.560477,201.72358 v 9.0259 c 0,2.943 0,5.54029 0,5.54029"
+       id="path12821"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="ccc" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-mid:url(#marker13563)"
+       d="m 52.560475,258.26603 v 11.78921 7.17235"
+       id="path13559"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="ccc" />
+    <g
+       id="g1820"
+       transform="translate(-11.45068,-6.4760513)">
+      <rect
+         transform="rotate(135)"
+         y="-274.57614"
+         x="-0.95809889"
+         height="23.525362"
+         width="23.525362"
+         id="rect1040"
+         style="opacity:0.253;fill:#00baaa;fill-opacity:1;stroke:none;stroke-width:0.26499999;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
+      <text
+         id="text1025"
+         y="192.1472"
+         x="178.15132"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.23333311px;line-height:1.25;font-family:'TeX Gyre DejaVu Math';-inkscape-font-specification:'TeX Gyre DejaVu Math';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+         xml:space="preserve"><tspan
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.52777767px;font-family:'TeX Gyre DejaVu Math';-inkscape-font-specification:'TeX Gyre DejaVu Math';text-align:center;text-anchor:middle;stroke-width:0.26458332"
+           y="192.1472"
+           x="178.15132"
+           sodipodi:role="line"
+           id="tspan1023">Experimental</tspan><tspan
+           id="tspan1814"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.52777767px;font-family:'TeX Gyre DejaVu Math';-inkscape-font-specification:'TeX Gyre DejaVu Math';text-align:center;text-anchor:middle;stroke-width:0.26458332"
+           y="197.43887"
+           x="178.15132"
+           sodipodi:role="line"> validatated?</tspan></text>
+    </g>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.52777767px;line-height:1.25;font-family:'TeX Gyre DejaVu Math';-inkscape-font-specification:'TeX Gyre DejaVu Math';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="157.15694"
+       y="208.782"
+       id="text1824"><tspan
+         sodipodi:role="line"
+         id="tspan1822"
+         x="157.15694"
+         y="208.782"
+         style="font-size:3.52777767px;stroke-width:0.26458332">Yes</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.52777767px;line-height:1.25;font-family:'TeX Gyre DejaVu Math';-inkscape-font-specification:'TeX Gyre DejaVu Math';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="136.16754"
+       y="184.71298"
+       id="text1834"><tspan
+         sodipodi:role="line"
+         id="tspan1832"
+         x="136.16754"
+         y="184.71298"
+         style="font-size:3.52777767px;stroke-width:0.26458332">No</tspan></text>
+    <rect
+       style="fill:#ffeeaa;fill-opacity:1;stroke:#000000;stroke-width:0.26499999;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="rect1032"
+       width="45.591431"
+       height="12.797556"
+       x="104.00758"
+       y="163.22983"
+       ry="10.266873"
+       rx="10.273708" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.52777767px;line-height:1.25;font-family:'TeX Gyre DejaVu Math';-inkscape-font-specification:'TeX Gyre DejaVu Math';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="126.70628"
+       y="168.68492"
+       id="text2342"><tspan
+         sodipodi:role="line"
+         id="tspan2340"
+         x="127.26543"
+         y="168.68492"
+         style="font-size:3.52777767px;text-align:center;text-anchor:middle;stroke-width:0.26458332">Parameters </tspan><tspan
+         sodipodi:role="line"
+         x="126.70628"
+         y="173.09465"
+         style="font-size:3.52777767px;text-align:center;text-anchor:middle;stroke-width:0.26458332"
+         id="tspan933">adjustment</tspan></text>
+    <path
+       sodipodi:nodetypes="ccc"
+       inkscape:connector-curvature="0"
+       id="path2350"
+       d="m 166.74651,157.40554 v 7.94694 5.0137"
+       style="fill:none;stroke:#000000;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-mid:url(#marker2354)" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.26500002;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m 81.840664,156.2218 h 6.73548 7.483869"
+       id="path3268"
+       inkscape:connector-curvature="0" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.26500002;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="M 52.47806,277.23371 H 67.994769 85.235547"
+       id="path3652"
+       inkscape:connector-curvature="0" />
+    <path
+       inkscape:connector-curvature="0"
+       id="path3876"
+       d="m 133.98902,277.23371 h 15.51671 17.24078"
+       style="fill:none;stroke:#000000;stroke-width:0.26500002;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+    <path
+       sodipodi:nodetypes="ccc"
+       inkscape:connector-curvature="0"
+       id="path3980"
+       d="m 166.74651,258.27215 v 11.78921 7.17235"
+       style="fill:none;stroke:#000000;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-mid:url(#marker3984)" />
+    <path
+       sodipodi:nodetypes="ccc"
+       inkscape:connector-curvature="0"
+       id="path4241"
+       d="m 166.74651,229.74116 v 8.64795 5.91828"
+       style="fill:none;stroke:#000000;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-mid:url(#marker4245)" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-mid:url(#marker4365)"
+       d="m 166.74651,203.39346 v 7.26076 4.96895"
+       id="path4361"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="ccc" />
+    <path
+       sodipodi:nodetypes="ccc"
+       inkscape:connector-curvature="0"
+       id="path4551"
+       d="m 150.11157,187.00112 h -14.55323 c -4.74525,0 -8.93308,0 -8.93308,0"
+       style="fill:none;stroke:#000000;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-mid:url(#marker4555)" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.26500002;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m 126.8033,176.15988 v 5.15506 5.72783"
+       id="path5337"
+       inkscape:connector-curvature="0" />
+    <path
+       inkscape:connector-curvature="0"
+       id="path5591"
+       d="m 126.8033,152.23926 v 5.15506 5.72783"
+       style="fill:none;stroke:#000000;stroke-width:0.26500002;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-mid:url(#marker5603)"
+       d="m 126.8033,152.23926 h 13.14552 c 4.28625,0 8.069,0 8.069,0"
+       id="path5599"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="ccc" />
+  </g>
+</svg>
