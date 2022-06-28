@@ -5,19 +5,21 @@
 %% SECTION CONTENT ////////////////////////////////////////////////////////////////////////////////////
 The displacement vector of the \ac{3d} element is composed of three translational displacements defined as:
 \begin{eqnarray}
+	\begin{split}
 	\left \{ \begin{array}{c}
 		\textbf{u}^e(\xi,\eta,\zeta) \\
 		\textbf{v}^e(\xi,\eta,\zeta) \\
 		\textbf{w}^e(\xi,\eta,\zeta)
 	\end{array} \right\}
-	= \textbf{N}^e(\xi,\eta, \zeta)\widehat{\textbf{d}}^e
-	= \sum_{l=1}^r\sum_{n=1}^q\sum_{m=1}^p\textbf{N}_m^e(\xi)\textbf{N}_n^e(\eta)\textbf{N}_l^e(\zeta)
+	& = \textbf{N}^e(\xi,\eta, \zeta)\widehat{\textbf{d}}^e\\
+	& = \sum_{l=1}^r\sum_{n=1}^q\sum_{m=1}^p\textbf{N}_m^e(\xi)\textbf{N}_n^e(\eta)\textbf{N}_l^e(\zeta)
 	\left \{ \begin{array}{c}
 		\widehat{\textbf{u}}^e(\xi_m,\eta_n,\zeta_l) \\
 		\widehat{\textbf{v}}^e(\xi_m,\eta_n,\zeta_l) \\
 		\widehat{\textbf{w}}^e(\xi_m,\eta_n,\zeta_l)
 	\end{array} \right\},
 	\label{eq:3D_displ}
+	\end{split}
 \end{eqnarray}
 where \(\widehat{\textbf{u}}^e\), \(\widehat{\textbf{v}}^e\) and 
 \(\widehat{\textbf{w}}^e\) are displacements of the element nodes in \(\xi,\eta\) and \(\zeta\) direction.

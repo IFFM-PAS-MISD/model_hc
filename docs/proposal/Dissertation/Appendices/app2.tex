@@ -4,7 +4,19 @@
 
 %% APPENDIX HEADER ////////////////////////////////////////////////////////////////////////////////////
 
-\chapter{Interfaces coupling matrix}
-\label{app:algorithm}
+\chapter{Internal forces formulas}
+\label{app:fu}
 
 %% APPENDIX CONTENT ///////////////////////////////////////////////////////////////////////////////////
+For the solid elements the displacements components are given:
+\begin{eqnarray}
+	\label{eq:strain}
+	\boldsymbol{\epsilon}^e_{xx} = B_{11}\widehat{\textbf{d}}^e_{x},\\
+	\boldsymbol{\epsilon}^e_{yy} = B_{22}\widehat{\textbf{d}}^e_{y},\\
+	\boldsymbol{\epsilon}^e_{zz} = B_{33}\widehat{\textbf{d}}^e_{z},\\
+	\boldsymbol{\gamma}^e_{yz} = B_{42}\widehat{\textbf{d}}^e_{y}+B_{43}\widehat{\textbf{d}}^e_{z},\\
+	\boldsymbol{\gamma}^e_{xz} =  B_{51}\widehat{\textbf{d}}^e_{x}+B_{53}\widehat{\textbf{d}}^e_{z},\\
+	\boldsymbol{\gamma}^e_{xy} =  B_{61}\widehat{\textbf{d}}^e_{x}+B_{62}\widehat{\textbf{d}}^e_{y}.
+\end{eqnarray}
+
+to be continued ...

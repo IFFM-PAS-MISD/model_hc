@@ -3,10 +3,17 @@
 \label{sec:time}
 
 %% SECTION CONTENT ////////////////////////////////////////////////////////////////////////////////////
-Similar to the \ac{fem}, the time solution of the governing equation can be realized implicitly, e.g., by the the Crank-Nicolson
-scheme, or explicitly, e.g., by the central difference method \cite{bathe2006finite}.
-The first method for specific parameters is an absolutely stable algorithm, i.e., independent of the time step.
-In contrast, a much smaller time step in the explicit method than that required by the Nyquist-Shannon sampling theorem must be taken.
+The time integration algorithms for the wave propagation can be realized by the step-by-step methods, named Newmark family shames \cite{newmark1959method}.
+The shames are in general form as:
+\begin{eqnarray}
+	\label{eq:u_newmark}
+	\textbf{d}_{t+\Delta t} & = & \textbf{d}_{t} +\Delta t \dot{\textbf{d}}_{t} + \left( 0.5 - \beta \right)\Delta t^2\ddot{\textbf{d}}_{t} + \beta \Delta t^2\ddot{\textbf{d}}_{t+\Delta t},\\
+	\dot{\textbf{d}}_{t+\Delta t} & = & \dot{\textbf{d}}_{t} + \Delta t\left(1-\gamma\right)\ddot{\textbf{d}}_{t} + \gamma \Delta t\ddot{\textbf{d}}_{t+\Delta t},
+\end{eqnarray}
+where \(\Delta t\) is the time increment, \(\textbf{d}_{t}\), and \(\textbf{d}_{t+\Delta t}\) are the displacements vectors in time t, and one step forward, respectively, and \(\beta\) and \(\gamma\) are the integration parameters.
+The time discretisation for \(\beta = 0.25\) and \(\gamma = 0.5\), is second-order accurate and the algorithm is a stable, i.e., independent of the time step. It is called an implicit algorithm.
+In the case of \(\beta = 0\) and \(\gamma = 0.5\) explicit algorithm is obtain and it is called the central difference method.
+In this method for the solution convergence, a time step must be taken much smaller than the Nyquist-Shannon sampling theorem requires.
 The critical value of time increment (\(\Delta t_{cr}\)) depends on the mesh size and the wave mode velocity.
 The most significant advantage of this method is that only the sum of the mass and damping matrices needs to be inverted, which is trivial in the presented scheme because both matrices are diagonal.
 
@@ -32,7 +39,7 @@ Considering piezoelectric coupling \ref{eq:elecmechcoupling} and the displacemen
 		\textbf{0}
 	\end{array}\right \},
 \end{eqnarray}
-\(\widehat{\boldsymbol{\lambda}}\) is the nodal Lagrange multipliers vector.
+where \(\widehat{\boldsymbol{\lambda}}\) is the nodal Lagrange multipliers vector.
 Substituting Equations~(\ref{eq:pztboundary}) and (\ref{eq:freePotetial}) into Equation~(\ref{eq:motion_coupling}), the equation of motion can be rearranged into the form:
 \begin{eqnarray}
 	\textbf{M}_{dd} \widehat{\ddot{\textbf{d}}} + \textbf{D}_{dd} \widehat{\dot{\textbf{d}}} + (\textbf{K}_{dd}-\textbf{K}_{s}) \widehat{\textbf{d}}  = \widehat{\textbf{f}}_{ext} + \widehat{\textbf{f}}_{a} - \textbf{G}^T \widehat{\boldsymbol{\lambda}}.
@@ -41,18 +48,18 @@ Substituting Equations~(\ref{eq:pztboundary}) and (\ref{eq:freePotetial}) into E
 In the scheme of central difference method, the velocity and acceleration at a certain time t is given by:
 \begin{eqnarray}
 	\label{eq:v}
-	\dot{\textbf{d}}_{t} = \frac{\textbf{d}_{t+\Delta t} - \textbf{d}_{t-\Delta t}}{2\Delta t},\\
+	\widehat{\dot{\textbf{d}}}_{t} & = & \frac{\widehat{\textbf{d}}_{t+\Delta t} - \widehat{\textbf{d}}_{t-\Delta t}}{2\Delta t},\\
 	\label{eq:a}
-	\ddot{\textbf{d}}_{t} = \frac{\textbf{d}_{t+\Delta t} - 2\textbf{d}_{t} + \textbf{d}_{t-\Delta t}}{\Delta t^2},
+	\widehat{\ddot{\textbf{d}}}_{t} & = & \frac{\widehat{\textbf{d}}_{t+\Delta t} - 2\widehat{\textbf{d}}_{t} + \widehat{\textbf{d}}_{t-\Delta t}}{\Delta t^2},
 \end{eqnarray}
-where \(\Delta t\) is the time increment, \(\textbf{d}_{t}\), \(\textbf{d}_{t-\Delta t}\) and \(\textbf{d}_{t+\Delta t}\) are the nodal displacements vectors in time t, one step back and forward, respectively. 
+where \(\widehat{\textbf{d}}_{t-\Delta t}\) is the nodal displacements vector in the previous time step.
 Thus, substituting Equations \ref{eq:v} and \ref{eq:a} into Equation~(\ref{eq:motionD}) and after some modification global equation of motion can be expressed as:
 \begin{equation}
-	\begin{array}{c}
-		\left(\frac{1}{\Delta t^2}\textbf{M}_{dd}+\frac{1}{2\Delta t}\textbf{D}_{dd} \right)\widehat{\textbf{d}}_{t+\Delta t}=
-		\widehat{\textbf{f}}_{ext} + \widehat{\textbf{f}}_{a} - \left( \textbf{K}_{dd}-\textbf{K}_s\right)\widehat{\textbf{d}}_t+\\
-		+\frac{2}{\Delta t^2}\textbf{M}_{dd}\widehat{\textbf{d}}_t-\left(\frac{1}{\Delta t^2}\textbf{M}_{dd}-\frac{1}{2\Delta t}\textbf{D}_{dd}\right)\widehat{\textbf{d}}_{t-\Delta t}-\textbf{G}^T\widehat{\boldsymbol{\lambda}}_t.
-	\end{array}
+	\begin{split}
+		\left(\frac{1}{\Delta t^2}\textbf{M}_{dd}+\frac{1}{2\Delta t}\textbf{D}_{dd} \right)\widehat{\textbf{d}}_{t+\Delta t} & = \widehat{\textbf{f}}_{ext} + \widehat{\textbf{f}}_{a} - \left( \textbf{K}_{dd}-\textbf{K}_s\right)\widehat{\textbf{d}}_t
+		+ \frac{2}{\Delta t^2}\textbf{M}_{dd}\widehat{\textbf{d}}_t\\
+		&-\left(\frac{1}{\Delta t^2}\textbf{M}_{dd}-\frac{1}{2\Delta t}\textbf{D}_{dd}\right)\widehat{\textbf{d}}_{t-\Delta t}-\textbf{G}^T\widehat{\boldsymbol{\lambda}}_t.
+	\end{split}
 	\label{eq:cdm}
 \end{equation}
 
@@ -77,7 +84,7 @@ The implementation concerns the excitation and reception of the wave by a pair o
 	calculate internal forces \(\widehat{\textbf{f}}_{int}=\left(\textbf{K}_{dd}-\textbf{K}_{s}\right)\,\widehat{\textbf{d}}_t\),\\
 	calculate Lagrange multipliers \(\widehat{\boldsymbol{\lambda}}\) by Equation~\ref{eq:lambda},\\
 	calculate following step displacement \(\widehat{\textbf{d}}_{t+\Delta t}\) solving equation of motion \ref{eq:cdm},\\
-	calculate sensore response \(\boldsymbol{\phi}_{t+\Delta t}\) by Equation \ref{eq:sensorResponse}.
+	calculate sensor response \(\boldsymbol{\phi}_{t+\Delta t}\) by Equation \ref{eq:sensorResponse}.
 	}
 	\caption{Central difference method implementation}
 	\label{alg:cdm}

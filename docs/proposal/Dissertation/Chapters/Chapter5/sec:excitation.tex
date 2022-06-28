@@ -3,3 +3,12 @@
 \label{sec:excitation}
 
 %% SECTION CONTENT ////////////////////////////////////////////////////////////////////////////////////
+A sine function modulated by the Hann window was chosen as the excitation signal, defined as:
+\begin{eqnarray}
+	V_e(t) = 0.5\left(1-\cos(2\pi f_m(t-1/f_m)\right)\sin(2\pi f_ct),
+\end{eqnarray}
+where \(f_c\) is the carrier frequency, and \(f_m=f_c/N_c\) is the modulation frequency with \(N_c\) as the number of cycles.
+\(N_c\) was assumed to be five, as a compromise between signal length in the time domain and signal width in the frequency domain.
+It is because too high \(N_c\) may cause overlapping wave mods, while too low number will cause increasing signal dispersion.
+Both issues can cause difficulties in signal processing for damage assessment.
+A carrier frequency in the range \(f_c=[50, 100, 150] \) kHz was considered in the simulation.

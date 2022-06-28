@@ -1,14 +1,18 @@
 %% SECTION HEADER /////////////////////////////////////////////////////////////////////////////////////
 \section{GW Propagation in the Damaged Structure}
 \label{sec:disbond}
-
 %% SECTION CONTENT ////////////////////////////////////////////////////////////////////////////////////
-As the cells in the damaged area become distorted during core separation Figure~\ref{fig:disbond}(\textbf{a}), %PF: label acc. to figure caption.
-the damage was modeled by removing the core elements in the disbond area as shown in Figure~\ref{fig:disbond}(\textbf{b}).
-\begin{figure}[H]
-	%	\begin{center}
-	\includegraphics[width=1\linewidth]{Chapter_5/disbond}
-	%	\end{center}
-	\caption{The damaged area in the: (\textbf{a}) experimental sample and (\textbf{b}) numerical mesh.}
+The skin and the core disbonds were evaluated to analyse the effect of damage on GW propagation.
+A rectangular region of disbonds was investigated with the length along the wave propagation varying in \(w_d=[0,10,30,50,70,100,120]\) mm, while the size in the perpendicular direction remained constant \(l_d=170\) mm.
+The rectangle was centrally located between the transducers, as presented in Fig.~\ref{fig:honeycomb} (\textbf{a}).
+
+There were two kinds of disbonds models under consideration.
+The core cells were removed from the damaged area in the first model as in the mesh pictured in Fig.~\ref{fig:disbond}(\textbf{b}).
+While in the second model, all components were intact, and only the interface elements between the adhesive layer and the core were decoupled within the yellow area indicated in Fig.~\ref{fig:disbond}(\textbf{c}).
+\begin{figure}
+	\begin{center}
+		\includegraphics{Chapter_5/disbond}
+	\end{center}
+	\caption{The damaged area in the: (\textbf{a}) experimental sample,(\textbf{b}) numerical model with removed cells and (\textbf{c}) numerical model with interface decoupling.}
 	\label{fig:disbond}
 \end{figure}

@@ -67,7 +67,7 @@
 % i.e. '\setlength{\mathindent}{2.5cm}'
 
 % Declare overall type of document (use 11pt report class on A4 paper).
-\documentclass[11pt,a4paper,final]{report}
+\documentclass[12pt,a4paper,final]{report}
 
 % If you want to generate an index you should include the following command
 % which puts a makeindex command in the preamble. Additionally, you need to un-comment
@@ -106,21 +106,21 @@
 % out files that you will include later or have already finished to speed
 % up TeX processing
 \includeonly{
-Frontbackmatter/prelude 	% Contains all the relevant candidate information (name, degrees, abstract etc)
-,Frontbackmatter/newcom 	% Place all you new commands in here
-,Nomenclature/nomenclature  % The nomenclature chapter
-,Acronyms/acronyms			% Acronyms chapter
-,Chapters/Intro/intro  	    % The first chapter
-,Chapters/Chapter2/ch:problem 	% Chp2
-,Chapters/Chapter3/ch:method 	% Chp3
-,Chapters/Chapter4/ch:sem 		% Chp4
+Frontbackmatter/prelude 			% Contains all the relevant candidate information (name, degrees, abstract etc)
+,Frontbackmatter/newcom 			% Place all you new commands in here
+,Nomenclature/nomenclature  		% The nomenclature chapter
+,Acronyms/acronyms					% Acronyms chapter
+,Chapters/Intro/intro  	    		% The first chapter
+,Chapters/Chapter2/ch:problem 		% Chp2
+,Chapters/Chapter3/ch:method 		% Chp3
+,Chapters/Chapter4/ch:sem 			% Chp4
 ,Chapters/Chapter5/ch:simulation 	% Chp5
 ,Chapters/Chapter6/ch:validation 	% Chp6
-,Chapters/Chapter7/ch:tempEffect 	% Chp7
-,Chapters/Chapter8/ch:severity 	% Ch8
+,Chapters/Chapter7/ch:severity 		% Chp7
+,Chapters/Chapter8/ch:tempEffect 	% Ch8
 ,Chapters/Chapter9/ch:conclusions	% Chp9
-,Appendices/app0   			% Needed to switch to appendix mode
-,index  					% Places the index in the thesis
+,Appendices/app0   					% Needed to switch to appendix mode
+,index  							% Places the index in the thesis
 }
 
 % Begin the thesis
@@ -137,14 +137,14 @@ Frontbackmatter/prelude 	% Contains all the relevant candidate information (name
 \include{Chapters/Chapter4/ch:sem}
 \include{Chapters/Chapter5/ch:simulation}
 \include{Chapters/Chapter6/ch:validation}
-\include{Chapters/Chapter7/ch:tempEffect}
-\include{Chapters/Chapter8/ch:severity}
+\include{Chapters/Chapter7/ch:severity}
+\include{Chapters/Chapter8/ch:tempEffect}
 \include{Chapters/Chapter9/ch:conclusions}
 \include{Appendices/app0}
 \include{index}
 
 % Bibliography
-\addcontentsline{toc}{chapter}{References/Bibliography}
+\addcontentsline{toc}{chapter}{Bibliography}
 \printbibliography
 
 \end{document}

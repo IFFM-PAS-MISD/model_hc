@@ -10,18 +10,18 @@ Therefore, numerical analysis and computer simulations become the only practical
 
 The most common \ac{hsc} numerical model used in analysing \acp{gw} and \ac{emi} found in the literature is the model based on the \ac{fem}.
 Although the numerical results are consistent with the experimental results, the models have some limitations in performing the simulations in a reasonable computation time and operating memory consumption.
-The improvements include:
+In order to alleviate these limitations the following techniques are employed:
 \begin{itemize}
 \item reduction of the sample dimensions \cite{hosseini2013numerical, tian2015wavenumber};
 \item homogenisation of the core properties \cite{catapano2014multi, zhou2020debonding};
 \item a simplified \ac{2d} model based on a cross-section of the panel \cite{li2019detection};
-\item neglect of an adhesive layer \cite{mustapha2013non}.
+\item omission of an adhesive layer \cite{mustapha2013non}.
 \end{itemize}
 The time and memory consumption of the FEM simulations is due to the high spatial resolution needed to converge the numerical results.
 When first-order elements are used, up to twenty nodes per the shortest wavelength of interest is recommended by Moser et al. \cite{moser1999modeling}.
 Therefore, implementations with higher-order elements have been developed in recent years, achieving convergence even at six nodes \cite{willberg2012comparison}.
 One is a method based on Lagrange polynomials as a shape function and \ac{gll} for integration scheme, termed \ac{sem}.
-The \ac{sem} has initially developed for the numerical solution of the fluid flow in a channel by Patera \cite{patera1984spectral}. The method has also been successfully employed for elastic wave propagation by many researchers \cite{seriani1994spectral, kudela2007wave, ostachowicz2011guided, rucka2010experimental, schulte2011simulation, lonkar2014modeling, rekatsinas2017cubic, yu2020time, li2021hybrid}.
+The \ac{sem} was initially developed for the numerical solution of the fluid flow in a channel by Patera \cite{patera1984spectral}. The method has also been successfully employed for elastic wave propagation by many researchers \cite{seriani1994spectral, kudela2007wave, ostachowicz2011guided, rucka2010experimental, schulte2011simulation, lonkar2014modeling, rekatsinas2017cubic, yu2020time, li2021hybrid}.
 
 Due to the fast convergence and flexibility of the \ac{sem}, Kudela applied the method to model \ac{hsc} with full core geometry.
 Despite the small size of the plate ($179 \times 159$ mm), the model has more than 1.5 million \acp{dof} because the skins and the core are composed of 3D elements.
@@ -30,8 +30,10 @@ In addition, the surface-mounted \ac{pzt} is omitted in the above model, and a c
 The sensors mesh would have to coincide with the plate mesh or use the coupling between both meshes to include the \acp{pzt} in the simulation.
 Such coupling can be realized using an interface based on Lagrange multipliers proposed by Farhat and Roux for domain decomposition in \ac{fem} \cite{farhat1991method}.
 Ashwin et al. implemented the interface for the \ac{sem} but did not adopt it to non-matching grids \cite{ashwin2014formulation}, which is required for model generalization.
+My aim was to implement non-matching grid approach for the \ac{sem} and also enable coupling between shell and \ac{3d} elements.
 
 The efficient model and the computational hardware play a significant role in the simulation speed. 
 Kudela presented the \ac{sem} algorithm for parallel calculation on the \ac{gpu} in the paper mentioned above.
 The multi-core architecture of the \ac{gpu} enables simultaneous vector operations, making simulations over 14 times as fast as those performed by a \ac{cpu}.
 Therefore, using the card will make it more convenient to perform simulations of models with numerous \acp{dof} to determine the effect of damage size on system response.
+Thus, the time integration algorithm must be modified to make parallel computing on the GPU still possible despite the usage of interface elements.

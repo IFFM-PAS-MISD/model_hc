@@ -1,16 +1,16 @@
-\contentsline {chapter}{LIST OF TABLES}{iii}{chapter*.4}%
-\contentsline {chapter}{LIST OF FIGURES}{iv}{chapter*.5}%
+\contentsline {chapter}{LIST OF TABLES}{iv}{chapter*.4}%
+\contentsline {chapter}{LIST OF FIGURES}{v}{chapter*.5}%
 \acswitchoff 
-\contentsline {chapter}{NOMENCLATURE}{v}{chapter*.6}%
-\contentsline {chapter}{ACRONYMS}{vi}{chapter*.7}%
+\contentsline {chapter}{NOMENCLATURE}{vii}{chapter*.6}%
+\contentsline {chapter}{ACRONYMS}{ix}{chapter*.7}%
 \contentsline {chapter}{\numberline {1}Introduction}{1}{chapter.1}%
 \contentsline {section}{\numberline {1.1}Sandwich Composite Structures}{1}{section.1.1}%
 \contentsline {section}{\numberline {1.2}Structural Health Monitoring}{3}{section.1.2}%
-\contentsline {section}{\numberline {1.3}Piezoelectric Transducers}{3}{section.1.3}%
-\contentsline {section}{\numberline {1.4}Chosen \ac {shm} techniques using \acp {pzt}}{4}{section.1.4}%
-\contentsline {subsection}{\numberline {1.4.1}Guided waves based techniques}{4}{subsection.1.4.1}%
-\contentsline {subsection}{\numberline {1.4.2}Electromechanical impedance methods}{6}{subsection.1.4.2}%
-\contentsline {section}{\numberline {1.5}Challenges in Damage Assessment in the \ac {hsc}}{7}{section.1.5}%
+\contentsline {section}{\numberline {1.3}Piezoelectric Transducers}{4}{section.1.3}%
+\contentsline {section}{\numberline {1.4}Chosen \ac {shm} techniques using \acp {pzt}}{5}{section.1.4}%
+\contentsline {subsection}{\numberline {1.4.1}Guided waves based techniques}{5}{subsection.1.4.1}%
+\contentsline {subsection}{\numberline {1.4.2}Electromechanical impedance methods}{7}{subsection.1.4.2}%
+\contentsline {section}{\numberline {1.5}Challenges in Damage Assessment in the \ac {hsc}}{8}{section.1.5}%
 \contentsline {section}{\numberline {1.6}Conclusions}{9}{section.1.6}%
 \contentsline {chapter}{\numberline {2}Problem Statement}{10}{chapter.2}%
 \contentsline {chapter}{\numberline {3}Concept of the Method}{12}{chapter.3}%
@@ -21,22 +21,30 @@
 \contentsline {section}{\numberline {4.1}The Spectral Element Method}{16}{section.4.1}%
 \contentsline {section}{\numberline {4.2}2D Spectral Modelling}{18}{section.4.2}%
 \contentsline {section}{\numberline {4.3}3D Spectral Modelling}{19}{section.4.3}%
-\contentsline {section}{\numberline {4.4}\ac {pzt} Modelling}{19}{section.4.4}%
+\contentsline {section}{\numberline {4.4}Piezoelectric Transducers Modelling}{20}{section.4.4}%
 \contentsline {section}{\numberline {4.5}Structural Damping}{21}{section.4.5}%
-\contentsline {section}{\numberline {4.6}Displacements Coupling at the Interface of Substructures}{21}{section.4.6}%
-\contentsline {section}{\numberline {4.7}The Time Integration}{24}{section.4.7}%
-\contentsline {section}{\numberline {4.8}Parallel Implementation of the Internal Force Vector Calculation}{25}{section.4.8}%
-\contentsline {section}{\numberline {4.9}Transformation of the Core Elements}{28}{section.4.9}%
-\contentsline {section}{\numberline {4.10}Conclusions}{28}{section.4.10}%
-\contentsline {chapter}{\numberline {5}Numerical simulation of the GW in the SCS}{30}{chapter.5}%
-\contentsline {section}{\numberline {5.1}Sample Configuration}{30}{section.5.1}%
-\contentsline {section}{\numberline {5.2}Excitation Signal}{30}{section.5.2}%
-\contentsline {section}{\numberline {5.3}GW Propagation in the Homogenized Core Model}{30}{section.5.3}%
-\contentsline {section}{\numberline {5.4}GW Propagation in the Real Honeycomb Core Model}{30}{section.5.4}%
-\contentsline {section}{\numberline {5.5}GW Propagation in the Damaged Structure}{31}{section.5.5}%
-\contentsline {section}{\numberline {5.6}Conclusions}{32}{section.5.6}%
-\contentsline {chapter}{\numberline {6}Experimental Validation}{33}{chapter.6}%
-\contentsline {chapter}{\numberline {7}GW Propagation under Variable Temperature Conditions}{34}{chapter.7}%
-\contentsline {chapter}{\numberline {8}The Severity of Damage Estimation}{35}{chapter.8}%
-\contentsline {chapter}{\numberline {9}Conclusions}{36}{chapter.9}%
-\contentsline {chapter}{References/Bibliography}{37}{chapter.9}%
+\contentsline {section}{\numberline {4.6}Displacements Coupling at the Interface of Substructures}{22}{section.4.6}%
+\contentsline {section}{\numberline {4.7}The Time Integration}{26}{section.4.7}%
+\contentsline {section}{\numberline {4.8}Parallel Implementation of the Internal Force Vector Calculation}{27}{section.4.8}%
+\contentsline {section}{\numberline {4.9}Transformation of the Core Elements}{30}{section.4.9}%
+\contentsline {section}{\numberline {4.10}Conclusions}{31}{section.4.10}%
+\contentsline {chapter}{\numberline {5}Numerical simulation of the GW in the \ac {hsc}}{32}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Sample Configuration}{32}{section.5.1}%
+\contentsline {section}{\numberline {5.2}Excitation Signal}{34}{section.5.2}%
+\contentsline {section}{\numberline {5.3}GW Propagation in the Real Honeycomb Core Model}{34}{section.5.3}%
+\contentsline {section}{\numberline {5.4}GW Propagation in the Homogenized Core Model}{35}{section.5.4}%
+\contentsline {section}{\numberline {5.5}GW Propagation in the Damaged Structure}{36}{section.5.5}%
+\contentsline {section}{\numberline {5.6}Conclusions}{36}{section.5.6}%
+\contentsline {chapter}{\numberline {6}Simulations Results and Model Validation}{38}{chapter.6}%
+\contentsline {section}{\numberline {6.1}Analytical validation of the \ac {pzt} model}{38}{section.6.1}%
+\contentsline {section}{\numberline {6.2}Experimental Setup for the \ac {hsc} model validation}{40}{section.6.2}%
+\contentsline {section}{\numberline {6.3}Results}{44}{section.6.3}%
+\contentsline {subsection}{\numberline {6.3.1}Validation with the \ac {sldv}}{44}{subsection.6.3.1}%
+\contentsline {subsection}{\numberline {6.3.2}Validation with the \acp {pzt}}{46}{subsection.6.3.2}%
+\contentsline {subsection}{\numberline {6.3.3}Efficiency of the time integration algorithm}{50}{subsection.6.3.3}%
+\contentsline {section}{\numberline {6.4}Conclusions}{51}{section.6.4}%
+\contentsline {chapter}{\numberline {7}The Severity of Damage Estimation}{53}{chapter.7}%
+\contentsline {chapter}{\numberline {8}GW Propagation under Variable Temperature Conditions}{54}{chapter.8}%
+\contentsline {chapter}{\numberline {9}Conclusions}{55}{chapter.9}%
+\contentsline {chapter}{\numberline {A}Internal forces formulas}{57}{appendix.A}%
+\contentsline {chapter}{Bibliography}{58}{equation.A.0.1}%

@@ -1,5 +1,5 @@
 %% SECTION HEADER /////////////////////////////////////////////////////////////////////////////////////
-\section{\ac{pzt} Modelling}
+\section{Piezoelectric Transducers Modelling}
 \label{sec:PZTmodel}
 
 %% SECTION CONTENT ////////////////////////////////////////////////////////////////////////////////////
@@ -30,9 +30,9 @@ The electric field is defined as:
 	\frac{\partial N^e}{\partial \xi}\\
 	\frac{\partial N^e}{\partial \eta}\\
 	\frac{\partial N^e}{\partial \zeta}
-\end{array} \right] \widehat{\boldsymbol{\phi}}^e.
+\end{array} \right] \widehat{\boldsymbol{\phi}}^e,
 \end{eqnarray}
-where \(\widehat{\boldsymbol{\phi}}^e\) is a nodal voltage of the transducer. The \ac{sem} formulation of the governing equation \ref{eq:elecmechcoupling} is defined as:
+where \(\widehat{\boldsymbol{\phi}}^e\) is a nodal voltage of the transducer. The \ac{sem} formulation of the governing equation (\ref{eq:elecmechcoupling}) is defined as:
 \begin{eqnarray}
 	\left [\begin{array}{cc}
 		\textbf{M}_{dd} & \textbf{0}\\
@@ -56,7 +56,7 @@ where \(\widehat{\boldsymbol{\phi}}^e\) is a nodal voltage of the transducer. Th
 	\end{array}\right \},
 	\label{eq:pzt_sem}
 \end{eqnarray}
-where \(\textbf{Q}\) is the nodal charge vector.
+where \(widehat{\textbf{Q}}\) is the nodal charge vector.
 The mass and stiffness matrices are defined according to \ac{3d} model from section \ref{sec:3Dmodel}.
 The piezoelectric coupling matrix \(\textbf{K}_{\phi \phi}^e\) and the dielectric permittivity matrix \(\textbf{K}_{d \phi}^e\) are defined as:
 \begin{eqnarray}
@@ -65,13 +65,13 @@ The piezoelectric coupling matrix \(\textbf{K}_{\phi \phi}^e\) and the dielectri
 	{\textbf{\(\epsilon\)}^S}^T \textbf{B}_{\phi}^e \diff V_e.
 \end{eqnarray}
 
-If a vector \(\textbf{b}\) contains an order list of boundary nodes (electrodes) and a vector \(\textbf{a}\) contains an order lists of active nodes (remains nodes) of the \ac{pzt}, the electrical potential vector and the charge vector can be rewritten as:
+If a vector \(\textbf{b}\) contains list of consecutive boundary nodes (electrodes) and a vector \(\textbf{a}\) contains lists of consecutive active nodes (remains nodes) of the \ac{pzt}, the electrical potential vector and the charge vector can be rewritten as:
 \begin{eqnarray}
-	\widehat{\boldsymbol{\phi}} = \left \{\begin{array}{cc}
+	\widehat{\boldsymbol{\phi}} & = & \left \{\begin{array}{cc}
 		\widehat{\boldsymbol{\phi}}(\textbf{b}) &
 		\widehat{\boldsymbol{\phi}}(\textbf{a})
 	\end{array}\right \}^T,\\
-	\widehat{\textbf{Q}} = \left \{\begin{array}{cc}
+	\widehat{\textbf{Q}} & = & \left \{\begin{array}{cc}
 		\widehat{\textbf{Q}}(\textbf{b}) & \textbf{0}
 	\end{array}\right \}^T.
 	\label{eq:phi_Q}
@@ -116,13 +116,13 @@ Therefore, the potential vector can be written as:
 	\label{eq:phi_V}
 \end{eqnarray}
 where \(\textbf{b}_v\) is a list of nodes of the applied electrode and \(\textbf{b}_g\) is a list of nodes of the grounded electrode.
-Substituting Equation \ref{eq:phi_V} into Equations \ref{eq:freePotetial} and \ref{eq:pztboundary} induced stiffness of the actuator is obtained:
+Substituting Equation (\ref{eq:phi_V}) into Equations (\ref{eq:freePotetial}) and (\ref{eq:pztboundary}) induced stiffness of the actuator is obtained:
 \begin{eqnarray}
 	\textbf{K}_{a}=-\textbf{K}_{d\phi}(:,\textbf{a})\,\textbf{K}_{\phi \phi}^{-1}(\textbf{a},\textbf{a})\,\textbf{K}_{\phi \phi} (\textbf{a},\textbf{b}).
 \end{eqnarray}
 Hence, the equivalent mechanical force vector of the applied voltage of the piezoelectric actuator equals:
 \begin{eqnarray}
-	\widehat{\textbf{f}}_{act}=-\textbf{K}_{a}\,\widehat{\boldsymbol{\phi}}(\textbf{b})
+	\widehat{\textbf{f}}_{act}=-\textbf{K}_{a}\,\widehat{\boldsymbol{\phi}}(\textbf{b}).
 	\label{eq:f_act}
 \end{eqnarray}
 

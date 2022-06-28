@@ -16,20 +16,29 @@ The approximation of an integral over the elements is achieved according to \ac{
 and the weights \(w=w(\xi)\) calculated as:
 \begin{eqnarray}
 	{w(\xi)} = \frac{2}{p(p-1)(P_{p-1}(\xi))^2}.
-	\label{eq:weights}
+	\label{eq:weight}
 \end{eqnarray}
 
 The shape functions and the weights for \ac{2d} or \ac{3d} elements are obtained by the Kronecker product of vectors of individual axes, denoted by \(\otimes\) as follows:
 \begin{eqnarray}
-	N(\xi,\eta) = N(\xi)\otimes N(\eta), & N(\xi,\eta,\zeta) = N(\xi)\otimes N(\eta)\otimes N(\zeta), \nonumber\\
-	w(\xi,\eta) = w(\xi)\otimes w(\eta), & w(\xi,\eta,\zeta) = w(\xi)\otimes w(\eta)\otimes w(\zeta).
-	\label{eq:3Dshape_weights}
+	\begin{array}{rcl}
+	N(\xi,\eta) & = & N(\xi)\otimes N(\eta),\\
+	N(\xi,\eta,\zeta) & = & N(\xi)\otimes N(\eta)\otimes N(\zeta),
+	\end{array}
+\label{eq:shape_functions}
+\end{eqnarray}
+\begin{eqnarray}
+	\begin{array}{rcl}
+	w(\xi,\eta) & = & w(\xi)\otimes w(\eta),\\
+	w(\xi,\eta,\zeta) & = & w(\xi)\otimes w(\eta)\otimes w(\zeta).
+	\end{array}
+	\label{eq:weights}
 \end{eqnarray}
 \begin{figure}[H]
 	\begin{center}
-		\includegraphics[width=1\linewidth]{Chapter_4/shape_function}
+		\includegraphics{Chapter_4/shape_function}
 	\end{center}
-	\caption{Shape functions for five order polynomial with Gaussa-Lobatto-Legendre nodes.}
+	\caption{Shape functions for five order polynomial with Gauss-Lobatto-Legendre nodes.}
 	\label{fig:shape}
 \end{figure}
 
@@ -43,4 +52,4 @@ The construction of the structural matrices is similar to the classical approach
 
 The most significant advantage of this method is the fast convergence of the equation of motion.
 It is achieved for six nodes per wavelength, while at least fifteen nodes are needed in the case of linear elements in classic \ac{fem}~\cite{wee2017simulating}.
-Moreover, the mass matrix is diagonal when the \ac{gll} approach is used, and solid or classic, low-order displacement theory elements are involved.
+Moreover, the mass matrix is diagonal when the \ac{gll} approach is used, and solid or classic elements based on, the first order shear deformation theory is involved.

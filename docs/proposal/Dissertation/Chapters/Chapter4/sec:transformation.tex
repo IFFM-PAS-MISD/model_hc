@@ -33,7 +33,7 @@ First, the displacement vector is transformed from the global to local coordinat
 	\end{array}\right \}_g,
 	\label{eq:d_local}
 \end{eqnarray}
-where \(\textbf{V}^e_1\),\(\textbf{V}^e_2\) and \(\textbf{V}^e_3\) are direction cosines of the core element. Then, internal forces are calculated according to guideline from Section \ref{sec:gpu} and transformed to a global coordinated~system:
+where \(\textbf{V}^e_1\),\(\textbf{V}^e_2\) and \(\textbf{V}^e_3\) are direction cosines of the core element. Then, internal forces are calculated according to guideline from Section \ref{sec:gpu} and transformed to a global coordinate system:
 \begin{eqnarray}
 	\left\{\textbf{F}_{int}\right\}^e_g =
 	\left [\begin{array}{ccccc}
@@ -69,4 +69,7 @@ Additionally, a part of the mass matrix accounted for rotary inertia has to be t
 \end{eqnarray}
 
 As the matrix becomes non-diagonal after transformation, some approximation is necessary.
-Off-diagonal terms in the matrix given in Equation~(\ref{eq:inertia}) are neglected following the analysis performed in \cite{surana1980transition}.
+
+Surana analysed a lumped mass matrix with non-zero inertia for shell elements \cite{surana1980transition}.
+He presented several formulations for a transformed mass matrix to zero off-diagonal values without affecting the results appreciably.
+In the presented model, the omission of off-diagonal values of the mass matrix is assumed.

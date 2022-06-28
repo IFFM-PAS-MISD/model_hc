@@ -5,9 +5,9 @@
 %% SECTION CONTENT ////////////////////////////////////////////////////////////////////////////////////
 Propagating waves in the structure attenuate due to many factors, including geometric spreading, material damping, and dissipation into the adjacent domain.
 This study adopted the Rayleigh damping model for the \ac{cfrp} skin and adhesive layer, while the damping for the aluminium core and \ac{pzt} was neglected.
-Rayleigh damping model is defined as \cite{wandowski2017guided}
+Rayleigh damping model is defined as \cite{wandowski2017guided}:
 \begin{eqnarray}
-	\textbf{D}_{dd}^e = \alpha_M \textbf{M}_{dd}^e + \beta_K \textbf{K}_{dd}^e.
+	\textbf{D}_{dd}^e = \alpha_M \textbf{M}_{dd}^e + \beta_K \textbf{K}_{dd}^e,
 	\label{eq:damping}
 \end{eqnarray}
-where \(\alpha_M\) and \(\beta_K\) are the mass- and stiffness- proportionality coefficients. However, \(\beta_K\) is equal to zero to ensure that matrix \(\textbf{D}_{dd}\) remains diagonal.
+where \(\alpha_M\) and \(\beta_K\) are the mass- and stiffness- proportionality coefficients. However, \(\beta_K\) was assumed equal to zero to ensure that matrix \(\textbf{D}_{dd}\) remains diagonal \cite{schulte2011simulation, wandowski2017guided}.

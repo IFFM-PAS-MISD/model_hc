@@ -4,6 +4,13 @@
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
+\contentsline {table}{\numberline {5.1}{\ignorespaces The mechanical properties of the materials.\relax }}{33}{table.caption.17}%
+\contentsline {table}{\numberline {5.2}{\ignorespaces The wavelength of the \ac {a0} mode propagated in the presented \ac {cfrp} plate.\relax }}{35}{table.caption.19}%
+\addvspace {10\p@ }
+\contentsline {table}{\numberline {6.1}{\ignorespaces Comparison of the methods for elastic wave propagation measurement.\relax }}{43}{table.caption.25}%
+\contentsline {table}{\numberline {6.2}{\ignorespaces The group velocities and errors obtain from simulations and experiments.\relax }}{50}{table.caption.31}%
+\contentsline {table}{\numberline {6.3}{\ignorespaces Model parameters used in simulations to compare the algorithm performed on \ac {gpu} and \ac {cpu}.\relax }}{50}{table.caption.32}%
+\contentsline {table}{\numberline {6.4}{\ignorespaces Sample parameters used in the benchmark of the \ac {pa} and the \ac {ba}.\relax }}{51}{table.caption.33}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }

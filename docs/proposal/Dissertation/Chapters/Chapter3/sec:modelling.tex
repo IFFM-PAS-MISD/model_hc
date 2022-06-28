@@ -17,12 +17,12 @@ In addition, the wave propagation velocity determined by the simulation is in go
 However, this method cannot adequately represent the phenomenon of propagating wave interaction in honeycomb cells.
 It causes the signal energy not to dissipate as it would in a real structure.
 A more precise model is the \ac{fgm} of the core. 
-Ruzzenne et al. presented a parametric study to evaluate the dynamic behavior of the honeycomb and cellular structures through the \ac{fem} and the application of the theory of periodic structures \cite{ruzzene2003wave}.
+Ruzzene et al. presented a parametric study to evaluate the dynamic behavior of the honeycomb and cellular structures through the \ac{fem} and the application of the theory of periodic structures \cite{ruzzene2003wave}.
 Recently, the simulations of the wave propagation in the \acp{hsc} have been conducted with commercially available finite element code~\cite{song2009guided, hosseini2013numerical, tian2015wavenumber, zhao2018wave}.
 
 While the \ac{fem} based modelling of \ac{gw} requires a significant amount of memory and is time-consuming, this method becomes inefficient in the case of \ac{fgm}.
 Kudela increased the computational efficiency with the model based on the time-domain \ac{sem} \cite{kudela2016parallel}.
-In addition, the algorithm has been adapted for parallel computing on the \ac{gpu}, making the simulations fourteen times as fast as on the \ac{cpu}.
+In addition, the algorithm has been adapted for parallel computing on the \ac{gpu}, making the simulations fourteen times faster than on the \ac{cpu}.
 However, this approach has two major drawbacks. One is employing solid elements with three \acp{dof} at each node to model the core walls. As a result, a $179\times160$ mm sandwich panel has over 1.5 million \acp{dof}.
 Secondly, no \ac{pzt} sensors were considered in the simulation, so a concentrated force was used to generate the \ac{gw}.
 To attach the transducers, the grids of the sensor and the host plate must coincide or use an interface between them. 
@@ -33,9 +33,9 @@ Since the neutral plane of the elements is oriented differently concerning the g
 The skin model will be developed according to the laminate theory presented by Vinson and Sierakowski \cite{vinson1993behavior}.
 In addition, two interfaces are used to connect the individual \ac{hsc} components.
 One with the non-matching grid was developed to join the sensors with the panel.
-It was done with the novel method based on the element shape function described in Chapter \ref{ch:sem}.
+It was done with the novel method based on the element shape functions described in Chapter \ref{ch:sem}.
 The core and skin connection was implemented with a perfect matching interface.
 To the best of the author's knowledge, the presented model has not been implemented yet for the \acp{hsc}.
 
-The parametric study conducted in the paper leads to the determination of a \ac{madif}, which defines the influence of the size of the composite defect on wave propagation.
+The parametric study conducted in the dissertation leads to the determination of a \ac{madif}, which defines the influence of the size of the composite defect on wave propagation.
 In this case, the defect is assumed to be a disbond between the skin and the core.

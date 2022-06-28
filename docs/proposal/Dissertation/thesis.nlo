@@ -1,15 +1,15 @@
-\nomenclatureentry{G\( \lambda \)@[{\( \lambda \)}]\begingroup \nomdescr {Full scale to model scale ratio}\DimensUnits {$\frac {L_{s}}{L_{m}}$}{-}\nomeqref {0}|nompageref}{v}
-\nomenclatureentry{G\( \delta \)@[{\( \delta \)}]\begingroup \nomdescr {Boundary layer thickness}\DimensUnits {-}{m}\nomeqref {0}|nompageref}{v}
-\nomenclatureentry{G\( \rho \)@[{\( \rho \)}]\begingroup \nomdescr {Mass density}\DimensUnits {-}{kg/m\textsuperscript {3}}\nomeqref {0}|nompageref}{v}
-\nomenclatureentry{G\( \nu \)@[{\( \nu \)}]\begingroup \nomdescr {Kinematic viscosity}\DimensUnits {$\frac {\mu }{\rho }$}{m\textsuperscript {2}/s}\nomeqref {0}|nompageref}{v}
-\nomenclatureentry{G\( \mu \)@[{\( \mu \)}]\begingroup \nomdescr {Viscosity}\DimensUnits {$\frac {\mu }{\rho }$}{kg/ms}\nomeqref {0}|nompageref}{v}
-\nomenclatureentry{D\( \xi , \eta , \zeta \)@[{\( \xi , \eta , \zeta \)}]\begingroup \nomdescr {local coordinates}\DefinitionCol {-}\nomeqref {0}|nompageref}{v}
-\nomenclatureentry{D\( w \)@[{\( w \)}]\begingroup \nomdescr {weighting factor}\DefinitionCol {$\frac {2}{p(p-1)\left (P_{p-1}(\xi )\right )^2}$}\nomeqref {0}|nompageref}{v}
-\nomenclatureentry{RANA\textsubscript {N}@[{A\textsubscript {N}}]\begingroup \nomdescr {Nozzle discharge area}\DimensUnits {-}{m\textsuperscript {2}}\nomeqref {0}|nompageref}{v}
-\nomenclatureentry{RASA\textsubscript {S}@[{A\textsubscript {S}}]\begingroup \nomdescr {Cross sectional area at station $s$}\DimensUnits {-}{m\textsuperscript {2}}\nomeqref {0}|nompageref}{v}
-\nomenclatureentry{RSSS\textsubscript {S}@[{S\textsubscript {S}}]\begingroup \nomdescr {Wetted surface area}\DimensUnits {-}{m\textsuperscript {2}}\nomeqref {0}|nompageref}{v}
-\nomenclatureentry{RTT@[{T}]\begingroup \nomdescr {Draft}\DimensUnits {-}{$m$}\nomeqref {0}|nompageref}{v}
-\nomenclatureentry{RLOAL\textsubscript {OA}@[{L\textsubscript {OA}}]\begingroup \nomdescr {Length overall}\DimensUnits {-}{m}\nomeqref {0}|nompageref}{v}
-\nomenclatureentry{RLWLL\textsubscript {WL}@[{L\textsubscript {WL}}]\begingroup \nomdescr {Length waterline}\DimensUnits {-}{m}\nomeqref {0}|nompageref}{v}
-\nomenclatureentry{RBB@[{B}]\begingroup \nomdescr {Moulded breadth}\DimensUnits {-}{m}\nomeqref {0}|nompageref}{v}
-\nomenclatureentry{RBhullmB\textsubscript {hull, m}@[{B\textsubscript {hull, m}}]\begingroup \nomdescr {Beam of model hull}\DimensUnits {-}{m}\nomeqref {0}|nompageref}{v}
+\nomenclatureentry{G\( \lambda \)@[{\( \lambda \)}]\begingroup \nomdescr {Full scale to model scale ratio}\DimensUnits {$\frac {L_{s}}{L_{m}}$}{-}\nomeqref {0}|nompageref}{vii}
+\nomenclatureentry{G\( \delta \)@[{\( \delta \)}]\begingroup \nomdescr {Boundary layer thickness}\DimensUnits {-}{m}\nomeqref {0}|nompageref}{vii}
+\nomenclatureentry{G\( \rho \)@[{\( \rho \)}]\begingroup \nomdescr {Mass density}\DimensUnits {-}{kg/m\textsuperscript {3}}\nomeqref {0}|nompageref}{vii}
+\nomenclatureentry{G\( \nu \)@[{\( \nu \)}]\begingroup \nomdescr {Kinematic viscosity}\DimensUnits {$\frac {\mu }{\rho }$}{m\textsuperscript {2}/s}\nomeqref {0}|nompageref}{vii}
+\nomenclatureentry{G\( \mu \)@[{\( \mu \)}]\begingroup \nomdescr {Viscosity}\DimensUnits {$\frac {\mu }{\rho }$}{kg/ms}\nomeqref {0}|nompageref}{vii}
+\nomenclatureentry{D\( \xi , \eta , \zeta \)@[{\( \xi , \eta , \zeta \)}]\begingroup \nomdescr {local coordinates}\DefinitionCol {-}\nomeqref {0}|nompageref}{vii}
+\nomenclatureentry{D\( w \)@[{\( w \)}]\begingroup \nomdescr {weighting factor}\DefinitionCol {$\frac {2}{p(p-1)\left (P_{p-1}(\xi )\right )^2}$}\nomeqref {0}|nompageref}{vii}
+\nomenclatureentry{RANA\textsubscript {N}@[{A\textsubscript {N}}]\begingroup \nomdescr {Nozzle discharge area}\DimensUnits {-}{m\textsuperscript {2}}\nomeqref {0}|nompageref}{vii}
+\nomenclatureentry{RASA\textsubscript {S}@[{A\textsubscript {S}}]\begingroup \nomdescr {Cross sectional area at station $s$}\DimensUnits {-}{m\textsuperscript {2}}\nomeqref {0}|nompageref}{vii}
+\nomenclatureentry{RSSS\textsubscript {S}@[{S\textsubscript {S}}]\begingroup \nomdescr {Wetted surface area}\DimensUnits {-}{m\textsuperscript {2}}\nomeqref {0}|nompageref}{vii}
+\nomenclatureentry{RTT@[{T}]\begingroup \nomdescr {Draft}\DimensUnits {-}{$m$}\nomeqref {0}|nompageref}{vii}
+\nomenclatureentry{RLOAL\textsubscript {OA}@[{L\textsubscript {OA}}]\begingroup \nomdescr {Length overall}\DimensUnits {-}{m}\nomeqref {0}|nompageref}{vii}
+\nomenclatureentry{RLWLL\textsubscript {WL}@[{L\textsubscript {WL}}]\begingroup \nomdescr {Length waterline}\DimensUnits {-}{m}\nomeqref {0}|nompageref}{vii}
+\nomenclatureentry{RBB@[{B}]\begingroup \nomdescr {Moulded breadth}\DimensUnits {-}{m}\nomeqref {0}|nompageref}{vii}
+\nomenclatureentry{RBhullmB\textsubscript {hull, m}@[{B\textsubscript {hull, m}}]\begingroup \nomdescr {Beam of model hull}\DimensUnits {-}{m}\nomeqref {0}|nompageref}{vii}
