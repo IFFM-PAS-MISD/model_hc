@@ -38,9 +38,9 @@ The $\textbf{N}^P_{,\xi}$ is a block-diagonal sparse matrix, and the equality of
 Besides, a vector of local node indices $\textbf{I}_L$ and corresponding global node indices $\textbf{I}_G$ must be defined in the preprocessing process.
 
 Adjacent elements in the mesh share nodes, so one node in the global system can correspond to several nodes in the local system.
-Since independent operations on vectors are necessary for parallel computation on \ac{gpu}, $I_{G}$ must be rearranged to separate all duplicated nodes.
-Therefore, the matrix $I_{G}$ is created in which no column has repeated indices of the nodes.
-Then, the corresponding local map $I_{L}$ must also be created.
+Since independent operations on vectors are necessary for parallel computation on \ac{gpu}, $\textbf{I}_G$ must be rearranged to separate all duplicated nodes.
+Therefore, the matrix $\textbf{I}_G$ is created in which no column has repeated indices of the nodes.
+Then, the corresponding local map $\textbf{I}_L$ must also be created.
 Algorithm presented in \cite{kudela2016parallel} was used for the rearrangement.
 
 The following computational operations are performed during the time integration algorithm. Firstly, the global vector of nodal displacements is transferred to the element nodes displacements such as:

@@ -154,8 +154,8 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="0.98994949"
-     inkscape:cx="12.452596"
-     inkscape:cy="42.640973"
+     inkscape:cx="226.58138"
+     inkscape:cy="-24.234304"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -172,7 +172,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -435,5 +435,16 @@
        d="m 144.23416,261.77995 h 2.10475"
        id="path5508"
        inkscape:connector-curvature="0" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.52777767px;line-height:1.25;font-family:'TeX Gyre DejaVu Math';-inkscape-font-specification:'TeX Gyre DejaVu Math';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="110.08557"
+       y="249.2805"
+       id="text6275"><tspan
+         sodipodi:role="line"
+         id="tspan6273"
+         x="110.08557"
+         y="249.2805"
+         style="stroke-width:0.26458332;font-style:italic">i</tspan></text>
   </g>
 </svg>

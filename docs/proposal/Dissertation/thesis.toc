@@ -1,8 +1,8 @@
 \contentsline {chapter}{LIST OF TABLES}{iv}{chapter*.4}%
 \contentsline {chapter}{LIST OF FIGURES}{v}{chapter*.5}%
 \acswitchoff 
-\contentsline {chapter}{NOMENCLATURE}{vii}{chapter*.6}%
-\contentsline {chapter}{ACRONYMS}{ix}{chapter*.7}%
+\contentsline {chapter}{NOMENCLATURE}{viii}{chapter*.6}%
+\contentsline {chapter}{ACRONYMS}{x}{chapter*.7}%
 \contentsline {chapter}{\numberline {1}Introduction}{1}{chapter.1}%
 \contentsline {section}{\numberline {1.1}Sandwich Composite Structures}{1}{section.1.1}%
 \contentsline {section}{\numberline {1.2}Structural Health Monitoring}{3}{section.1.2}%
@@ -44,7 +44,10 @@
 \contentsline {subsection}{\numberline {6.3.3}Efficiency of the time integration algorithm}{50}{subsection.6.3.3}%
 \contentsline {section}{\numberline {6.4}Conclusions}{51}{section.6.4}%
 \contentsline {chapter}{\numberline {7}The Severity of Damage Estimation}{53}{chapter.7}%
-\contentsline {chapter}{\numberline {8}GW Propagation under Variable Temperature Conditions}{54}{chapter.8}%
-\contentsline {chapter}{\numberline {9}Conclusions}{55}{chapter.9}%
-\contentsline {chapter}{\numberline {A}Internal forces formulas}{57}{appendix.A}%
-\contentsline {chapter}{Bibliography}{58}{equation.A.0.1}%
+\contentsline {section}{\numberline {7.1}Damage indices}{53}{section.7.1}%
+\contentsline {section}{\numberline {7.2}Determination of the MADIF}{55}{section.7.2}%
+\contentsline {section}{\numberline {7.3}Conclusions}{57}{section.7.3}%
+\contentsline {chapter}{\numberline {8}GW Propagation under Variable Temperature Conditions}{67}{chapter.8}%
+\contentsline {chapter}{\numberline {9}Conclusions}{68}{chapter.9}%
+\contentsline {chapter}{\numberline {A}Internal forces formulas}{69}{appendix.A}%
+\contentsline {chapter}{Bibliography}{70}{equation.A.0.1}%

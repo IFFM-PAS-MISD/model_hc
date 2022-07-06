@@ -27,6 +27,19 @@
 \contentsline {figure}{\numberline {6.9}{\ignorespaces Sensor signals obtained in numerical simulations for the homogenised model.\relax }}{49}{figure.caption.30}%
 \contentsline {figure}{\numberline {6.10}{\ignorespaces Speedup in function of global \ac {dof} of the \ac {pa} computation in the case of \ac {gpu}\nobreakspace {}vs.\nobreakspace {}\ac {cpu} dashed line, and compared to \ac {ba} solid line\relax }}{52}{figure.caption.34}%
 \addvspace {10\p@ }
+\contentsline {figure}{\numberline {7.1}{\ignorespaces Experimentally obtained \acp {di} based on full-length signals.\relax }}{55}{figure.caption.35}%
+\contentsline {figure}{\numberline {7.2}{\ignorespaces Experimentally obtained \acp {di} based on windowed signals.\relax }}{56}{figure.caption.36}%
+\contentsline {figure}{\numberline {7.3}{\ignorespaces \acp {di} based on full-length 50 kHz signals for full core and homogenised model, solid line for experimental measurements, dash-dot line for the model with removed cells, dashed line for the model with removed interface.\relax }}{58}{figure.caption.37}%
+\contentsline {figure}{\numberline {7.4}{\ignorespaces \acp {di} based on full-length 100 kHz signals for full core and homogenised model, solid line for experimental measurements, dash-dot line for the model with removed cells, dashed line for the model with removed interface.\relax }}{59}{figure.caption.38}%
+\contentsline {figure}{\numberline {7.5}{\ignorespaces \acp {di} based on full-length 150 kHz signals for full core and homogenised model, solid line for experimental measurements, dash-dot line for the model with removed cells, dashed line for the model with removed interface.\relax }}{60}{figure.caption.39}%
+\contentsline {figure}{\numberline {7.6}{\ignorespaces \acp {di} based on windowed 50 kHz signals for full core and homogenised model, solid line for experimental measurements, dash-dot line for the model with removed cells, dashed line for the model with removed interface.\relax }}{61}{figure.caption.40}%
+\contentsline {figure}{\numberline {7.7}{\ignorespaces \acp {di} based on windowed 100 kHz signals for full core and homogenised model, solid line for experimental measurements, dash-dot line for the model with removed cells, dashed line for the model with removed interface.\relax }}{62}{figure.caption.41}%
+\contentsline {figure}{\numberline {7.8}{\ignorespaces \acp {di} based on windowed 150 kHz signals for full core and homogenised model, solid line for experimental measurements, dash-dot line for the model with removed cells, dashed line for the model with removed interface.\relax }}{63}{figure.caption.42}%
+\contentsline {figure}{\numberline {7.9}{\ignorespaces Percentage error of the \acp {di} for the full core model.\relax }}{64}{figure.caption.43}%
+\contentsline {figure}{\numberline {7.10}{\ignorespaces Percentage error of the \acp {di} for the homogenised core model.\relax }}{65}{figure.caption.44}%
+\contentsline {figure}{\numberline {7.11}{\ignorespaces RMSD\relax }}{65}{figure.caption.45}%
+\contentsline {figure}{\numberline {7.12}{\ignorespaces RMSD\relax }}{66}{figure.caption.46}%
+\contentsline {figure}{\numberline {7.13}{\ignorespaces \ac {madif}\relax }}{66}{figure.caption.47}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
