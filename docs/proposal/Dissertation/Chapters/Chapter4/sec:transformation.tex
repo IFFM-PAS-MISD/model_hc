@@ -1,5 +1,5 @@
 %% SECTION HEADER /////////////////////////////////////////////////////////////////////////////////////
-\section{Transformation of the Core Elements}
+\section{Transformation of the core elements}
 \label{sec:transformation}
 
 %% SECTION CONTENT ////////////////////////////////////////////////////////////////////////////////////
@@ -50,14 +50,14 @@ where \(\textbf{V}^e_1\),\(\textbf{V}^e_2\) and \(\textbf{V}^e_3\) are direction
 	\label{eq:f_global}
 \end{eqnarray}
 
-Additionally, a part of the mass matrix accounted for rotary inertia has to be transformed, and, in contrast to the internal forces vector, this has to be done only once in pre-processing as follows:
+Additionally, a part of the mass matrix accounted for rotary inertia has to be transformed, and, in contrast to the vector of internal forces, this has to be done only once in pre-processing as follows:
 
 \begin{eqnarray}
 	\textbf{J}_g=\left [ 
 	\begin{array}{ccc}
-		\left (\textbf{J}_{11}\right )_g & \left (\textbf{J}_{12}\right )_g & \left (\textbf{J}_{13}\right )_g\\
-		& \left (\textbf{J}_{22}\right )_g & \left (\textbf{J}_{23}\right )_g\\
-		Sym. &  & \left (\textbf{J}_{33}\right )_g\\
+		\left (\textbf{J}\right)^{1,1}_g & \left (\textbf{J}\right )^{1,2}_g & \left (\textbf{J}\right )^{1,3}_g\\
+		& \left (\textbf{J}\right )^{2,2}_g & \left (\textbf{J}\right )^{2,3}_g\\
+		Sym. &  & \left (\textbf{J}\right )^{3,3}_g\\
 	\end{array}
 	\right ]
 	=\left[\begin{array}{ccc}
@@ -69,7 +69,6 @@ Additionally, a part of the mass matrix accounted for rotary inertia has to be t
 \end{eqnarray}
 
 As the matrix becomes non-diagonal after transformation, some approximation is necessary.
-
 Surana analysed a lumped mass matrix with non-zero inertia for shell elements \cite{surana1980transition}.
 He presented several formulations for a transformed mass matrix to zero off-diagonal values without affecting the results appreciably.
-In the presented model, the omission of off-diagonal values of the mass matrix is assumed.
+Accordingly, in the presented model, the omission of off-diagonal values of the mass matrix is assumed.

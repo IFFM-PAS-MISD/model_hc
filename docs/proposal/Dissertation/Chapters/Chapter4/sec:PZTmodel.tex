@@ -1,5 +1,5 @@
 %% SECTION HEADER /////////////////////////////////////////////////////////////////////////////////////
-\section{Piezoelectric Transducers Modelling}
+\section{\Acs{pzt} modelling}
 \label{sec:PZTmodel}
 
 %% SECTION CONTENT ////////////////////////////////////////////////////////////////////////////////////
@@ -56,7 +56,7 @@ where \(\widehat{\boldsymbol{\phi}}^e\) is a nodal voltage of the transducer. Th
 	\end{array}\right \},
 	\label{eq:pzt_sem}
 \end{eqnarray}
-where \(widehat{\textbf{Q}}\) is the nodal charge vector.
+where \(\widehat{\textbf{Q}}\) is the nodal charge vector.
 The mass and stiffness matrices are defined according to \ac{3d} model from section \ref{sec:3Dmodel}.
 The piezoelectric coupling matrix \(\textbf{K}_{\phi \phi}^e\) and the dielectric permittivity matrix \(\textbf{K}_{d \phi}^e\) are defined as:
 \begin{eqnarray}
@@ -65,7 +65,7 @@ The piezoelectric coupling matrix \(\textbf{K}_{\phi \phi}^e\) and the dielectri
 	{\textbf{\(\epsilon\)}^S}^T \textbf{B}_{\phi}^e \diff V_e.
 \end{eqnarray}
 
-If a vector \(\textbf{b}\) contains list of consecutive boundary nodes (electrodes) and a vector \(\textbf{a}\) contains lists of consecutive active nodes (remains nodes) of the \ac{pzt}, the electrical potential vector and the charge vector can be rewritten as:
+If a vector \(\textbf{b}\) contains list of consecutive boundary nodes (corresponding to electrodes) and a vector \(\textbf{a}\) contains lists of consecutive active nodes (remaining nodes) of the \ac{pzt}, the electrical potential vector and the charge vector can be rewritten as:
 \begin{eqnarray}
 	\widehat{\boldsymbol{\phi}} & = & \left \{\begin{array}{cc}
 		\widehat{\boldsymbol{\phi}}(\textbf{b}) &
@@ -76,29 +76,31 @@ If a vector \(\textbf{b}\) contains list of consecutive boundary nodes (electrod
 	\end{array}\right \}^T.
 	\label{eq:phi_Q}
 \end{eqnarray}
-Then, piezoelectric part of Equation~(\ref{eq:pzt_sem}) is expressed as:
+Then, piezoelectric part of Eq.~(\ref{eq:pzt_sem}) is expressed as:
 \begin{eqnarray}
-	\left [\begin{array}{cc}
-		\textbf{K}_{d \phi}(:,\textbf{b}) &
-		\textbf{K}_{d \phi}(:,\textbf{a})
-	\end{array}\right]^T
-	\widehat{\textbf{d}} +
-	\left [\begin{array}{cc}
-		\textbf{K}_{\phi \phi}(\textbf{b},\textbf{b}) & \textbf{K}_{\phi \phi}(\textbf{b},\textbf{a})\\
-		\textbf{K}_{\phi \phi}(\textbf{a},\textbf{b}) & \textbf{K}_{\phi \phi}(\textbf{a},\textbf{a})
-	\end{array}\right]
-	\left \{\begin{array}{c}
-		\widehat{\boldsymbol{\phi}}(\textbf{b}) \\
-		\widehat{\boldsymbol{\phi}}(\textbf{a})
-	\end{array}\right \} = 
-	\left \{\begin{array}{c}
-		\widehat{\textbf{Q}}(\textbf{b}) \\
-		\textbf{0}
-	\end{array}\right \},
+	\begin{split}
+		\left [\begin{array}{cc}
+			\textbf{K}_{d \phi}(:,\textbf{b}) &
+			\textbf{K}_{d \phi}(:,\textbf{a})
+		\end{array}\right]^T
+		\widehat{\textbf{d}} & +
+		\left [\begin{array}{cc}
+			\textbf{K}_{\phi \phi}(\textbf{b},\textbf{b}) & \textbf{K}_{\phi 		\phi}(\textbf{b},\textbf{a})\\
+			\textbf{K}_{\phi \phi}(\textbf{a},\textbf{b}) & \textbf{K}_{\phi \phi}(\textbf{a},\textbf{a})
+		\end{array}\right]
+		\left \{\begin{array}{c}
+			\widehat{\boldsymbol{\phi}}(\textbf{b}) \\
+			\widehat{\boldsymbol{\phi}}(\textbf{a})
+		\end{array}\right \}\\ 
+		& = \left \{\begin{array}{c}
+			\widehat{\textbf{Q}}(\textbf{b}) \\
+			\textbf{0}
+		\end{array}\right \},
+	\end{split}
 	\label{eq:pztboundary}
 \end{eqnarray}
 where the notation \(\textbf{K}(\textbf{r},\textbf{c})\) uses vectors \(\textbf{r}\) and \(\textbf{c}\) to extract rows and columns from the matrix \(\textbf{K}\), respectively, and \((:)\) means all rows or columns of \(\textbf{K}\).
-The electrical potential of the free nodes can be extracted from Equation~(\ref{eq:pztboundary}):
+The electrical potential of the free nodes can be extracted from Eq.~(\ref{eq:pztboundary}):
 \begin{eqnarray}
 	\widehat{\boldsymbol{\phi}}(\textbf{a}) = -\textbf{K}_{\phi\phi}^{-1}(\textbf{a},\textbf{a})\left[\textbf{K}_{\phi d}(\textbf{a},:) \widehat{\textbf{d}} + \textbf{K}_{\phi\phi}(\textbf{a},\textbf{b})\widehat{\boldsymbol{\phi}}(\textbf{b}) \right].
 	\label{eq:freePotetial}
@@ -116,7 +118,7 @@ Therefore, the potential vector can be written as:
 	\label{eq:phi_V}
 \end{eqnarray}
 where \(\textbf{b}_v\) is a list of nodes of the applied electrode and \(\textbf{b}_g\) is a list of nodes of the grounded electrode.
-Substituting Equation (\ref{eq:phi_V}) into Equations (\ref{eq:freePotetial}) and (\ref{eq:pztboundary}) induced stiffness of the actuator is obtained:
+Substituting Eq. (\ref{eq:phi_V}) into Eq. (\ref{eq:freePotetial}) and Eq. (\ref{eq:pztboundary}), induced stiffness of the actuator is obtained:
 \begin{eqnarray}
 	\textbf{K}_{a}=-\textbf{K}_{d\phi}(:,\textbf{a})\,\textbf{K}_{\phi \phi}^{-1}(\textbf{a},\textbf{a})\,\textbf{K}_{\phi \phi} (\textbf{a},\textbf{b}).
 \end{eqnarray}
@@ -134,7 +136,7 @@ In the case of the open circuit sensor one electrode is grounded so the electric
 The induced stiffness of the sensor can be written as:
 \begin{eqnarray} \textbf{K}_s=\textbf{K}_{d \phi}(:,\textbf{a})\,\textbf{K}_{\phi \phi}^{-1} (\textbf{a},\textbf{a})\,\textbf{K}_{\phi d}(\textbf{a},:).
 \end{eqnarray}
-To obtain the sensor response nodal electric potential must be integrated over the electrode surface as follow:
+To obtain the sensor response, the nodal electric potential must be integrated over the electrode surface as follow:
 \begin{eqnarray}
 	\boldsymbol{\phi}(t) = \int_{\Omega_s}\widehat{\phi} \diff\Omega_s.
 	\label{eq:sensorResponse}

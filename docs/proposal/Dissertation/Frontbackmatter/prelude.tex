@@ -25,10 +25,75 @@
 % Abstract to be bound with thesis
 \newcommand{\abstextwithesis}
 {
-%Basic abstract goes here. Can use paragraphs and normal \LaTeX commands.
-...
-}
+The main objective of the dissertation is to develop a model-assisted method for assessing the extent of damage in a sandwich panel with a honeycomb core.
+For this purpose, a structural health monitoring technique based on guided wave propagation will be employed.
+The research proposes new insights into modelling of the elastic wave propagation in a complex structure to determine a function of damage size effect on the characteristic propagation parameters.
+Such a function could be obtained by experimental investigation or theoretical analysis.
+However, the experimental investigation would require many samples, and theoretical analysis is restricted only to fundamental structural elements, such as plates, bars or beams, and under specific boundary conditions. 
+On the other hand, numerical modelling can cost-effectively provide accurate data and flexibly adapt to different structure configurations.
 
+The numerical analysis of guided wave propagation is very time-consuming and operational memory-intensive.
+Therefore, the time domain Spectral Element Method is used, which is one of the most accurate and efficient wave propagation modelling techniques.
+The time integration algorithm is vectorised to parallel compuation run on a multi-core graphics card.
+Also, computational efficiency will be improved by reducing global degrees of freedom using two-dimensional elements.
+
+Current approaches to determining the material properties of composites are mainly based on the homogenisation process.
+However, this method turns out to be insufficient for wave propagation in materials with a complex structure, e.g. in honeycomb sandwich composites.
+Therefore, the full core geometry model of the material structure is developed in the proposed research.
+The honeycomb structure will be modelled by using shell spectral elements for each wall of the cell.
+The analysis is a multiphysics approach considering an electromechanical coupling corresponding to piezoelectric transducers used for signal excitation and sensing. 
+The model is developed, taking into account the effect of environmental conditions, such as temperature.
+In addition, to connect all components of the structure, an interface elements were implemented to guarantee the continuity of displacement of adjacent elements.
+A new approach was used to develop an interface based on Lagrange multipliers using spectral element shape functions to connect two non-matching grids.
+Experimental measurements have been conducted to validate the numerical models employing piezoelectric wave acquisition setup under controlled ambient temperature in the climate chamber and the Scanning Doppler Laser Vibrometer.
+
+The dissertation begins with a literature review of the topic and describes the methodology adopted to achieve the stated aim of the work.
+It is followed by a detailed description of the implementation of the wave propagation model in the honeycomb sandwich structure using the spectral element method.
+Once the model has been validated, a numerical analysis is presented to determine the model-assisted damage identification function considering the varying ambient temperature.
+Then, a parametric study was carried out to present the effect of structural parameters to wave propagation in a honeycomb core structure.
+Lastly, the dissertation is summarised with conclusions arising from the analyses. 
+
+What is new in the proposed research is not only the development of a new approach to damage detection under varying external conditions but also a numerical model with the exact geometry of the multilayer structure using the spectral element method.
+The developed method will be a practical compendium of knowledge for structural health monitoring designers. While the reliability of the monitoring system is directly related to the accuracy of determining input parameters the proposed study will increase the safety of inspected engineering structures.
+}
+% Abstract to be bound with thesis
+\newcommand{\strtextwithesis}
+{
+%\selectlanguage{polish}
+{
+Głównym celem rozprawy jest opracowanie metody metody oceny stopnia uszkodzenia płyty warstwowej z rdzeniem o strukturze plastra miodu wspomaganej modelem numerycznym.
+W tym celu zostanie zastosowana technika monitorowania stanu konstrukcji oparta na propagacji fal kierowanych.
+W badaniach zaproponowano nowe podejście modelowania propagacji fali sprężystej w złożonej strukturze w celu określenia funkcji wpływu wielkości uszkodzenia na charakterystyczne parametry propagacji.
+Funkcja taka mogłaby być uzyskana na drodze badań eksperymentalnych lub analizy teoretycznej.
+Jednakże eksperymenty wymagałyby wielu próbek, a analiza teoretyczna jest ograniczona tylko do podstawowych elementów konstrukcyjnych, takich jak płyty, pręty lub belki, oraz w określonych warunkach brzegowych. 
+Z drugiej strony, modelowanie numeryczne może w sposób ekonomiczny dostarczyć dokładnych danych i elastycznie dostosować się do różnych konfiguracji struktury.
+
+Analiza numeryczna propagacji fali kierowanej jest bardzo czasochłonna i wymaga znaczących zasobów pamięci operacyjnej.
+Dlatego zastosowana zostanie metoda elementów spektralnych w dziedzinie czasu, która jest jedną z najbardziej dokładnych i wydajnych technik modelowania propagacji fal sprężystych.
+Algorytm całkowania w czasie jest zwektoryzowany w celu równoległych obliczeń na wielordzeniowej karcie graficznej.
+Zwiększona zostanie również wydajność obliczeniowa poprzez redukcję globalnych stopni swobody z wykorzystaniem elementów dwuwymiarowych.
+
+Obecne podejścia do określania właściwości materiałowych kompozytów opierają się głównie na procesie homogenizacji.
+Metoda ta okazuje się jednak niewystarczająca dla propagacji fali w materiałach o złożonej strukturze, np. w kompozytach warstwowych typu plaster miodu.
+Dlatego w proponowanych badaniach opracowano model struktury materiału o pełnej geometrii rdzenia.
+Struktura plastra miodu będzie modelowana poprzez zastosowanie powłokowych elementów spektralnych dla każdej ściany komórki rdzenia.
+Analiza jest podejściem wielofizycznym uwzględniającym sprzężenie elektromechaniczne dotyczące piezoelektrycznych przetworników stosowanym do wzbudzania i detekcji sygnału. 
+Model jest rozwijany z uwzględnieniem wpływu warunków środowiskowych, takich jak temperatura.
+Dodatkowo, w celu połączenia wszystkich elementów struktury, zaimplementowano elementy interfejsu gwarantujące ciągłość przemieszczeń sąsiadujących elementów.
+Do opracowania interfejsu opartego na mnożnikach Lagrange'a zastosowano nowe podejście wykorzystujące funkcje kształtu elementu spektralnego do połączenia dwóch niepasujących siatek.
+W celu weryfikacji modeli numerycznych przeprowadzono doświadczenia z wykorzystaniem układu  pomiaru fal za pomocą czujników piezoelektrycznych w kontrolowanej temperaturze otoczenia w komorze klimatycznej oraz skaningowego wibrometru laserowego.
+
+Rozprawa rozpoczyna się przeglądem literaturowym tematu oraz opisuje metodykę przyjętą do realizacji założonego celu pracy.
+Po nim następuje szczegółowy opis implementacji modelu propagacji fali w strukturze wielowarstwowej o strukturze plastra miodu z wykorzystaniem metody elementów spektralnych.
+Po walidacji modelu przedstawiono analizę numeryczną mającą na celu wyznaczenie funkcji identyfikacji uszkodzenia wspomaganej modelem z uwzględnieniem zmiennej temperatury otoczenia.
+Następnie przeprowadzono badanie parametryczne w celu przedstawienia wpływu parametrów konstrukcyjnych na propagację fali w strukturze z rdzeniem typu plaster miodu.
+Na koniec, rozprawa podsumowana jest wnioskami wynikającymi z przeprowadzonych analiz. 
+Nowością w proponowanych badaniach jest nie tylko opracowanie nowego podejścia do detekcji uszkodzeń w zmiennych warunkach zewnętrznych, ale również modelu numerycznego z dokładną geometrią struktury wielowarstwowej z wykorzystaniem metody elementów spektralnych.
+Opracowana metoda będzie stanowiła praktyczne kompendium wiedzy dla projektantów systemu monitorowania stanu konstrukcji.
+Podczas gdy niezawodność systemu monitorowania jest bezpośrednio związana z dokładnością wyznaczania parametrów wejściowych, proponowane opracowanie zwiększy bezpieczeństwo kontrolowanych konstrukcji inżynierskich.
+}
+}
+%\selectlanguage{english}
 % Acknowledgments page
 \newcommand{\acknowledgement}
 {
@@ -37,11 +102,12 @@
 % Engineering guote page
 \newcommand{\engineeringquote}
 {
-\null\vskip1.8in
+\null\vfill
 \begin{quote}
-"Engineering ."\begin{flushright}- aaa 
+"When you want to know how things really work, \\  \hspace*{2cm} study them when they’re coming apart."\begin{flushright}- William Gibson 
 \end{flushright}
 \end{quote}
+\vfill
 }
 
 % Bibliography Title

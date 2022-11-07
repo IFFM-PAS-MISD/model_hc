@@ -1,29 +1,27 @@
 %% SECTION HEADER /////////////////////////////////////////////////////////////////////////////////////
-\section{GW Propagation in the Real Honeycomb Core Model}
+\section{Structures mesh generation for the \acs{fcgm}}
 \label{sec:honeycomb}
 
 %% SECTION CONTENT ////////////////////////////////////////////////////////////////////////////////////
-All structures used to create the sample were modeled in the simulation with the following elements: 2D for the core, epoxy adhesive and cyanoacrylate glue and 3D for the \ac{cfrp} plate and \acp{pzt}.
-During the creation of the mesh, special attention was taken to reduce the number of non-zero values in the matrix \(\textbf{G}\). While the inversion of the matrix \(\left [\textbf{GL}_+^{-1}\textbf{G}^T\right ]\) is necessary to calculate the vector of Lagrange multipliers in \mbox{Equation~(\ref{eq:lambda})} and \(\textbf{L}_+\) is a diagonal matrix, the sparsity of the matrix \(\textbf{G}\) has a significant effect on the computation cost.
-
-One spectral element was intended for each wall of the honeycomb core, while the meshes of the skin plate and the adhesive layer were divided by three rhombus elements per area under the core cell.
-In this way, the interface nodes coincide with the nodes lying on the hexagon edges (red line on Figure~\ref{fig:skin_mesh}(\textbf{b})).
+The modelled structure is composed of the following components: 2D for the core, epoxy adhesive and cyanoacrylate glue and 3D for the \ac{cfrp} plate and \acp{pzt}.
+During the creation of the core mesh, special attention was taken to minimised the number of non-zero values in the matrix \(\textbf{G}\).
+The core elements were selected for the slave mesh, with one spectral element dedicated to each honeycomb cell wall.
+The master meshes of the skin panel and adhesive layer were divided by three rhombic elements into the area under the core cell.
+This way, the interface nodes coincide with those on the hexagon edges (red line in Fig.~\ref{fig:skin_mesh}(\textbf{b})).
 
 The mesh for the cyanoacrylate adhesive consisted of five elements, with a second-order curve at the structure boundary as it is presented in Fig.~\ref{fig:skin_mesh}(\textbf{c}).
-This mesh was connected to the the skin with the non-matching interface elements.
+This structure was connected to the skin with the non-matching interface elements with the adhesive mesh chosen as a slave one.
 The \ac{pzt} mesh coincides with the glue mesh and they are connected with the matching interface elements.
 \begin{figure}[H]
 	\begin{center}
-		\includegraphics{Chapter_5/skin_mesh}
+		\includegraphics[width=0.95\textwidth]{Chapter_5/skin_mesh}
 	\end{center}
 	\caption{The mesh with the node distribution, (\textbf{a}) spectral element used for modeling the wall of the core, (\textbf{b}) excerpt of the skin plate and (\textbf{c}) cyanoacrylate glue mesh with the second-order curve at the boundary.}
 	\label{fig:skin_mesh}
 \end{figure}
 
-The convergence of the solution requires time increment to be less than a critical value, above which the displacements go to infinity.
-In the present model, convergence was achieved for \(\Delta t=\)\num{12.2e-3} \(\mu\)s.
-The number of nodes for the particular elements are as follows: the core \(6 \times 5\), epoxy adhesive and cyanoacrylate glue \(6 \times 6\), the plate \(6 \times 6 \times 4\) and \acp{pzt} \(6 \times 6 \times 3\).
-While the max length of the skin element is six mm, such a \ac{cfrp} model satisfies the condition of at least six nodes per wavelength for the \ac{a0}, as it is the shortest mode propagating in the assumed frequency range.
+The number of nodes for the particular elements are as follows: the core \(6 \times 5\), epoxy adhesive and cyanoacrylate glue \numproduct{6 x 6}, the plate \numproduct{6 x 6 x 4} and \acp{pzt} \numproduct{6 x 6 x 3}.
+While the maximum length of the skin element is 6 \unit{\mm}, such a \ac{cfrp} model satisfies the condition of at least six nodes per wavelength for the \ac{a0}, as it is the shortest mode propagating in the assumed frequency range.
 Table~\ref{tab:wavelength} shows the \ac{a0} wavelengths for various frequency and propagation angles.
 \begin{table}[H]
 	\small
@@ -33,7 +31,7 @@ Table~\ref{tab:wavelength} shows the \ac{a0} wavelengths for various frequency a
 	\begin{tabular}{cccccc}
 		\toprule
 		\textbf{Frequency} & \multicolumn{5}{c}{\textbf{Propagation angle}}\\
-		kHz & \(0^{\circ}\) & \(30^{\circ}\) & \(45^{\circ}\) & \(60^{\circ}\) & \(90^{\circ}\)\\
+		\unit{\kHz} & \ang{0} & \ang{30} & \ang{45} & \ang{60} & \ang{90}\\
 		\midrule
 		50 & 16.5& 15.2&15.0&15.2&16.6\\
 		100 & 10.3& 9.6&9.5&9.6&10.3\\

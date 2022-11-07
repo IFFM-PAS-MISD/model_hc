@@ -1,119 +1,186 @@
 %% SECTION HEADER /////////////////////////////////////////////////////////////////////////////////////
 \section{Results}
 \label{sec:resuls}
-
 %% SECTION CONTENT ////////////////////////////////////////////////////////////////////////////////////
-\subsection{Validation with the \ac{sldv}}
-The fullfield of the wave propagation in the reference sample is presented in Fig.~\ref{fig:wavefield}.
-The experimental measurements and the present model snapshots show that the wavefront distortion is rising with the frequency.
+\subsection{\acs{hsc} validation with \acs{sldv} setup}
+The full wavefield in the reference sample is presented in Fig.~\ref{fig:wavefield}.
+The experimental measurements and the \ac{fcgm} snapshots show that the wavefront distortion is rising with the frequency.
 Because the wavelength decreases as the frequency increases, a higher frequency signal is more likely to reflect off the core walls.
-This effect is not observed in the case of the homogenized model.
+This effect is not observed in the case of the \ac{hcgm}.
 \vspace{-6pt}
 \begin{figure}[H]
 	\begin{center}
-		\includegraphics{Chapter_6/fullfield}
+		\includegraphics[width=0.95\textwidth]{Chapter_6/fullfield}
 	\end{center}
-	\caption{The top surface out of plane particle velocity snapshots in time 100 \(\mu\)s for (\textbf{a}) the experimental results obtained by using \ac{sldv}, (\textbf{b}) the present model and (\textbf{c}) the homogenized model in the pristine~sample.}
+	\caption{The top surface out of plane particle velocity snapshots in the time 100 \unit{\micro\second} for (\textbf{a}) the experimental results obtained by using the \acf{sldv}, (\textbf{b}) the \acf{fcgm} and (\textbf{c}) the \acf{hcgm} in the healthy~sample.}
 	\label{fig:wavefield}
 \end{figure}
 
 \begin{figure}[H]
 	\begin{center}
-		\includegraphics{Chapter_6/fullfield_dam}
+		\includegraphics[width=0.95\textwidth]{Chapter_6/fullfield_dam}
 	\end{center}
-	\caption{The top surface out of plane particle velocity snapshots in time 100~\(\mu\)s for (\textbf{a}) the experimental results obtained by using \ac{sldv} in the sample with 90 mm width damage, (\textbf{b}) the present model and (\textbf{c}) the homogenized model with removed core elements in damaged area for both numerical models.}
+	\caption{The top surface out of plane particle velocity snapshots in the time 100~\unit{\micro\second} for (\textbf{a}) the experimental results obtained by using \ac{sldv} in the sample with 90 \unit{\mm} width damage, (\textbf{b}) the \acf{fcgm} and (\textbf{c}) the \acf{hcgm} with removed core elements in damaged area for both numerical models.}
 	\label{fig:wavefield_dam5}
 \end{figure}
 
-In case of the damage sample, the wavefront is not distorted in the damage area bounded by two dotted line in Fig.~\ref{fig:wavefield_dam5} for all three cases.
-Due to the lack of wave leakage into the core, thus the wave propagates smoothly through the skin.
-For the experimental sample and the present model, interference of waves reflected from the cells and the damage boundary is observed.
-The wave interference observed in the homogenized model refers to waves reflected only from the defect.
+In case of the damaged sample, the wavefront is not distorted in the damage area bounded by two dotted lines in Fig.~\ref{fig:wavefield_dam5} for all three cases.
+Due to the lack of wave leakage into the core, the wave propagates smoothly through the skin.
+For the experimental sample and the \ac{fcgm}, interference of waves reflected from the cells and the damage boundary is observed.
+The wave interference observed in the \ac{hcgm} refers to waves reflected only from the defect.
 
-\subsection{Validation with the \acp{pzt}}
-The group velocities of the first packet arriving at the sensor were determined to validate the numerical models.  
-The group velocity is calculated as follows:
+\subsection{\acs{hsc} validation with \acsp{pzt} wave acquisition setup}
+Validation of the honeycomb structure models and a separate \ac{cfrp} plate intended for the \ac{hsc} sample were done by comparing the group velocity and amplitude of the first packet of \ac{s0} and \ac{a0} arriving at the sensor.
+In the Fig.~\ref{fig:signal_exp_raw} are presented examples of the experimentally obtained raw signals for the healthy and damaged samples.
+The raw signals are processed for noise reduction and determine an envelope of the signals.
+The envelope is used to obtain the amplitude and group velocity of the mods for the model validation and will be used in the analytical assessment of damage magnitude.
+\begin{figure}[H]
+	\begin{center}
+		\includegraphics[width=0.95\textwidth]{Chapter_6/signal_exp_raw}
+	\end{center}
+	\caption{Raw signals registered by the sensor in \acf{hsc} for healthy and damage of 90 \unit{\mm} width.}
+	\label{fig:signal_exp_raw}
+\end{figure}
+
+Signal processing follows the diagram shown in Fig.~\ref{fig:signal_processing}.
+A preliminary step is a conversion of the signals from the time domain to the frequency domain by the \ac{fft}.
+Then, the pass-band filter attenuates the frequencies outside of the range \(0.5f_c-1.5f_c\).
+A Butterworth filter of 20th order was used.
+After filtering the signal is again converted to the time domain by the \ac{ifft}.
+Lastly, the envelope of the signal \(e(t)\) is obtained using the Hilbert transform \(\hat{x}(t)\). The definition of both operators given in the book \cite{staszewski2004health} is defined as follows:
 \begin{eqnarray}
-	C_g = \frac{\mathrm{ToF}}{l},
+	\hat{x}(t) &=& \frac{1}{\pi}\int_{-\infty}^{+\infty}x(\tau)\frac{1}{t-\tau}\diff\tau,\\
+	e(t) &=& \sqrt{x^2(t)+\hat{x}^2(t)}.
 \end{eqnarray}
-where \(l=200\) mm is a distance between the transducers, and ToF is the wave package time of flight extracted from Fig. \ref{fig:ToF_exp}, \ref{fig:ToF_num}, \ref{fig:ToF_hom}, for experimental measurements, the present model and the homogonised model, respectively.
 
-The determined velocities and the errors of the numerical models relative to the experimental results are given in Table \ref{tab:group_velocity}, where the error is defined as:
+\begin{figure}[H]
+	\begin{center}
+		\includegraphics[width=0.95\textwidth]{Chapter_6/signal_processing}
+	\end{center}
+	\caption{Raw signals registered by the sensor in \acf{hsc} for healthy and damage of 90 \unit{\mm} width.}
+	\label{fig:signal_processing}
+\end{figure}
+
+The group velocity is derived from the signal envelope determining of the mode \ac{tof}.
+The \ac{tof} is a difference between the arrival of the maximum amplitude of the envelope of considered mode at the sensor \((\mathrm{T}_1)\) and the half time of the excitation pulse \(\left(\mathrm{T}_0=\frac{1}{2f_m}\right)\).
+Since the distance between the transducers is constant \(l=200\) \unit{\mm}, the group velocity equals:
 \begin{eqnarray}
-	error = \left|\frac{C_g^{num}-C_g^{exp}}{C_g^{exp}}\right|\times100\%,
+	C_g = \frac{\mathrm{ToF}}{l}=\frac{T_1-T_0}{l}.
 \end{eqnarray}
-where \(C_g^{num}\) is group velocity obtained from numerical simulations, and \(C_g^{exp}\) is group velocity obtained from experimental measurements.
-The group velocity for the present model agrees well with experimental measurements, with an error of less than 10\%.
-For the homogenized model, only the 150 kHz signal has an error 10.79\% higher than the experiment.
-It can be also seen that the velocity for the present model monotonically decreases with increasing frequency, as in the experiment, which is expected from the S0 dispersion curve.
-The results for the homogenized model do not show such a trend.
+All the experimental signals were processed with the band-pass filter in the frequency range from \(0.5f_c\) to \(1.5f_c\).
 
-Velocity errors of models relative to experimental results can result from several factors. The most important ones include differences in material properties of used components. In the models, an average thickness of the adhesive layer was assumed; obtaining such a layer in the specimen preparation is difficult under workshop conditions. The models also assume a uniform cell geometry for the core area, but in reality, the core is easily deformed in the plane, so the cell geometry varies. The propagation angle varies the velocity in the \ac{cfrp} skin; in the models, it was assumed to be 0. The speed is also affected by the accuracy of the \acp{pzt} placement. 
+The signal envelopes are shown in Fig.~\ref{fig:single_skin} for single \ac{cfrp} plate, Fig.~\ref{fig:hsc_full} for \ac{fcgm}, and Fig.~\ref{fig:hsc_homo}, from which the velocities and amplitudes of the wave mods were determined.
 \begin{figure}[H]
 	\begin{center}
-		\includegraphics{Chapter_6/ToF_exp}
+		\includegraphics[width=0.95\textwidth]{Chapter_6/single_skin}
 	\end{center}
-	\caption{Sensor signals obtained in experimental measurements.}
-	\label{fig:ToF_exp}
+	\caption{The signal envelope for single \acf{cfrp} skin; experimental vs. numerical simulation.}
+	\label{fig:single_skin}
 \end{figure}
 \begin{figure}[H]
 	\begin{center}
-		\includegraphics{Chapter_6/ToF_num}
+		\includegraphics[width=0.95\textwidth]{Chapter_6/HSC_full}
 	\end{center}
-	\caption{Sensor signals obtained in numerical simulations for the present model.}
-	\label{fig:ToF_num}
+	\caption{The signal envelope for the \acf{hsc} structure; experimental vs. \acf{fcgm}.}
+	\label{fig:hsc_full}
 \end{figure}
 \begin{figure}[H]
 	\begin{center}
-		\includegraphics{Chapter_6/ToF_hom}
+		\includegraphics[width=0.95\textwidth]{Chapter_6/HSC_homo}
 	\end{center}
-	\caption{Sensor signals obtained in numerical simulations for the homogenised model.}
-	\label{fig:ToF_hom}
+	\caption{The signal envelope for the \acf{hsc} structure; experimental vs. the \acf{hcgm}.}
+	\label{fig:hsc_homo}
 \end{figure}
+
+For the single \ac{cfrp} plate, Tab. \ref{tab:group_velocity_cfrp} gives the determined velocities and amplitudes of the modes together with the percentage errors defined as:
+\begin{eqnarray}
+	\delta = \left|\frac{x^{num}-x^{exp}}{x^{exp}}\right|\times100\%,
+\end{eqnarray}
+where \(x^{num}\) and \(x^{exp}\) are the numerical and experimental values, respectively.
+It can be noticed that the model are in good agreement with experimental results.
+All values are within an error of up to 10\%, except for the \ac{s0} and \ac{a0} amplitudes for 50 and 100 \unit{\kHz}, respectively.
+For these cases, the error is about 25\%.
+There is no data for the \ac{a0} of 150 \unit{\kHz}, as the high amplitude \ac{s0} reflections mask it.
+
+Regarding the \ac{hsc} panel, best results are achieved for the \ac{fcgm} as it is shown in Tab.~\ref{tab:group_velocity_hsc}.
+The velocity error is less then 16.4\% for both modes. 
+In the case of amplitude values, only the \ac{s0} of 50 \unit{\kHz} and the \ac{a0} of 100 \unit{\kHz} are overestimated by the model with the error around 25 \%.
+For the \ac{hcgm}, best result are obtained for the 100 \unit{\kHz}. 
+The velocity error is about 5\% for both modes. 
 
 \begin{table}[H]
 	\small
-	\tabcolsep=0.25cm
+	\tabcolsep=0.2cm
 	\centering
-	\caption{\label{tab:group_velocity} The group velocities and errors obtain from simulations and experiments.}
-	\begin{tabular}{cccccc}
+	\caption{\label{tab:group_velocity_cfrp} Comparison between of the modes amplitudes and group velocities obtained from the simulations and experiments for the single \acf{cfrp} plate.}
+	\begin{tabular}{cccccccc}
 		\toprule
-		\textbf{Frequency} & \textbf{Experimental} &\multicolumn{2}{c}{\textbf{Present Model}} & \multicolumn{2}{c}{\textbf{Homogenised Model}}\\
-		& C\(_g\) & C\(_g\) & error & C\(_g\) & error\\
-		kHz & m/s & m/s & \% & m/s & \%\\
+		& & \multicolumn{3}{c}{\(C_g\)} & \multicolumn{3}{c}{Amp.}\\
+		\multirow{2}{*}{Mode} & Frequency & Exp. & Num. & \(\delta\)& Exp. & Num. & \(\delta\)\\
+		& \unit{\kHz} & \unit[per-mode = symbol]{\m\per\s} & \unit[per-mode = symbol]{\m\per\s} & \% & \unit{\mV} & \unit{\mV} & \% \\
 		\midrule
-		50  & 5716& 6076& 6.30& 5632& 1.47\\
-		100 & 5556& 5985& 7.72& 5938& 6.88\\
-		150 & 5402& 5933& 9.83& 5985& 10.79\\
+		\multirow{3}{*}{\ac{s0}} & 50 & 6079 & 5865 & \textcolor{green}{3.52}& 12 & 171 & \textcolor{red}{25.0} \\
+		&100& 5571 & 5747 & \textcolor{green}{3.16} & 171 & 162 & \textcolor{green}{5.26}\\
+		&150& 5764 & 5698 & \textcolor{green}{1.15} & 648 & 664 & \textcolor{green}{2.47}\\
+		\midrule
+		\multirow{3}{*}{\ac{a0}} &50& 1341 & 1325 & \textcolor{green}{0.74} & 134 & 125 & \textcolor{green}{6.72}\\
+		&100& 1550 & 1396 & \textcolor{green}{9.74} & 84 & 104 & \textcolor{red}{23.8}\\
+		&150& \multicolumn{6}{c}{-} \\
 		\bottomrule
 	\end{tabular}
 \end{table}
-
+\begin{table}[H]
+	\small
+	\tabcolsep=0.15cm
+	\centering
+	\caption{\label{tab:group_velocity_hsc} Comparison between of the modes amplitudes and group velocities obtained from the simulations based on \acf{fcgm} and \acf{hcgm} and experiments for \acf{hsc}.}
+	\begin{tabular}{cccccccccccc}
+		\toprule
+		& & \multicolumn{5}{c}{\(C_g\)} & \multicolumn{5}{c}{Amp.}\\
+		\multirow{2}{*}{Mode} & Freq.& Exp. & \ac{fcgm} & \(\delta\) & \ac{hcgm} & \(\delta\) &  Exp. & \ac{fcgm} & \(\delta\) & \ac{hcgm} & \(\delta\)\\
+		& \unit{\kHz} & \unit[per-mode = symbol]{\m\per\s} & \unit[per-mode = symbol]{\m\per\s} & \% & \unit{\mV} & \unit{\mV} & \% & \unit[per-mode = symbol]{\m\per\s} & \%& \unit[per-mode = symbol]{\m\per\s} & \% \\
+		\midrule
+		\multirow{3}{*}{\ac{s0}} & 50 & 6329 & 5291 & {16.4} & 8230 & 30 & 33 & 12 & \textcolor{red}{63.6} & 3 & \textcolor{red}{90.9} \\
+		&100& 5291 & 5249 & \textcolor{green}{0.79} & 5540 & \textcolor{green}{4.71} & 369 & 341 & \textcolor{green}{7.59} & 152 & \textcolor{red}{58.8}\\
+		&150& 5031 & 4866 & \textcolor{green}{2.93} & 4301 & 14.4 & 1340 & 1056 & {21.2} & 359 & \textcolor{red}{73.8} \\
+		\midrule
+		\multirow{3}{*}{\ac{a0}} & 50 & 964 & 945 & \textcolor{green}{1.97} & 1318 & 36.7 & 62 & 57 & \textcolor{green}{8.06} & 70 & 12.9\\
+		& 100 & 2160 & 2075 & \textcolor{green}{3.94} & 2273 & \textcolor{green}{5.23} & 137 & 249 & \textcolor{red}{81.8} & 128 & \textcolor{green}{6.57}\\
+		& 150 & \multicolumn{10}{c}{-}\\
+		\bottomrule
+	\end{tabular}
+\end{table}
+Errors in the models may be due to several factors.
+The most important ones include differences in material properties of used components.
+In the models, an average thickness of the adhesive layer was assumed; obtaining precise thickness of the adhesive layer in the specimen preparation is difficult under workshop conditions.
+The models also assume a uniform cell geometry for the core area, but in reality, the core is easily deformed in the plane, so the cell geometry varies.
+The velocity in the \ac{cfrp} plate varies with the angle of propagation; in the models, the direction of wave propagation between the sensors was assumed to coincide with the plate orientation.
+The speed is also affected by the accuracy of the \acp{pzt} placement.
 \subsection{Efficiency of the time integration algorithm}
 Two types of simulations were conducted to determine the efficiency of the \ac{pa} to solve the equation of motion shown in Section \ref{sec:gpu}.
 The first type compares the \ac{pa} computations performed on the \ac{gpu} and \ac{cpu}.
 The second type compares \ac{pa} with the benchmark proposed by Kudela et al.~\cite{kudela2020parallel} named \ac{ba}.
 Both analyses were performed on the same workstation as the \ac{ba} equipped with the following components:
 \begin{itemize}
-	\item \ac{cpu} - Intel Xeon Silver, 2.1 GHz, 8 cores
-	\item \ac{gpu} - NVIDIA Tesla V100 32 GB 5120 CUDA cores
-	\item RAM - 128 GB GDDR6
+	\item \ac{cpu} - Intel Xeon Silver, 2.1 \unit{\giga\Hz}, 8 cores
+	\item \ac{gpu} - NVIDIA Tesla V100 32 \unit{\giga\byte} 5120 CUDA cores
+	\item RAM - 128 \unit{\giga\byte} DDR4 2933 \unit{\mega\Hz}
 \end{itemize}
 
-The comparison \ac{gpu} vs. \ac{cpu} was conducted on a \ac{3d} model of an  aluminium plate \((250\times250\times 5$ mm$^3)\).
+The comparison \ac{gpu} vs. \ac{cpu} was conducted on a \ac{3d} model of an  aluminium plate (\numproduct{250 x250 x 5} \unit{\cubic\mm}).
 The structure was discretised with rectangular mesh of the various number of the in-plane elements.
-In each case, a spectral element of \(6\times 6\times 3\) nodes with three \acp{dof} per node was used, with one element through the plate thickness.
+In each case, a spectral element of \numproduct{6 x 6 x 3} nodes with three \acp{dof} per node was used, with one element through the plate thickness.
 The global \ac{dof} and the memory usage are presented in Table~\ref{tab:gpuvscpu}.
-A concentrated force was applied to the centre of the plate as a 3-cycle Hann windowed sine at 50 kHz frequency.
-	\begin{table}[!b]
-	\tabcolsep=0.25cm
+A concentrated force was applied to the centre of the plate as a 3-cycle Hann windowed sine at 50 \unit{\kHz} frequency.
+\begin{table}[!b]
+	\tabcolsep=0.2cm
 	\centering
 	\caption{\label{tab:gpuvscpu} Model parameters used in simulations to compare the algorithm performed on \ac{gpu} and \ac{cpu}.}
 	\begin{tabular}{lccccc}
 		\toprule
-		Elements number & \(25\times25\) & \(50\times50\) & \(100\times100\) &\(125\times125\) &\(250\times250\) \\
+		Number of elements & \numproduct{25 x 25} & \numproduct{50 x 50} & \numproduct{100 x 100} & \numproduct{125 x 125} & \numproduct{250 x 250} \\
 		Global \ac{dof}\(\times10^6\) &0.14&0.57&2.26&3.53&14.08\\
-		Memory usage [MB] & 75 & 367 & 1437 & 2252 & 8999\\ \bottomrule
+		Memory usage \unit{\mega\byte} & 75 & 367 & 1437 & 2252 & 8999\\ \bottomrule
 	\end{tabular}
 \end{table}
 The computational speed up as a function of global \ac{dof} was determined as follows:
@@ -121,29 +188,29 @@ The computational speed up as a function of global \ac{dof} was determined as fo
 \mathrm{Speedup} = \frac{\mathrm{CPU_{avg}}}{\mathrm{GPU_{avg}}},
 \end{eqnarray}
 where \(\mathrm{CPU_{avg}}\) and \(\mathrm{GPU_{avg}}\) is average one time step calculation performed on \ac{cpu} and \ac{gpu}, respectively.
-The time of the pre-/post-processing is similar for \ac{cpu} and \ac{gpu} because the transfer of data from and to \ac{gpu} is negligible, so it is not included.
+The time of the pre-/post-processing is not included into the speedup calculation, because the data from \ac{cpu} to \ac{gpu} and vice versa is done only once, while the time integration steps are a large number. 
 
 For the second test computations run times of the simulations conducted on \ac{gpu} were computed for various sizes of the composite plate.
 The benchmark parameters proposed in the paper mentioned above are gathered in Table~\ref{tab:benchmark}.
 The efficiency of the \ac{pa} regarding \ac{ba} is measured by speedup, defined as the ratio of \ac{ba} run time to \ac{pa}.
 \begin{table}[!t]
-\tabcolsep=0.25cm
+\tabcolsep=0.2cm
 \centering
 \caption{\label{tab:benchmark}Sample parameters used in the benchmark of the \ac{pa} and the \ac{ba}.}
 	\begin{tabular}{lcccccc}
 		\toprule
-		Plate size [cm] & \(30\times30\) & \(40\times40\) & \(50\times50\) & \(70\times70\) & \(90\times90\) & \(100\times100\)\\
+		Plate size \unit{\cm} & \numproduct{30 x 30} & \numproduct{40 x 40} & \numproduct{50 x 50} & \numproduct{70 x 70} & \numproduct{90 x 90} & \numproduct{100 x 100}\\
 		Global \ac{dof}\(\times10^6\)&1.02&1.46&1.98&3.09&5.23&6.36\\ \bottomrule
 	\end{tabular}
 \end{table}
 
 The results of both analysis are pictured in Fig.~\ref{fig:speedup}.
-At maximum \ac{dof}, the speedup in \ac{gpu} computation relative to \ac{cpu} computation increases near to 90 and the \ac{pa} is up to ten more efficient than the \ac{ba}.
-Improvement of the algorithm comes from: more operation performed in the preprocessing, transfer of internal forces in the local to the global system by summing columns instead of for-loop, and minimized number of columns in the map of local nodes $\textbf{I}_L$.
+At maximum \ac{dof}, the speedup in \ac{gpu} computation relative to \ac{cpu} computation increases near to 90 and the \ac{pa} is up to ten times more efficient than the \ac{ba}.
+Improvement of the algorithm comes from: more operations performed in the preprocessing, transfer of internal forces from the local to the global system by summing columns instead of \verb+for-loop+, and minimized number of columns in the map of local nodes $\textbf{I}_L$ (see section~\ref{sec:gpu}).
 \begin{figure}[!tbh]
 	\begin{center}
-		\includegraphics{Chapter_6/benchmark}
+		\includegraphics[width=0.95\textwidth]{Chapter_6/benchmark}
 	\end{center}
-	\caption{Speedup in function of global \ac{dof} of the \ac{pa} computation in the case of \ac{gpu}~vs.~\ac{cpu} dashed line, and compared to \ac{ba} solid line}
+	\caption{Speedup in function of global \acfp{dof} of the \acf{pa} computation run on \acf{cpu}~vs.~\acf{gpu} dashed line, and compared to \acf{ba} solid line}
 	\label{fig:speedup}
 \end{figure}

@@ -24,7 +24,7 @@
 % the paper size declared in the \documentclass command
 \setlength{\textheit}{\paperheight}
 % Subtract off 1 inch from top and bottom of the paper
-\addtolength{\textheit}{-1.5in}
+\addtolength{\textheit}{-2.0in}
 % Subtract off the \topmargin height
 \addtolength{\textheit}{-\topmargin}
 % Subtract off the \headheight height
@@ -40,8 +40,8 @@
 
 % Set the odd and even left margins to be 4.5cm from paper edge.
 % Note that 4.50cm-2.54cm=1.96cm
-\setlength{\oddsidemargin}{0.46cm} %1.96cm
-\setlength{\evensidemargin}{0.46cm} %1.96cm
+\setlength{\oddsidemargin}{2.0cm} %1.96cm
+\setlength{\evensidemargin}{0.0cm} %1.96cm
 % Set the right margin to be 1 inch from the paper edge by
 % way of the \paperwidth and \textwidth commands
 % First set up a new length called \textwid
@@ -413,7 +413,13 @@
     \prefacesection{ABSTRACT}
     \abstextwithesis
 }
-
+\def\strwithesis{
+	\newpage
+	% Set up the default behavior for headers and footers
+	\thispagestyle{empty}
+	\prefacesection{STRESZCZENIE}
+	\strtextwithesis
+}
 % Command to make the acknowledgements page
 \def\ackpage{
     \newpage
@@ -436,6 +442,7 @@
 \iftitlepg\titlepg\fi
 \ifack\engquote\fi
 \ifabswithesis\abswithesis\fi
+\ifabswithesis\strwithesis\fi
 \ifack\ackpage\fi
 }
 

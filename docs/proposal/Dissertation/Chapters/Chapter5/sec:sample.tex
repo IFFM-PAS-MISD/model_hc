@@ -1,41 +1,54 @@
 %% SECTION HEADER /////////////////////////////////////////////////////////////////////////////////////
-\section{Sample Configuration}
+\section{Sample configuration}
 \label{sec:sample}
 
 %% SECTION CONTENT ////////////////////////////////////////////////////////////////////////////////////
-The sample of interest was a \(500\times500\times1.5\) mm\(^3\) unidirectional \ac{cfrp} in stack sequence \([0^{\circ},90^{\circ}]_s\) plate bonded to an aluminium honeycomb core. 
+The sample of interest was a \numproduct{500 x 500 x 1.5} \unit{\cubic\mm} unidirectional \ac{cfrp} plate with stack sequence \(\left[\ang{0},\,\ang{90}\right]_s\) bonded to an aluminium honeycomb core. The volume fraction of fibres was assumed 47\%.
 It was decided to use only one skin, as it is pictured in Fig.~\ref{fig:honeycomb}(b), with the intention of experimental validation and to be able to enlarge disbonds between the skin and the core located in the middle of the \ac{hsc} with a tool in a real sample. 
 It was not decided to dedicate separate samples for each size of damage because too many factors would affect the signal value, including skin and sensors properties, the thickness of the adhesive layers, position of the core relative to the sensors, and distance between sensor.
+Moreover, it renders closely the realistic scenario of monitoring the same structure.
 \begin{figure}[H]
 	\begin{center}
-		\includegraphics{Chapter_5/honeycomb}
+		\includegraphics[width=0.95\textwidth]{Chapter_5/honeycomb}
 	\end{center}
-	\caption{Sample configuration: (\textbf{a}) top view of the sample, (\textbf{b}) honeycomb sandwich substructures and (\textbf{c}) details of the honeycomb cell.}
+	\caption{Sample configuration: (\textbf{a}) top view of the sample, (\textbf{b}) \acf{hsc} and (\textbf{c}) details of the honeycomb cell.}
 	\label{fig:honeycomb}
 \end{figure}
 
-The core geometry is accurately reproduced from the actual specimen, i.e., incorrect hexagonal \(\left(\mathrm{h}_1 \ne \mathrm{l}_1\right)\) and double walls at the sheet joints, resulting from the core fabrication technology.
-According to the drawing in Fig.~\ref{fig:honeycomb}(\textbf{c}), the cell dimensions are w=0.1 mm, h\(_1\)=11 mm, h\(_2\)=5 mm, l\(_1\)=10.4 mm, l\(_2\)=6 mm and the cell height g=14.5 mm.
-The core was bonded to one \ac{cfrp} plate using the epoxy adhesive (Loctite EA3479B) with the thickness h\(_a\)=0.3 mm.
+The core geometry is accurately reproduced from the actual specimen, i.e., geometry of irregular hexagonal cells \(\left(\mathrm{h}_1 \ne \mathrm{l}_1\right)\) and double walls at the sheet joints, resulting from the core fabrication technology.
+According to the drawing in Fig.~\ref{fig:honeycomb}(\textbf{c}), the cell dimensions are \(\mathrm{w}_c\)=0.1 \unit{\mm}, h\(_1\)=11 \unit{\mm}, h\(_2\)=5 \unit{\mm}, l\(_1\)=10.4 \unit{\mm}, l\(_2\)=6 \unit{\mm} and the cell height g=14.5 \unit{\mm}.
+The core was bonded to one \ac{cfrp} plate using the epoxy adhesive (Loctite EA3479B) with the thickness h\(_a\)=0.3 \unit{\mm}.
 The adhesive layer covered the entire bottom surface of the skin.
 
-Signal excitation and recording were accomplished with a pair of \acp{pzt}  (Noliac, NCE51)mounted to the top surface of the skin with cyanoacrylate glue.
-The circular transducers of diameter \(\Phi_{PZT}\)=10 mm and thickness h\(_{PZT}\)=0.5 mm were attached 200 mm apart, as shown in Fig.~\ref{fig:honeycomb}(\textbf{a}). The thickness of cyanoacrylate glue under \ac{pzt} was assumed to be h\(_g=50\) \(\mu\)m.
+Signal excitation and recording were accomplished with a pair of \acp{pzt}  (Noliac, NCE51) mounted to the top surface of the skin with cyanoacrylate glue.
+The circular transducers of diameter \(\Phi_{PZT}\)=10 \unit{\mm} and thickness h\(_{PZT}\)=0.5 \unit{\mm} were attached 200 \unit{\mm} apart, as shown in Fig.~\ref{fig:honeycomb}(\textbf{a}).
+The thickness of cyanoacrylate glue under \ac{pzt} was assumed to be h\(_g=50\) \unit{\micro\m}.
 
-The material properties of the components needed for the simulations are compiled in Tab.~\ref{tab:properties}.
+The material properties of the components assumed for the simulations are compiled in Tab.~\ref{tab:properties}.
+The effective properties of the \ac{cfrp} skin were determined according to the rule of mixtures presented in the book by Vinson and Sierakowski \cite{vinson1993behavior}.
+The authors provide a complete description of the homogenisation of composite properties.
+Firstly, the stiffness matrix is determined for the single ply of the laminate along the fibre direction.
+Then, the stiffness matrix is transformed for other orientations of the laminate plies by the transformation matrix composed of the direction cosines.
+In the sample analysed, there are the plies with an orientation of \ang{0} and \ang{90}.
+Finally, all the plies in the laminate are homogenised through the thickness.
+Explicit expressions of the stiffness components for the laminate modelled by solid elements are presented by Sun and Li in \cite{sun1988three}.
+The comprehensive equations to derive the effective stiffness matrix are given in App.~\ref{app:eff_properties} and the resulting \ac{cfrp} properties are shown in Tab.~\ref{tab:properties_eff}.
 \begin{table}[H]
+	\centering
 	\small
-	\tabcolsep=0.75cm
-	%	\centering
-	\caption{\label{tab:properties}The mechanical properties of the materials.}
-	\begin{tabular}{ccccc}\toprule
-		\multirow{2}{*}{\textbf{Material}} & $\boldsymbol{E_{11}}$ & $\boldsymbol{E_{33}}$ & $\boldsymbol{\nu_{12}}$ & $\boldsymbol{\rho}$ \\ & GPa & GPa & -- & kg/m\(^3\)\\
+	\tabcolsep=0.25cm
+	\caption{\label{tab:properties_eff} The effective mechanical properties of the \ac{cfrp} plate and the aluminium honeycomb core for +20\unit{\degreeCelsius}.}
+	\begin{tabular}{ccccccccc}
+		\toprule
+		\multirow{2}{*}{\textbf{Material}} & \(\boldsymbol{E_{11}}\) & \(\boldsymbol{E_{22}}\) & \(\boldsymbol{E_{33}}\) & \(\boldsymbol{G_{12}}\) & \(\boldsymbol{G_{23}}\) & \(\boldsymbol{\nu_{12}}\)	& \(\boldsymbol{\nu_{23}}\) & \(\boldsymbol{\rho}\) \\
+		& \unit{\giga\pascal} & \unit{\giga\pascal} & \unit{\giga\pascal} & \unit{\giga\pascal} & \unit{\giga\pascal} & -- & -- & \unit[per-mode = symbol]
+		{\kilogram\per\cubic\metre}\\
 		\midrule
-		Carbon & 275 & 27 & 0.2 & 1900\\
-		Epoxy & 3.43 & 3.43 & 0.35 & 1250\\
-		Aluminium & 71 & 71 & 0.33 & 2770\\
-		Epoxy adhesive & 6 & 6 & 0.34 & 1200\\
-		Cyanoacrylate glue & 3 & 3 & 0.34 & 1200\\		
+		\ac{cfrp} & 69.5 & 69.5 & 8.16 & 3.43 & 2.96 & 0.03 & 0.37 & 1555\\
+		laminate & & & & & & & &\\
+		\midrule
+		aluminium & 0.007 & 0.005 & 2.76 & 0.002 & 0.86 & 0.999 & \(\approx0\) & 112\\
+		honeycomb & & & & & & & &\\
 		\bottomrule
 	\end{tabular}
 \end{table}

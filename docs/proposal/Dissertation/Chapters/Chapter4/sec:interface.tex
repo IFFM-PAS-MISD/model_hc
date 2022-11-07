@@ -1,5 +1,5 @@
 %% SECTION HEADER /////////////////////////////////////////////////////////////////////////////////////
-\section{Displacements Coupling at the Interface of Substructures}
+\section{Displacements coupling at the interface of substructures}
 \label{sec:interface}
 
 %% SECTION CONTENT ////////////////////////////////////////////////////////////////////////////////////
@@ -29,7 +29,7 @@ The coupling can be expressed as:
 \end{eqnarray}
 \begin{figure}
 	\begin{center}
-		\includegraphics{Chapter_4/interface_2D3D}
+		\includegraphics[width=0.95\textwidth]{Chapter_4/interface_2D3D}
 	\end{center}
 	\caption{Non-matching interface setup: a) interface coupling, b) degrees-of-freedom of the interface and the substructures.}
 	\label{fig:interface}
@@ -67,10 +67,10 @@ General formulation of the matrix \textbf{G} is presented in Algorithm \ref{alg:
 			transform global coordinates \(X_{\kappa}\) to a local coordinate system \(\xi_{\kappa}=\xi(X_{\kappa});\quad 
 			\eta_{\kappa}=\eta(X_{\kappa})\)\;
 			\While{\(\left|X_p-X_{\kappa}\right|>tol\)}{
-				\(\xi_{\kappa+1}=\xi_{\kappa}+(J^{-1}_{\kappa})_{11}.*(x^j_p-x_{\kappa}^j)
-				+(J^{-1}_{\kappa})_{12}.*(y^j_p-y_{\kappa}^j)\)\;
-				\(\eta_{\kappa+1}=\eta_{\kappa}+(J^{-1}_{\kappa})_{21}.*(x^j_p-x_{\kappa}^j)
-				+(J^{-1}_{\kappa})_{22}.*(y^j_p-y_{\kappa}^j)\)\;
+				\(\xi_{\kappa+1}=\xi_{\kappa}+(\mathcal{J}_{\kappa})^{1,1}_{\mathrm{inv}}.*(x^j_p-x_{\kappa}^j)
+				+(\mathcal{J}_{\kappa})^{1,2}_{\mathrm{inv}}.*(y^j_p-y_{\kappa}^j)\)\;
+				\(\eta_{\kappa+1}=\eta_{\kappa}+(\mathcal{J}_{\kappa})^{2,1}_{\mathrm{inv}}.*(x^j_p-x_{\kappa}^j)
+				+(\mathcal{J}_{\kappa})^{2,2}_{\mathrm{inv}}.*(y^j_p-y_{\kappa}^j)\)\;
 				\(X_{\kappa}=N_{\kappa+1}X_e\)\;
 			}
 			\(\mathbf{G}_i(j,n^{X_e})=N_{\kappa+1}\)\;
@@ -100,13 +100,13 @@ General formulation of the matrix \textbf{G} is presented in Algorithm \ref{alg:
 	\caption{Interface coupling matrix formulation}
 	\label{alg:G_matrix}
 \end{algorithm}
-where \(s_i\) is one of the coupled structures, \(n^{\Gamma}\) and \(n^{s_i}\) are nodes number of the interface and nodes number of the structure \(s_i\), respectively; \(J_{\kappa}\) is the Jacobian evaluated at \((\xi_{\kappa},\eta_{\kappa})\) and \(N_{\kappa+1}\) is the shape function evaluated at \((\xi_{\kappa+1},\eta_{\kappa+1})\), \(n^{X_e}\) is the vector of global order numbers of all nodes in the \(ownerElements^j_i\), \(h_i\) is a thickness of the structure \(s_i\) and \(tol\) is a termination criterion for iterations.
+where \(s_i\) is one of the coupled structures, \(n^{\Gamma}\) and \(n^{s_i}\) are node numbers of the interface and node numbers of the structure \(s_i\), respectively; \(\left(\mathcal{J}_{\kappa}\right)_{\mathrm{inv}}\) is the inverse Jacobian matrix evaluated at \((\xi_{\kappa},\eta_{\kappa})\) and \(N_{\kappa+1}\) is the shape function evaluated at \((\xi_{\kappa+1},\eta_{\kappa+1})\), \(n^{X_e}\) is the vector of global order numbers of all nodes in the \(ownerElement^j_i\), \(h_i\) is a thickness of the structure \(s_i\) and \(tol\) is a termination criterion for iterations.
 
 The main task of the algorithm is to calculate shape functions for each adjacent substructure at the points \(X_p=(x_p^k,y_p^k)\), which are projections of the interface nodes onto these substructures.
 The shape function can be calculated after finding an owner element and local coordinates of the points.
 Owner element is a spectral element in the domain of the substructure \(s_{ij}\) which contains interface node, for example, interface node \(k_\Gamma=36\) (see~Fig.~\ref{fig:interface}a)) is located in the element \(e^{I}_{3\mathrm{D}}\) and \(e^{III}_{2\mathrm{D}}\) for the substructures \(s_{11}\) and \(s_{12}\), respectively.
 It can be found within two ways: using Matlab's built-in function \verb+inpolygon+ or more efficient procedure proposed by Silva et al. \cite{silva2009exact} which was used in the current implementation.
-In this procedure, an initial approximation is first performed by rejecting all external points outside the rectangular region bounded by the points \(\mathrm{P_{min}}\) and \(\mathrm{P_{max}}\) as shown in Fig.\ref{fig:b_b_test}(\textbf{a}).
+In this procedure, an initial approximation is first performed by rejecting all external points outside the rectangular region bounded by the points \(\mathrm{P_{min}}\) and \(\mathrm{P_{max}}\) as shown in Fig. \ref{fig:b_b_test}(\textbf{a}).
 If \(\mathrm{X_p}\) is inside the element, then the vectors \(V_1\) and \(V_2\) have the same direction.
 \(V_1\) and \(V_2\) are defined as:
 \begin{eqnarray}
@@ -119,16 +119,16 @@ The vectors \(\vec{v}\), \(\vec{v_-}\) and \(\vec{v_+}\) are pictured in Fig. \r
 		\vec{V}_1 \cdot \vec{V}_2 \geq0.
 	\label{eq:dot_prod}
 \end{eqnarray}
-Then, the transformation from global to local coordinates is realized by the iterative method presented in the work of Li et al.~\cite{li2014efficient}.
+Then, the transformation from global to local coordinates is realised by the iterative method presented in the work of Li et al.~\cite{li2014efficient} (see also \verb+while-loop+ in Alg. \ref{alg:G_matrix}).
 \begin{figure}[H]
 	\begin{center}
-		\includegraphics{Chapter_4/b_b_test}
+		\includegraphics[width=0.95\textwidth]{Chapter_4/b_b_test}
 	\end{center}
 	\caption{Owner element for Xp interface node (\textbf{a}) boundary test, (\textbf{b}) cross-product test}
 	\label{fig:b_b_test}
 \end{figure}
-While the cross-product test is exact for elements with linear edges, the approximation of the boundary test is used for second order elements, and then \(\xi_{\kappa}\) and \(\eta_{\kappa}\) must satisfy the condition \(-1\leq \xi_{kappa},\eta_{\kappa} \leq 1\).
+While the cross-product test is exact for elements with linear edges, the approximation of the boundary test is used for second order elements, and then \(\xi_{\kappa}\) and \(\eta_{\kappa}\) must satisfy the condition \(-1\leq \xi_{\kappa},\eta_{\kappa} \leq 1\).
 The computational effectiveness of Algorithm~\ref{alg:G_matrix} can be easily improved if certain precautions are taken.
 Firstly, the mesh of the interface has to be based on the mesh from one of the substructures \(s_{i}\), which may be referred to as a slave.
 So, shape functions evaluated at (\(\xi\), \(\eta\)) may take only zero and one values.
-Moreover, the code was vectorised rather than using a for-loop form, provided that the required matrix of size \(4n^e\times n^{\Gamma}\), where \(n^e\) is the elements number of the structure \(s_i\), does not exceed the operating memory.
+Moreover, the code was vectorised rather than using a for-loop form, provided that the required matrix of size \(4n^e\times n^{\Gamma}\), where \(n^e\) is the number of elements of the structure \(s_i\) elements, does not exceed the operating memory.

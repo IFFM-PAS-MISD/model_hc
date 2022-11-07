@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet type="text/xsl" href="http://crd.gov.pl/xml/schematy/UPO/2008/05/09/UPO.xsl"?><pos:Dokument xmlns:pos="http://crd.gov.pl/xml/schematy/UPO/2008/05/09/" xmlns:str="http://crd.gov.pl/xml/schematy/struktura/2008/05/09/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://crd.gov.pl/xml/schematy/UPO/2008/05/09/ http://crd.gov.pl/xml/schematy/UPO/2008/05/09/schemat.xsd">
+    <pos:OpisDokumentu>
+        <str:CID>248269.0.0@ezd.puw.Narodowe Centrum Nauki</str:CID>
+    </pos:OpisDokumentu>
+    <pos:UPD>
+        <pos:IdentyfikatorPoswiadczenia>ePUAP-UPD30412503</pos:IdentyfikatorPoswiadczenia>
+        <pos:PodmiotWystawiajacyPoswiadczenie>
+            <pos:Nazwa>NARODOWE CENTRUM NAUKI</pos:Nazwa>
+            <pos:IdentyfikatorPodmiotu TypIdentyfikatora="ePUAP-ID">ncn</pos:IdentyfikatorPodmiotu>
+        </pos:PodmiotWystawiajacyPoswiadczenie>
+        <pos:Adresat>
+            <pos:Nazwa>Piotr Fiborek</pos:Nazwa>
+            <pos:IdentyfikatorPodmiotu TypIdentyfikatora="ePUAP-ID">pfiborek</pos:IdentyfikatorPodmiotu>
+        </pos:Adresat>
+        <pos:DataOdbioru>2019-07-02</pos:DataOdbioru>
+        <pos:DataUtworzeniaPoswiadczenia>2019-07-01T13:35:23.126</pos:DataUtworzeniaPoswiadczenia>
+        <pos:IdentyfikatorSprawy>DBR-ZST.430.39.9.2019</pos:IdentyfikatorSprawy>
+        <pos:IdentyfikatorDokumentu>248269.706251.723063</pos:IdentyfikatorDokumentu>
+        <pos:InformacjaUzupelniajaca TypInformacjiUzupelniajacej="Źródło">Poświadczenie wystawione przez platformę ePUAP</pos:InformacjaUzupelniajaca>
+        <pos:InformacjaUzupelniajaca TypInformacjiUzupelniajacej="Identyfikator ePUAP dokumentu">44573369</pos:InformacjaUzupelniajaca>
+        <pos:InformacjaUzupelniajaca TypInformacjiUzupelniajacej="Identyfikator zlecenia doręcznia">ZD-2961349</pos:InformacjaUzupelniajaca>
+        <pos:InformacjaUzupelniajaca TypInformacjiUzupelniajacej="Identyfikator zlecenia doręczenia">2961349</pos:InformacjaUzupelniajaca>
+        <pos:InformacjaUzupelniajaca TypInformacjiUzupelniajacej="Typ zawiadomienia">Pierwsze zawiadomienie</pos:InformacjaUzupelniajaca>
+        <pos:InformacjaUzupelniajaca TypInformacjiUzupelniajacej="Identyfikator UPD">30412503</pos:InformacjaUzupelniajaca>
+        <pos:InformacjaUzupelniajaca TypInformacjiUzupelniajacej="Data utworzenia pierwszego UPD">2019-07-01T13:35:23.329</pos:InformacjaUzupelniajaca>
+        <pos:InformacjaUzupelniajaca TypInformacjiUzupelniajacej="Termin doręczenia">2019-07-15T23:59:59.999</pos:InformacjaUzupelniajaca>
+        <pos:InformacjaUzupelniajaca TypInformacjiUzupelniajacej="Informacja o warunkach uznania dokumentu za doręczony">Dokument nie odebrany przez Adresata w okresie 14 dni od wysłania pierwszego UPD zgodnie z art. 46 par. 6 k.p.a. uznaje się za doręczony.</pos:InformacjaUzupelniajaca>
+    </pos:UPD>
+<ds:Signature Id="id-a55fbbb18df793a7e7f7980f39d7c275" xmlns:ds="http://www.w3.org/2000/09/xmldsig#"><ds:SignedInfo><ds:CanonicalizationMethod Algorithm="http://www.w3.org/TR/2001/REC-xml-c14n-20010315"/><ds:SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1"/><ds:Reference Id="ID-a1ef6abc9fa0617f52068bc9bd5fee8b" URI=""><ds:Transforms><ds:Transform Algorithm="http://www.w3.org/TR/1999/REC-xpath-19991116"><ds:XPath>not(ancestor-or-self::ds:Signature)</ds:XPath></ds:Transform></ds:Transforms><ds:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1"/><ds:DigestValue>RAA2CLxKsoBv7QEYX68yHeNbSHQ=</ds:DigestValue></ds:Reference><ds:Reference Id="ID-f71d08f41ff6497944a4eef68ae82e83" URI="Narodowe%20Centrum%20Nauki%20-%20Umowa%20nr%20UMO-2018/31/N/ST8/02865.xml"><ds:Transforms><ds:Transform Algorithm="http://www.w3.org/TR/1999/REC-xpath-19991116"><ds:XPath>not(ancestor-or-self::*[local-name() = 'UnsignedProperties' and namespace-uri() = 'http://uri.etsi.org/01903/v1.3.2#'])</ds:XPath></ds:Transform></ds:Transforms><ds:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1"/><ds:DigestValue>/ObYPVBrCKsbrMXPcFV4n9jLlbk=</ds:DigestValue></ds:Reference></ds:SignedInfo></ds:Signature></pos:Dokument>

@@ -2,16 +2,28 @@
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
+\contentsline {table}{\numberline {3.1}{\ignorespaces The mechanical properties of the materials at reference temperature of +20\unit {\degreeCelsius }.\relax }}{16}{table.caption.12}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {5.1}{\ignorespaces The mechanical properties of the materials.\relax }}{33}{table.caption.17}%
-\contentsline {table}{\numberline {5.2}{\ignorespaces The wavelength of the \ac {a0} mode propagated in the presented \ac {cfrp} plate.\relax }}{35}{table.caption.19}%
+\contentsline {table}{\numberline {5.1}{\ignorespaces The effective mechanical properties of the \ac {cfrp} plate and the aluminium honeycomb core for +20\unit {\degreeCelsius }.\relax }}{40}{table.caption.23}%
+\contentsline {table}{\numberline {5.2}{\ignorespaces The wavelength of the \ac {a0} mode propagated in the presented \ac {cfrp} plate.\relax }}{41}{table.caption.25}%
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {6.1}{\ignorespaces Comparison of the methods for elastic wave propagation measurement.\relax }}{43}{table.caption.25}%
-\contentsline {table}{\numberline {6.2}{\ignorespaces The group velocities and errors obtain from simulations and experiments.\relax }}{50}{table.caption.31}%
-\contentsline {table}{\numberline {6.3}{\ignorespaces Model parameters used in simulations to compare the algorithm performed on \ac {gpu} and \ac {cpu}.\relax }}{50}{table.caption.32}%
-\contentsline {table}{\numberline {6.4}{\ignorespaces Sample parameters used in the benchmark of the \ac {pa} and the \ac {ba}.\relax }}{51}{table.caption.33}%
+\contentsline {table}{\numberline {6.1}{\ignorespaces Comparison of methods for elastic wave propagation measurements.\relax }}{49}{table.caption.31}%
+\contentsline {table}{\numberline {6.2}{\ignorespaces Comparison between of the modes amplitudes and group velocities obtained from the simulations and experiments for the single \acf {cfrp} plate.\relax }}{58}{table.caption.39}%
+\contentsline {table}{\numberline {6.3}{\ignorespaces Comparison between of the modes amplitudes and group velocities obtained from the simulations based on \acf {fcgm} and \acf {hcgm} and experiments for \acf {hsc}.\relax }}{58}{table.caption.40}%
+\contentsline {table}{\numberline {6.4}{\ignorespaces Model parameters used in simulations to compare the algorithm performed on \ac {gpu} and \ac {cpu}.\relax }}{59}{table.caption.41}%
+\contentsline {table}{\numberline {6.5}{\ignorespaces Sample parameters used in the benchmark of the \ac {pa} and the \ac {ba}.\relax }}{60}{table.caption.42}%
+\addvspace {10\p@ }
+\contentsline {table}{\numberline {7.1}{\ignorespaces The coefficients and errors of the functions fitted to \acf {rmsd} based on the \acf {fcgm}.\relax }}{69}{table.caption.49}%
+\contentsline {table}{\numberline {7.2}{\ignorespaces The coefficients and errors of the functions fitted to \acf {cc} based on the \acf {fcgm}.\relax }}{70}{table.caption.50}%
+\contentsline {table}{\numberline {7.3}{\ignorespaces The coefficients and errors of the functions fitted to \acf {rmsd} based on the \acf {hcgm}.\relax }}{71}{table.caption.51}%
+\contentsline {table}{\numberline {7.4}{\ignorespaces The coefficients and errors of the functions fitted to \acf {cc} based on the \acf {hcgm}.\relax }}{72}{table.caption.52}%
+\addvspace {10\p@ }
+\contentsline {table}{\numberline {8.1}{\ignorespaces The time-dependent coefficients and errors of the function from Eq.\nobreakspace {}(\ref {eq:function_1}) fitted to \acp {di} based on the \acf {fcgm} - core.\relax }}{78}{table.caption.58}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
+\contentsline {table}{\numberline {B.1}{\ignorespaces The elastic constants of the \ac {cfrp}.\relax }}{93}{table.caption.72}%
 \addvspace {10\p@ }
+\contentsline {table}{\numberline {C.1}{\ignorespaces The coefficients of the functions fitted to \acf {rmsd} and \acf {cc} based on the \acf {fcgm}.\relax }}{100}{table.caption.73}%
+\contentsline {table}{\numberline {C.2}{\ignorespaces The coefficients of the functions fitted to \acf {rmsd} and \acf {cc} based on the \acf {hcgm}.\relax }}{101}{table.caption.74}%

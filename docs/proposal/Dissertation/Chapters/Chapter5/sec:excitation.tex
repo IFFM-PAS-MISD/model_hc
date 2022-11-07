@@ -1,14 +1,20 @@
 %% SECTION HEADER /////////////////////////////////////////////////////////////////////////////////////
-\section{Excitation Signal}
+\section{Excitation signal}
 \label{sec:excitation}
 
 %% SECTION CONTENT ////////////////////////////////////////////////////////////////////////////////////
-A sine function modulated by the Hann window was chosen as the excitation signal, defined as:
+A sine function modulated by the Hann window was chosen as the excitation signal.
+It is defined as:
 \begin{eqnarray}
 	V_e(t) = 0.5\left(1-\cos(2\pi f_m(t-1/f_m)\right)\sin(2\pi f_ct),
 \end{eqnarray}
 where \(f_c\) is the carrier frequency, and \(f_m=f_c/N_c\) is the modulation frequency with \(N_c\) as the number of cycles.
 \(N_c\) was assumed to be five, as a compromise between signal length in the time domain and signal width in the frequency domain.
-It is because too high \(N_c\) may cause overlapping wave mods, while too low number will cause increasing signal dispersion.
+It is because too high \(N_c\) may cause overlapping wave modes, while too low number will cause increasing signal dispersion.
 Both issues can cause difficulties in signal processing for damage assessment.
-A carrier frequency in the range \(f_c=[50, 100, 150] \) kHz was considered in the simulation.
+The set of carrier frequencies was considered to be \(f_c=[50, 100, 150] \) \unit{\kHz}.
+
+The convergence of the solution of the equation of motion requires time increment to be less than a critical value.
+If the increment is adopted too large, the displacements immediately tend towards infinity due to increasing numerical errors.
+Therefore, a maximum step value is sought for which the solution is stable. 
+In the present models, it is obtained for \(\Delta t=\)\num{12.2e-3} \(\mu\)s, which represents more than 80 \unit{\MHz} of the sampling frequency.

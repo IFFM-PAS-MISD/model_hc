@@ -1,0 +1,16 @@
+%% SECTION HEADER /////////////////////////////////////////////////////////////////////////////////////
+\section{\Acf{hcgm}}
+\label{sec:homogenised}
+
+%% SECTION CONTENT ////////////////////////////////////////////////////////////////////////////////////
+In the section \ref{sec:modelling}, several examples are given of the successful application of the model to numerical analysis of \ac{gw} propagation and damage localisation in \ac{hsc}.
+Its unquestionable advantage is the simplified component mesh, reducing operating memory resources.
+In dissertation, comparative studies between the \ac{hcgm} and the \ac{fcgm} was conducted to assess the simplified model effectiveness in estimating damage size.
+
+In the \ac{hcgm}, the values of the material constants of the panel core were calculated according to the method presented by Malek and Gibson \cite{malek2015effective}.
+This model is an extension of the theoretical analysis of Gibson et al. \cite{gibson1982mechanics}, considering the different geometry of the cell and the nodes at the intersection of the vertical and inclined walls.
+
+The comprehensive formulation of the stiffness matrix components is given in App.~\ref{app:eff_properties} and the effective mechanical properties are gathered in Table \ref{tab:properties_eff}.
+The properties for other structures, i.e., the skin, the epoxy adhesive, the cyanoacrylate glue, and the sensors remained unchanged.
+The core element has \(6 \times 6 \times 4\) nodes, and the mesh coincides with the skin mesh.
+The elements of the other structures are the same as described in the previous section.

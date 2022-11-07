@@ -1,11 +1,99 @@
 % Note that the text in the [] brackets is the one that will
 % appear in the table of contents, whilst the text in the {}
 % brackets will appear in the main thesis.
+\chapter{Fit functions coefficients}
+\label{app:fit_functions}
+
+%% APPENDIX CONTENT ///////////////////////////////////////////////////////////////////////////////////
+\begin{table}
+	\small
+	\tabcolsep=0.2cm
+	\centering
+	\caption{\label{tab:fit_fcgm_coeff}The coefficients of the functions fitted to \acf{rmsd}  and \acf{cc} based on the \acf{fcgm}.}
+	\begin{tabular}{ccllcccc}
+		\toprule
+		\multirow{2}{*}{\rotatebox[origin=c]{90}{Index}}& \multirow{2}{*}{Frequency} & \multirow{2}{*}{Model} & Equation & \multicolumn{4}{c}{Fit function coefficients}\\
+		& & & & \(a_1\) & \(a_2\) & \(a_3\) & \(a_4\)\\
+		\midrule
+		\multirow{12}{*}{\rotatebox[origin=c]{90}{\ac{rmsd}}} & \multirow{6}{*}{\rotatebox[origin=c]{90}{50 \unit{\kHz}}} & \multirow{3}{*}{\ac{fcgm} - core} & Eq.~(\ref{eq:function_1}) & 3.52 & 5.35 & 0.34 &-\\
+		& & & Eq.~(\ref{eq:function_2}) & -0.36 & 0.18 & 1.00 & -\\
+		& & & Eq.~(\ref{eq:function_3}) & -0.28 & 25.25 & 0.21 & 1.00 \\
+		\cline{3-8}
+		& & \multirow{3}{*}{\ac{fcgm} - interface} & Eq.~(\ref{eq:function_1}) & 3.51 & 11.50 & 0.70 &-\\
+		& & & Eq.~(\ref{eq:function_2}) & -0.19 & 0.10 & 1.00 &- \\
+		& & & Eq.~(\ref{eq:function_3}) & -0.09 & 27.28 & 0.11 & 1.00 \\
+		\cline{2-8}
+		& \multirow{6}{*}{\rotatebox[origin=c]{90}{100 \unit{\kHz}}} & \multirow{3}{*}{\ac{fcgm} - core} & Eq.~(\ref{eq:function_1}) & 3.56 & 11.92 & 0.70 &-\\
+		& & & Eq.~(\ref{eq:function_2}) & -0.20 & 0.06 & 1.00 &- \\
+		& & & Eq.~(\ref{eq:function_3}) & -0.05 & 20.57 & 0.03 & 1.00 \\
+		\cline{3-8}
+		& & \multirow{3}{*}{\ac{fcgm} - interface} & Eq.~(\ref{eq:function_1}) & 15.55 & 38.13 & 0.59 &- \\
+		& & & Eq.~(\ref{eq:function_2}) & -0.24 & 0.04 & 1.00 & -\\
+		& & & Eq.~(\ref{eq:function_3}) & -0.04 & 24.61 & 0.02 & 1.00 \\
+		\midrule
+		\multirow{12}{*}{\rotatebox[origin=c]{90}{\ac{cc}}} & \multirow{6}{*}{\rotatebox[origin=c]{90}{50 \unit{\kHz}}} & \multirow{3}{*}{\ac{fcgm} - core} & Eq.~(\ref{eq:function_1}) & 8.82 & 16.96 & 0.48 &-\\
+		& & & Eq.~(\ref{eq:function_2}) & -0.33 & 0.07 & 1.00 &- \\
+		& & & Eq.~(\ref{eq:function_3}) & -0.13 & 38.56 & 0.08 & 1.00 \\
+		\cline{3-8}
+		& & \multirow{3}{*}{\ac{fcgm} - interface} & Eq.~(\ref{eq:function_1}) & 2.16 & 7.11 & 0.70 &- \\
+		& & & Eq.~(\ref{eq:function_2}) & -0.19 & 0.13 & 1.00 & -\\
+		& & & Eq.~(\ref{eq:function_3}) & -0.09 & 17.67 & 0.10 & 1.00 \\
+		\cline{2-8}
+		& \multirow{6}{*}{\rotatebox[origin=c]{90}{100 \unit{\kHz}}} & \multirow{3}{*}{\ac{fcgm} - core} & Eq.~(\ref{eq:function_1}) & 9.40 & 80.39 & 0.88 &-\\
+		& & & Eq.~(\ref{eq:function_2}) & \multicolumn{4}{c}{-} \\
+		& & & Eq.~(\ref{eq:function_3}) & -0.01 & 21.06 & 0.02 & 1.00\\
+		\cline{3-8}
+		& & \multirow{3}{*}{\ac{fcgm} - interface} & Eq.~(\ref{eq:function_1}) & 19.43 & 116.66 & 0.83 &-\\
+		& & & Eq.~(\ref{eq:function_2}) & \multicolumn{4}{c}{-} \\
+		& & & Eq.~(\ref{eq:function_3}) & \multicolumn{4}{c}{-} \\
+		\bottomrule
+	\end{tabular}
+\end{table}
+
+\begin{table}
+	\small
+	\tabcolsep=0.2cm
+	\centering
+	\caption{\label{tab:fit_hcgm_coeff}The coefficients of the functions fitted to \acf{rmsd}  and \acf{cc} based on the \acf{hcgm}.}
+	\begin{tabular}{ccllcccc}
+		\toprule
+		\multirow{2}{*}{\rotatebox[origin=c]{90}{Index}}& \multirow{2}{*}{Frequency} & \multirow{2}{*}{Model} & Equation & \multicolumn{4}{c}{Fit function coefficients}\\
+		& & & & \(a_1\) & \(a_2\) & \(a_3\) & \(a_4\)\\
+		\midrule
+		\multirow{12}{*}{\rotatebox[origin=c]{90}{\ac{rmsd}}} & \multirow{6}{*}{\rotatebox[origin=c]{90}{50 \unit{\kHz}}} & \multirow{3}{*}{\ac{hcgm} - core} & Eq.~(\ref{eq:function_1}) & 3.62 & 4.84 & 0.25 &-\\
+		& & & Eq.~(\ref{eq:function_2}) & -0.47 & 0.27 & 1.00 & -\\
+		& & & Eq.~(\ref{eq:function_3}) & -0.38 & 30.21 & 0.29 & 1.00 \\
+		\cline{3-8}
+		& & \multirow{3}{*}{\ac{hcgm} - interface} & Eq.~(\ref{eq:function_1}) & \multicolumn{4}{c}{-}\\
+		& & & Eq.~(\ref{eq:function_2}) & \multicolumn{4}{c}{-} \\
+		& & & Eq.~(\ref{eq:function_3}) & \multicolumn{4}{c}{-} \\
+		\cline{2-8}
+		& \multirow{6}{*}{\rotatebox[origin=c]{90}{100 \unit{\kHz}}} & \multirow{3}{*}{\ac{hcgm} - core} & Eq.~(\ref{eq:function_1}) & 1.16 & 2.19 & 0.47 &-\\
+		& & & Eq.~(\ref{eq:function_2}) & -0.34 & 0.35 & 1.00 &- \\
+		& & & Eq.~(\ref{eq:function_3}) & -0.34 & 21.85 & 0.41 & 1.00 \\
+		\cline{3-8}
+		& & \multirow{3}{*}{\ac{hcgm} - interface} & Eq.~(\ref{eq:function_1}) & 11.58 & 17.11 & 0.32 & - \\
+		& & & Eq.~(\ref{eq:function_2}) & -0.41 & 0.10 & 1.00 & -\\
+		& & & Eq.~(\ref{eq:function_3}) & -0.17 & 22. & 0.09 & 1.00 \\
+		\midrule
+		\multirow{12}{*}{\rotatebox[origin=c]{90}{\ac{cc}}} & \multirow{6}{*}{\rotatebox[origin=c]{90}{50 \unit{\kHz}}} & \multirow{3}{*}{\ac{hcgm} - core} & Eq.~(\ref{eq:function_1}) & 15.09 & 21.22 & 0.29 &-\\
+		& & & Eq.~(\ref{eq:function_2}) & -0.42 & 0.06 & 1.00 &- \\
+		& & & Eq.~(\ref{eq:function_3}) & -0.12 & 26.39 & 0.04 & 1.00 \\
+		\cline{3-8}
+		& & \multirow{3}{*}{\ac{hcgm} - interface} & Eq.~(\ref{eq:function_1}) & \multicolumn{4}{c}{-}\\
+		& & & Eq.~(\ref{eq:function_2}) & \multicolumn{4}{c}{-}\\
+		& & & Eq.~(\ref{eq:function_3}) & \multicolumn{4}{c}{-}\\
+		\cline{2-8}
+		& \multirow{6}{*}{\rotatebox[origin=c]{90}{100 \unit{\kHz}}} & \multirow{3}{*}{\ac{fcgm} - core} & Eq.~(\ref{eq:function_1}) & 2.96 & 8.39 & 0.65 &-\\
+		& & & Eq.~(\ref{eq:function_2}) & -0.22 & 0.12 & 1.00 &- \\
+		& & & Eq.~(\ref{eq:function_3}) & -0.17 & 55.54 & 0.28 & 1.00\\
+		\cline{3-8}
+		& & \multirow{3}{*}{\ac{fcgm} - interface} & Eq.~(\ref{eq:function_1}) & 49.65 & 65.25 & 0.24 &-\\
+		& & & Eq.~(\ref{eq:function_2}) & -0.31 & 0.05 & 1.00 &- \\
+		& & & Eq.~(\ref{eq:function_3}) & -0.14 & 69.53 & 0.09 & 1.00\\
+		\bottomrule
+	\end{tabular}
+\end{table}
 
 %% APPENDIX HEADER ////////////////////////////////////////////////////////////////////////////////////
 
-\chapter{Material properties}
-\label{app:properties}
-
-%% APPENDIX CONTENT ///////////////////////////////////////////////////////////////////////////////////
-The properties of the materials comprising the specimen used in the simulation are summarized 

@@ -1,0 +1,30 @@
+\documentclass[a4paper,12pt]{article}
+%\usepackage{latexsym}
+%\usepackage[MeX]{polski}
+%\usepackage[latin2]{inputenc}% ew. utf8 lub cp1250
+\usepackage{graphicx}
+\usepackage{enumitem}
+\usepackage{nopageno}
+\usepackage{geometry}
+\newgeometry{tmargin=1.5cm, bmargin=1.5cm, lmargin=2.5cm, rmargin=2.5cm}
+\bibliographystyle{plain}
+% Zdefiniowanie autora i~tytu³u:
+\author{}
+\date{}
+\title{Model--assisted damage identification function for Structural Health Monitoring of composite structures under a varied environmental condition}
+\begin{document}
+%\maketitle
+\section*{Research project objectives/Research hypothesis}
+The principal aim of the proposed research is to develop a model--assisted method for damage identification in the composite structures. The method is based on the determination of a damage influence function on the characteristic parameters of the propagating waves in the construction. This relationship will be defined by numerical simulations taking into account the effect of environmental conditions, such as temperature. Moreover, a multiphysics approach will take into account electromechanical coupling corresponding to piezoelectric transducers used for signal excitation and sensing.
+\section*{Research project methodology}
+The proposed research takes a new look at the damage detection involving techniques based on the Guided Waves. The failure identification in the inspected structure can be obtained from the determined relation of the damage parameter, which can be damage size, location or any value related to it, and the signal parameter. Such a damage influence function can be obtained by experimental investigation, theoretical analysis or numerical simulations. However, the experimental investigation would require a large number of samples, and theoretical analysis of the elastic waves propagating is restricted only for basic structural elements, such as plates, bars or beams, and under specific boundary conditions. On the other hand, numerical modelling can provide accurate data in a cost-effective way.
+
+The numerical analysis of the problem mentioned above requires a long calculation time and significant operational memory resources. Therefore, the time--domain Spectral Element Method (SEM) will be chosen, which is one of the most accurate, flexible and time efficient technique for wave propagation modelling. Moreover, the calculations will be carried out using a multi--core graphics card with the parallel implementation of the algorithm. Also, computational efficiency will be improved by reducing global degrees of freedom using one-- or two--dimensional elements instead of three--dimensional elements.
+
+Currently used methods for the determination of material properties of composites are mainly based on the homogenization process. However, this type of approach turns out to be insufficient for wave propagation in materials with a complex structure, e.g. in honeycomb sandwich composites. Therefore, the real geometry of the material structure will be retained in the proposed research. The honeycomb structure will be modelled by using shell spectral elements for each wall of the hexagonal cell. This approach according to the propagation of elastic waves is entirely novel and has not been reported so far in the literature.
+Experimental measurements will be conducted for validation of the numerical models. For this purpose Scanning Doppler Laser Vibrometer, climate chamber and equipment for signal actuation/reception for piezoelectric transducers will be used. The equipment is already in the laboratory of IMP PAN.
+\section*{Expected impact of the research project on the development of science}
+The novelty of the proposed research is not only a development of a new approach for damage detection under varied external conditions but also numerical modelling concerning the exact geometry of honeycomb structure.
+The developed method will be a practical compendium of knowledge for Structural Health Monitoring (SHM) designers. While the reliability of the SHM system is directly related to the accuracy of determining input parameters the proposed study will increase the safety of monitored engineering structures.
+
+\end{document}

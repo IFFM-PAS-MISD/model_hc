@@ -23,6 +23,51 @@
   <defs
      id="defs1267">
     <marker
+       inkscape:stockid="Arrow2Mend"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="marker2878"
+       style="overflow:visible"
+       inkscape:isstock="true">
+      <path
+         inkscape:connector-curvature="0"
+         id="path2876"
+         style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:0.625;stroke-linejoin:round;stroke-opacity:1"
+         d="M 8.7185878,4.0337352 -2.2072895,0.01601326 8.7185884,-4.0017078 c -1.7454984,2.3720609 -1.7354408,5.6174519 -6e-7,8.035443 z"
+         transform="scale(-0.6)" />
+    </marker>
+    <marker
+       inkscape:stockid="Arrow2Mstart"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="marker2748"
+       style="overflow:visible"
+       inkscape:isstock="true">
+      <path
+         inkscape:connector-curvature="0"
+         id="path2746"
+         style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:0.625;stroke-linejoin:round;stroke-opacity:1"
+         d="M 8.7185878,4.0337352 -2.2072895,0.01601326 8.7185884,-4.0017078 c -1.7454984,2.3720609 -1.7354408,5.6174519 -6e-7,8.035443 z"
+         transform="scale(0.6)" />
+    </marker>
+    <marker
+       inkscape:stockid="Arrow2Mstart"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="marker2574"
+       style="overflow:visible"
+       inkscape:isstock="true">
+      <path
+         inkscape:connector-curvature="0"
+         id="path2572"
+         style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:0.625;stroke-linejoin:round;stroke-opacity:1"
+         d="M 8.7185878,4.0337352 -2.2072895,0.01601326 8.7185884,-4.0017078 c -1.7454984,2.3720609 -1.7354408,5.6174519 -6e-7,8.035443 z"
+         transform="scale(0.6)" />
+    </marker>
+    <marker
        inkscape:stockid="Arrow1Lend"
        orient="auto"
        refY="0"
@@ -44,7 +89,8 @@
        refX="0"
        refY="0"
        orient="auto"
-       inkscape:stockid="Arrow2Mend">
+       inkscape:stockid="Arrow2Mend"
+       inkscape:collect="always">
       <path
          transform="scale(-0.6)"
          d="M 8.7185878,4.0337352 -2.2072895,0.01601326 8.7185884,-4.0017078 c -1.7454984,2.3720609 -1.7354408,5.6174519 -6e-7,8.035443 z"
@@ -59,7 +105,8 @@
        refX="0"
        refY="0"
        orient="auto"
-       inkscape:stockid="Arrow2Mstart">
+       inkscape:stockid="Arrow2Mstart"
+       inkscape:collect="always">
       <path
          transform="scale(0.6)"
          d="M 8.7185878,4.0337352 -2.2072895,0.01601326 8.7185884,-4.0017078 c -1.7454984,2.3720609 -1.7354408,5.6174519 -6e-7,8.035443 z"
@@ -304,8 +351,8 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="0.70000002"
-     inkscape:cx="357.36799"
-     inkscape:cy="401.78191"
+     inkscape:cx="-86.083519"
+     inkscape:cy="271.91384"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -491,11 +538,6 @@
        d="m 111.38573,136.03067 h 26.49345"
        style="fill:none;stroke:#000000;stroke-width:0.46499994;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
     <path
-       inkscape:connector-curvature="0"
-       id="path3057"
-       d="M 82.007333,213.18897 V 176.59831"
-       style="fill:none;stroke:#000000;stroke-width:0.465;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:0.46500001, 1.86000005;stroke-dashoffset:0;stroke-opacity:1;marker-start:url(#marker2295);marker-end:url(#marker3061)" />
-    <path
        style="fill:none;stroke:#000000;stroke-width:0.465;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-mid:url(#marker4321)"
        d="m 136.53287,222.71765 v 18.50998 15.71197"
        id="path4647"
@@ -531,8 +573,8 @@
        id="path8135"
        inkscape:connector-curvature="0" />
     <path
-       style="fill:none;stroke:#000000;stroke-width:0.465;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:1.86000006, 1.86000006;stroke-dashoffset:0;stroke-opacity:1;marker-mid:url(#marker8651)"
-       d="M 56.38059,261.85023 H 48.037675 40.955892"
+       style="fill:none;stroke:#000000;stroke-width:0.465;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:1.86, 1.86;stroke-dashoffset:0;stroke-opacity:1;marker-mid:url(#marker2574)"
+       d="m 40.955891,261.85023 h 8.34292 7.08178"
        id="path8647"
        inkscape:connector-curvature="0" />
     <path
@@ -610,14 +652,19 @@
     <text
        id="text1056"
        y="218.42188"
-       x="128.02914"
+       x="120.40418"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.76972222px;line-height:1.25;font-family:'TeX Gyre DejaVu Math';-inkscape-font-specification:'TeX Gyre DejaVu Math';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
        xml:space="preserve"
-       transform="scale(0.99998536,1.0000146)"><tspan
+       transform="scale(0.99998538,1.0000146)"><tspan
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.52777791px;font-family:'TeX Gyre DejaVu Math';-inkscape-font-specification:'TeX Gyre DejaVu Math';stroke-width:0.26458332"
          y="218.42188"
-         x="128.02914"
+         x="120.40418"
          id="tspan1054"
-         sodipodi:role="line">Amplifier</tspan></text>
+         sodipodi:role="line">Charger amplifier</tspan></text>
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.465;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:1.86000005, 1.86000005;stroke-dashoffset:0;stroke-opacity:1;marker-start:url(#marker2748);marker-end:url(#marker2878)"
+       d="m 81.888341,176.41364 v 37.08609"
+       id="path2744"
+       inkscape:connector-curvature="0" />
   </g>
 </svg>

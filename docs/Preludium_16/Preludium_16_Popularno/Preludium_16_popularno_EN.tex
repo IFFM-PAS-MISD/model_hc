@@ -1,0 +1,31 @@
+\documentclass[a4paper,12pt]{article}
+%\usepackage{latexsym}
+%\usepackage[MeX]{polski}
+%\usepackage[latin2]{inputenc}% ew. utf8 lub cp1250
+%\usepackage[polish]{babel}
+%\usepackage[cp1250]{inputenc}
+%\usepackage[OT4]{fontenc}
+%\usepackage{graphicx}
+\usepackage{enumitem}
+\usepackage{nopageno}
+\usepackage{geometry}
+\newgeometry{tmargin=1.5cm, bmargin=1.5cm, lmargin=2.5cm, rmargin=2.5cm}
+\bibliographystyle{plain}
+% Zdefiniowanie autora i~tytu³u:
+\author{}
+\date{}
+\title{Model--assisted damage identification function for Structural Health Monitoring of composite structures under a varied environmental condition}
+%\title{Zastosowanie funkcji identyfikacji uszkodzenia wspomaganej modelowaniem numerycznym do monitorowania stanu technicznego konstrukcji kompozytowych w zmiennych warunkach otoczenia}
+\begin{document}
+%\maketitle
+Composite materials, due to the high strength to mass ratio, are widely used as a construction material in almost every field of engineering. However, due to the anisotropy of mechanical properties and the existence of exceptional flaws, advanced methods for their quality assessment are required. One of the most perspective method for damage detection in composite materials is a technique based on the phenomenon of propagation of elastic waves.
+
+The essence of the project is to determine the function of the influence of the size and location of the damage on the characteristic parameters of the propagating wave in the composite structure, such as the amplitude of the wave reflected from the damage, the time of wave propagation, under variable environmental conditions.
+
+Experimental determination of this relationship would require a large number of samples, which would significantly increase the cost of research, hence, the function will be determined by the numerical simulation. The numerical analysis of the problem requires a long calculation time and significant operational memory resources. Therefore, the time--domain Spectral Element Method will be chosen, which is one of the most accurate, flexible and time efficient technique for wave propagation modelling. In order to decrease the time simulation, the calculation will be carried out using a multi--core graphics card with the parallel implementation of the algorithm. Also, computational efficiency will be improved by reducing global degrees of freedom using one-- or two--dimensional elements instead of three--dimensional elements.
+
+In addition, the project will develop a new model of the Composite Honeycomb Sandwich Panel, which so far has been implemented by homogenization of one cell of the honeycomb core which is considered as the representative volume element. In the proposed method, the real geometry of the core will be retained, while each wall of the hexagonal cell will be modelled separately by two--dimensional spectral element. In this way, it is possible to represent more accurately the phenomenon of elastic wave propagation in this type of material.
+
+The novelty of the proposed research is not only a development of a new approach for damage detection under varied external conditions but also numerical modelling concerning the exact geometry of honeycomb structure. The developed method will be a practical compendium of knowledge for Structural Health Monitoring designers.
+
+\end{document}

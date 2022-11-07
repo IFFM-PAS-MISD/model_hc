@@ -3,15 +3,32 @@
 % brackets will appear in the main thesis.
 
 %% CHAPTER HEADER /////////////////////////////////////////////////////////////////////////////////////
-\chapter[GW Propagation under Variable Temperature Conditions]{GW Propagation under Variable Temperature Conditions}
+\chapter[Parameter study of \ac{gw} propagation in \ac{hsc}]{Parameter study of \ac{gw} propagation in \ac{hsc}}
 \label{ch:tempEffects}
 
 %% CHAPTER INTRODUCTION ///////////////////////////////////////////////////////////////////////////////
-
-
+In the chapter~\ref{ch:severity}, the \ac{madif} was determined for the sample at an ambient temperature of \(+20^{\circ}\)C.
+However, quasi-stable conditions can only be guaranteed in a laboratory.
+Therefore, from a practical point of view, it is necessary to consider changes due to different working conditions.
+In this Chapter, a study will be carried out to determine the effect of various ambient temperature on the the \ac{madif}.
+In addition, a pack of computer simulations will be performed to determine how the different parameters of the \ac{hsc} components affect the wave propagation in this structure.
+The analysis will include factors such as the adhesive thickness, the \ac{pzt} placement regarding the core cell, the core orientation regarding the wave propagation and fibre volume fraction.
+Finally, the \ac{madif} will be developed for \ac{hsc} with the skins on the top and bottom sides of the core.
 %% INCLUDE SECTIONS ///////////////////////////////////////////////////////////////////////////////////
+\input{Chapters/Chapter8/sec:madifTemp}
+\input{Chapters/Chapter8/sec:parameters}
+\section{Conclusions}
+\label{sec:conclusionsTemp}
+This chapter presented a parametric study to obtain temperature-dependent \ac{madif} and determine the influence of various structure component factors on \ac{gw} propagation in \ac{hsc}.
 
-%\input{Chapters/Chapter7/sec:tempProperties}
-%\input{Chapters/Chapter7/sec:tempSetup}
-%\input{Chapters/Chapter7/sec:tempResults}
-%\input{Chapters/Chapter7/sec:conclusionsTemp}
+The numerical obtained functions for different ambient temperatures agree very well with the experimental results, especially for temperatures around the reference one.
+The absolute error increases with the higher difference in temperature.
+It is probably because the assumed linear model is not sufficient enough.
+
+During the analysis, it was shown that the \ac{hsc} is a very complex structure and that all the parameters of each component affect the amplitude or velocity of the wave propagated in this structure.
+In the future, it would be essential to develop an effective tool to determine the material properties and geometry of the structure in order to correspond the model to the monitored sample more accurately.
+Such a tool based on an optimisation algorithm has been developed for a woven fabric reinforced composites by Kudela et al. \cite{kudela2020elastic}.
+
+Computer simulations were also conducted to determine the \ac{madif} for a double-skin structure.
+The function, similar to that of a single-skin panel, satisfies the conditions for damage estimation.
+It is monotonic for the entire damage range, and its values are even more extensive than in the first case.

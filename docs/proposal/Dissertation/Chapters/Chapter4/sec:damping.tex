@@ -1,5 +1,5 @@
 %% SECTION HEADER /////////////////////////////////////////////////////////////////////////////////////
-\section{Structural Damping}
+\section{Structural damping}
 \label{sec:damping}
 
 %% SECTION CONTENT ////////////////////////////////////////////////////////////////////////////////////
@@ -10,4 +10,8 @@ Rayleigh damping model is defined as \cite{wandowski2017guided}:
 	\textbf{D}_{dd}^e = \alpha_M \textbf{M}_{dd}^e + \beta_K \textbf{K}_{dd}^e,
 	\label{eq:damping}
 \end{eqnarray}
-where \(\alpha_M\) and \(\beta_K\) are the mass- and stiffness- proportionality coefficients. However, \(\beta_K\) was assumed equal to zero to ensure that matrix \(\textbf{D}_{dd}\) remains diagonal \cite{schulte2011simulation, wandowski2017guided}.
+where \(\alpha_M\) and \(\beta_K\) are the mass- and stiffness- proportionality coefficients.
+In presented model, \(\beta_K\) was assumed equal to zero to ensure that matrix \(\textbf{D}_{dd}\) remains diagonal \cite{schulte2011simulation, wandowski2017guided}.
+This assumption gives a good approximation when considering a single mode and a specific frequency. 
+Ramadas showed slight differences in Lamb wave attenuation by analysing three models, i.e. mass-, stiffness-proportional and the sum of both \cite{ramadas2011modelling}.
+However, the mass-proportional model is computationally incomparable to the other models due to the diagonal damping matrix.

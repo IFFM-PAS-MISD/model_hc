@@ -1,0 +1,31 @@
+\documentclass[a4paper,12pt]{article}
+%\usepackage{latexsym}
+%\usepackage[MeX]{polski}
+%\usepackage[latin2]{inputenc}% ew. utf8 lub cp1250
+\usepackage[polish]{babel}
+\usepackage[cp1250]{inputenc}
+\usepackage[OT4]{fontenc}
+\usepackage{graphicx}
+\usepackage{enumitem}
+\usepackage{nopageno}
+\usepackage{geometry}
+\newgeometry{tmargin=1.5cm, bmargin=1.5cm, lmargin=2.5cm, rmargin=2.5cm}
+\bibliographystyle{plain}
+% Zdefiniowanie autora i~tytu³u:
+\author{}
+\date{}
+%\title{Model--assisted damage identification function for Structural Health Monitoring of composite structures under a varied environmental condition}
+\title{Zastosowanie funkcji identyfikacji uszkodzenia wspomaganej modelowaniem numerycznym do monitorowania stanu technicznego konstrukcji kompozytowych w zmiennych warunkach otoczenia}
+\begin{document}
+%\maketitle
+Materia\l{}y kompozytowe, ze wzgl\k{e}du na wysoki wsp\'o\l{}czynnik wytrzyma\l{}o\'sci struktury do jej masy, znajduj\k{a} szerokie zastosowanie jako materia\l{} konstrukcyjny niemal w~ka\.zdej dziedzinie in\.zynierii. Jednak\.ze, z uwagi na anizotropowo\'s\'c w\l{}a\'sciwo\'sci mechanicznych oraz rodzaj uszkodze\'n, niespotykany w stopach metali, wymagaj\k{a} u\.zycia zaawansowanych metod oceny ich jako\'sci. Spo\'sr\'od wielu dost\k{e}pnych metod, technika oparta o zjawisko propagacji fal spr\k{e}\.zystych wykazuje du\.z\k{a} skuteczno\'s\'c w detekcji wad materia\l{}owych w kompozytach.
+
+Istot\k{a} projektu jest wyznaczenie funkcji wp\l{}ywu wielko\'sci i lokalizacji uszkodzenia na charakterystyczne parametry fali propaguj\k{a}cej w strukturze kompozytowej, takie jak amplituda fali odbitej od uszkodzenia, czas propagacji fali, w zmiennych warunkach otoczenia. 
+
+Eksperymentalne wyznaczenie funkcji wi\k{a}za\l{}oby si\k{e} z przeprowadzeniem pomiar\'ow na bardzo du\.zej liczbie pr\'obek, co znacz\k{a}co podnios\l{}oby koszt bada\'n, st\k{a}d funkcja zostanie okre\'slona w drodze symulacji komputerowej. Analiza numeryczna problemu wymaga d\l{}ugiego czasu oblicz\'n i znacznych zasob\'ow pami\k{e}ci operacyjnej. Dlatego te\.z, wybrana zostanie metoda element\'ow spektralnych w dziedzinie czasu (z ang. time domain Spectral Element Method, SEM), kt\'ora jest jedn\k{a} z najdok\l{}adniejszych, uniwersalnych i efektywnych pod wzgl\k{e}dem czasu technik modelowania propagacji fal spr\k{e}\.zystych. W celu skr\'ocenia czasu symulacji, obliczenia zostan\k{a} wykonane przy u\.zyciu wielordzeniowej karty graficznej z r\'ownoleg\l{}\k{a} implementacj\k{a} algorytmu. Wydajno\'s\'c obliczeniowa zostanie poprawiona r\'ownie\.z poprzez zmniejszenie liczby globalnych stopni swobody za pomoc\k{a} jedno-- lub dwuwymiarowych elemen\'ow, zamiast tr\'ojwymiarowych.
+
+Ponadto, w ramach projektu zostanie opracowany nowy model wielowarstwowego materia\l{}u kompozytowego z rdzeniem typu `plaster miodu' (z ang. Composite Honeycomb Sandwich Panel, CHSP), kt\'ory do tej pory realizowany by\l{} poprzez homogenizacj\k{e} w\l{}asno\'sci materia\l{}owych kom\'orki rdzenia. W nowej metodzie, ka\.zda z kom\'orek modelowana jest oddyielnie za pomoc\k{a} dwuwymiarowych element\'ow spektralnych, zachowuj\k{a}c przy tym autentyczn\k{a} geometri\k{e} `plastra miodu'. W ten spos\'ob, mo\.zliwe jest dokadniejsze przedstawienie propagacji fal spr\k{e}\.zystych w tego typu materiale.
+
+Nowo\'sci\k{a} proponowanych bada\'n jest nie tylko opracowanie nowego podej\'scia do wykrywania uszkodze\'n w r\'o\.znych warunkach otoczenia, ale tak\.ze nowy model numeryczny struktury CHSP. Uzyskane wyniki b\k{e}d\k{a} stanowi\'c praktyczne kompendium wiedzy dla projektant\'ow system\'ow monitorowania stanu technicznego konstrukcji.
+
+\end{document}

@@ -1,0 +1,50 @@
+% Note that the text in the [] brackets is the one that will
+% appear in the table of contents, whilst the text in the {}
+% brackets will appear in the main thesis.
+
+%% CHAPTER HEADER /////////////////////////////////////////////////////////////////////////////////////
+\chapter[Summary]{Summary}
+\label{ch:summary}
+
+This dissertation develops a model-assisted method for identifying the severity of mechanical damage in a honeycomb sandwich composite. 
+For this purpose, the guided wave method was used, based on the change in elastic wave propagation under the influence of their interaction with damage in the monitored structure.
+A phenomenon called wave leakage in sandwich panels results in the transmission of the wave into the structure core, where wave energy is attenuated.
+In the case of damage such as disbonds of the core from the skin, the phenomenon does not occur.
+Thus, a signal recorded by a sensor is distorted regarding a healthy one.
+
+The effect of damage size on wave propagation was done using computer simulations, resulting in a model-assisted identification function.
+Due to the high complexity of the structure under analysis, an accurate and efficient model had to be used.
+It was achieved by engaging the spectral element method, one of the most robust tools for modelling elastic wave propagation.
+Chapter \ref{ch:sem} presents a full implementation of the method for the honeycomb sandwich composite.
+One- and two-dimensional spectral elements are used in the model, and a multi-physics model of piezoelectric transducers is implemented for the excitation and recording of guided waves.
+This approach required the development of an interface to connect all the elements.
+The dissertation presents a new method to determine the non-matching interface elements using the shape function of the spectral elements.
+
+Two core models were analysed, i.e. (i) the full core geometry model and (ii) the homogenised core geometry model.
+A rectangular core-skin disbond of variable width and fixed length was taken as the damage placed in the centre of the panel.
+The defect was modelled by removing (i) the core cells and (ii) the interface elements.
+Then, after the model validation presented in chapter \ref{ch:validation}, computer simulations were performed for different damage sizes and varied excitation signal frequencies.
+
+Obtained signals were proceeded and then used to determine several damage indices.
+It turned out that only two indices satisfied the selection criterion, i.e. monotonic over the full range of damage size and the magnitude of the function value.
+These two functions are the indices based on root mean square deviation and correlation coefficient for 100 kHz signals and fulfil the criteria for all models.
+After comparing model-assisted damage identification functions with the experimental results, it appears that the full core geometry model is more accurate than the homogenised one.
+That model with the index based on root mean square deviation achieved an excellent agreement with the experimental investigation.
+
+In Chapter \ref{ch:tempEffects}, an analysis of the effect of ambient temperature on the function is presented.
+A parametric study followed this to determine the effect of varied components parameters on the elastic wave propagation in honeycomb sandwich composite. 
+It turns out that some parameters only affect the determination of the reference signals, and some depend on the conditions prevailing during the structure inspection.
+It is recommended that an effective tool be developed to work out the current parameters of the structure.
+
+Major contribution of the dissertation are:
+\begin{itemize}
+	\item develop of the full core geometry model based on spectral element method;
+	\item develop of the non-matching interface elements,
+	\item determination of the model-assisted damage identification function for honeycomb sandwich composite,
+	\item time-defendant study on the model-assisted damage identification function
+	\item optimisation of the time integration algorithm for parallel computation on graphics processing unit.
+\end{itemize}
+
+The dissertation proved the thesis validity: model-assisted analysis of guided wave propagation is an effective tool for determining the damage severity in honeycomb sandwich composites.
+The results achieved in the dissertation encourage further work on this topic.
+Namely, the analysis of functions for damage with different shapes, e.g. circles or ellipses, different positions.
