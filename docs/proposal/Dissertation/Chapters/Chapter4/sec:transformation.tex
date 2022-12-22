@@ -10,7 +10,7 @@ For this purpose, an additional sixth \ac{dof} is incorporated, i.e., rotation w
 		\widehat{\textbf{u}}^e & \widehat{\textbf{v}}^e &
 		\widehat{\textbf{w}}^e & \widehat{\boldsymbol{\varphi}}_x^e &
 		\widehat{\boldsymbol{\varphi}}_y^e & \widehat{\boldsymbol{\varphi}}_z^e
-	\end{array}\right \}^T_g.
+	\end{array}\right \}^{\mathrm{T}}_g.
 	\label{eq:d6}
 \end{eqnarray}
 
@@ -22,9 +22,9 @@ First, the displacement vector is transformed from the global to local coordinat
 		\widehat{\boldsymbol{\varphi}}_y^e
 	\end{array}\right \}_l = 
 	\left [\begin{array}{ccccc}
-		\textbf{V}^e_1, & \textbf{V}^e_2, & \textbf{V}^e_3, & \textbf{0} & \textbf{0} \\
-		\textbf{0} & \textbf{0} & \textbf{0} & \textbf{V}^e_1, & \textbf{V}^e_2
-	\end{array}\right ]^T
+		\mathcal{V}^e_1, & \mathcal{V}^e_2, & \mathcal{V}^e_3, & \textbf{0} & \textbf{0} \\
+		\textbf{0} & \textbf{0} & \textbf{0} & \mathcal{V}^e_1, & \mathcal{V}^e_2
+	\end{array}\right ]^{\mathrm{T}}
 	\left \{\begin{array}{c}
 		\widehat{\textbf{u}}^e \\ \widehat{\textbf{v}}^e \\
 		\widehat{\textbf{w}}^e \\ \widehat{\boldsymbol{\varphi}}_x^e \\
@@ -33,12 +33,13 @@ First, the displacement vector is transformed from the global to local coordinat
 	\end{array}\right \}_g,
 	\label{eq:d_local}
 \end{eqnarray}
-where \(\textbf{V}^e_1\),\(\textbf{V}^e_2\) and \(\textbf{V}^e_3\) are direction cosines of the core element. Then, internal forces are calculated according to guideline from Section \ref{sec:gpu} and transformed to a global coordinate system:
+\nomtypeD[vector_cos]{\(\mathcal{V}^e_1,\,\mathcal{V}^e_2,\,\mathcal{V}^e_3\)}{Direction cosines}{-}%
+where \(\mathcal{V}^e_1\),\(\mathcal{V}^e_2\) and \(\mathcal{V}^e_3\) are direction cosines of the core element. Then, internal forces are calculated according to guideline from Section \ref{sec:gpu} and transformed to a global coordinate system:
 \begin{eqnarray}
 	\left\{\textbf{F}_{int}\right\}^e_g =
 	\left [\begin{array}{ccccc}
-		\textbf{V}^e_1, & \textbf{V}^e_2, & \textbf{V}^e_3, & \textbf{0} & \textbf{0} \\
-		\textbf{0} & \textbf{0} & \textbf{0} & \textbf{V}^e_1, & \textbf{V}^e_2
+		\mathcal{V}^e_1, & \mathcal{V}^e_2, & \mathcal{V}^e_3, & \textbf{0} & \textbf{0} \\
+		\textbf{0} & \textbf{0} & \textbf{0} & \mathcal{V}^e_1, & \mathcal{V}^e_2
 	\end{array}\right ]
 	\left \{\begin{array}{c}
 		\textbf{F}^1_{int} \\
@@ -50,7 +51,7 @@ where \(\textbf{V}^e_1\),\(\textbf{V}^e_2\) and \(\textbf{V}^e_3\) are direction
 	\label{eq:f_global}
 \end{eqnarray}
 
-Additionally, a part of the mass matrix accounted for rotary inertia has to be transformed, and, in contrast to the vector of internal forces, this has to be done only once in pre-processing as follows:
+Additionally, a part of the mass matrix accounted for rotational inertia has to be transformed, and, in contrast to the vector of internal forces, this has to be done only once in pre-processing as follows:
 
 \begin{eqnarray}
 	\textbf{J}_g=\left [ 
@@ -61,13 +62,13 @@ Additionally, a part of the mass matrix accounted for rotary inertia has to be t
 	\end{array}
 	\right ]
 	=\left[\begin{array}{ccc}
-		\textbf{V}_1, \textbf{V}_2, \textbf{V}_3 \end{array}\right ]^T
+		\mathcal{V}_1, \mathcal{V}_2, \mathcal{V}_3 \end{array}\right ]^{\mathrm{T}}
 	\,\textbf{J}_l\,
 	\left[\begin{array}{ccc}
-		\textbf{V}_1, \textbf{V}_2, \textbf{V}_3 \end{array}\right ].
+		\mathcal{V}_1, \mathcal{V}_2, \mathcal{V}_3 \end{array}\right ].
 	\label{eq:inertia}
 \end{eqnarray}
-
+\nomtypeR[inertia]{$\textbf{J}$}{Mass moment of inertia matrix}{-}{\unit{\kg\cubic\metre}}%
 As the matrix becomes non-diagonal after transformation, some approximation is necessary.
 Surana analysed a lumped mass matrix with non-zero inertia for shell elements \cite{surana1980transition}.
 He presented several formulations for a transformed mass matrix to zero off-diagonal values without affecting the results appreciably.

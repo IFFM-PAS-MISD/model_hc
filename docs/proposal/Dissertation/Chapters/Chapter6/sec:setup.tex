@@ -29,20 +29,24 @@ The \ac{sldv} setup is presented in Fig.~\ref{fig:sldv}.
 
 The \ac{pzt} elastic wave generation and acquisition system is used to measure the voltage changes of transducers due to their mechanical deformation.
 It is a point measurement at the point of sensor placement.
-The following instruments are required to make the measurements: waveform generator to prepare signal, amplifier to strengthen the excitation and recording signals, oscilloscope and central management unit.
+A data management unit is responsible for executing prepared tasks and collecting data recorded during measurements.
+An arbitrary waveform generator is the source of the low voltage signal, which feeds the lamb wave detection system and high voltage amplifier.
+The amplified signal is intended for the actuator to excite a wave in the sample.
+The lamb wave detection system collects the registered signal by the sensor. 
+Then it is supplied to an oscilloscope via a splitter.
 The setup used for measurements is shown in Fig.~\ref{fig:pzt_setup}.
 \begin{figure}[t]
 	\begin{center}
 		\includegraphics[width=0.95\textwidth]{Chapter_6/pzt_setup}
 	\end{center}
-	\caption{The \acf{pzt} setup,(\textbf{a}) elastic wave generation and acquisition instruments:  1 - data management unit - arbitrary wave generator, 2 - oscilloscope - amplifier, 3 , 4 , (\textbf{b}) the specimen held in the environmental chamber.}
+	\caption{The \acf{pzt} setup, (\textbf{a}) the elastic wave generation and acquisition instruments:  DMU - the data management unit, G1,G2 - the arbitrary wave generator, O - the oscilloscope, HVA - the high voltage amplifier, LWDS - the Lamb Wave Detection Systems, (\textbf{b}) the specimen with the pair of \ac{pzt}.}
 	\label{fig:pzt_setup}
 \end{figure}
 
 Both methods have some advantages and disadvantages, which are given in the Table~\ref{tab:method_comp}.
 \begin{table}[H]
 	\small
-	\tabcolsep=0.25cm
+	\tabcolsep=0.2cm
 	%\centering
 	\caption{\label{tab:method_comp}Comparison of methods for elastic wave propagation measurements.}
 	\begin{tabular}{p{0.1\textwidth}>{\raggedright}p{0.4\textwidth}>{\raggedright \arraybackslash}p{0.4\textwidth}}
@@ -51,7 +55,7 @@ Both methods have some advantages and disadvantages, which are given in the Tabl
 		\midrule
 		\multirow{5}{*}{\ac{sldv}}   & \tabitem automatic full-field scanning & \tabitem high-cost equipment\\ 
 		& \tabitem non-contact measurement & \tabitem long measurement time\\
-		& \tabitem \ac{3d} velocity vector (optional)& \tabitem special surface treatment is needed to avoid scattering of the laser beam, e.g. by application of retroreflective tape\\
+		& \tabitem \ac{3d} velocity vector (optional)& \tabitem special surface treatment is needed to avoid scattering of the laser beam, e.g. by application of retro-reflective tape\\
 		& & \tabitem high signal-to-noise ratio\\
 		& & \tabitem relatively large space need for measurements \\
 		& & \tabitem special sample mounting for repeatability of measurements\\
@@ -71,7 +75,12 @@ The adhesive curing took 48 hours under a distributed load at ambient temperatur
 The subject of the parametric study was the effect of the disbond size on the propagating \ac{gw}.
 After a reference measurement was made on an intact sample, several measurements were taken for the subsequent damage introduced on the same specimen.
 The damage width varied in range \(\mathrm{w_d}=\left [10, 30, 50, 70, 100, 120 \right ]\) \unit{\mm}, while its fixed length was \(\mathrm{l_d} = 175\) \unit{\mm}.
+\nomtypeR[w_dam]{\(w_d\)}{Damage width}{-}{\unit{\metre}}%
+\nomtypeR[l_dam]{\(l_d\)}{Length width}{-}{\unit{\metre}}%
+The \(N_c=5\) cycle Hann windowed signal at carrier frequencies \(f_c=[50,100,150]\) \unit{\kHz} was used in the measurements.
 
-The \(N_c=5\) cycle Hann windowed signal at carrier frequencies \(f_c=[50,100,150]\) \unit{\kHz} was generated using an arbitrary waveform generator (National Instruments, PXI 5413).
-The signal was amplified 3.5 times and supplied to the \ac{pzt} actuator (Noliac, NCE51) by the emission/reception unit (LWDS, Cedrat Technologies).
-Each measurement was conducted under a temperature of 20\unit{\degreeCelsius} controlled in the environmental chamber (DM 600C, Angelantoni Test Technologies Srl) and averaged 20~times to improve the signal-to-noise ratio.
+The data management unit is used to pre-processing a scenario of measurements, managing them, and saving the collected results.
+generated using an arbitrary waveform generator.
+The arbitrary wave generator (National Instruments, PXI 1095) generates the low-voltage signal from where it feeds the the Lamb waves detection system (LWDS, Cedrat Technologies) and the actuator (Noliac, NCE51) after 3.5 times amplification by the  amplifier (Krohn-Hite Corporation, model 7500).
+Voltage of the the sensor (Noliac, NCE51) is measured by the oscilloscope (National Instruments, PXI 1095) through the LWDS.
+Each measurement was conducted under a temperature of 20\unit{\degreeCelsius} controlled in the environmental chamber (Angelantoni Test Technologies, DM 600C) and averaged 20~times to improve the signal-to-noise ratio.

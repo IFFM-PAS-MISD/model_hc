@@ -4,46 +4,36 @@
 
 %% SECTION CONTENT ////////////////////////////////////////////////////////////////////////////////////
 In addition to the referenced \ac{madif} obtained for +20\unit{\degreeCelsius}, a study of wave propagation at temperatures T=\(\left[-10,\,0,\,+10,\,+30,\,+40,\,+50\right]\)\unit{\degreeCelsius} was carried out.
-To determined temperature-dependent simulations of \ac{gw} propagation in \ac{hsc}, the material properties of the components were determined according to the methodology described in section~\ref{sec:temp}.
+To determine temperature-dependent \ac{gw} propagation in \ac{hsc} using simulations, the material properties of the components were specified according to the methodology described in section~\ref{sec:temp}.
 
-The temperature effect on the \acp{madif} is developed based on the \ac{fcgm} and removed core cells as a damage model.
+The temperature effect on the \acp{madif} is developed based on the \ac{fcgm} and removed interface elements as a damage model.
 The analysis used both \acp{di}, i.e. the \ac{rmsd} and the \ac{cc}, for the 100 \unit{\kHz} full-length signal.
-The signal obtained for a healthy sample at each temperature was taken as the reference signal for each case.
+The signals obtained for a healthy sample at considered temperatures were taken as the reference signals for each case.
 \begin{table}[!tbh]
 	\small
 	\tabcolsep=0.25cm
 	\centering
-	\caption{\label{tab:fit_F_err_temp} The time-dependent coefficients and errors of the function from Eq.~(\ref{eq:function_1}) fitted to \acp{di} based on the \acf{fcgm} - core.}
-\begin{tabular}{c|cc|cc}
-	\toprule \multirow{3}{*}{T \unit{\degreeCelsius}} & \multicolumn{2}{c|}{\ac{rmsd}} & \multicolumn{2}{c}{\ac{cc}}\\
-	&\multicolumn{2}{c|}{100 \unit{\kHz}}&\multicolumn{2}{c}{100 \unit{\kHz}}\\
-	& \(a_i\) &  \(\delta^{\mathrm{fit}}\) \% & \(a_i\) & \(\delta^{\mathrm{fit}}\) \%\\
-	\midrule
-	 \multirow{3}{*}{0} & 24.72 & \multirow{3}{*}{\textcolor{green}{1.43}}& 123.8 & \multirow{3}{*}{\textcolor{green}{0.48}}\\
-	 & 90.62 & & 404.2 &\\
-	 & 0.57 & & 0.67 &\\
-	\midrule
-	\multirow{3}{*}{+10} & 6.37 & \multirow{3}{*}{\textcolor{green}{1.31}}& 42.81 & \multirow{3}{*}{\textcolor{green}{0.43}}\\
-	& 24.91 & & 208.3 &\\
-	& 0.67 & & 0.78 &\\
-	\midrule
-	\multirow{3}{*}{+30} & 3.62 & \multirow{3}{*}{\textcolor{green}{1.32}}& 3.10 & \multirow{3}{*}{\textcolor{green}{0.42}}\\
-	& 17.38 & & 41.95 &\\
-	& 0.71 & & 0.92 &\\
-	\midrule
-	\multirow{3}{*}{+40} & 2.43 & \multirow{3}{*}{\textcolor{green}{1.38}}& 0.95 & \multirow{3}{*}{\textcolor{green}{0.44}}\\
-	& 19.76 & & 22.09 &\\
-	& 0.72 & & 0.94 &\\
-	\bottomrule
-\end{tabular}
+	\caption{\label{tab:fit_F_err_temp} The coefficients of the function from Eq.~(\ref{eq:function_1}) fitted to the \acfp{madif} based on the \acf{fcgm} - interface at 100 \unit{\kHz} for various ambient temperature.}
+	\begin{tabular}{cccccccc}
+		\toprule
+		{T \unit{\degreeCelsius}} & Eq.~(\ref{eq:function_1}) & -10 & 0 & +10 & +30 & +40 & +50\\
+		\midrule
+		\multirow{3}{*}{\ac{rmsd}} & $a_1$ & 11.116 & 10.881 & 13.198 & 11.371 & 9.487 & 9.798\\
+		 & $a_2$ & 29.874 & 31.651 & 36.911 & 34.972 & 32.009 & 34.369\\
+		 & $a_3$ & 0.661 & 0.656 & 0.642 & 0.675 & 0.704 & 0.715\\
+		\midrule
+		\multirow{3}{*}{\ac{cc}} & $a_1$ & 28.002 & 19.543 & 24.902 & 8.472 & 4.831 & 4.104\\
+		& $a_2$ & 182.741 & 145.820 & 167.862 & 92.602 & 70.548 & 70.889\\
+		& $a_3$ & 0.847 & 0.866 & 0.852 & 0.909 & 0.932 & 0.942\\
+		\bottomrule
+	\end{tabular}
 \end{table}
 
 The temperature-dependent \acp{madif} based on \ac{rmsd} and \ac{cc} are presented in Fig.\ref{fig:madif_temp_rmsd} and Fig.~\ref{fig:madif_temp_cc}, respectively.
 It is observed that the variation in ambient temperature condition can substantially influence the \ac{madif} values.
-From Fig.~\ref{fig:madif_temp_rmsd}, it can be seen that the errors increase the higher the absolute difference between ambient and reference temperature.
+From Fig.~\ref{fig:madif_temp_rmsd}, it can be seen that the numerical results are in good agreement with the experimental measurements for the ambient temperature over 0\unit{\degreeCelsius}.
+The results obtained at 0\unit{\degreeCelsius} and -10\unit{\degreeCelsius} have a much larger error because the model-based functions tend to have a lower value than the experimental ones.
 Therefore, the assumed linear model of the temperature-dependent material properties of the components used in the simulation is not sufficiently accurate with the real object.
-It is particularly evident for temperatures of 0\unit{\degreeCelsius} and -10\unit{\degreeCelsius}, where the \ac{madif} for damage size more than 25 \unit{\mm} does not reach the values obtained experimentally.
-The best results were achieved for a temperature of +10\unit{\degreeCelsius}, for which the absolute error does not exceed 2 mm over the full range of damage sizes. 
 \begin{figure}[!tbh]
 	\begin{center}
 		\includegraphics[width=0.95\textwidth]{Chapter_8/MADIF_temp_RMSD}
@@ -58,3 +48,4 @@ The best results were achieved for a temperature of +10\unit{\degreeCelsius}, fo
 	\caption{The \acf{madif} and the \acf{edif} based on the \acf{cc} 100 \unit{\kHz}.}
 	\label{fig:madif_temp_cc}
 \end{figure}
+In the case of the \ac{cc}, the best results were achieved at temperature between +10\unit{\degreeCelsius} and +40\unit{\degreeCelsius}. 

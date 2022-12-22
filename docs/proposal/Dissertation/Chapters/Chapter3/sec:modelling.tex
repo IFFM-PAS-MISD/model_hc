@@ -23,19 +23,19 @@ Recently, the simulations of the wave propagation in the \acp{hsc} have been con
 While the \ac{fem} based modelling of \ac{gw} requires a significant amount of memory and is time-consuming, this method becomes inefficient in the case of \ac{fcgm}.
 Kudela increased the computational efficiency with the model based on the time-domain \ac{sem} \cite{kudela2016parallel}.
 In addition, the algorithm has been adapted for parallel computing on the \ac{gpu}, making the simulations fourteen times faster than on the \ac{cpu}.
-However, this approach has two major drawbacks. One is employing solid elements with three \acp{dof} at each node to model the core walls. As a result, a \unit{179 x 160} \unit{\square\mm} sandwich panel has over 1.5 million \acp{dof}.
+However, this approach has two major drawbacks. One is employing solid elements with three \acp{dof} at each node to model the core walls. As a result, a \numproduct{179 x 160} \unit{\square\mm} sandwich panel has over 1.5 million \acp{dof}.
 Secondly, no \ac{pzt} sensors were considered in the simulation, so a concentrated force was used to generate the \ac{gw}.
 To attach the transducers, the grids of the sensor and the host plate must coincide or use an interface between them. 
 
-The disadvantages mentioned above were motivation to propose a new model of the \ac{hsc}.
+The disadvantages of existing modelling methods, motivated me to propose a new model of the \ac{hsc}.
 In the proposed model, the core of the plate consists of \ac{2d} elements, one per cell wall.
 Since the neutral plane of the elements is oriented differently concerning the global coordinate system, the local displacements vector has to be transformed accordingly.
-The skin model will be developed according to the laminate theory presented by Vinson and Sierakowski \cite{vinson1993behavior}.
+The skin model is developed according to the laminate theory presented by Vinson and Sierakowski \cite{vinson1993behavior}.
 In addition, two interfaces are used to connect the individual \ac{hsc} components.
 One with the non-matching grid was developed to join the sensors with the panel.
 It was done with the novel method based on the element shape functions described in Chapter \ref{ch:sem}.
 The core and skin connection was implemented with a perfect matching interface.
-To the best of the author's knowledge, the presented model has not been implemented yet for the \acp{hsc}.
+To the best of my knowledge, the presented model has not been implemented yet for the \acp{hsc}.
 
 The parametric study conducted in the dissertation leads to the determination of a \ac{madif}, which defines the influence of the composite defect size on wave propagation.
 In this case, the defect is assumed to be a disbond between the skin and the core.

@@ -17,7 +17,9 @@ According to the first-order shear deformation theory~\cite{reissner1945effect, 
 		\textbf{w}_0^e(\xi,\eta) \\
 	\end{array} \right\},
 \end{eqnarray}
-where \(\textbf{u}_0^e\), \(\textbf{v}_0^e\) and \(\textbf{w}_0^e\) are nodal displacements, \(\boldsymbol{\varphi}_x^e\), \(\boldsymbol{\varphi}_y^e\) are the rotations of the normal to the mid-plane with respect to the axes \textit{x} and \textit{y}, respectively. They are defined as:
+\nomtypeR[uvw]{$u,\,v,\,w$}{Displacement in x-, y- and z-axis direction}{-}{\unit{\metre}}%
+\nomtypeG[phi]{$\varphi^e$}{Element rotation of the normal to the mid-plane}{-}{\unit{\radian}}%
+where \(\textbf{u}_0^e\), \(\textbf{v}_0^e\) and \(\textbf{w}_0^e\) are element displacements, \(\boldsymbol{\varphi}_x^e\), \(\boldsymbol{\varphi}_y^e\) are the element rotations of the normal to the mid-plane with respect to the axes \textit{x} and \textit{y}, respectively. They are defined as:
 \begin{eqnarray}
 	\left \{\begin{array}{c}
 		\textbf{u}_0^e(\xi,\eta) \\
@@ -38,9 +40,9 @@ where \(\textbf{u}_0^e\), \(\textbf{v}_0^e\) and \(\textbf{w}_0^e\) are nodal di
 \end{eqnarray}
 where $\widehat{\textbf{d}}^e$ is a nodal displacements vector of the element $e$.
 
-The nodal bending strain--displacement relations are given in the form:
+The element bending strain--displacement relations are given in the form:
 \begin{eqnarray}
-	\boldsymbol{\epsilon}_b^e =
+	\boldsymbol{\varepsilon}_b^e =
 	\textbf{B}_b^e\widehat{\textbf{d}}^e = 
 	\left [
 	\begin{array}{ccccc}
@@ -60,9 +62,9 @@ The nodal bending strain--displacement relations are given in the form:
 	\end{array} \right\}.
 \end{eqnarray}
 
-The nodal shear strain--displacement relations are given in the form:
+The element shear strain--displacement relations are given in the form:
 \begin{eqnarray}
-	\boldsymbol{\epsilon}_s^e =
+	\boldsymbol{\varepsilon}_s^e =
 	\textbf{B}_s^e\widehat{\textbf{d}}^e = 
 	\left [
 	\begin{array}{ccccc}
@@ -73,11 +75,11 @@ The nodal shear strain--displacement relations are given in the form:
 		\widehat{\textbf{u}}_0^e \\
 		\widehat{\textbf{v}}_0^e \\
 		\widehat{\textbf{w}}_0^e \\
-		\boldsymbol{\varphi}_x^e \\
-		\boldsymbol{\varphi}_y^e
+		\widehat{\boldsymbol{\varphi}}_x^e \\
+		\widehat{\boldsymbol{\varphi}}_y^e
 	\end{array} \right\}.
 \end{eqnarray}
-
+\nomtypeD[Eps]{$\boldsymbol{\varepsilon}$}{Strain tensor}{\(\textbf{B}\,\textbf{d}\)}%
 The mass and stiffness matrices for \ac{2d} elements are defined as:
 \begin{eqnarray}
 	\textbf{M}_{dd}^e & = &
@@ -87,28 +89,34 @@ The mass and stiffness matrices for \ac{2d} elements are defined as:
 		0 & \textbf{J}^e
 	\end{array}
 	\right] =
-	\int_{\Omega_e}\textbf{N}^T\rho
+	\int_{\Omega^e}\textbf{N}^{\mathrm{T}}\rho
 	\left [
 	\begin{array}{ccccc}
-		h & 0 & 0 & 0 & 0 \\
-		& h & 0 & 0 & 0 \\
-		&  & h & 0 & 0\\
-		&  &  & \frac{h^3}{12} & 0\\
-		Sym. &  &  &  & \frac{h^3}{12}
+		h^e & 0 & 0 & 0 & 0 \\
+		& h^e & 0 & 0 & 0 \\
+		&  & h^e & 0 & 0\\
+		&  &  & \frac{{h^e}^3}{12} & 0\\
+		Sym. &  &  &  & \frac{{h^e}^3}{12}
 	\end{array} \right]
-	\textbf{N} \diff\Omega_e,\\
-	\textbf{K}_{dd}^e & = & \int_{\Omega_e}{\textbf{B}_b^e}^T
+	\textbf{N} \diff\Omega^e,\\
+	\textbf{K}_{dd}^e & = & \int_{\Omega^e}{\textbf{B}_b^e}^{\mathrm{T}}
 	\left[
 	\begin{array}{cc}
-		\textbf{A} & \textbf{B}\\
-		\textbf{B} & \textbf{D}
+		\check{\textbf{A}} & \check{\textbf{B}}\\
+		\check{\textbf{B}} & \check{\textbf{D}}
 	\end{array} \right]
-	\textbf{B}_b^e \diff \Omega_e+\int_{\Omega_e}{\textbf{B}_s^e}^T\hat{\textbf{A}}\textbf{B}_s^e\diff \Omega_e,
+	\textbf{B}_b^e \diff \Omega^e+\int_{\Omega^e}{\textbf{B}_s^e}^{\mathrm{T}}\hat{\textbf{A}}\textbf{B}_s^e\diff \Omega^e,
 \end{eqnarray}
-where \(h=h_t+h_b\) is the element thickness, while \(h_{t(b)}\) is the distance between mid-plane and top (bottom) surface of the element, and \(\Omega_e\) is the element area:
+\nomtypeR[B]{$\textbf{B}$}{Strain-displacement matrix}{-}{\unit{\per\meter}}%
+\nomtypeR[he]{$h^e$}{Element thickness}{-}{\unit{\meter}}%
+\nomtypeG[Omega]{$\Omega^e$}{Element area}{-}{\unit{\square\meter}}%
+where \(h^e=h_t+h_b\) is the element thickness, while \(h_{t(b)}\) is the distance between mid-plane and top (bottom) surface of the element, and \(\Omega_e\) is the element area.
+The superscript T denotes a transpose matrix.
+The sub-matrices \(\check{\textbf{A}},\,\hat{\textbf{A}},\,\check{\textbf{B}}\,\mathrm{and}\,\check{\textbf{D}}\) are defined as:
 \begin{eqnarray}
-	\textbf{A} & = & \textbf{c}_{ij}\,(h_t-h_b),\qquad i,j=1,2,6\nonumber,\\
-	\textbf{B} & = & 1/2\, \textbf{c}_{ij}\,(h_t^2-h_b^2),\qquad i,j=1,2,6\nonumber,\\
-	\textbf{D} & = & 1/3\, \textbf{c}_{ij}\,(h_t^3-h_b^3),\qquad i,j=1,2,6\nonumber,\\
-	\hat{\textbf{A}} & = & 5/4\, \textbf{c}_{ij}\,\left[h_t-h_b-4/3\left(h_t^3-h_b^3\right)/h^2\right],\qquad i,j=4,5.
+	\check{\textbf{A}} & = & \textbf{c}_{ij}\,(h_t-h_b),\qquad i,j=1,2,6\nonumber,\\
+	\check{\textbf{B}} & = & \textbf{c}_{ij}\,(h_t^2-h_b^2)/2,\qquad i,j=1,2,6\nonumber,\\
+	\check{\textbf{D}} & = & \textbf{c}_{ij}\,(h_t^3-h_b^3)/3,\qquad i,j=1,2,6\nonumber,\\
+	\hat{\textbf{A}} & = & 5/4\,\textbf{c}_{ij}\,\left[h_t-h_b-4/3\left(h_t^3-h_b^3\right)/{h^e}^2\right],\qquad i,j=4,5.
 \end{eqnarray}
+\nomtypeR[c]{$\textbf{c}$}{Elasticity tensor}{-}{\unit[per-mode = symbol]{\newton\per\square\meter}}%

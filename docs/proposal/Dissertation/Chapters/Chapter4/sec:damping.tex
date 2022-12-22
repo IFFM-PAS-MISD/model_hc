@@ -10,6 +10,8 @@ Rayleigh damping model is defined as \cite{wandowski2017guided}:
 	\textbf{D}_{dd}^e = \alpha_M \textbf{M}_{dd}^e + \beta_K \textbf{K}_{dd}^e,
 	\label{eq:damping}
 \end{eqnarray}
+\nomtypeD[alpha]{$\alpha_M$}{Mass-proportionality damping coefficient}{-}%
+\nomtypeD[beta]{$\beta_K$}{Stiffness-proportionality damping coefficient}{-}%
 where \(\alpha_M\) and \(\beta_K\) are the mass- and stiffness- proportionality coefficients.
 In presented model, \(\beta_K\) was assumed equal to zero to ensure that matrix \(\textbf{D}_{dd}\) remains diagonal \cite{schulte2011simulation, wandowski2017guided}.
 This assumption gives a good approximation when considering a single mode and a specific frequency. 

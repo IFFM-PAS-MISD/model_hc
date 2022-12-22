@@ -12,6 +12,8 @@ The nodes are localized on the endpoint of an interval, \(\xi\in[-1,1]\), and th
 	(1-\xi^2)P'_{p-1}(\xi)=0.
 	\label{eq:nodes}
 \end{eqnarray}
+\nomtypeD[x]{\( \xi, \eta, \zeta \)}{local coordinates}{-}
+\nomtypeD[w]{\(w\)}{Weighting factor}{$\frac{2}{p(p-1)\left(P_{p-1}(\xi)\right)^2}$}
 The approximation of an integral over the elements is achieved according to \ac{gll} rule at points coinciding with the element nodes, 
 and the weights \(w=w(\xi)\) calculated as:
 \begin{eqnarray}
@@ -27,6 +29,7 @@ The shape functions and the weights for \ac{2d} or \ac{3d} elements are obtained
 	\end{array}
 \label{eq:shape_functions}
 \end{eqnarray}
+\nomtypeD[N]{$N$}{Shape function}{-}%
 \begin{eqnarray}
 	\begin{array}{rcl}
 	w(\xi,\eta) & = & w(\xi)\otimes w(\eta),\\
@@ -45,9 +48,14 @@ The shape functions and the weights for \ac{2d} or \ac{3d} elements are obtained
 The elementary equations of motion are defined as:
 \begin{eqnarray}
 	\label{eq:motion}
-	\textbf{M} \ddot{\textbf{d}} + \textbf{D} \dot{\textbf{d}} + \textbf{K} \textbf{d} = \textbf{F}_{ext},
+	\textbf{M} \ddot{\textbf{d}} + \textbf{D} \dot{\textbf{d}} + \textbf{K} \textbf{d} = \textbf{f}_{ext},
 \end{eqnarray}
-where \textbf{d} is the displacement vector; \textbf{M}, \textbf{D} and \textbf{K} are the structural mass, damping and stiffness matrices, respectively; \textbf{F}$_{ext}$ is the external forces vector; \((\dot{\ })=\frac{\partial}{\partial t}\). 
+\nomtypeR[M]{$\textbf{M}$}{Mass matrix}{-}{\unit{\kg}}%
+\nomtypeR[D]{$\textbf{D}$}{Damping matrix}{-}{\unit[per-mode = symbol]{\newton\per\second}}%
+\nomtypeR[K]{$\textbf{K}$}{Stiffness matrix}{-}{\unit[per-mode = symbol]{\newton\second\per\metre}}%
+\nomtypeR[force_ext]{$\textbf{f}_{ext}$}{External force vector}{-}{\unit{\newton}}%
+\nomtypeR[d]{$\textbf{d}$}{Displacements vector}{-}{\unit{\meter}}%
+where \textbf{d} is the displacements vector; \textbf{M}, \textbf{D} and \textbf{K} are the structural mass, damping and stiffness matrices, respectively; \textbf{F}$_{ext}$ is the external forces vector; \((\dot{\ })=\frac{\partial}{\partial t}\).
 The construction of the structural matrices is similar to the classical approach in \ac{fem}.
 
 The most significant advantage of this method is the fast convergence of the equation of motion.

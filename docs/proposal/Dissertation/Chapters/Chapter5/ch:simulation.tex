@@ -3,7 +3,7 @@
 % brackets will appear in the main thesis.
 
 %% CHAPTER HEADER /////////////////////////////////////////////////////////////////////////////////////
-\chapter[Numerical Simulation of the \acs{gw} in the \acs{hsc}]{Numerical Simulation of the Guided Waves in the Honeycomb Sandwich Composite}
+\chapter[Pre-proccessing for Numerical Simulation of the \acs{gw} in the \acs{hsc}]{Pre-processing for Numerical Simulation of the Guided Waves in the Honeycomb Sandwich Composite}
 \label{ch:simulation}
 
 %% CHAPTER INTRODUCTION ///////////////////////////////////////////////////////////////////////////////
@@ -14,16 +14,22 @@ It is shown how the individual components were meshed to optimise computer opera
 In the chapter, two disbonds models are presented; in the first model, the core cells were removed from the damaged area, and in the second model, the interface elements were removed.
 %% INCLUDE SECTIONS ///////////////////////////////////////////////////////////////////////////////////
 
+\input{Chapters/Chapter5/sec:excitation}
 \input{Chapters/Chapter5/sec:sample}
 \input{Chapters/Chapter5/sec:honeycomb}
 \input{Chapters/Chapter5/sec:homogenised}
-\input{Chapters/Chapter5/sec:excitation}
 \input{Chapters/Chapter5/sec:disbond}
-%\input{Chapters/Chapter5/sec:conclusionsSimul}
 
 \section{Conclusions}
 \label{sec:conclusionsSimul}
 
-This chapter prepares the full model configuration for computer simulations.
+This chapter describes the full model configuration for computer simulations.
 The mesh generation for each component, the excitation signals, and the description of damage modelling have been included.
 Besides, the \ac{hcgm} is presented for comparison with the \ac{fcgm}.
+
+An essential issue in the numerical model is the convergence of the solution in both spatial and temporal.
+Poorly chosen model parameters cause significant errors in the results.
+In the case of a time increment set above a critical value, calculations immediately tend to infinity.
+The size and order of the spectral element should be chosen depending on the smallest propagating wavelength in the analyzed structure.
+In turn, the smallest distance between nodes affects the critical value of the time step.
+All this has a consequence on the duration of computer simulations.

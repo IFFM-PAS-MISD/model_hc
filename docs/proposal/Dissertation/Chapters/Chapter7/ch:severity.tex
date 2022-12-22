@@ -5,9 +5,11 @@
 %% CHAPTER INTRODUCTION ///////////////////////////////////////////////////////////////////////////////
 A series of computer simulations were performed for different bond sizes for both the \ac{fcgm} and the \ac{hcgm}.
 Two damage models were considered, i.e., the removed core cells  and no coupling between the core and the adhesive layer.
-The electrical voltage signal captured at the sensor electrode was then analyzed to determine \ac{madif}.
+The electrical voltage signal captured at the sensor electrode was then analyzed to determine the \ac{madif}.
 Several \acfp{di} were used to determine the effect of damage on the propagation waveform.
-Of all the indices, the one with the lowest percentage error to experimental measurements will be selected to determine the \ac{madif}.
+Of all the indices, those that are monotonic in the assumed damage size range and with the most significant change in index value will be selected for determining the \ac{madif}.
+Then, the results are compared with the corresponding indices obtained for experimental measurements.
+Lastly, those with the lowest error are chosen for the \ac{madif}.
 %% INCLUDE SECTIONS ///////////////////////////////////////////////////////////////////////////////////
 
 \input{Chapters/Chapter7/sec:di}
@@ -19,7 +21,9 @@ In this chapter, the \ac{madif} was determined by which the milestone of the dis
 For this purpose, six \acp{di} were analysed for two different models of the panel core and two models of the damage.
 
 Among the six indices, the best two \acp{di} were selected to determine the \ac{madif} function.
-Their characteristics are monotonically over the entire damage range and a significant change in the index value for the most extensive damage.
-The numerical results are in good agreement with the experimental measurements.
-The \ac{hcgm} proved inadequate for determining the \ac{madif}, as no \ac{di} reached an mean error of less than 20\% relative to the experimental measurements.
-It demonstrates the confirmation of the thesis that it is possible to determine the damage severity function in \ac{hsc} by employing numerical simulations.
+Their characteristics are monotonic over the entire damage range and a significant change in the index value for the most extensive damage.
+The numerical results are in excellent agreement with the experimental measurements.
+The \ac{hcgm} proved inadequate for determining the \ac{madif}, as no \ac{di} reached an mean error of more than 20\% relative to the experimental measurements.
+
+The presented analysis demonstrates the confirmation of the thesis that it is possible to determine the damage severity function in \ac{hsc} by employing numerical simulations.
+It concerns a rectangular defect between the sensors, so that it can be the basis for further studies with various shapes and positions of damage.

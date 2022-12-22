@@ -26,7 +26,7 @@ where \(\widehat{\textbf{u}}^e\), \(\widehat{\textbf{v}}^e\) and
 
 The nodal strain--displacement relations are given as \cite{kudela20093d}:
 \begin{eqnarray}
-	\boldsymbol{\epsilon}^e=\textbf{B}_{d}^e\widehat{\textbf{d}}^e=
+	\boldsymbol{\varepsilon}^e=\textbf{B}^e\widehat{\textbf{d}}^e=
 	\left [
 	\begin{array}{ccc}
 		\frac{\partial N^e}{\partial x} & 0 & 0\\
@@ -42,9 +42,10 @@ The nodal strain--displacement relations are given as \cite{kudela20093d}:
 		\widehat{\textbf{w}}^e
 	\end{array} \right\}.
 \end{eqnarray}
-The formulae of the structural matrices for 3D elements are:
+The formulae of the structural matrices for \ac{3d} elements are:
 \begin{eqnarray}
-	\textbf{M}_{dd}^e & = & \int_{V_e}\textbf{N}^T\rho \textbf{N} \diff V_e,\\
-	\textbf{K}_{dd}^e & = & \int_{V_e}{\textbf{B}_d^e}^T\textbf{C}\textbf{B}_d^e \diff V_e,
+	\textbf{M}_{dd}^e & = & \int_{V^e}\textbf{N}^{\mathrm{T}}\rho \textbf{N} \diff V^e,\\
+	\textbf{K}_{dd}^e & = & \int_{V^e}{\textbf{B}_d^e}^{\mathrm{T}}\textbf{c}\textbf{B}_d^e \diff V^e,
 \end{eqnarray}
-where \textbf{C} is the stiffness tensor, \(\rho\) is mass density, and \(V_e\) is the element volume.
+\nomtypeR[Ve]{$V^e$}{Element volume}{-}{\unit{\cubic\meter}}%
+where \textbf{c} is the elasticity tensor, \(\rho\) is mass density, and \(V_e\) is the element volume.

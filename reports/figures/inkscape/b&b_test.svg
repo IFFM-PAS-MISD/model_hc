@@ -153,9 +153,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.98994949"
-     inkscape:cx="226.58138"
-     inkscape:cy="-24.234304"
+     inkscape:zoom="1.4"
+     inkscape:cx="336.33172"
+     inkscape:cy="17.108521"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -393,7 +393,9 @@
          id="tspan5364"
          x="118.87351"
          y="264.68304"
-         style="font-style:italic;stroke-width:0.26458332">v</tspan></text>
+         style="font-style:italic;stroke-width:0.26458332">v<tspan
+   style="font-size:65%;baseline-shift:sub"
+   id="tspan14013">p</tspan></tspan></text>
     <text
        id="text5374"
        y="258.16296"
@@ -405,8 +407,8 @@
          x="93.832588"
          id="tspan5372"
          sodipodi:role="line">v<tspan
-   style="font-size:64.99999762%;baseline-shift:sub"
-   id="tspan5380">-</tspan></tspan></text>
+   style="font-size:65%;baseline-shift:sub"
+   id="tspan14009">1</tspan></tspan></text>
     <text
        xml:space="preserve"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.52777767px;line-height:1.25;font-family:'TeX Gyre DejaVu Math';-inkscape-font-specification:'TeX Gyre DejaVu Math';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
@@ -418,8 +420,8 @@
          x="143.91443"
          y="264.30508"
          style="font-style:italic;stroke-width:0.26458332">v<tspan
-   style="font-style:normal;font-size:64.99999762%;baseline-shift:sub"
-   id="tspan5382">+</tspan></tspan></text>
+   style="font-size:65%;baseline-shift:sub"
+   id="tspan14011">2</tspan></tspan></text>
     <path
        style="fill:none;stroke:#000000;stroke-width:0.065;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#Arrow1Mend)"
        d="m 119.13539,262.47212 h 2.10475"

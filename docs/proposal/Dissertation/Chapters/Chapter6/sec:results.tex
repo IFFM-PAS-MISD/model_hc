@@ -32,8 +32,8 @@ The wave interference observed in the \ac{hcgm} refers to waves reflected only f
 \subsection{\acs{hsc} validation with \acsp{pzt} wave acquisition setup}
 Validation of the honeycomb structure models and a separate \ac{cfrp} plate intended for the \ac{hsc} sample were done by comparing the group velocity and amplitude of the first packet of \ac{s0} and \ac{a0} arriving at the sensor.
 In the Fig.~\ref{fig:signal_exp_raw} are presented examples of the experimentally obtained raw signals for the healthy and damaged samples.
-The raw signals are processed for noise reduction and determine an envelope of the signals.
-The envelope is used to obtain the amplitude and group velocity of the mods for the model validation and will be used in the analytical assessment of damage magnitude.
+The raw signals are processed for noise reduction and next an envelope of the signals is calculated.
+The envelope is used to obtain the amplitude and group velocity of the mods for the model validation and is used in the analytical assessment of damage magnitude.
 \begin{figure}[H]
 	\begin{center}
 		\includegraphics[width=0.95\textwidth]{Chapter_6/signal_exp_raw}
@@ -44,30 +44,25 @@ The envelope is used to obtain the amplitude and group velocity of the mods for 
 
 Signal processing follows the diagram shown in Fig.~\ref{fig:signal_processing}.
 A preliminary step is a conversion of the signals from the time domain to the frequency domain by the \ac{fft}.
-Then, the pass-band filter attenuates the frequencies outside of the range \(0.5f_c-1.5f_c\).
+Then, the pass-band filter attenuates the frequencies is applied in the range \(0.5f_c-1.5f_c\).
 A Butterworth filter of 20th order was used.
-After filtering the signal is again converted to the time domain by the \ac{ifft}.
-Lastly, the envelope of the signal \(e(t)\) is obtained using the Hilbert transform \(\hat{x}(t)\). The definition of both operators given in the book \cite{staszewski2004health} is defined as follows:
-\begin{eqnarray}
-	\hat{x}(t) &=& \frac{1}{\pi}\int_{-\infty}^{+\infty}x(\tau)\frac{1}{t-\tau}\diff\tau,\\
-	e(t) &=& \sqrt{x^2(t)+\hat{x}^2(t)}.
-\end{eqnarray}
+After filtering, the signal is again converted to the time domain by the \ac{ifft}.
+Lastly, the envelope of the signal \(e(t)\) is obtained using Eq. (\ref{eq:envelope}).
 
 \begin{figure}[H]
 	\begin{center}
 		\includegraphics[width=0.95\textwidth]{Chapter_6/signal_processing}
 	\end{center}
-	\caption{Raw signals registered by the sensor in \acf{hsc} for healthy and damage of 90 \unit{\mm} width.}
+	\caption{Raw signals registered by the sensor in \acf{hsc} for healthy state and damage of 90 \unit{\mm} width.}
 	\label{fig:signal_processing}
 \end{figure}
 
-The group velocity is derived from the signal envelope determining of the mode \ac{tof}.
+The group velocity is derived from the signal envelope related to particular Lamb wave mode and its \ac{tof}.
 The \ac{tof} is a difference between the arrival of the maximum amplitude of the envelope of considered mode at the sensor \((\mathrm{T}_1)\) and the half time of the excitation pulse \(\left(\mathrm{T}_0=\frac{1}{2f_m}\right)\).
 Since the distance between the transducers is constant \(l=200\) \unit{\mm}, the group velocity equals:
 \begin{eqnarray}
 	C_g = \frac{\mathrm{ToF}}{l}=\frac{T_1-T_0}{l}.
 \end{eqnarray}
-All the experimental signals were processed with the band-pass filter in the frequency range from \(0.5f_c\) to \(1.5f_c\).
 
 The signal envelopes are shown in Fig.~\ref{fig:single_skin} for single \ac{cfrp} plate, Fig.~\ref{fig:hsc_full} for \ac{fcgm}, and Fig.~\ref{fig:hsc_homo}, from which the velocities and amplitudes of the wave mods were determined.
 \begin{figure}[H]
@@ -92,27 +87,29 @@ The signal envelopes are shown in Fig.~\ref{fig:single_skin} for single \ac{cfrp
 	\label{fig:hsc_homo}
 \end{figure}
 
-For the single \ac{cfrp} plate, Tab. \ref{tab:group_velocity_cfrp} gives the determined velocities and amplitudes of the modes together with the percentage errors defined as:
+For the single \ac{cfrp} plate, Tab. \ref{tab:group_velocity_cfrp} gives the determined velocities and amplitudes of the modes together with the percentage errors defined by Eq. \ref{eq:perc_err}:
 \begin{eqnarray}
 	\delta = \left|\frac{x^{num}-x^{exp}}{x^{exp}}\right|\times100\%,
+	\label{eq:perc_err}
 \end{eqnarray}
+\nomtypeG[delta]{\(\delta\)}{Percentage error}{-}{\%}%
 where \(x^{num}\) and \(x^{exp}\) are the numerical and experimental values, respectively.
 It can be noticed that the model are in good agreement with experimental results.
 All values are within an error of up to 10\%, except for the \ac{s0} and \ac{a0} amplitudes for 50 and 100 \unit{\kHz}, respectively.
 For these cases, the error is about 25\%.
-There is no data for the \ac{a0} of 150 \unit{\kHz}, as the high amplitude \ac{s0} reflections mask it.
+There is no data for the \ac{a0} at 150 \unit{\kHz}, as the high amplitude \ac{s0} reflections mask it.
 
 Regarding the \ac{hsc} panel, best results are achieved for the \ac{fcgm} as it is shown in Tab.~\ref{tab:group_velocity_hsc}.
-The velocity error is less then 16.4\% for both modes. 
-In the case of amplitude values, only the \ac{s0} of 50 \unit{\kHz} and the \ac{a0} of 100 \unit{\kHz} are overestimated by the model with the error around 25 \%.
-For the \ac{hcgm}, best result are obtained for the 100 \unit{\kHz}. 
-The velocity error is about 5\% for both modes. 
+The velocity error is less than 10.0\% for both modes except for the signal at 50 \unit{\kHz}. 
+In the case of amplitude values, most signals are overestimated by the model. Only the \ac{s0} at 100 and 150 \unit{\kHz} has the error less than 15\%.
+For the \ac{hcgm}, best result are obtained for the \ac{s0} at 150 \unit{\kHz} with error less than 11\%.
+Amplitudes of the \ac{a0} for this model are more accurate than the \ac{fcgm} with the errors below 15\%.
 
-\begin{table}[H]
+\begin{table}[ht]
 	\small
 	\tabcolsep=0.2cm
 	\centering
-	\caption{\label{tab:group_velocity_cfrp} Comparison between of the modes amplitudes and group velocities obtained from the simulations and experiments for the single \acf{cfrp} plate.}
+	\caption{\label{tab:group_velocity_cfrp} Comparison between amplitudes and group velocities obtained from the simulations and experiments for the single \acf{cfrp} plate.}
 	\begin{tabular}{cccccccc}
 		\toprule
 		& & \multicolumn{3}{c}{\(C_g\)} & \multicolumn{3}{c}{Amp.}\\
@@ -133,19 +130,19 @@ The velocity error is about 5\% for both modes.
 	\small
 	\tabcolsep=0.15cm
 	\centering
-	\caption{\label{tab:group_velocity_hsc} Comparison between of the modes amplitudes and group velocities obtained from the simulations based on \acf{fcgm} and \acf{hcgm} and experiments for \acf{hsc}.}
+	\caption{\label{tab:group_velocity_hsc} Comparison between amplitudes and group velocities obtained from the simulations based on \acf{fcgm} and \acf{hcgm} and experiments for \acf{hsc}.}
 	\begin{tabular}{cccccccccccc}
 		\toprule
 		& & \multicolumn{5}{c}{\(C_g\)} & \multicolumn{5}{c}{Amp.}\\
 		\multirow{2}{*}{Mode} & Freq.& Exp. & \ac{fcgm} & \(\delta\) & \ac{hcgm} & \(\delta\) &  Exp. & \ac{fcgm} & \(\delta\) & \ac{hcgm} & \(\delta\)\\
-		& \unit{\kHz} & \unit[per-mode = symbol]{\m\per\s} & \unit[per-mode = symbol]{\m\per\s} & \% & \unit{\mV} & \unit{\mV} & \% & \unit[per-mode = symbol]{\m\per\s} & \%& \unit[per-mode = symbol]{\m\per\s} & \% \\
+		& \unit{\kHz} & \unit[per-mode = symbol]{\m\per\s} & \unit[per-mode = symbol]{\m\per\s} & \% & \unit[per-mode = symbol]{\m\per\s} & \% & \unit{\mV} & \unit{\mV} & \%& \unit{\mV} & \% \\
 		\midrule
-		\multirow{3}{*}{\ac{s0}} & 50 & 6329 & 5291 & {16.4} & 8230 & 30 & 33 & 12 & \textcolor{red}{63.6} & 3 & \textcolor{red}{90.9} \\
-		&100& 5291 & 5249 & \textcolor{green}{0.79} & 5540 & \textcolor{green}{4.71} & 369 & 341 & \textcolor{green}{7.59} & 152 & \textcolor{red}{58.8}\\
-		&150& 5031 & 4866 & \textcolor{green}{2.93} & 4301 & 14.4 & 1340 & 1056 & {21.2} & 359 & \textcolor{red}{73.8} \\
+		\multirow{3}{*}{\ac{s0}} & 50 & 6452 & 8696 & {34.78} & 8333 & {29.15} & 32 & 6 & \textcolor{red}{81.25} & 3 & \textcolor{red}{90.63}\\
+		&100& 5263 & 5128 & \textcolor{green}{2.57} & 5714 & \textcolor{green}{8.57} & 369 & 314 & \textcolor{green}{14.91} & 138 & \textcolor{red}{62.6}\\
+		&150& 5085 & 5217 & \textcolor{green}{2.60} & 4959 & \textcolor{green}{2.48} & 1341 & 1239 & \textcolor{green}{7.61} & 1482 & \textcolor{green}{10.51}\\
 		\midrule
-		\multirow{3}{*}{\ac{a0}} & 50 & 964 & 945 & \textcolor{green}{1.97} & 1318 & 36.7 & 62 & 57 & \textcolor{green}{8.06} & 70 & 12.9\\
-		& 100 & 2160 & 2075 & \textcolor{green}{3.94} & 2273 & \textcolor{green}{5.23} & 137 & 249 & \textcolor{red}{81.8} & 128 & \textcolor{green}{6.57}\\
+		\multirow{3}{*}{\ac{a0}} & 50 & 966 & 926 & \textcolor{green}{4.14} & 1316 & {36.23} & 62 & 76 & {22.58} & 63 & \textcolor{green}{1.61}\\
+		& 100 & 2174 & 2151 & \textcolor{green}{1.06} & 2273 & \textcolor{green}{4.55} & 137 & 179 & {30.66} & 117 & \textcolor{green}{14.60}\\
 		& 150 & \multicolumn{10}{c}{-}\\
 		\bottomrule
 	\end{tabular}
@@ -154,8 +151,10 @@ Errors in the models may be due to several factors.
 The most important ones include differences in material properties of used components.
 In the models, an average thickness of the adhesive layer was assumed; obtaining precise thickness of the adhesive layer in the specimen preparation is difficult under workshop conditions.
 The models also assume a uniform cell geometry for the core area, but in reality, the core is easily deformed in the plane, so the cell geometry varies.
-The velocity in the \ac{cfrp} plate varies with the angle of propagation; in the models, the direction of wave propagation between the sensors was assumed to coincide with the plate orientation.
-The speed is also affected by the accuracy of the \acp{pzt} placement.
+The velocity in the panel varies with the angle of propagation due to anisotropy of \ac{cfrp} plate and the geometry of the honeycomb core.
+In the models, the direction of wave propagation between the sensors was assumed to coincide with the skin and core orientation.
+The speed is also affected by the accuracy of the \ac{pzt} placement.
+
 \subsection{Efficiency of the time integration algorithm}
 Two types of simulations were conducted to determine the efficiency of the \ac{pa} to solve the equation of motion shown in Section \ref{sec:gpu}.
 The first type compares the \ac{pa} computations performed on the \ac{gpu} and \ac{cpu}.
