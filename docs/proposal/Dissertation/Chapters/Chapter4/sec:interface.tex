@@ -7,7 +7,7 @@
 The present model of the sandwich panel consists of \ac{2d} and \ac{3d} elements. 
 Moreover, there are non-matching grids between two adjacent substructures. 
 These involve connecting them by imposing the compatibility of the displacements at the interface, see Fig.~\ref{fig:interface}.
-This type of connection is implemented through the interface elements based on Lagrange multipliers, which are interpreted as forces responsible for determining the appropriate displacements of nodes.
+This type of connection is implemented through the interface elements based on Lagrange multipliers, which are interpreted as forces responsible for determining the appropriate displacements of nodes \cite{fiborek20192d, fiborek2022spectral}.
 The coupling can be expressed as:
 \begin{eqnarray}
 	\left\{\begin{array}{c}
@@ -27,7 +27,7 @@ The coupling can be expressed as:
 	\end{array}\right\},
 	\label{eq:coupling}
 \end{eqnarray}
-\nomtypeD[Gamma]{$\Gamma$}{Interface}{-}%
+\nomtypeD[Gamma]{$\Gamma$}{Interface}{}%
 \begin{figure}
 	\begin{center}
 		\includegraphics[width=0.95\textwidth]{Chapter_4/interface_2D3D}
@@ -40,7 +40,7 @@ where \(s_{i1}\) and \(s_{i2}\) are substructures connected by the interface \(\
 	\textbf{G}\textbf{d}=\textbf{0},
 	\label{eq:cond_disp}
 \end{eqnarray}
-\nomtypeD[G]{$\textbf{G}$}{Interface coupling matrix}{-}%
+\nomtypeD[G]{$\textbf{G}$}{Interface coupling matrix}{}%
 where \textbf{G} is the coupling matrix which contains the equations to interpolate the substructures displacements at the interfaces, and \(\textbf{d}\) is a global displacement field for \(nS\) number of substructures, composed as:
 \begin{eqnarray}
 	\textbf{d} = \left\{\begin{array}{cccc}
@@ -53,7 +53,6 @@ General formulation of the matrix \textbf{G} is presented in Algorithm \ref{alg:
 
 \begin{algorithm}[H]
 	\SetAlgoLined
-	\KwResult{coupling matrix \textbf{G}}
 	\For{i = 1 \KwTo 2}{
 		create \(n^{\Gamma}\times n^{s_i}\) null matrix 
 		\(\mathbf{G}_i\),\\
@@ -68,7 +67,7 @@ General formulation of the matrix \textbf{G} is presented in Algorithm \ref{alg:
 			\(ownerElement^j_i\) to node \(j\)\;
 			transform global coordinates \(X_{\kappa}\) to a local coordinate system \(\xi_{\kappa}=\xi(X_{\kappa});\quad 
 			\eta_{\kappa}=\eta(X_{\kappa})\)\;
-			\While{\(\left|X_p-X_{\kappa}\right|>tol\)}{
+			\While{\(\left|X_p-X_{\kappa}\right|>\mathrm{tol}\)}{
 				\(\xi_{\kappa+1}=\xi_{\kappa}+(\mathcal{J}_{\kappa})^{1,1}_{\mathrm{inv}}.*(x^j_p-x_{\kappa}^j)
 				+(\mathcal{J}_{\kappa})^{1,2}_{\mathrm{inv}}.*(y^j_p-y_{\kappa}^j)\)\;
 				\(\eta_{\kappa+1}=\eta_{\kappa}+(\mathcal{J}_{\kappa})^{2,1}_{\mathrm{inv}}.*(x^j_p-x_{\kappa}^j)
@@ -77,7 +76,7 @@ General formulation of the matrix \textbf{G} is presented in Algorithm \ref{alg:
 			}
 			\(\mathbf{G}_i(j,n^{X_e})=N_{\kappa+1}\)\;
 		}
-		\uIf{\(s_i\) is \(\mathrm{3D}\)} {
+		\uIf{\(s_i\) \(\mathrm{is\ 3D}\)} {
 			\(\mathbf{G}_i=\left[\begin{array}{ccc}
 				\mathbf{G}_i & \mathbf{0} & \mathbf{0}\\
 				\mathbf{0} & \mathbf{G}_i & \mathbf{0}\\
@@ -85,7 +84,7 @@ General formulation of the matrix \textbf{G} is presented in Algorithm \ref{alg:
 			\end{array} \right]
 			\)\;
 		}
-		\ElseIf{\(s_i\) is \(\mathrm{2D}\)} {
+		\ElseIf{\(s_i\) \(\mathrm{is\ 2D}\)} {
 			\(\mathbf{G}_i=\left[\begin{array}{ccccc}
 				\mathbf{G}_i & \mathbf{0} & \mathbf{0} & 
 				\frac{h_i}{2}\mathbf{G}_i & \mathbf{0}\\
@@ -96,16 +95,17 @@ General formulation of the matrix \textbf{G} is presented in Algorithm \ref{alg:
 			\end{array} \right]\)\;
 		}
 	}
-	\(\mathbf{G}=\left[\begin{array}{cc}
+	
+	\KwResult{coupling matrix \(\mathbf{G}=\left[\begin{array}{cc}
 		\mathbf{G}_1 & \mathbf{G}_2
-	\end{array} \right]\)
+	\end{array} \right]\)}
 	\caption{Interface coupling matrix formulation}
 	\label{alg:G_matrix}
 \end{algorithm}
-\nomtypeD[Jacobian]{$\mathcal{J}$}{Jacobian matrix}{-}%
+\nomtypeD[Jacobian]{$\mathcal{J}$}{Jacobian matrix}{}%
 \nomtypeD[n]{$n$}{Nodes number}{-}%
-\nomtypeR[Xp]{$X_p$}{Coordinates vector of the interface point}{-}{\unit{\metre}}%
-\nomtypeR[Xe]{$X_e$}{Coordinates vector of the element nodes}{-}{\unit{\metre}}%
+\nomtypeR[Xp]{$X_p$}{Coordinates vector of the interface point}{}{\unit{\metre}}%
+\nomtypeR[Xe]{$X_e$}{Coordinates vector of the element nodes}{}{\unit{\metre}}%
 where \(s_i\) is one of the coupled structures, \(n^{\Gamma}\) and \(n^{s_i}\) are node numbers of the interface and node numbers of the structure \(s_i\), respectively; \(\left(\mathcal{J}_{\kappa}\right)_{\mathrm{inv}}\) is the inverse Jacobian matrix evaluated at \((\xi_{\kappa},\eta_{\kappa})\) and \(N_{\kappa+1}\) is the shape function evaluated at \((\xi_{\kappa+1},\eta_{\kappa+1})\), \(n^{X_e}\) is the vector of global order numbers of all nodes in the \(ownerElement^j_i\), \(h_i\) is a thickness of the structure \(s_i\) and \(tol\) is a termination criterion for iterations.
 
 The main task of the algorithm is to calculate shape functions for each adjacent substructure at the points \(X_p=(x_p^k,y_p^k)\), which are projections of the interface nodes onto these substructures.
@@ -117,12 +117,12 @@ If \(\mathrm{X_p}\) is inside the element, then the vectors \(\vec{V}_1\) and \(
 \(\vec{V}_1\) and \(\vec{V}_2\) are defined as:
 \begin{eqnarray}
 	\vec{V}_1 & = & \vec{v}_1\times \vec{v}_p,\\
-	\vec{V}_2 & = & \vec{v}\times \vec{v}_2.
+	\vec{V}_2 & = & \vec{v}_p\times \vec{v}_2.
 \label{eq:v_vectors}
 \end{eqnarray}
-\nomtypeD[vvv]{$\vec{v}_p,\,\vec{v}_1,\,\vec{v}_2$}{Cross-product test  vectors}{-}%
-\nomtypeD[V1]{$\vec{V_1}$}{First cross-product vector}{\(\vec{v}_1\times \vec{v}_p\)}%
-\nomtypeD[V2]{$\vec{V_2}$}{Second cross-product vector}{\(\vec{v}_p \times \vec{v}_2\)}%
+\nomtypeD[vvv]{$\vec{v}_p,\,\vec{v}_1,\,\vec{v}_2$}{Cross-product test  vectors}{}%
+\nomtypeD[V1]{$\vec{V_1}$}{First cross-product vector}{}%
+\nomtypeD[V2]{$\vec{V_2}$}{Second cross-product vector}{}%
 
 The vectors \(\vec{v}_p\), \(\vec{v_1}\) and \(\vec{v_2}\) are pictured in Fig. \ref{fig:b_b_test}(\textbf{b}). \(\vec{V}_1\) and \(\vec{V}_2\) will have the same direction if the inequality is satisfied for each element vertex \(i\):
 \begin{eqnarray}

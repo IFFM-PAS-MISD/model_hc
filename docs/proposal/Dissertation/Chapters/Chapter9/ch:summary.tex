@@ -7,16 +7,17 @@
 \label{ch:summary}
 
 In this dissertation, I developed a model-assisted method for identifying the severity of mechanical damage in a honeycomb sandwich composite. 
-For this purpose, the guided wave method was used, based on the change in elastic wave propagation under the influence of their interaction with damage in the monitored structure.
+For this purpose, the guided wave method was used.
+The damage estimation was performed based on the change in elastic wave propagation under the influence of their interaction with damage in the monitored structure.
 A phenomenon called wave leakage in sandwich panels results in the transmission of the wave into the core of the structure, where wave energy is attenuated.
 In the case of damage such as disbonds of the core from the skin, the leakage phenomenon does not occur.
-Thus, the signal recorded in the case of damage differs from that in the healthy state.
+Thus, the signal recorded in the specimen with damage differs from that in the healthy state.
 
 The effect of damage size on wave propagation was done using computer simulations, resulting in a model-assisted identification function.
 Due to the high complexity of the structure under analysis, an accurate and efficient model had to be used.
-It was achieved by engaging the spectral element method.
+The spectral element method was used for this purpose.
 Chapter \ref{ch:sem} presents a full implementation of the method for the honeycomb sandwich composite.
-One- and two-dimensional spectral elements are used in the model, and a multi-physics model of piezoelectric transducers is implemented for the excitation and recording of guided waves.
+Two- and three-dimensional spectral elements are used in the model, and a multi-physics model of piezoelectric transducers is implemented for the excitation and recording of guided waves.
 This approach required the development of an interface to connect all the elements.
 I presented a new method to determine the non-matching interface elements using the shape function of the spectral elements.
 
@@ -25,19 +26,20 @@ A rectangular core-skin disbond of variable width and fixed length was taken as 
 The defect was modelled by removing (i) the core cells and (ii) the interface elements.
 Then, after the model validation presented in chapter \ref{ch:validation}, computer simulations were performed for different damage sizes and varied excitation signal frequencies.
 
-Obtained signals were proceeded and then used to determine several damage indices.
+Obtained signals were processed and then used to determine several damage indices.
 It was concluded that only four indices satisfied the selection criterion, i.e. monotonic behaviour over the full range of damage sizes and the significant change of the function value.
 After comparing numerically obtained indices with the experimental results, two \acfp{madif} achieved very good agreement.
-These functions are the indices based on root mean square deviation and correlation coefficient for full-length signals at 100 kHz. They fulfil the criteria for all models.
-My study appears that the full core geometry model is more accurate than the homogenised one.
+These functions are the indices based on root mean square deviation and correlation coefficient for full-length signals at 100 \unit{\kHz}.
+They fulfil the criteria for all models.
+The conclusion is that the full core geometry model, which I proposed and implemented, is more accurate than the homogenised one.
 That model with the index based on root mean square deviation achieved an excellent agreement with the experimental investigation.
 
 In chapter \ref{ch:tempEffects}, an analysis of the effect of ambient temperature on the \ac{madif} is presented.
 The obtained \acp{madif} correspond very well with the experimental results, in particular for temperatures above 0\unit{\degreeCelsius}.
-The assumed temperature-dependent model is not sufficient for the ambient temperature at 0 and -10\unit{\degreeCelsius}.
-A parametric study followed this to determine the effect of varied components parameters on the elastic wave propagation in honeycomb sandwich composite. 
+The assumed temperature-dependent model is not sufficient for the ambient temperature below 0\unit{\degreeCelsius}.
+A parametric study followed this to determine the effect of various parameters (mechanical, electrical and geometrical properties) on the elastic wave propagation in honeycomb sandwich composite. 
 My analysis showed that some parameters only affect the determination of the reference signals, and some depend on the conditions prevailing during the structure inspection.
-It is recommended that an effective tool be developed for identification of the current parameters of the structure.
+It is recommended to develop some optimalisation method for identification of the structure parameters.
 
 Major contribution of the dissertation are:
 \begin{itemize}
@@ -45,9 +47,9 @@ Major contribution of the dissertation are:
 	\item development of the non-matching interface elements,
 	\item determination of the model-assisted damage identification function for honeycomb sandwich composite,
 	\item temperature-dependent study on the model-assisted damage identification function for honeycomb sandwich composite,
-	\item optimisation of the time integration of the spectral element method algorithm for parallel computation on graphics processing unit.
+	\item improvement of the time integration of the spectral element method algorithm for parallel computation on graphics processing unit.
 \end{itemize}
 
-The dissertation proved the thesis validity: model-assisted analysis of guided wave propagation is an effective tool for determining the damage severity in honeycomb sandwich composites.
+The dissertation proved the thesis validity: \textit{model-assisted analysis of guided wave propagation is an effective tool for determining the damage severity in honeycomb sandwich composites}.
 The results achieved in the dissertation encourage further work on this topic.
 Namely, the analysis of functions for damage with different shapes, e.g. circles or ellipses, different positions, etc.

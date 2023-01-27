@@ -1,74 +1,74 @@
-\nomenclatureentry{RE$E$@[{$E$}]\begingroup \nomdescr {Young's modulus}\DimensUnits {-}{\unit {\giga \pascal }}\nomeqref {3.1}|nompageref}{15}
-\nomenclatureentry{RT$T$@[{$T$}]\begingroup \nomdescr {Temperature}\DimensUnits {-}{\unit {\degreeCelsius }}\nomeqref {3.1}|nompageref}{15}
-\nomenclatureentry{RTr$T_r$@[{$T_r$}]\begingroup \nomdescr {Reference temperature}\DimensUnits {-}{\unit {\degreeCelsius }}\nomeqref {3.1}|nompageref}{15}
-\nomenclatureentry{DFm$F_m$@[{$F_m$}]\begingroup \nomdescr {Temperature degradation factor}\DefinitionCol {\(\sqrt {\frac {T_{g0}-T}{T_{g0}-T_r}}\)}\nomeqref {3.2}|nompageref}{15}
-\nomenclatureentry{RTg0$T_{g0}$@[{$T_{g0}$}]\begingroup \nomdescr {Glass transition temperature}\DimensUnits {}{\unit {\degreeCelsius }}\nomeqref {3.2}|nompageref}{15}
-\nomenclatureentry{Dnu\( \nu \)@[{\( \nu \)}]\begingroup \nomdescr {Poisson's ratio}\DefinitionCol {-}\nomeqref {3.6}|nompageref}{16}
-\nomenclatureentry{G\(\epsilon \)@[{\(\epsilon \)}]\begingroup \nomdescr {Electric permittivity}\DimensUnits {-}{\unit [per-mode = symbol] {\farad \per \metre }}\nomeqref {3.9}|nompageref}{17}
-\nomenclatureentry{Rd\(d\)@[{\(d\)}]\begingroup \nomdescr {Piezoelectric coupling coefficient}\DimensUnits {-}{\unit [per-mode = symbol] {\coulomb \per \newton }}\nomeqref {3.9}|nompageref}{17}
-\nomenclatureentry{Re\(e\)@[{\(e\)}]\begingroup \nomdescr {Piezoelectric coupling coefficient}\DimensUnits {-}{\unit [per-mode = symbol] {\coulomb \per \square \metre }}\nomeqref {3.9}|nompageref}{17}
-\nomenclatureentry{G\(\rho \)\( \rho \)@[{\( \rho \)}]\begingroup \nomdescr {Mass density}\DimensUnits {-}{\unit [per-mode = symbol] {\kilogram \per \cubic \metre }}\nomeqref {3.11}|nompageref}{17}
-\nomenclatureentry{Dx\( \xi , \eta , \zeta \)@[{\( \xi , \eta , \zeta \)}]\begingroup \nomdescr {local coordinates}\DefinitionCol {-}\nomeqref {4.1}|nompageref}{21}
-\nomenclatureentry{Dw\(w\)@[{\(w\)}]\begingroup \nomdescr {Weighting factor}\DefinitionCol {$\frac {2}{p(p-1)\left (P_{p-1}(\xi )\right )^2}$}\nomeqref {4.1}|nompageref}{21}
-\nomenclatureentry{DN$N$@[{$N$}]\begingroup \nomdescr {Shape function}\DefinitionCol {-}\nomeqref {4.3}|nompageref}{22}
-\nomenclatureentry{RM$\textbf {M}$@[{$\textbf {M}$}]\begingroup \nomdescr {Mass matrix}\DimensUnits {-}{\unit {\kg }}\nomeqref {4.5}|nompageref}{22}
-\nomenclatureentry{RD$\textbf {D}$@[{$\textbf {D}$}]\begingroup \nomdescr {Damping matrix}\DimensUnits {-}{\unit [per-mode = symbol]{\newton \per \second }}\nomeqref {4.5}|nompageref}{22}
-\nomenclatureentry{RK$\textbf {K}$@[{$\textbf {K}$}]\begingroup \nomdescr {Stiffness matrix}\DimensUnits {-}{\unit [per-mode = symbol]{\newton \second \per \metre }}\nomeqref {4.5}|nompageref}{22}
-\nomenclatureentry{Rforce_ext$\textbf {f}_{ext}$@[{$\textbf {f}_{ext}$}]\begingroup \nomdescr {External force vector}\DimensUnits {-}{\unit {\newton }}\nomeqref {4.5}|nompageref}{22}
-\nomenclatureentry{Rd$\textbf {d}$@[{$\textbf {d}$}]\begingroup \nomdescr {Displacements vector}\DimensUnits {-}{\unit {\meter }}\nomeqref {4.5}|nompageref}{22}
-\nomenclatureentry{Ruvw$u,\,v,\,w$@[{$u,\,v,\,w$}]\begingroup \nomdescr {Displacement in x-, y- and z-axis direction}\DimensUnits {-}{\unit {\metre }}\nomeqref {4.6}|nompageref}{23}
-\nomenclatureentry{Gphi$\varphi ^e$@[{$\varphi ^e$}]\begingroup \nomdescr {Element rotation of the normal to the mid-plane}\DimensUnits {-}{\unit {\radian }}\nomeqref {4.6}|nompageref}{23}
-\nomenclatureentry{DEps$\boldsymbol {\varepsilon }$@[{$\boldsymbol {\varepsilon }$}]\begingroup \nomdescr {Strain tensor}\DefinitionCol {\(\textbf {B}\,\textbf {d}\)}\nomeqref {4.9}|nompageref}{24}
-\nomenclatureentry{RB$\textbf {B}$@[{$\textbf {B}$}]\begingroup \nomdescr {Strain-displacement matrix}\DimensUnits {-}{\unit {\per \meter }}\nomeqref {4.11}|nompageref}{24}
-\nomenclatureentry{Rhe$h^e$@[{$h^e$}]\begingroup \nomdescr {Element thickness}\DimensUnits {-}{\unit {\meter }}\nomeqref {4.11}|nompageref}{24}
-\nomenclatureentry{GOmega$\Omega ^e$@[{$\Omega ^e$}]\begingroup \nomdescr {Element area}\DimensUnits {-}{\unit {\square \meter }}\nomeqref {4.11}|nompageref}{24}
-\nomenclatureentry{Rc$\textbf {c}$@[{$\textbf {c}$}]\begingroup \nomdescr {Elasticity tensor}\DimensUnits {-}{\unit [per-mode = symbol]{\newton \per \square \meter }}\nomeqref {4.12}|nompageref}{24}
-\nomenclatureentry{RVe$V^e$@[{$V^e$}]\begingroup \nomdescr {Element volume}\DimensUnits {-}{\unit {\cubic \meter }}\nomeqref {4.16}|nompageref}{25}
-\nomenclatureentry{REp$\widetilde {\textbf {E}} $@[{$\widetilde {\textbf {E}} $}]\begingroup \nomdescr {Electric field}\DimensUnits {\(-\textbf {B}\,\boldsymbol {\phi }\)}{\unit [per-mode=symbol]{\newton \per \coulomb }}\nomeqref {4.17}|nompageref}{25}
-\nomenclatureentry{RDp$\widetilde {\textbf {D}} $@[{$\widetilde {\textbf {D}} $}]\begingroup \nomdescr {Electric charge density displacement}\DimensUnits {-}{\unit [per-mode=symbol]{\coulomb \per \square \metre }}\nomeqref {4.17}|nompageref}{25}
-\nomenclatureentry{Gphip$\boldsymbol {\phi }$@[{$\boldsymbol {\phi }$}]\begingroup \nomdescr {Electric potential vector}\DimensUnits {-}{\unit {\volt }}\nomeqref {4.17}|nompageref}{25}
-\nomenclatureentry{Gsigma$\boldsymbol {\sigma }$@[{$\boldsymbol {\sigma }$}]\begingroup \nomdescr {Stress tensor}\DimensUnits {\(\textbf {c}\,\boldsymbol {\varepsilon }\)}{\unit {\pascal }}\nomeqref {4.17}|nompageref}{25}
-\nomenclatureentry{RQ$\textbf {Q}$@[{$\textbf {Q}$}]\begingroup \nomdescr {Charge vector}\DimensUnits {-}{\unit {\coulomb }}\nomeqref {4.19}|nompageref}{25}
-\nomenclatureentry{Rforce_act$\textbf {f}_{a}$@[{$\textbf {f}_{a}$}]\begingroup \nomdescr {Actuator equivalent force vector}\DimensUnits {\(-\textbf {K}_a\,\boldsymbol {\phi }(b)\)}{\unit {\newton }}\nomeqref {4.28}|nompageref}{27}
-\nomenclatureentry{Dalpha$\alpha _M$@[{$\alpha _M$}]\begingroup \nomdescr {Mass-proportionality damping coefficient}\DefinitionCol {-}\nomeqref {4.32}|nompageref}{27}
-\nomenclatureentry{Dbeta$\beta _K$@[{$\beta _K$}]\begingroup \nomdescr {Stiffness-proportionality damping coefficient}\DefinitionCol {-}\nomeqref {4.32}|nompageref}{27}
-\nomenclatureentry{DGamma$\Gamma $@[{$\Gamma $}]\begingroup \nomdescr {Interface}\DefinitionCol {-}\nomeqref {4.33}|nompageref}{28}
-\nomenclatureentry{DG$\textbf {G}$@[{$\textbf {G}$}]\begingroup \nomdescr {Interface coupling matrix}\DefinitionCol {-}\nomeqref {4.34}|nompageref}{28}
-\nomenclatureentry{DJacobian$\mathcal {J}$@[{$\mathcal {J}$}]\begingroup \nomdescr {Jacobian matrix}\DefinitionCol {-}\nomeqref {4.35}|nompageref}{29}
-\nomenclatureentry{Dn$n$@[{$n$}]\begingroup \nomdescr {Nodes number}\DefinitionCol {-}\nomeqref {4.35}|nompageref}{29}
-\nomenclatureentry{RXp$X_p$@[{$X_p$}]\begingroup \nomdescr {Coordinates vector of the interface point}\DimensUnits {-}{\unit {\metre }}\nomeqref {4.35}|nompageref}{29}
-\nomenclatureentry{RXe$X_e$@[{$X_e$}]\begingroup \nomdescr {Coordinates vector of the element nodes}\DimensUnits {-}{\unit {\metre }}\nomeqref {4.35}|nompageref}{29}
-\nomenclatureentry{Dvvv$\vec {v}_p,\,\vec {v}_1,\,\vec {v}_2$@[{$\vec {v}_p,\,\vec {v}_1,\,\vec {v}_2$}]\begingroup \nomdescr {Cross-product test vectors}\DefinitionCol {-}\nomeqref {4.37}|nompageref}{30}
-\nomenclatureentry{DV1$\vec {V_1}$@[{$\vec {V_1}$}]\begingroup \nomdescr {First cross-product vector}\DefinitionCol {\(\vec {v}_1\times \vec {v}_p\)}\nomeqref {4.37}|nompageref}{30}
-\nomenclatureentry{DV2$\vec {V_2}$@[{$\vec {V_2}$}]\begingroup \nomdescr {Second cross-product vector}\DefinitionCol {\(\vec {v}_p \times \vec {v}_2\)}\nomeqref {4.37}|nompageref}{30}
-\nomenclatureentry{GDeltat$\Delta t$@[{$\Delta t$}]\begingroup \nomdescr {Time increment}\DimensUnits {-}{\unit {\second }}\nomeqref {4.40}|nompageref}{31}
-\nomenclatureentry{Dbetagamma$\beta ,\,\gamma $@[{$\beta ,\,\gamma $}]\begingroup \nomdescr {Time integration parameters}\DefinitionCol {-}\nomeqref {4.40}|nompageref}{31}
-\nomenclatureentry{Dlambda$\boldsymbol {\lambda }$@[{$\boldsymbol {\lambda }$}]\begingroup \nomdescr {Lagrange multipliers vector}\DefinitionCol {-}\nomeqref {4.41}|nompageref}{32}
-\nomenclatureentry{Rforce_int$\textbf {f}_{int}$@[{$\textbf {f}_{int}$}]\begingroup \nomdescr {Internal force vector}\DimensUnits {-}{\unit {\newton }}\nomeqref {4.46}|nompageref}{33}
-\nomenclatureentry{Dwj$\mathcal {W}$@[{$\mathcal {W}$}]\begingroup \nomdescr {Element weights and Jacobian determinant product}\DefinitionCol {\(w\circ \det (\mathcal {J})\)}\nomeqref {4.49}|nompageref}{34}
-\nomenclatureentry{Dvector_cos\(\mathcal {V}^e_1,\,\mathcal {V}^e_2,\,\mathcal {V}^e_3\)@[{\(\mathcal {V}^e_1,\,\mathcal {V}^e_2,\,\mathcal {V}^e_3\)}]\begingroup \nomdescr {Direction cosines}\DefinitionCol {-}\nomeqref {4.59}|nompageref}{36}
-\nomenclatureentry{Rinertia$\textbf {J}$@[{$\textbf {J}$}]\begingroup \nomdescr {Mass moment of inertia matrix}\DimensUnits {-}{\unit {\kg \cubic \metre }}\nomeqref {4.61}|nompageref}{37}
-\nomenclatureentry{Rfreq_car\(f_c\)@[{\(f_c\)}]\begingroup \nomdescr {Carrier frequency}\DimensUnits {-}{\unit {\hertz }}\nomeqref {5.1}|nompageref}{38}
-\nomenclatureentry{Rfreq_mod\(f_m\)@[{\(f_m\)}]\begingroup \nomdescr {Modulation frequency}\DimensUnits {\(f_c/N_c\)}{\unit {\hertz }}\nomeqref {5.1}|nompageref}{38}
-\nomenclatureentry{Dnumb_cyc\(f_c\)@[{\(f_c\)}]\begingroup \nomdescr {Pulse number of cycle}\DefinitionCol {-}\nomeqref {5.1}|nompageref}{38}
-\nomenclatureentry{Rw_core\(\mathrm {w}_c\)@[{\(\mathrm {w}_c\)}]\begingroup \nomdescr {Core wall thickness}\DimensUnits {-}{\unit {\metre }}\nomeqref {5.1}|nompageref}{40}
-\nomenclatureentry{Rh_coreh\(_1\), h\(_2\)@[{h\(_1\), h\(_2\)}]\begingroup \nomdescr {Core cell length}\DimensUnits {-}{\unit {\metre }}\nomeqref {5.1}|nompageref}{40}
-\nomenclatureentry{Rl_corel\(_1\), l\(_2\)@[{l\(_1\), l\(_2\)}]\begingroup \nomdescr {Core cell width}\DimensUnits {-}{\unit {\metre }}\nomeqref {5.1}|nompageref}{40}
-\nomenclatureentry{Rg_coreg@[{g}]\begingroup \nomdescr {Cell height}\DimensUnits {-}{\unit {\metre }}\nomeqref {5.1}|nompageref}{40}
-\nomenclatureentry{Rh_adhh\(_a\)@[{h\(_a\)}]\begingroup \nomdescr {Adhesive layer thickness}\DimensUnits {-}{\unit {\metre }}\nomeqref {5.1}|nompageref}{40}
-\nomenclatureentry{Rh_pzth\(_{PZT}\)@[{h\(_{PZT}\)}]\begingroup \nomdescr {Transducer thickness}\DimensUnits {-}{\unit {\metre }}\nomeqref {5.1}|nompageref}{40}
-\nomenclatureentry{Gphi_pzt\(\Phi _{PZT}\)@[{\(\Phi _{PZT}\)}]\begingroup \nomdescr {Transducer diameter}\DimensUnits {-}{\unit {\metre }}\nomeqref {5.1}|nompageref}{40}
-\nomenclatureentry{Rh_glueh\(_g\)@[{h\(_g\)}]\begingroup \nomdescr {Cyanoacrylate glue thickness}\DimensUnits {-}{\unit {\metre }}\nomeqref {5.1}|nompageref}{40}
-\nomenclatureentry{RG\(G\)@[{\(G\)}]\begingroup \nomdescr {Shear modulus}\DimensUnits {-}{\unit {\pascal }}\nomeqref {5.1}|nompageref}{41}
-\nomenclatureentry{De\(e(t)\)@[{\(e(t)\)}]\begingroup \nomdescr {Signal envelope}\DefinitionCol {-}\nomeqref {5.4}|nompageref}{43}
-\nomenclatureentry{Rt\(t\)@[{\(t\)}]\begingroup \nomdescr {Time vector}\DimensUnits {-}{\unit {\second }}\nomeqref {5.4}|nompageref}{43}
-\nomenclatureentry{Gomega_ang\(\omega \)@[{\(\omega \)}]\begingroup \nomdescr {Angular frequency}\DimensUnits {\(2\pi f_c\)}{\unit [per-mode = symbol]{\radian \per \second }}\nomeqref {6.1}|nompageref}{48}
-\nomenclatureentry{RI\(I\)@[{\(I\)}]\begingroup \nomdescr {Electric current}\DimensUnits {-}{\unit {\ampere }}\nomeqref {6.1}|nompageref}{48}
-\nomenclatureentry{Di\(i\)@[{\(i\)}]\begingroup \nomdescr {Imaginary number}\DefinitionCol {\(sqrt{-1})\)}\nomeqref {6.1}|nompageref}{48}
-\nomenclatureentry{Rz_impedance\(Z\)@[{\(Z\)}]\begingroup \nomdescr {Impedance}\DimensUnits {\(\Phi /I\)}{\unit {\ohm }}\nomeqref {6.1}|nompageref}{48}
-\nomenclatureentry{RCapaci\(C_0\)@[{\(C_0\)}]\begingroup \nomdescr {Transducer free capacitance}\DimensUnits {-}{\unit {\farad }}\nomeqref {6.2}|nompageref}{49}
-\nomenclatureentry{Dkp\(k_p\)@[{\(k_p\)}]\begingroup \nomdescr {Transducer planar coupling coefficient}\DefinitionCol {-}\nomeqref {6.2}|nompageref}{49}
-\nomenclatureentry{Rw_dam\(w_d\)@[{\(w_d\)}]\begingroup \nomdescr {Damage width}\DimensUnits {-}{\unit {\metre }}\nomeqref {6.2}|nompageref}{54}
-\nomenclatureentry{Rl_dam\(l_d\)@[{\(l_d\)}]\begingroup \nomdescr {Length width}\DimensUnits {-}{\unit {\metre }}\nomeqref {6.2}|nompageref}{54}
-\nomenclatureentry{Gdelta\(\delta \)@[{\(\delta \)}]\begingroup \nomdescr {Percentage error}\DimensUnits {-}{\%}\nomeqref {6.4}|nompageref}{62}
-\nomenclatureentry{Dgt\(g(t)\)@[{\(g(t)\)}]\begingroup \nomdescr {Gaussian window}\DefinitionCol {-}\nomeqref {7.1}|nompageref}{67}
+\nomenclatureentry{RE$E$@[{$E$}]\begingroup \nomdescr {Young's modulus}\DimensUnits {-}{\unit {\giga \pascal }}\nomeqref {3.1}|nompageref}{16}
+\nomenclatureentry{RT$T$@[{$T$}]\begingroup \nomdescr {Temperature}\DimensUnits {-}{\unit {\degreeCelsius }}\nomeqref {3.1}|nompageref}{16}
+\nomenclatureentry{RTr$T_r$@[{$T_r$}]\begingroup \nomdescr {Reference temperature}\DimensUnits {-}{\unit {\degreeCelsius }}\nomeqref {3.1}|nompageref}{16}
+\nomenclatureentry{DFm$F_m$@[{$F_m$}]\begingroup \nomdescr {Temperature degradation factor}\DefinitionCol {}\nomeqref {3.2}|nompageref}{16}
+\nomenclatureentry{RTg0$T_{g0}$@[{$T_{g0}$}]\begingroup \nomdescr {Glass transition temperature}\DimensUnits {}{\unit {\degreeCelsius }}\nomeqref {3.2}|nompageref}{16}
+\nomenclatureentry{Dnu\( \nu \)@[{\( \nu \)}]\begingroup \nomdescr {}\DefinitionCol {Poisson's ratio}\nomeqref {3.6}|nompageref}{18}
+\nomenclatureentry{G\(\epsilon \)@[{\(\epsilon \)}]\begingroup \nomdescr {Electric permittivity}\DimensUnits {}{\unit [per-mode = symbol] {\farad \per \metre }}\nomeqref {3.9}|nompageref}{18}
+\nomenclatureentry{Rd\(d\)@[{\(d\)}]\begingroup \nomdescr {Piezoelectric coupling coefficient}\DimensUnits {}{\unit [per-mode = symbol] {\coulomb \per \newton }}\nomeqref {3.9}|nompageref}{18}
+\nomenclatureentry{Re\(e\)@[{\(e\)}]\begingroup \nomdescr {Piezoelectric coupling coefficient}\DimensUnits {}{\unit [per-mode = symbol] {\coulomb \per \square \metre }}\nomeqref {3.9}|nompageref}{18}
+\nomenclatureentry{G\(\rho \)\( \rho \)@[{\( \rho \)}]\begingroup \nomdescr {Mass density}\DimensUnits {-}{\unit [per-mode = symbol] {\kilogram \per \cubic \metre }}\nomeqref {3.11}|nompageref}{19}
+\nomenclatureentry{Dx\( \xi , \eta , \zeta \)@[{\( \xi , \eta , \zeta \)}]\begingroup \nomdescr {local coordinates}\DefinitionCol {}\nomeqref {4.1}|nompageref}{22}
+\nomenclatureentry{Dw\(w\)@[{\(w\)}]\begingroup \nomdescr {Weighting factor}\DefinitionCol {}\nomeqref {4.1}|nompageref}{22}
+\nomenclatureentry{DN$N$@[{$N$}]\begingroup \nomdescr {Shape function}\DefinitionCol {}\nomeqref {4.3}|nompageref}{23}
+\nomenclatureentry{RM$\textbf {M}$@[{$\textbf {M}$}]\begingroup \nomdescr {Mass matrix}\DimensUnits {}{\unit {\kg }}\nomeqref {4.5}|nompageref}{23}
+\nomenclatureentry{RD$\textbf {D}$@[{$\textbf {D}$}]\begingroup \nomdescr {Damping matrix}\DimensUnits {}{\unit [per-mode = symbol]{\newton \second \per \meter }}\nomeqref {4.5}|nompageref}{23}
+\nomenclatureentry{RK$\textbf {K}$@[{$\textbf {K}$}]\begingroup \nomdescr {Stiffness matrix}\DimensUnits {}{\unit [per-mode = symbol]{\newton \per \metre }}\nomeqref {4.5}|nompageref}{23}
+\nomenclatureentry{Rforce_ext$\textbf {f}_{ext}$@[{$\textbf {f}_{ext}$}]\begingroup \nomdescr {External force vector}\DimensUnits {-}{\unit {\newton }}\nomeqref {4.5}|nompageref}{23}
+\nomenclatureentry{Rd$\textbf {d}$@[{$\textbf {d}$}]\begingroup \nomdescr {Displacements vector}\DimensUnits {}{\unit {\meter }}\nomeqref {4.5}|nompageref}{23}
+\nomenclatureentry{Ruvw$u,\,v,\,w$@[{$u,\,v,\,w$}]\begingroup \nomdescr {Displacement in x-, y- and z-axis direction}\DimensUnits {}{\unit {\metre }}\nomeqref {4.6}|nompageref}{24}
+\nomenclatureentry{Gphi$\varphi ^e$@[{$\varphi ^e$}]\begingroup \nomdescr {Element rotation of the normal to the mid-plane}\DimensUnits {}{\unit {\radian }}\nomeqref {4.6}|nompageref}{24}
+\nomenclatureentry{DEps$\boldsymbol {\varepsilon }$@[{$\boldsymbol {\varepsilon }$}]\begingroup \nomdescr {Strain tensor}\DefinitionCol {}\nomeqref {4.9}|nompageref}{25}
+\nomenclatureentry{RB$\textbf {B}$@[{$\textbf {B}$}]\begingroup \nomdescr {Strain-displacement matrix}\DimensUnits {}{\unit {\per \meter }}\nomeqref {4.11}|nompageref}{25}
+\nomenclatureentry{Rhe$h^e$@[{$h^e$}]\begingroup \nomdescr {Element thickness}\DimensUnits {}{\unit {\meter }}\nomeqref {4.11}|nompageref}{25}
+\nomenclatureentry{GOmega$\Omega ^e$@[{$\Omega ^e$}]\begingroup \nomdescr {Element area}\DimensUnits {}{\unit {\square \meter }}\nomeqref {4.11}|nompageref}{25}
+\nomenclatureentry{Rc$\textbf {c}$@[{$\textbf {c}$}]\begingroup \nomdescr {Elasticity tensor}\DimensUnits {}{\unit [per-mode = symbol]{\newton \per \square \meter }}\nomeqref {4.12}|nompageref}{25}
+\nomenclatureentry{RVe$V^e$@[{$V^e$}]\begingroup \nomdescr {Element volume}\DimensUnits {}{\unit {\cubic \meter }}\nomeqref {4.16}|nompageref}{26}
+\nomenclatureentry{REp$\widetilde {\textbf {E}} $@[{$\widetilde {\textbf {E}} $}]\begingroup \nomdescr {Electric field}\DimensUnits {}{\unit [per-mode=symbol]{\newton \per \coulomb }}\nomeqref {4.17}|nompageref}{27}
+\nomenclatureentry{RDp$\widetilde {\textbf {D}} $@[{$\widetilde {\textbf {D}} $}]\begingroup \nomdescr {Electric charge density displacement}\DimensUnits {}{\unit [per-mode=symbol]{\coulomb \per \square \metre }}\nomeqref {4.17}|nompageref}{27}
+\nomenclatureentry{Gphip$\boldsymbol {\phi }$@[{$\boldsymbol {\phi }$}]\begingroup \nomdescr {Electric potential vector}\DimensUnits {}{\unit {\volt }}\nomeqref {4.17}|nompageref}{27}
+\nomenclatureentry{Gsigma$\boldsymbol {\sigma }$@[{$\boldsymbol {\sigma }$}]\begingroup \nomdescr {Stress tensor}\DimensUnits {}{\unit [per-mode = symbol]{\newton \per \square \meter }}\nomeqref {4.17}|nompageref}{27}
+\nomenclatureentry{RQ$\textbf {Q}$@[{$\textbf {Q}$}]\begingroup \nomdescr {Charge vector}\DimensUnits {}{\unit {\coulomb }}\nomeqref {4.19}|nompageref}{27}
+\nomenclatureentry{Rforce_act$\textbf {f}_{a}$@[{$\textbf {f}_{a}$}]\begingroup \nomdescr {Actuator equivalent force vector}\DimensUnits {}{\unit {\newton }}\nomeqref {4.28}|nompageref}{28}
+\nomenclatureentry{Dalpha$\alpha _M$@[{$\alpha _M$}]\begingroup \nomdescr {Mass-proportionality damping coefficient}\DefinitionCol {}\nomeqref {4.32}|nompageref}{29}
+\nomenclatureentry{Dbeta$\beta _K$@[{$\beta _K$}]\begingroup \nomdescr {Stiffness-proportionality damping coefficient}\DefinitionCol {}\nomeqref {4.32}|nompageref}{29}
+\nomenclatureentry{DGamma$\Gamma $@[{$\Gamma $}]\begingroup \nomdescr {Interface}\DefinitionCol {}\nomeqref {4.33}|nompageref}{29}
+\nomenclatureentry{DG$\textbf {G}$@[{$\textbf {G}$}]\begingroup \nomdescr {Interface coupling matrix}\DefinitionCol {}\nomeqref {4.34}|nompageref}{29}
+\nomenclatureentry{DJacobian$\mathcal {J}$@[{$\mathcal {J}$}]\begingroup \nomdescr {Jacobian matrix}\DefinitionCol {}\nomeqref {4.35}|nompageref}{31}
+\nomenclatureentry{Dn$n$@[{$n$}]\begingroup \nomdescr {Nodes number}\DefinitionCol {-}\nomeqref {4.35}|nompageref}{31}
+\nomenclatureentry{RXp$X_p$@[{$X_p$}]\begingroup \nomdescr {Coordinates vector of the interface point}\DimensUnits {}{\unit {\metre }}\nomeqref {4.35}|nompageref}{31}
+\nomenclatureentry{RXe$X_e$@[{$X_e$}]\begingroup \nomdescr {Coordinates vector of the element nodes}\DimensUnits {}{\unit {\metre }}\nomeqref {4.35}|nompageref}{31}
+\nomenclatureentry{Dvvv$\vec {v}_p,\,\vec {v}_1,\,\vec {v}_2$@[{$\vec {v}_p,\,\vec {v}_1,\,\vec {v}_2$}]\begingroup \nomdescr {Cross-product test vectors}\DefinitionCol {}\nomeqref {4.37}|nompageref}{32}
+\nomenclatureentry{DV1$\vec {V_1}$@[{$\vec {V_1}$}]\begingroup \nomdescr {First cross-product vector}\DefinitionCol {}\nomeqref {4.37}|nompageref}{32}
+\nomenclatureentry{DV2$\vec {V_2}$@[{$\vec {V_2}$}]\begingroup \nomdescr {Second cross-product vector}\DefinitionCol {}\nomeqref {4.37}|nompageref}{32}
+\nomenclatureentry{Dvector_cos\(\mathcal {V}^e_1,\,\mathcal {V}^e_2,\,\mathcal {V}^e_3\)@[{\(\mathcal {V}^e_1,\,\mathcal {V}^e_2,\,\mathcal {V}^e_3\)}]\begingroup \nomdescr {Direction cosines}\DefinitionCol {}\nomeqref {4.40}|nompageref}{33}
+\nomenclatureentry{Rinertia$\textbf {J}$@[{$\textbf {J}$}]\begingroup \nomdescr {Mass moment of inertia matrix}\DimensUnits {}{\unit {\kg \cubic \metre }}\nomeqref {4.42}|nompageref}{34}
+\nomenclatureentry{GDeltat$\Delta t$@[{$\Delta t$}]\begingroup \nomdescr {Time increment}\DimensUnits {}{\unit {\second }}\nomeqref {4.44}|nompageref}{34}
+\nomenclatureentry{Dbetagamma$\beta ,\,\gamma $@[{$\beta ,\,\gamma $}]\begingroup \nomdescr {Time integration parameters}\DefinitionCol {}\nomeqref {4.44}|nompageref}{34}
+\nomenclatureentry{Dlambda$\boldsymbol {\lambda }$@[{$\boldsymbol {\lambda }$}]\begingroup \nomdescr {Lagrange multipliers vector}\DefinitionCol {}\nomeqref {4.45}|nompageref}{35}
+\nomenclatureentry{Rforce_int$\textbf {f}_{int}$@[{$\textbf {f}_{int}$}]\begingroup \nomdescr {Internal force vector}\DimensUnits {}{\unit {\newton }}\nomeqref {4.50}|nompageref}{36}
+\nomenclatureentry{Dwj$\mathcal {W}$@[{$\mathcal {W}$}]\begingroup \nomdescr {Element weights and Jacobian determinant product}\DefinitionCol {}\nomeqref {4.53}|nompageref}{37}
+\nomenclatureentry{Rfreq_car\(f_c\)@[{\(f_c\)}]\begingroup \nomdescr {Carrier frequency}\DimensUnits {}{\unit {\hertz }}\nomeqref {5.1}|nompageref}{42}
+\nomenclatureentry{Rfreq_mod\(f_m\)@[{\(f_m\)}]\begingroup \nomdescr {Modulation frequency}\DimensUnits {}{\unit {\hertz }}\nomeqref {5.1}|nompageref}{42}
+\nomenclatureentry{Dnumb_cyc\(f_c\)@[{\(f_c\)}]\begingroup \nomdescr {Pulse number of cycle}\DefinitionCol {}\nomeqref {5.1}|nompageref}{42}
+\nomenclatureentry{Rw_core\(\mathrm {w}_c\)@[{\(\mathrm {w}_c\)}]\begingroup \nomdescr {Core wall thickness}\DimensUnits {}{\unit {\metre }}\nomeqref {5.1}|nompageref}{44}
+\nomenclatureentry{Rh_coreh\(_1\), h\(_2\)@[{h\(_1\), h\(_2\)}]\begingroup \nomdescr {Core cell length}\DimensUnits {}{\unit {\metre }}\nomeqref {5.1}|nompageref}{44}
+\nomenclatureentry{Rl_corel\(_1\), l\(_2\)@[{l\(_1\), l\(_2\)}]\begingroup \nomdescr {Core cell width}\DimensUnits {}{\unit {\metre }}\nomeqref {5.1}|nompageref}{44}
+\nomenclatureentry{Rg_coreg@[{g}]\begingroup \nomdescr {Cell height}\DimensUnits {}{\unit {\metre }}\nomeqref {5.1}|nompageref}{44}
+\nomenclatureentry{Rh_adhh\(_a\)@[{h\(_a\)}]\begingroup \nomdescr {Adhesive layer thickness}\DimensUnits {}{\unit {\metre }}\nomeqref {5.1}|nompageref}{44}
+\nomenclatureentry{Rh_pzth\(_{PZT}\)@[{h\(_{PZT}\)}]\begingroup \nomdescr {Transducer thickness}\DimensUnits {}{\unit {\metre }}\nomeqref {5.1}|nompageref}{44}
+\nomenclatureentry{Gphi_pzt\(\Phi _{PZT}\)@[{\(\Phi _{PZT}\)}]\begingroup \nomdescr {Transducer diameter}\DimensUnits {}{\unit {\metre }}\nomeqref {5.1}|nompageref}{44}
+\nomenclatureentry{Rh_glueh\(_g\)@[{h\(_g\)}]\begingroup \nomdescr {Cyanoacrylate glue thickness}\DimensUnits {}{\unit {\metre }}\nomeqref {5.1}|nompageref}{44}
+\nomenclatureentry{RG\(G\)@[{\(G\)}]\begingroup \nomdescr {Shear modulus}\DimensUnits {}{\unit {\giga \pascal }}\nomeqref {5.1}|nompageref}{45}
+\nomenclatureentry{De\(e(t)\)@[{\(e(t)\)}]\begingroup \nomdescr {Signal envelope}\DefinitionCol {}\nomeqref {5.4}|nompageref}{49}
+\nomenclatureentry{Rt\(t\)@[{\(t\)}]\begingroup \nomdescr {Time vector}\DimensUnits {}{\unit {\second }}\nomeqref {5.4}|nompageref}{49}
+\nomenclatureentry{Gomega_ang\(\omega \)@[{\(\omega \)}]\begingroup \nomdescr {Angular frequency}\DimensUnits {}{\unit [per-mode = symbol]{\radian \per \second }}\nomeqref {6.1}|nompageref}{53}
+\nomenclatureentry{RI\(I\)@[{\(I\)}]\begingroup \nomdescr {Electric current}\DimensUnits {}{\unit {\ampere }}\nomeqref {6.1}|nompageref}{53}
+\nomenclatureentry{Di\(i\)@[{\(i\)}]\begingroup \nomdescr {Imaginary number}\DefinitionCol {}\nomeqref {6.1}|nompageref}{53}
+\nomenclatureentry{Rz_impedance\(Z\)@[{\(Z\)}]\begingroup \nomdescr {Impedance}\DimensUnits {}{\unit {\ohm }}\nomeqref {6.1}|nompageref}{53}
+\nomenclatureentry{RCapaci\(C_0\)@[{\(C_0\)}]\begingroup \nomdescr {Transducer free capacitance}\DimensUnits {}{\unit {\farad }}\nomeqref {6.2}|nompageref}{54}
+\nomenclatureentry{Dkp\(k_p\)@[{\(k_p\)}]\begingroup \nomdescr {Transducer planar coupling coefficient}\DefinitionCol {}\nomeqref {6.2}|nompageref}{54}
+\nomenclatureentry{Rw_dam\(w_d\)@[{\(w_d\)}]\begingroup \nomdescr {Damage width}\DimensUnits {}{\unit {\metre }}\nomeqref {6.2}|nompageref}{59}
+\nomenclatureentry{Rl_dam\(l_d\)@[{\(l_d\)}]\begingroup \nomdescr {Length width}\DimensUnits {}{\unit {\metre }}\nomeqref {6.2}|nompageref}{59}
+\nomenclatureentry{Gdelta\(\delta \)@[{\(\delta \)}]\begingroup \nomdescr {Percentage error}\DimensUnits {}{\%}\nomeqref {6.4}|nompageref}{70}
+\nomenclatureentry{Dgt\(g(t)\)@[{\(g(t)\)}]\begingroup \nomdescr {Gaussian window}\DefinitionCol {}\nomeqref {7.1}|nompageref}{74}

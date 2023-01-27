@@ -4,16 +4,18 @@
 
 %% SECTION CONTENT ////////////////////////////////////////////////////////////////////////////////////
 In addition to the referenced \ac{madif} obtained for +20\unit{\degreeCelsius}, a study of wave propagation at temperatures T=\(\left[-10,\,0,\,+10,\,+30,\,+40,\,+50\right]\)\unit{\degreeCelsius} was carried out.
-To determine temperature-dependent \ac{gw} propagation in \ac{hsc} using simulations, the material properties of the components were specified according to the methodology described in section~\ref{sec:temp}.
+To determine temperature-dependent \ac{gw} propagation in \ac{hsc} using simulations, the material properties of the components were assumed according to the methodology described in section~\ref{sec:temp}.
 
 The temperature effect on the \acp{madif} is developed based on the \ac{fcgm} and removed interface elements as a damage model.
 The analysis used both \acp{di}, i.e. the \ac{rmsd} and the \ac{cc}, for the 100 \unit{\kHz} full-length signal.
 The signals obtained for a healthy sample at considered temperatures were taken as the reference signals for each case.
+As with the reference temperature, an analysis of the selection of the fitting function was performed.
+The best results were obtained for Eq.~(\ref{eq:function_1}), and the function coefficients for each temperature are collected in the Tab.~\ref{tab:fit_F_err_temp}.
 \begin{table}[!tbh]
 	\small
 	\tabcolsep=0.25cm
 	\centering
-	\caption{\label{tab:fit_F_err_temp} The coefficients of the function from Eq.~(\ref{eq:function_1}) fitted to the \acfp{madif} based on the \acf{fcgm} - interface at 100 \unit{\kHz} for various ambient temperature.}
+	\caption{\label{tab:fit_F_err_temp} The coefficients of the function from Eq.~(\ref{eq:function_1}) fitted to the \acfp{madif} based on the \acf{fcgm} - interface at 100 \unit{\kHz} for various ambient temperatures.}
 	\begin{tabular}{cccccccc}
 		\toprule
 		{T \unit{\degreeCelsius}} & Eq.~(\ref{eq:function_1}) & -10 & 0 & +10 & +30 & +40 & +50\\
@@ -48,4 +50,4 @@ Therefore, the assumed linear model of the temperature-dependent material proper
 	\caption{The \acf{madif} and the \acf{edif} based on the \acf{cc} 100 \unit{\kHz}.}
 	\label{fig:madif_temp_cc}
 \end{figure}
-In the case of the \ac{cc}, the best results were achieved at temperature between +10\unit{\degreeCelsius} and +40\unit{\degreeCelsius}. 
+In the case of the \ac{cc}, the best results were achieved at temperatures between +10\unit{\degreeCelsius} and +40\unit{\degreeCelsius}. 

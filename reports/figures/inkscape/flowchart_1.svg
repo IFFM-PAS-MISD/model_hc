@@ -10,8 +10,8 @@
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    width="160mm"
-   height="151mm"
-   viewBox="0 0 160 151"
+   height="144mm"
+   viewBox="0 0 160 144"
    version="1.1"
    id="svg1620"
    inkscape:export-filename="/home/pfiborek/Documents/GITHub/model_hc/docs/proposal/Dissertation/Figures/Chapter_3/flowchart.png"
@@ -275,9 +275,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.98994949"
-     inkscape:cx="38.046673"
-     inkscape:cy="171.75439"
+     inkscape:zoom="0.49497475"
+     inkscape:cx="-260.72042"
+     inkscape:cy="142.955"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -307,7 +307,14 @@
      inkscape:label="Layer 1"
      inkscape:groupmode="layer"
      id="layer1"
-     transform="translate(-5.7779538,-140.4506)">
+     transform="translate(-5.7779538,-147.4506)">
+    <rect
+       style="opacity:1;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.06500001;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="rect2302"
+       width="160"
+       height="144"
+       x="5.7779536"
+       y="147.45061" />
     <flowRoot
        xml:space="preserve"
        id="flowRoot2181"
@@ -387,7 +394,7 @@
     <rect
        rx="11.955544"
        ry="11.946877"
-       y="147.72002"
+       y="151.95329"
        x="7.9346633"
        height="17.003593"
        width="54.326626"
@@ -397,16 +404,16 @@
        xml:space="preserve"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.23333311px;line-height:1.25;font-family:'TeX Gyre DejaVu Math';-inkscape-font-specification:'TeX Gyre DejaVu Math';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
        x="35.522751"
-       y="154.7438"
+       y="158.97708"
        id="text2175"><tspan
          sodipodi:role="line"
          id="tspan2173"
          x="35.522751"
-         y="154.7438"
+         y="158.97708"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.52777767px;font-family:'TeX Gyre DejaVu Math';-inkscape-font-specification:'TeX Gyre DejaVu Math';text-align:center;text-anchor:middle;stroke-width:0.26458332">Reference measurement</tspan><tspan
          sodipodi:role="line"
          x="35.522751"
-         y="160.03548"
+         y="164.26875"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.52777767px;font-family:'TeX Gyre DejaVu Math';-inkscape-font-specification:'TeX Gyre DejaVu Math';text-align:center;text-anchor:middle;stroke-width:0.26458332"
          id="tspan2177">on a pristine sample</tspan></text>
     <rect
@@ -415,22 +422,22 @@
        width="54.270969"
        height="15.235191"
        x="7.9624887"
-       y="184.84399"
+       y="189.07727"
        ry="10.704382"
        rx="10.726226" />
     <text
        id="text2197"
-       y="190.98358"
+       y="195.21686"
        x="35.419392"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.23333311px;line-height:1.25;font-family:'TeX Gyre DejaVu Math';-inkscape-font-specification:'TeX Gyre DejaVu Math';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
        xml:space="preserve"><tspan
          id="tspan2195"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.52777767px;font-family:'TeX Gyre DejaVu Math';-inkscape-font-specification:'TeX Gyre DejaVu Math';text-align:center;text-anchor:middle;stroke-width:0.26458332"
-         y="190.98358"
+         y="195.21686"
          x="35.978546"
          sodipodi:role="line">Experimental measurement </tspan><tspan
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.52777767px;font-family:'TeX Gyre DejaVu Math';-inkscape-font-specification:'TeX Gyre DejaVu Math';text-align:center;text-anchor:middle;stroke-width:0.26458332"
-         y="196.27525"
+         y="200.50853"
          x="35.419392"
          sodipodi:role="line"
          id="tspan2201">on an inspected sample</tspan></text>
@@ -440,29 +447,29 @@
        width="42.259205"
        height="13.186389"
        x="13.968361"
-       y="216.42229"
+       y="220.65556"
        ry="12.828938"
        rx="12.828938" />
     <text
        xml:space="preserve"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.23333311px;line-height:1.25;font-family:'TeX Gyre DejaVu Math';-inkscape-font-specification:'TeX Gyre DejaVu Math';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
        x="35.097958"
-       y="221.31862"
+       y="225.5519"
        id="text2211"><tspan
          sodipodi:role="line"
          id="tspan2209"
          x="35.657108"
-         y="221.31862"
+         y="225.5519"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.52777767px;font-family:'TeX Gyre DejaVu Math';-inkscape-font-specification:'TeX Gyre DejaVu Math';text-align:center;text-anchor:middle;stroke-width:0.26458332">Signal </tspan><tspan
          sodipodi:role="line"
          x="35.097958"
-         y="226.61029"
+         y="230.84357"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.52777767px;font-family:'TeX Gyre DejaVu Math';-inkscape-font-specification:'TeX Gyre DejaVu Math';text-align:center;text-anchor:middle;stroke-width:0.26458332"
          id="tspan6429">processing</tspan></text>
     <rect
        rx="12.828938"
        ry="12.828938"
-       y="244.4399"
+       y="248.67317"
        x="13.166556"
        height="13.69365"
        width="43.86282"
@@ -470,23 +477,23 @@
        style="fill:#aaccff;fill-opacity:1;stroke:#000000;stroke-width:0.26499999;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
     <text
        xml:space="preserve"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.52777778px;line-height:1.25;font-family:'TeX Gyre DejaVu Math';-inkscape-font-specification:'TeX Gyre DejaVu Math';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332;"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.52777767px;line-height:1.25;font-family:'TeX Gyre DejaVu Math';-inkscape-font-specification:'TeX Gyre DejaVu Math';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
        x="35.197174"
-       y="249.95674"
+       y="254.19002"
        id="text2217"><tspan
          sodipodi:role="line"
          x="35.756325"
-         y="249.95674"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.52777778px;font-family:'TeX Gyre DejaVu Math';-inkscape-font-specification:'TeX Gyre DejaVu Math';text-align:center;text-anchor:middle;stroke-width:0.26458332;"
+         y="254.19002"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.52777767px;font-family:'TeX Gyre DejaVu Math';-inkscape-font-specification:'TeX Gyre DejaVu Math';text-align:center;text-anchor:middle;stroke-width:0.26458332"
          id="tspan2227">Signal </tspan><tspan
          id="tspan6420"
          sodipodi:role="line"
          x="35.197174"
-         y="255.24841"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.52777778px;font-family:'TeX Gyre DejaVu Math';-inkscape-font-specification:'TeX Gyre DejaVu Math';text-align:center;text-anchor:middle;stroke-width:0.26458332;">normalisation</tspan></text>
+         y="258.59973"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.52777767px;font-family:'TeX Gyre DejaVu Math';-inkscape-font-specification:'TeX Gyre DejaVu Math';text-align:center;text-anchor:middle;stroke-width:0.26458332">normalisation</tspan></text>
     <g
        id="g12730"
-       transform="translate(-14.617933,-1.4589753)">
+       transform="translate(-14.617933,2.7743581)">
       <rect
          style="fill:#ffaaaa;fill-opacity:1;stroke:#000000;stroke-width:0.26499999;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
          id="rect2219"
@@ -516,23 +523,23 @@
     <path
        inkscape:connector-curvature="0"
        id="path2581"
-       d="M 57.161876,251.28672 H 67.254381 78.46827"
+       d="M 57.161876,255.52008 H 67.254381 78.46827"
        style="fill:none;stroke:#000000;stroke-width:0.26500002;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
     <path
        style="fill:none;stroke:#000000;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-mid:url(#marker2999)"
-       d="m 35.097966,229.74116 v 8.64795 5.91828"
+       d="m 35.097966,233.97452 v 8.64795 5.91828"
        id="path2995"
        inkscape:connector-curvature="0"
        sodipodi:nodetypes="ccc" />
     <path
        inkscape:connector-curvature="0"
        id="path3103"
-       d="m 78.468272,156.34968 v 45.04255 50.04719"
+       d="m 78.468272,160.58304 v 45.04255 50.04719"
        style="fill:none;stroke:#000000;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-mid:url(#marker3107)" />
     <rect
        rx="8.3118887"
        ry="8.2583094"
-       y="147.09232"
+       y="151.32559"
        x="120.7874"
        height="10.2939"
        width="36.885502"
@@ -542,13 +549,13 @@
        xml:space="preserve"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.73392868px;line-height:1.25;font-family:'TeX Gyre DejaVu Math';-inkscape-font-specification:'TeX Gyre DejaVu Math';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
        x="128.61116"
-       y="154.04819"
+       y="158.29526"
        id="text12673"
        transform="scale(1.0032387,0.99677175)"><tspan
          sodipodi:role="line"
          id="tspan12671"
          x="128.61116"
-         y="154.04819"
+         y="158.29526"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.52777767px;font-family:'TeX Gyre DejaVu Math';-inkscape-font-specification:'TeX Gyre DejaVu Math';stroke-width:0.26458332">HSC model</tspan></text>
     <rect
        style="fill:#ffeeaa;fill-opacity:1;stroke:#000000;stroke-width:0.26499999;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
@@ -556,29 +563,29 @@
        width="49.407814"
        height="13.852987"
        x="114.52618"
-       y="215.75568"
+       y="219.98895"
        ry="12.828938"
        rx="12.828938" />
     <text
        xml:space="preserve"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.23333311px;line-height:1.25;font-family:'TeX Gyre DejaVu Math';-inkscape-font-specification:'TeX Gyre DejaVu Math';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
        x="139.33429"
-       y="221.3522"
+       y="225.58548"
        id="text12679"><tspan
          sodipodi:role="line"
          x="139.33429"
-         y="221.3522"
+         y="225.58548"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.52777767px;font-family:'TeX Gyre DejaVu Math';-inkscape-font-specification:'TeX Gyre DejaVu Math';text-align:center;text-anchor:middle;stroke-width:0.26458332"
          id="tspan4460">Various damage</tspan><tspan
          sodipodi:role="line"
          x="139.33429"
-         y="226.64388"
+         y="230.87715"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.52777767px;font-family:'TeX Gyre DejaVu Math';-inkscape-font-specification:'TeX Gyre DejaVu Math';text-align:center;text-anchor:middle;stroke-width:0.26458332"
-         id="tspan1005"> simmulations</tspan></text>
+         id="tspan1005"> simulations</tspan></text>
     <rect
        rx="12.828938"
        ry="12.828938"
-       y="244.6275"
+       y="248.86078"
        x="115.46655"
        height="13.318448"
        width="47.527088"
@@ -588,79 +595,79 @@
        xml:space="preserve"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.23333311px;line-height:1.25;font-family:'TeX Gyre DejaVu Math';-inkscape-font-specification:'TeX Gyre DejaVu Math';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
        x="139.19141"
-       y="249.90207"
+       y="254.13535"
        id="text12685"><tspan
          sodipodi:role="line"
          id="tspan12683"
          x="139.19141"
-         y="249.90207"
+         y="254.13535"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.52777767px;font-family:'TeX Gyre DejaVu Math';-inkscape-font-specification:'TeX Gyre DejaVu Math';text-align:center;text-anchor:middle;stroke-width:0.26458332">MADIF</tspan><tspan
          sodipodi:role="line"
          x="139.19141"
-         y="255.19374"
+         y="259.427"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.52777767px;font-family:'TeX Gyre DejaVu Math';-inkscape-font-specification:'TeX Gyre DejaVu Math';text-align:center;text-anchor:middle;stroke-width:0.26458332"
          id="tspan4133">determination</tspan></text>
     <path
        style="fill:none;stroke:#000000;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-mid:url(#marker12825)"
-       d="m 35.097968,200.02269 v 10.07986 c 0,3.28665 0,6.18723 0,6.18723"
+       d="m 35.097968,204.25605 v 10.07986 c 0,3.28665 0,6.18723 0,6.18723"
        id="path12821"
        inkscape:connector-curvature="0"
        sodipodi:nodetypes="ccc" />
     <path
        style="fill:none;stroke:#000000;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-mid:url(#marker13563)"
-       d="m 35.097964,258.26603 v 11.78921 7.17235"
+       d="m 35.097964,262.49939 v 11.78921 7.17235"
        id="path13559"
        inkscape:connector-curvature="0"
        sodipodi:nodetypes="ccc" />
     <g
-       id="g1820"
-       transform="translate(-38.967364,-6.4760513)">
+       id="g2150"
+       transform="translate(0,4.2333335)">
       <rect
          transform="rotate(135)"
-         y="-274.57614"
-         x="-0.95809889"
-         height="23.525362"
-         width="23.525362"
+         y="-243.57869"
+         x="20.880835"
+         height="25.797153"
+         width="25.797153"
          id="rect1040"
          style="opacity:0.253;fill:#00baaa;fill-opacity:1;stroke:none;stroke-width:0.26499999;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
       <text
          id="text1025"
-         y="192.1472"
-         x="178.15132"
+         y="185.67116"
+         x="139.18396"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.23333311px;line-height:1.25;font-family:'TeX Gyre DejaVu Math';-inkscape-font-specification:'TeX Gyre DejaVu Math';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
          xml:space="preserve"><tspan
            style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.52777767px;font-family:'TeX Gyre DejaVu Math';-inkscape-font-specification:'TeX Gyre DejaVu Math';text-align:center;text-anchor:middle;stroke-width:0.26458332"
-           y="192.1472"
-           x="178.15132"
+           y="185.67116"
+           x="139.18396"
            sodipodi:role="line"
-           id="tspan1023">Experimental</tspan><tspan
+           id="tspan1023">Experimentally</tspan><tspan
            id="tspan1814"
            style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.52777767px;font-family:'TeX Gyre DejaVu Math';-inkscape-font-specification:'TeX Gyre DejaVu Math';text-align:center;text-anchor:middle;stroke-width:0.26458332"
-           y="197.43887"
-           x="178.15132"
+           y="190.96283"
+           x="139.18396"
            sodipodi:role="line"> validatated?</tspan></text>
     </g>
     <text
        xml:space="preserve"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.52777767px;line-height:1.25;font-family:'TeX Gyre DejaVu Math';-inkscape-font-specification:'TeX Gyre DejaVu Math';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
        x="129.64064"
-       y="208.782"
+       y="213.01527"
        id="text1824"><tspan
          sodipodi:role="line"
          id="tspan1822"
          x="129.64064"
-         y="208.782"
+         y="213.01527"
          style="font-size:3.52777767px;stroke-width:0.26458332">Yes</tspan></text>
     <text
        xml:space="preserve"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.52777767px;line-height:1.25;font-family:'TeX Gyre DejaVu Math';-inkscape-font-specification:'TeX Gyre DejaVu Math';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
        x="108.65102"
-       y="184.71298"
+       y="188.94626"
        id="text1834"><tspan
          sodipodi:role="line"
          id="tspan1832"
          x="108.65102"
-         y="184.71298"
+         y="188.94626"
          style="font-size:3.52777767px;stroke-width:0.26458332">No</tspan></text>
     <rect
        style="fill:#ffeeaa;fill-opacity:1;stroke:#000000;stroke-width:0.26499999;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
@@ -668,61 +675,61 @@
        width="34.366112"
        height="9.5999374"
        x="82.103554"
-       y="164.82864"
+       y="169.06192"
        ry="7.7015753"
        rx="7.7441616" />
     <text
        xml:space="preserve"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.52777767px;line-height:1.25;font-family:'TeX Gyre DejaVu Math';-inkscape-font-specification:'TeX Gyre DejaVu Math';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
        x="99.189629"
-       y="168.68492"
+       y="172.9182"
        id="text2342"><tspan
          sodipodi:role="line"
          id="tspan2340"
          x="99.748779"
-         y="168.68492"
+         y="172.9182"
          style="font-size:3.52777767px;text-align:center;text-anchor:middle;stroke-width:0.26458332">Parameters </tspan><tspan
          sodipodi:role="line"
          x="99.189629"
-         y="173.09465"
+         y="177.32793"
          style="font-size:3.52777767px;text-align:center;text-anchor:middle;stroke-width:0.26458332"
          id="tspan933">adjustment</tspan></text>
     <path
        sodipodi:nodetypes="ccc"
        inkscape:connector-curvature="0"
        id="path2350"
-       d="m 139.22967,157.40554 v 7.94694 5.0137"
+       d="m 139.22967,161.6389 v 6.96196 4.39228"
        style="fill:none;stroke:#000000;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-mid:url(#marker2354)" />
     <path
        style="fill:none;stroke:#000000;stroke-width:0.26500002;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-       d="m 62.299283,156.2218 h 7.720207 8.578011"
+       d="m 62.299283,160.45516 h 7.720207 8.578011"
        id="path3268"
        inkscape:connector-curvature="0" />
     <path
        style="fill:none;stroke:#000000;stroke-width:0.26500002;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-       d="M 35.015549,277.23371 H 50.532258 67.773036"
+       d="M 35.015549,281.46707 H 50.532258 67.773036"
        id="path3652"
        inkscape:connector-curvature="0" />
     <path
        inkscape:connector-curvature="0"
        id="path3876"
-       d="m 116.52641,277.23371 h 10.75438 11.94931"
+       d="m 116.52641,281.46707 h 10.75438 11.94931"
        style="fill:none;stroke:#000000;stroke-width:0.26500002;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
     <path
        sodipodi:nodetypes="ccc"
        inkscape:connector-curvature="0"
        id="path3980"
-       d="m 139.2301,258.27215 v 11.78921 7.17235"
+       d="m 139.2301,262.50551 v 11.78921 7.17235"
        style="fill:none;stroke:#000000;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-mid:url(#marker3984)" />
     <path
        sodipodi:nodetypes="ccc"
        inkscape:connector-curvature="0"
        id="path4241"
-       d="m 139.22967,229.74116 v 8.64795 5.91828"
+       d="m 139.22967,233.97452 v 8.64795 5.91828"
        style="fill:none;stroke:#000000;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-mid:url(#marker4245)" />
     <path
        style="fill:none;stroke:#000000;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-mid:url(#marker4365)"
-       d="m 139.22967,203.39346 v 7.26076 4.96895"
+       d="m 139.22967,209.32771 v 6.25094 4.27788"
        id="path4361"
        inkscape:connector-curvature="0"
        sodipodi:nodetypes="ccc" />
@@ -730,21 +737,21 @@
        sodipodi:nodetypes="ccc"
        inkscape:connector-curvature="0"
        id="path4551"
-       d="M 122.59473,187.00112 H 108.0415 c -4.74525,0 -8.933074,0 -8.933074,0"
+       d="m 120.97918,191.23448 h -13.55216 c -4.41884,0 -8.318594,0 -8.318594,0"
        style="fill:none;stroke:#000000;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-mid:url(#marker4555)" />
     <path
        style="fill:none;stroke:#000000;stroke-width:0.26500002;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-       d="m 99.286467,174.60073 v 5.8936 6.54844"
+       d="m 99.286467,178.83409 v 5.8936 6.54844"
        id="path5337"
        inkscape:connector-curvature="0" />
     <path
        inkscape:connector-curvature="0"
        id="path5591"
-       d="m 99.28647,152.23927 v 6.0055 6.67277"
+       d="m 99.28647,156.47263 v 6.0055 6.67277"
        style="fill:none;stroke:#000000;stroke-width:0.26500002;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
     <path
        style="fill:none;stroke:#000000;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-mid:url(#marker5603)"
-       d="m 99.286466,152.23926 h 13.145514 c 4.28625,0 8.069,0 8.069,0"
+       d="m 99.286466,156.47262 h 13.145514 c 4.28625,0 8.069,0 8.069,0"
        id="path5599"
        inkscape:connector-curvature="0"
        sodipodi:nodetypes="ccc" />

@@ -1,0 +1,59 @@
+\section{Efficiency of the time integration algorithm}
+
+Two types of simulations were conducted to determine the efficiency of the \ac{pa} to solve the equation of motion shown in Section \ref{sec:gpu}.
+The first type compares the \ac{pa} computations performed on the \ac{gpu} and \ac{cpu}.
+The second type compares \ac{pa} with the benchmark proposed by Kudela et al.~\cite{kudela2020parallel} named \ac{ba}.
+Both analyses were performed on the same workstation as the \ac{ba} equipped with the following components:
+\begin{itemize}
+	\item \ac{cpu} - Intel Xeon Silver, 2.1 \unit{\giga\Hz}, 8 cores
+	\item \ac{gpu} - NVIDIA Tesla V100 32 \unit{\giga\byte} 5120 CUDA cores
+	\item RAM - 128 \unit{\giga\byte} DDR4 2933 \unit{\mega\Hz}
+\end{itemize}
+
+The comparison \ac{gpu} vs. \ac{cpu} was conducted on a \ac{3d} model of an  aluminium plate (\numproduct{250 x250 x 5} \unit{\cubic\mm}).
+The structure was discretised with rectangular mesh of the various number of the in-plane elements.
+In each case, a spectral element of \numproduct{6 x 6 x 3} nodes with three \acp{dof} per node was used, with one element through the plate thickness.
+The global \ac{dof} and the memory usage are presented in Table~\ref{tab:gpuvscpu}.
+A concentrated force was applied to the centre of the plate as a 3-cycle Hann windowed sine at 50 \unit{\kHz} frequency.
+\begin{table}[!hbt]
+	\tabcolsep=0.2cm
+	\centering
+	\caption{\label{tab:gpuvscpu} Model parameters used in simulations to compare the algorithm performance on \ac{gpu} and \ac{cpu}.}
+	\begin{tabular}{lccccc}
+		\toprule
+		Number of elements & \numproduct{25 x 25} & \numproduct{50 x 50} & \numproduct{100 x 100} & \numproduct{125 x 125} & \numproduct{250 x 250} \\
+		Global \ac{dof}\(\times10^6\) &0.14&0.57&2.26&3.53&14.08\\
+		Memory usage \unit{\mega\byte} & 75 & 367 & 1437 & 2252 & 8999\\ \bottomrule
+	\end{tabular}
+\end{table}
+The computational speed up as a function of global \ac{dof} was determined as follows:
+\begin{eqnarray}
+	\mathrm{Speedup} = \frac{\mathrm{CPU_{avg}}}{\mathrm{GPU_{avg}}},
+\end{eqnarray}
+where \(\mathrm{CPU_{avg}}\) and \(\mathrm{GPU_{avg}}\) is average one time step calculation performed on \ac{cpu} and \ac{gpu}, respectively.
+The time of the pre-/post-processing is not included into the speedup calculation, because the data from \ac{cpu} to \ac{gpu} and vice versa is done only once, while the time integration steps are a large number. 
+
+For the second test computations run times of the simulations conducted on \ac{gpu} were computed for various sizes of the composite plate.
+The benchmark parameters proposed in the paper mentioned above are gathered in Table~\ref{tab:benchmark}.
+The efficiency of the \ac{pa} regarding \ac{ba} is measured by speedup, defined as the ratio of \ac{ba} run time to \ac{pa}.
+\begin{table}[!hbt]
+	\tabcolsep=0.2cm
+	\centering
+	\caption{\label{tab:benchmark}Sample parameters used in the benchmark of the \ac{pa} and the \ac{ba}.}
+	\begin{tabular}{lcccccc}
+		\toprule
+		Plate size \unit{\cm} & \numproduct{30 x 30} & \numproduct{40 x 40} & \numproduct{50 x 50} & \numproduct{70 x 70} & \numproduct{90 x 90} & \numproduct{100 x 100}\\
+		Global \ac{dof}\(\times10^6\)&1.02&1.46&1.98&3.09&5.23&6.36\\ \bottomrule
+	\end{tabular}
+\end{table}
+
+The results of both analysis are pictured in Fig.~\ref{fig:speedup}.
+At maximum \ac{dof}, the speedup in \ac{gpu} computation relative to \ac{cpu} computation increases near to 90 and the \ac{pa} is up to ten times more efficient than the \ac{ba}.
+Improvement of the algorithm comes from: more operations performed in the pre-processing, transfer of internal forces from the local to the global system by summing columns instead of \verb+for-loop+, and minimized number of columns in the map of local nodes $\textbf{I}_L$ (see section~\ref{sec:gpu}).
+\begin{figure}[!tbh]
+	\begin{center}
+		\includegraphics[width=0.95\textwidth]{Chapter_4/benchmark}
+	\end{center}
+	\caption{Speedup in function of global \acfp{dof} of the \acf{pa} computation run on \acf{cpu}~vs.~\acf{gpu} (orange dashed line), and compared to \acf{ba} (blue solid line)}
+	\label{fig:speedup}
+\end{figure}

@@ -5,7 +5,7 @@
 %% SECTION CONTENT ////////////////////////////////////////////////////////////////////////////////////
 
 The most time-consuming operation in the Eq. (\ref{eq:motion}) is calculation of the internal force vector \(\textbf{f}_{int}=\left(\textbf{K}_{dd}-\textbf{K}_{s}\right)\widehat{\textbf{d}}_{t}\), as the stiffness matrix \(\textbf{K}_{dd}\) occupies a large amount of memory.
-\nomtypeR[force_int]{$\textbf{f}_{int}$}{Internal force vector}{-}{\unit{\newton}}%
+\nomtypeR[force_int]{$\textbf{f}_{int}$}{Internal force vector}{}{\unit{\newton}}%
 Instead of allocating the full matrix \(\textbf{K}_{dd}\), Kudela proposed a parallelized computation of the internal force vector \cite{kudela2016parallel}.
 In the pre-processing, the natural derivatives matrix, the vector of inverted components of the Jacobian matrix, and the integration weights multiplied by the Jacobian determinant is rearranged from the global to the local form:
 \begin{eqnarray}
@@ -35,7 +35,7 @@ In the pre-processing, the natural derivatives matrix, the vector of inverted co
 		\det\left(\mathcal{J}^{e=n}\right)
 	 \end{array}\right\},
 \end{eqnarray}
-\nomtypeD[wj]{$\mathcal{W}$}{Element weights and Jacobian determinant product}{\(w\circ\det(\mathcal{J})\)}%
+\nomtypeD[wj]{$\mathcal{W}$}{Element weights and Jacobian determinant product}{}%
 where $n$ is the spectral elements number in modeled domain; \(\mathcal{J}^P\), \(\det\left(\mathcal{J}^P\right)\) and \(\left(\mathcal{J}^P\right)_{inv}\) are the Jacobian matrix, its determinant and inverse, respectively; $i,j=1\ldots3$; and '$\circ$' denotes element-wise multiplication.
 The $\textbf{N}^P_{,\xi}$ is a block-diagonal sparse matrix, and the equality of $\textbf{N}^1_{,\xi}=\textbf{N}^2_{,\xi}=\ldots=\textbf{N}^n_{,\xi}$ holds if the same order of interpolation shape function is used for all elements.
 Besides, a vector of local node indices $\textbf{I}_L$ and corresponding global node indices $\textbf{I}_G$ must be defined in the preprocessing process.
@@ -62,7 +62,7 @@ Next, the strain and stress vectors are calculated as:
 	\label{eq:stress_e}
 	\boldsymbol{\sigma}^e & = & \left[\boldsymbol{\sigma}^e_{xx},\ \boldsymbol{\sigma}^e_{yy},\ \boldsymbol{\sigma}^e_{zz},\ \boldsymbol{\tau}^e_{yz},\ \boldsymbol{\tau}^e_{xz},\ \boldsymbol{\tau}^e_{xy},\ \right]^T=\textbf{C}\boldsymbol{\varepsilon}^e.
 \end{eqnarray}
-The explicit formulation of Eq.~(\ref{eq:strain_e}) and Eq.~(\ref{eq:stress_e}) for \ac{3d} and first-order shear deformation model can be found in are given in the App.~\ref{app:fu}.
+The explicit formulation of Eq.~(\ref{eq:strain_e}) and Eq.~(\ref{eq:stress_e}) for \ac{3d} and first-order shear deformation model are given in the App.~\ref{app:fu}.
 
 Then, the vector of internal forces is calculated as:
 \begin{eqnarray}
@@ -81,7 +81,7 @@ Finally, the assembly of internal forces vector is performed using the \(\textbf
 \end{eqnarray}
 where \(col\) is the number of columns in \(\textbf{I}_G\).
 
-In the dissertation, some improvements have been implemented to the above algorithm to make it more computationally efficient.
+In the dissertation, some improvements have been implemented to the above algorithm to make it more computationally efficient \cite{fiborek2022spectral}.
 Instead of calculating the vector of internal forces in the \verb+for-loop+ like in Eq.~(\ref{eq:Fint}), it is recommended to assign all local forces into the matrix as:
 \begin{eqnarray}
 	\label{eq:Fmatrix}

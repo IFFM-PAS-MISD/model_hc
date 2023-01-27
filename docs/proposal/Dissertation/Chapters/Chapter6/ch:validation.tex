@@ -8,21 +8,21 @@
 
 %% CHAPTER INTRODUCTION ///////////////////////////////////////////////////////////////////////////////
 The developed models require validation to assess the accuracy and reliability of the modelled physical processes.
-Validation of the \acp{pzt} is performed by analytical analysis of the electromechanical impedance of the circular sensor. 
+Validation of the \ac{pzt} models is performed by analytical analysis of the electromechanical impedance of the circular sensor. 
 On the other hand, the \ac{hsc} panel model is evaluated experimentally in two ways: by analysing the full wavefield obtained by the \ac{sldv} and by analysing the time signals measured by the \acp{pzt} setup.
 %% INCLUDE SECTIONS ///////////////////////////////////////////////////////////////////////////////////
 \input{Chapters/Chapter6/sec:pztVal}
 \input{Chapters/Chapter6/sec:setup}
-\input{Chapters/Chapter6/sec:results}
+\input{Chapters/Chapter6/sec:results_sldv}
+\input{Chapters/Chapter6/sec:results_pzt}
 
 \section{Conclusions}
 \label{sec:conclusionsValid}
 
 %% SECTION CONTENT ////////////////////////////////////////////////////////////////////////////////////
 In this chapter, I presented the experimental validation of the \ac{fcgm} and \ac{hcgm}.
-It is shown that the \ac{fcgm} better expresses the wave propagation in \ac{hsc} than the simplified model.
+It is shown that the \ac{fcgm} better expresses the wave propagation in the \ac{hsc} than the simplified model.
 The snapshots of the full wavefield showed wave interference in the core cells, which is impossible to obtain in the \ac{hcgm}.
 The full-field analysis also showed a lack of wave leakage into the core at the damaged area.
 This phenomenon will be the basis for determining the effect of the damage on wave propagation.
 The velocity of the wave propagation for both models is in good agreement with the \ac{pzt} measurements.
-Additionally, it was shown that by optimising the algorithm for solving the equation of motion, a ten time faster calculation time was achieved than the algorithm presented in the paper \cite{kudela2020parallel}.

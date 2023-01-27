@@ -4,20 +4,20 @@
 
 %% SECTION CONTENT ////////////////////////////////////////////////////////////////////////////////////
 
-The general concept of the \ac{sem} is based on the idea of the \ac{fem}.
+The \ac{sem} is similar to the \ac{fem}.
 The similarity of both methods lies in the fact that the modelled domain is divided into non-overlapping finite elements, and external forces and arbitrary boundary conditions are imposed in the particular nodes.
-The main difference between those methods is a choice of the shape function \( N=N(\xi )\), pictured in Fig.\ref{fig:shape}, which is interpolated by a Lagrange polynomial that passes through the element nodes.
-The nodes are localized on the endpoint of an interval, \(\xi\in[-1,1]\), and the roots of the first derivative of Legendre polynomial P of degree \(p-1\):
+The main difference between those methods is a choice of the shape function \( N=N(\xi )\), pictured in Fig.~\ref{fig:shape}, which is interpolated by a Lagrange polynomial that passes through the element nodes.
+The nodes are localised on the endpoint of an interval, \(\xi\in[-1,1]\), and the roots of the first derivative of Legendre polynomial \(\mathcal{P}\) of degree \(p\):
 \begin{eqnarray}
-	(1-\xi^2)P'_{p-1}(\xi)=0.
+	(1-\xi^2)\mathcal{P}'_{p}(\xi)=0.
 	\label{eq:nodes}
 \end{eqnarray}
-\nomtypeD[x]{\( \xi, \eta, \zeta \)}{local coordinates}{-}
-\nomtypeD[w]{\(w\)}{Weighting factor}{$\frac{2}{p(p-1)\left(P_{p-1}(\xi)\right)^2}$}
+\nomtypeD[x]{\( \xi, \eta, \zeta \)}{local coordinates}{}
+\nomtypeD[w]{\(w\)}{Weighting factor}{}
 The approximation of an integral over the elements is achieved according to \ac{gll} rule at points coinciding with the element nodes, 
 and the weights \(w=w(\xi)\) calculated as:
 \begin{eqnarray}
-	{w(\xi)} = \frac{2}{p(p-1)(P_{p-1}(\xi))^2}.
+	{w(\xi)} = \frac{2}{p(p+1)(\mathcal{P}_{p}(\xi))^2}.
 	\label{eq:weight}
 \end{eqnarray}
 
@@ -29,7 +29,7 @@ The shape functions and the weights for \ac{2d} or \ac{3d} elements are obtained
 	\end{array}
 \label{eq:shape_functions}
 \end{eqnarray}
-\nomtypeD[N]{$N$}{Shape function}{-}%
+\nomtypeD[N]{$N$}{Shape function}{}%
 \begin{eqnarray}
 	\begin{array}{rcl}
 	w(\xi,\eta) & = & w(\xi)\otimes w(\eta),\\
@@ -45,16 +45,16 @@ The shape functions and the weights for \ac{2d} or \ac{3d} elements are obtained
 	\label{fig:shape}
 \end{figure}
 
-The elementary equations of motion are defined as:
+The derivation of the equation of motion is given in \cite{ostachowicz2011guided}, and it is defined as:
 \begin{eqnarray}
 	\label{eq:motion}
 	\textbf{M} \ddot{\textbf{d}} + \textbf{D} \dot{\textbf{d}} + \textbf{K} \textbf{d} = \textbf{f}_{ext},
 \end{eqnarray}
-\nomtypeR[M]{$\textbf{M}$}{Mass matrix}{-}{\unit{\kg}}%
-\nomtypeR[D]{$\textbf{D}$}{Damping matrix}{-}{\unit[per-mode = symbol]{\newton\per\second}}%
-\nomtypeR[K]{$\textbf{K}$}{Stiffness matrix}{-}{\unit[per-mode = symbol]{\newton\second\per\metre}}%
+\nomtypeR[M]{$\textbf{M}$}{Mass matrix}{}{\unit{\kg}}%
+\nomtypeR[D]{$\textbf{D}$}{Damping matrix}{}{\unit[per-mode = symbol]{\newton\second \per \meter}}%
+\nomtypeR[K]{$\textbf{K}$}{Stiffness matrix}{}{\unit[per-mode = symbol]{\newton\per\metre}}%
 \nomtypeR[force_ext]{$\textbf{f}_{ext}$}{External force vector}{-}{\unit{\newton}}%
-\nomtypeR[d]{$\textbf{d}$}{Displacements vector}{-}{\unit{\meter}}%
+\nomtypeR[d]{$\textbf{d}$}{Displacements vector}{}{\unit{\meter}}%
 where \textbf{d} is the displacements vector; \textbf{M}, \textbf{D} and \textbf{K} are the structural mass, damping and stiffness matrices, respectively; \textbf{F}$_{ext}$ is the external forces vector; \((\dot{\ })=\frac{\partial}{\partial t}\).
 The construction of the structural matrices is similar to the classical approach in \ac{fem}.
 

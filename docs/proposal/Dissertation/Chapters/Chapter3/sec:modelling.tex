@@ -18,11 +18,11 @@ However, this method cannot adequately represent the phenomenon of propagating w
 It causes the signal energy not to dissipate as it would in a real structure.
 A more precise model is the \ac{fcgm}. 
 Ruzzene et al. presented a parametric study to evaluate the dynamic behavior of the honeycomb and cellular structures through the \ac{fem} and the application of the theory of periodic structures \cite{ruzzene2003wave}.
-Recently, the simulations of the wave propagation in the \acp{hsc} have been conducted with commercially available finite element code~\cite{song2009guided, hosseini2013numerical, tian2015wavenumber, zhao2018wave}.
+Recently, the simulations of the wave propagation in the \acp{hsc} have been conducted with commercially available finite element codes~\cite{song2009guided, hosseini2013numerical, tian2015wavenumber, zhao2018wave}.
 
 While the \ac{fem} based modelling of \ac{gw} requires a significant amount of memory and is time-consuming, this method becomes inefficient in the case of \ac{fcgm}.
 Kudela increased the computational efficiency with the model based on the time-domain \ac{sem} \cite{kudela2016parallel}.
-In addition, the algorithm has been adapted for parallel computing on the \ac{gpu}, making the simulations fourteen times faster than on the \ac{cpu}.
+In addition, the algorithm has been adapted for parallel computing on the \ac{gpu}, making the simulations 14 times faster than on the \ac{cpu}.
 However, this approach has two major drawbacks. One is employing solid elements with three \acp{dof} at each node to model the core walls. As a result, a \numproduct{179 x 160} \unit{\square\mm} sandwich panel has over 1.5 million \acp{dof}.
 Secondly, no \ac{pzt} sensors were considered in the simulation, so a concentrated force was used to generate the \ac{gw}.
 To attach the transducers, the grids of the sensor and the host plate must coincide or use an interface between them. 

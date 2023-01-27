@@ -28,7 +28,7 @@ The mechanical properties for the components of the analysed \ac{hsc} panel at t
 	\end{tabular}
 \end{table}
 For the \ac{cfrp} skin, the modulus is calculated as per the methodology described in \cite{chamis1983simplified,salamone2009guided}.
-The significant changes in mechanical properties under temperature occur mainly in the polymer matrix, while the variation in the carbon fibre properties has a negligible effect on wave propagation.
+The significant changes in mechanical properties under temperature occur mainly in the polymer matrix, while the variation in the carbon fibre properties has a negligible effect on wave propagation \cite{sikdar2018effects}.
 In this model \cite{salamone2009guided, hopkins2012extreme}, the reduction of Young’s modulus of the resin \(E_m\) with temperature variation is assumed as:
 \begin{eqnarray}
 	E_m(T)=F_m E_{m}(T_r),
@@ -37,16 +37,17 @@ In this model \cite{salamone2009guided, hopkins2012extreme}, the reduction of Yo
 \nomtypeR[E]{$E$}{Young's modulus}{-}{\unit{\giga\pascal}}%
 \nomtypeR[T]{$T$}{Temperature}{-}{\unit{\degreeCelsius}}%
 \nomtypeR[Tr]{$T_r$}{Reference temperature}{-}{\unit{\degreeCelsius}}%
-where \(E_{m}(T_r)\) is the Young’s modulus of resin at the reference temperature and \(F_m\) is the temperature degradation factor as proposed in \cite{chamis1983simplified}:
+where \(E_{m}(T_r)\) is the Young’s modulus of the resin at the reference temperature and \(F_m\) is the temperature degradation factor as proposed in \cite{chamis1983simplified}:
 \begin{eqnarray}
 F_m=\sqrt{\frac{T_{g0}-T}{T_{g0}-20}},
 \label{eq:em_temp}
 \end{eqnarray}
-\nomtypeD[Fm]{$F_m$}{Temperature degradation factor}{\(\sqrt{\frac{T_{g0}-T}{T_{g0}-T_r}}\)}{}%
+\nomtypeD[Fm]{$F_m$}{Temperature degradation factor}{}%
 \nomtypeR[Tg0]{$T_{g0}$}{Glass transition temperature}{}{\unit{\degreeCelsius}}%
 where \(T_{g0}\) is the glass transition temperature.
+Effective temperature-dependent properties of the \ac{cfrp} skin are presented in Fig. \ref{fig:cfrpEG}.
+The values of Young's modulus along and across carbon fibres, \(E_{11}\) and \(E_{33}\), respectively are depicted in Fig. \ref{fig:cfrpEG}(\textbf{a}), and shear modulus \(G_{12}\) and \(G_{23}\) in Fig. \ref{fig:cfrpEG}(\textbf{b}).
 
-Temperature-dependent properties of \ac{cfrp} skin are presented in Fig. \ref{fig:cfrpEG}.
 \begin{figure}
 	\begin{center}
 		\includegraphics[width=0.95\textwidth]{Chapter_3/cfrpEG}
@@ -55,13 +56,14 @@ Temperature-dependent properties of \ac{cfrp} skin are presented in Fig. \ref{fi
 	\label{fig:cfrpEG}
 \end{figure}
 
-Eq. (\ref{eq:em_temp}) is also applicable to determine the elastic modulus of the adhesive layer bonding of the core to the skins, while for aluminium, the linear temperature dependence given by Hopkins et al. \cite{hopkins2012extreme} as:
+Equation (\ref{eq:em_temp}) is also applicable to determine the elastic modulus of the adhesive layer bonding of the core to the skins, while for aluminium, the linear temperature dependence given by Hopkins et al. \cite{hopkins2012extreme} as:
 \begin{eqnarray}
 	E_a(T)=E_a(T_{r})+\num{4e7}(20-T).
 	\label{eq:aluminium_temp}
 \end{eqnarray}
 
-Temperature-dependent properties of isotropic materials determined according to the formulas and the fact shear and Young's modulus are in relation as \(E=2G(1+\nu)\), are presented in Fig. \ref{fig:isoEG}.
+Temperature-dependent properties of isotropic materials determined according to the formulas and the fact that shear and Young's modulus are in relation as \(E=2G(1+\nu)\).
+Young's modulus and shear modulus are presented in Fig. \ref{fig:isoEG}(\textbf{a}) and Fig. \ref{fig:isoEG}(\textbf{b}), respectively, for aluminium, adhesive layer and cyanoacrylate glue.
 \begin{figure}
 	\begin{center}
 		\includegraphics[width=0.95\textwidth]{Chapter_3/isoEG}
@@ -77,7 +79,7 @@ The Young's modulus and Poisson's ratio of the sensors are in the form proposed 
 	\nu_{pzt}(T) & = & \nu_{pzt}(T_r) + \num{13e-3}(20-T).
 	\label{eq:pzt_temp}
 \end{eqnarray}
-\nomtypeD[nu]{\( \nu \)}{Poisson's ratio}{-}
+\nomtypeD[nu]{\( \nu \)}{}{Poisson's ratio}
 
 The piezo- and electromechanical properties are taken into account based on the
 temperature characteristics provided by the manufacturer.
@@ -88,7 +90,7 @@ temperature characteristics provided by the manufacturer.
 	\caption{Temperature-dependent \textbf{(a)} Young's modulus (E\(_{11}\), E\(_{33}\)) and \textbf{(b)} shear modulus (G\(_{12}\), G\(_{23}\)) for the \acf{cfrp} skin}
 	\label{fig:pzt_temp}
 \end{figure}
-The characteristics are approximated by the linear functions  in the analysed range (see Fig. \ref{fig:pzt_temp}) given in the form:
+Due to the values provided by the manufacturer are in \(\pm10\%\) tolerance, the characteristics are approximated by the linear functions in the analysed range (see Fig. \ref{fig:pzt_temp}) given in the form:
 \begin{eqnarray}
 	\textbf{d}(T) & = & \boldsymbol{d}(T_r) + \left[
 	\begin{array}{cccccc}
@@ -105,11 +107,11 @@ The characteristics are approximated by the linear functions  in the analysed ra
 	\textbf{e}(T) & = & \textbf{d}(T)\,\textbf{c}_{PZT}(T),
 	\label{eq:piezo_temp}
 \end{eqnarray}
-\nomtypeG{\(\epsilon\)}{Electric permittivity}{-}{\unit[per-mode = symbol]
+\nomtypeG{\(\epsilon\)}{Electric permittivity}{}{\unit[per-mode = symbol]
 {\farad\per\metre}}%
-\nomtypeR[d]{\(d\)}{Piezoelectric coupling coefficient}{-}{\unit[per-mode = symbol]
+\nomtypeR[d]{\(d\)}{Piezoelectric coupling coefficient}{}{\unit[per-mode = symbol]
 {\coulomb\per\newton}}%
-\nomtypeR[e]{\(e\)}{Piezoelectric coupling coefficient}{-}{\unit[per-mode = symbol]
+\nomtypeR[e]{\(e\)}{Piezoelectric coupling coefficient}{}{\unit[per-mode = symbol]
 {\coulomb\per\square\metre}}%
 were \(\boldsymbol{\epsilon}^S\) is the electric permittivity measured at zero strain, \(\boldsymbol{d}\) is the charge constant matrix, \(\boldsymbol{e}\) is the piezoelectric coupling coefficients matrix and \(\boldsymbol{c}_{PZT}\) is the elastic stiffness matrix.
 The piezo constant matrices for reference temperature are provided by manufacturer as follows:
@@ -128,7 +130,8 @@ The piezo constant matrices for reference temperature are provided by manufactur
 \end{array}\right] \times10^{-11}\ \unit[per-mode = symbol]{\farad\per\meter},
 \end{eqnarray}
 
-The complete set of temperature-dependent coefficients for the \ac{pzt} are shown in Figs.~\ref{fig:pztEG}-\ref{fig:pztEEps}.
+Temperature-dependent mechanical coefficients for the \ac{pzt} are shown in Figs.~\ref{fig:pztEG}(\textbf{a}) for Young's modulus and in Figs.~\ref{fig:pztEG}(\textbf{b}) for shear modulus.
+Temperature-dependent piezo-electric parameters are presented in Fig.~\ref{fig:pztEEps}(\textbf{a}) for piezoelectric coupling coefficients (e\(_{31}\), e\(_{15}\), e\(_{33}\)) and for electric permittivity (\(\boldsymbol{\epsilon}^S_{11}\), \(\boldsymbol{\epsilon}^S_{33}\)) in Fig.~\ref{fig:pztEEps}\textbf{(b)}.
 
 \begin{figure}
 	\begin{center}
@@ -141,7 +144,7 @@ The complete set of temperature-dependent coefficients for the \ac{pzt} are show
 	\begin{center}
 		\includegraphics[width=0.95\textwidth]{Chapter_3/pztEEps}
 	\end{center}
-	\caption{Temperature-dependent \textbf{(a)} piezoelectric coupling coefficients (e\(_{31}\), e\(_{15}\), e\(_{33}\) and \textbf{(b)} electric permittivity (\(\boldsymbol{\epsilon}^S_{11}\), \(\boldsymbol{\epsilon}^S_{33}\)) for the \acf{pzt}}
+	\caption{Temperature-dependent \textbf{(a)} piezoelectric coupling coefficients (e\(_{31}\), e\(_{15}\), e\(_{33}\)) and \textbf{(b)} electric permittivity (\(\boldsymbol{\epsilon}^S_{11}\), \(\boldsymbol{\epsilon}^S_{33}\)) for the \acf{pzt}}
 	\label{fig:pztEEps}
 \end{figure}
 \nomtypeG[\(\rho\)]{\( \rho \)}{Mass density}{-}{\unit[per-mode = symbol]

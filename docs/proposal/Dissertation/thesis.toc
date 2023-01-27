@@ -1,8 +1,8 @@
-\contentsline {chapter}{LIST OF TABLES}{iv}{chapter*.4}%
-\contentsline {chapter}{LIST OF FIGURES}{vi}{chapter*.5}%
+\contentsline {chapter}{LIST OF TABLES}{v}{chapter*.4}%
+\contentsline {chapter}{LIST OF FIGURES}{vii}{chapter*.5}%
 \acswitchoff 
-\contentsline {chapter}{NOMENCLATURE}{xiii}{chapter*.6}%
-\contentsline {chapter}{ACRONYMS}{xvii}{chapter*.7}%
+\contentsline {chapter}{NOMENCLATURE}{xiv}{chapter*.6}%
+\contentsline {chapter}{ACRONYMS}{xviii}{chapter*.7}%
 \contentsline {chapter}{\numberline {1}Introduction}{1}{chapter.1}%
 \contentsline {section}{\numberline {1.1}Sandwich composite structure}{1}{section.1.1}%
 \contentsline {section}{\numberline {1.2}Structural health monitoring}{3}{section.1.2}%
@@ -12,52 +12,54 @@
 \contentsline {subsection}{\numberline {1.4.2}Electromechanical impedance methods}{7}{subsection.1.4.2}%
 \contentsline {section}{\numberline {1.5}Challenges in \acs {gw} propagation modelling for damage assessment in the \acs {hsc}}{8}{section.1.5}%
 \contentsline {section}{\numberline {1.6}Conclusions}{10}{section.1.6}%
-\contentsline {chapter}{\numberline {2}Problem Statement}{11}{chapter.2}%
-\contentsline {chapter}{\numberline {3}Concept of the Method}{13}{chapter.3}%
-\contentsline {section}{\numberline {3.1}Modeling of the \acs {gw} propagation in the \acsp {hsc}}{13}{section.3.1}%
-\contentsline {section}{\numberline {3.2}Temperature effect on the \acs {gw} propagation}{14}{section.3.2}%
-\contentsline {section}{\numberline {3.3}Model-assisted severity damage assessment }{19}{section.3.3}%
-\contentsline {chapter}{\numberline {4}The Time-Domain \acs {sem} Formulation}{21}{chapter.4}%
-\contentsline {section}{\numberline {4.1}The \acs {sem}}{21}{section.4.1}%
-\contentsline {section}{\numberline {4.2}\acs {2d} spectral element}{23}{section.4.2}%
-\contentsline {section}{\numberline {4.3}\acs {3d} spectral element}{24}{section.4.3}%
-\contentsline {section}{\numberline {4.4}\Acs {pzt} modelling}{25}{section.4.4}%
-\contentsline {section}{\numberline {4.5}Structural damping}{27}{section.4.5}%
-\contentsline {section}{\numberline {4.6}Displacements coupling at the interface of substructures}{27}{section.4.6}%
-\contentsline {section}{\numberline {4.7}The time integration}{31}{section.4.7}%
-\contentsline {section}{\numberline {4.8}Parallel implementation of the internal force vector calculation}{33}{section.4.8}%
-\contentsline {section}{\numberline {4.9}Transformation of the core elements}{36}{section.4.9}%
-\contentsline {section}{\numberline {4.10}Conclusions}{37}{section.4.10}%
-\contentsline {chapter}{\numberline {5}Pre-proccessing for Numerical Simulation of the \acs {gw} in the \acs {hsc}}{38}{chapter.5}%
-\contentsline {section}{\numberline {5.1}Excitation signal}{38}{section.5.1}%
-\contentsline {section}{\numberline {5.2}Sample configuration}{39}{section.5.2}%
-\contentsline {section}{\numberline {5.3}Mesh generation for the \acs {fcgm}}{41}{section.5.3}%
-\contentsline {section}{\numberline {5.4}\Acf {hcgm}}{45}{section.5.4}%
-\contentsline {section}{\numberline {5.5}Damaged structure implementation}{45}{section.5.5}%
-\contentsline {section}{\numberline {5.6}Conclusions}{46}{section.5.6}%
-\contentsline {chapter}{\numberline {6}Simulation Results and Model Validation}{48}{chapter.6}%
-\contentsline {section}{\numberline {6.1}Validation of the \acs {pzt} model}{48}{section.6.1}%
-\contentsline {section}{\numberline {6.2}Experimental setup for the \acs {hsc} model validation}{51}{section.6.2}%
-\contentsline {section}{\numberline {6.3}Results}{55}{section.6.3}%
-\contentsline {subsection}{\numberline {6.3.1}\acs {hsc} validation with \acs {sldv} setup}{55}{subsection.6.3.1}%
-\contentsline {subsection}{\numberline {6.3.2}\acs {hsc} validation with \acsp {pzt} wave acquisition setup}{57}{subsection.6.3.2}%
-\contentsline {subsection}{\numberline {6.3.3}Efficiency of the time integration algorithm}{64}{subsection.6.3.3}%
-\contentsline {section}{\numberline {6.4}Conclusions}{66}{section.6.4}%
-\contentsline {chapter}{\numberline {7}The Severity of Damage Estimation}{67}{chapter.7}%
-\contentsline {section}{\numberline {7.1}Damage indices}{67}{section.7.1}%
-\contentsline {section}{\numberline {7.2}Determination of the \acs {madif}}{73}{section.7.2}%
-\contentsline {section}{\numberline {7.3}Conclusions}{79}{section.7.3}%
-\contentsline {chapter}{\numberline {8}Parameter study of \ac {gw} propagation in \ac {hsc}}{81}{chapter.8}%
-\contentsline {section}{\numberline {8.1}The \acs {madif} under variable temperature conditions}{81}{section.8.1}%
-\contentsline {section}{\numberline {8.2}The numerical simulation of the \ac {gw} in the \ac {hsc} under various parameters}{82}{section.8.2}%
-\contentsline {subsection}{\numberline {8.2.1}The \ac {pzt} parameters}{83}{subsection.8.2.1}%
-\contentsline {subsection}{\numberline {8.2.2}The \ac {cfrp} skin and the adhesive layer parameters}{86}{subsection.8.2.2}%
-\contentsline {subsection}{\numberline {8.2.3}The core parameters}{88}{subsection.8.2.3}%
-\contentsline {subsection}{\numberline {8.2.4}The \ac {madif} for the double-skin \ac {hsc}}{89}{subsection.8.2.4}%
-\contentsline {section}{\numberline {8.3}Conclusions}{91}{section.8.3}%
-\contentsline {chapter}{\numberline {9}Summary}{94}{chapter.9}%
-\contentsline {chapter}{\numberline {A}Formulas for calculation of internal forces}{97}{appendix.A}%
-\contentsline {chapter}{\numberline {B}Effective properties of the \acs {cfrp} skin and the homogenised aluminium core.}{100}{appendix.B}%
-\contentsline {section}{\numberline {B.1}Effective properties of the \acs {cfrp} skin}{100}{section.B.1}%
-\contentsline {section}{\numberline {B.2}Effective properties of the honeycomb core}{105}{section.B.2}%
-\contentsline {chapter}{Bibliography}{106}{equation.B.2.34}%
+\contentsline {chapter}{\numberline {2}Problem Statement}{12}{chapter.2}%
+\contentsline {chapter}{\numberline {3}Concept of the Method}{14}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Modeling of the \acs {gw} propagation in the \acsp {hsc}}{14}{section.3.1}%
+\contentsline {section}{\numberline {3.2}Temperature effect on the \acs {gw} propagation}{15}{section.3.2}%
+\contentsline {section}{\numberline {3.3}Model-assisted damage severity assessment}{20}{section.3.3}%
+\contentsline {chapter}{\numberline {4}The Time-Domain \acs {sem} Formulation}{22}{chapter.4}%
+\contentsline {section}{\numberline {4.1}The \acs {sem}}{22}{section.4.1}%
+\contentsline {section}{\numberline {4.2}\acs {2d} spectral element}{24}{section.4.2}%
+\contentsline {section}{\numberline {4.3}\acs {3d} spectral element}{26}{section.4.3}%
+\contentsline {section}{\numberline {4.4}\Acs {pzt} modelling}{27}{section.4.4}%
+\contentsline {section}{\numberline {4.5}Structural damping}{29}{section.4.5}%
+\contentsline {section}{\numberline {4.6}Displacements coupling at the interface of substructures}{29}{section.4.6}%
+\contentsline {section}{\numberline {4.7}Transformation of the core elements}{33}{section.4.7}%
+\contentsline {section}{\numberline {4.8}The time integration}{34}{section.4.8}%
+\contentsline {section}{\numberline {4.9}Parallel implementation of the internal force vector calculation}{36}{section.4.9}%
+\contentsline {section}{\numberline {4.10}Efficiency of the time integration algorithm}{39}{section.4.10}%
+\contentsline {section}{\numberline {4.11}Conclusions}{40}{section.4.11}%
+\contentsline {chapter}{\numberline {5}Numerical Simulation Pre-processing and the Convergence Tests}{42}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Excitation signal}{42}{section.5.1}%
+\contentsline {section}{\numberline {5.2}Sample configuration}{43}{section.5.2}%
+\contentsline {section}{\numberline {5.3}Mesh generation for the \acs {fcgm}}{45}{section.5.3}%
+\contentsline {section}{\numberline {5.4}\Acf {hcgm}}{46}{section.5.4}%
+\contentsline {section}{\numberline {5.5}Damaged structure implementation}{47}{section.5.5}%
+\contentsline {section}{\numberline {5.6}Convergence tests of the solution}{49}{section.5.6}%
+\contentsline {subsection}{\numberline {5.6.1}Spatial convergence}{49}{subsection.5.6.1}%
+\contentsline {subsection}{\numberline {5.6.2}Temporal convergence}{51}{subsection.5.6.2}%
+\contentsline {section}{\numberline {5.7}Conclusions}{52}{section.5.7}%
+\contentsline {chapter}{\numberline {6}Simulation Results and Model Validation}{53}{chapter.6}%
+\contentsline {section}{\numberline {6.1}Validation of the \acs {pzt} model}{53}{section.6.1}%
+\contentsline {section}{\numberline {6.2}Experimental setup for the \acs {hsc} model validation}{56}{section.6.2}%
+\contentsline {section}{\numberline {6.3}Results of the \acs {hsc} validation with \acs {sldv} setup}{60}{section.6.3}%
+\contentsline {section}{\numberline {6.4}Results of the \acs {hsc} validation with \acsp {pzt} wave acquisition setup}{67}{section.6.4}%
+\contentsline {section}{\numberline {6.5}Conclusions}{73}{section.6.5}%
+\contentsline {chapter}{\numberline {7}The Severity of Damage Estimation}{74}{chapter.7}%
+\contentsline {section}{\numberline {7.1}Damage indices}{74}{section.7.1}%
+\contentsline {section}{\numberline {7.2}Determination of the \acs {madif}}{80}{section.7.2}%
+\contentsline {section}{\numberline {7.3}Conclusions}{88}{section.7.3}%
+\contentsline {chapter}{\numberline {8}Parameter study of \ac {gw} propagation in \ac {hsc}}{89}{chapter.8}%
+\contentsline {section}{\numberline {8.1}The \acs {madif} under variable temperature conditions}{89}{section.8.1}%
+\contentsline {section}{\numberline {8.2}The numerical simulation of the \ac {gw} in the \ac {hsc} under various parameters}{90}{section.8.2}%
+\contentsline {subsection}{\numberline {8.2.1}The \ac {pzt} parameters}{93}{subsection.8.2.1}%
+\contentsline {subsection}{\numberline {8.2.2}The \ac {cfrp} skin and the adhesive layer parameters}{93}{subsection.8.2.2}%
+\contentsline {subsection}{\numberline {8.2.3}The core parameters}{96}{subsection.8.2.3}%
+\contentsline {subsection}{\numberline {8.2.4}The \ac {madif} for the double-skin \ac {hsc}}{100}{subsection.8.2.4}%
+\contentsline {section}{\numberline {8.3}Conclusions}{101}{section.8.3}%
+\contentsline {chapter}{\numberline {9}Summary}{103}{chapter.9}%
+\contentsline {chapter}{\numberline {A}Formulas for calculation of internal forces}{106}{appendix.A}%
+\contentsline {chapter}{\numberline {B}Effective properties of the skin and the core}{109}{appendix.B}%
+\contentsline {section}{\numberline {B.1}Effective properties of the \acs {cfrp} skin}{109}{section.B.1}%
+\contentsline {section}{\numberline {B.2}Effective properties of the honeycomb core}{114}{section.B.2}%
+\contentsline {chapter}{Bibliography}{115}{equation.B.2.10}%

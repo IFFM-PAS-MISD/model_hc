@@ -9,7 +9,7 @@
 The comprehensive formulation of the \ac{sem} based numerical model is presented in this chapter.
 It includes shape function definition, numerical integration in the scheme of \ac{gll}, determination of the structural matrices for solid and first-order shear deformation theory elements and electromechanical coupling for the \acp{pzt}.
 The non-matching interface was introduced with the novel approach based on the element shape functions.
-All this is to implement the \ac{sem} for the honeycomb structure with the \ac{fcgm}, which is not found in the literature before.
+These components are combined to implement the \ac{sem} for the honeycomb structure with the \ac{fcgm}, which is not found in the literature before.
 
 %% INCLUDE SECTIONS ///////////////////////////////////////////////////////////////////////////////////
 \input{Chapters/Chapter4/sec:sem}
@@ -18,16 +18,18 @@ All this is to implement the \ac{sem} for the honeycomb structure with the \ac{f
 \input{Chapters/Chapter4/sec:PZTmodel}
 \input{Chapters/Chapter4/sec:damping}
 \input{Chapters/Chapter4/sec:interface}
+\input{Chapters/Chapter4/sec:transformation}
 \input{Chapters/Chapter4/sec:time}
 \input{Chapters/Chapter4/sec:gpu}
-\input{Chapters/Chapter4/sec:transformation}
-
+\input{Chapters/Chapter4/sec:improvement}
 \section{Conclusions}
 \label{sec:conclusionsSEM}
 %% SECTION CONTENT ////////////////////////////////////////////////////////////////////////////////////
-This chapter describes the \ac{sem} implementation for use in \acp{hsc} with \ac{fcgm}.
-This model requires the development of structural matrices for \ac{2d} and \ac{3d} elements and a transformation of the nodal displacements between the local and global systems.
+This chapter describes the \ac{sem} implementation for use in the \acp{hsc} with the \ac{fcgm}.
+This model requires the development of structural matrices for \ac{2d} and \ac{3d} elements and a transformation of the nodal displacements between the local and global coordinate systems.
 An original approach was developed to connect elements with non-matching grids using an interface based on Lagrange multipliers.
 For this purpose, the shape fusions of common points in the space of connected elements were determined to calculate the traction forces necessary to provide joint displacements.
-In addition, a parallel central difference method implementation was optimized for even more efficient computation on the graphics card.
+
+In addition, a parallel central difference method implementation was improved for even more efficient computation on the graphics card.
+It was shown that the equation of motion solution was obtained even 10 times faster than the algorithm presented in the paper \cite{kudela2020parallel}.
 

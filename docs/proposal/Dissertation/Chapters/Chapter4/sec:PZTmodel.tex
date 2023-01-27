@@ -22,10 +22,10 @@ The electromechanical coupling is governed by the linear constitutive equation o
 \end{array} \right ],
 \label{eq:elecmechcoupling}
 \end{eqnarray}
-\nomtypeR[Ep]{$\widetilde{\textbf{E}} $}{Electric field}{\(-\textbf{B}\,\boldsymbol{\phi}\)}{\unit[per-mode=symbol]{\newton\per\coulomb}}%
-\nomtypeR[Dp]{$\widetilde{\textbf{D}} $}{Electric charge density displacement}{-}{\unit[per-mode=symbol]{\coulomb\per\square\metre}}%
-\nomtypeG[phip]{$\boldsymbol{\phi}$}{Electric potential vector}{-}{\unit{\volt}}%
-\nomtypeG[sigma]{$\boldsymbol{\sigma}$}{Stress tensor}{\(\textbf{c}\,\boldsymbol{\varepsilon}\)}{\unit{\pascal}}%
+\nomtypeR[Ep]{$\widetilde{\textbf{E}} $}{Electric field}{}{\unit[per-mode=symbol]{\newton\per\coulomb}}%
+\nomtypeR[Dp]{$\widetilde{\textbf{D}} $}{Electric charge density displacement}{}{\unit[per-mode=symbol]{\coulomb\per\square\metre}}%
+\nomtypeG[phip]{$\boldsymbol{\phi}$}{Electric potential vector}{}{\unit{\volt}}%
+\nomtypeG[sigma]{$\boldsymbol{\sigma}$}{Stress tensor}{}{\unit [per-mode = symbol]{\newton \per \square \meter }}%
 where \(\boldsymbol{\sigma}\) is the stress components, \(\textbf{c}^E\) is the stiffness coefficient matrix measured at zero electric field, \textbf{e} is the piezoelectric coupling tensor, \(\boldsymbol{\epsilon}^S\) is the electric permittivity measured at zero strain, and \(\widetilde{\textbf{E}}\) and \(\widetilde{\textbf{D}}\) are the electric field and electric charge density displacement.
 The electric field of the element is defined as:
 \begin{eqnarray}
@@ -59,7 +59,7 @@ where \(\widehat{\boldsymbol{\phi}}^e\) is a nodal voltage of the transducer. Th
 	\end{array}\right \},
 	\label{eq:pzt_sem}
 \end{eqnarray}
-\nomtypeR[Q]{$\textbf{Q}$}{Charge vector}{-}{\unit{\coulomb}}%
+\nomtypeR[Q]{$\textbf{Q}$}{Charge vector}{}{\unit{\coulomb}}%
 where \(\widehat{\textbf{Q}}\) is the nodal charge vector.
 The mass and stiffness matrices are defined according to \ac{3d} model from section \ref{sec:3Dmodel}.
 The piezoelectric coupling matrix \(\textbf{K}_{\phi \phi}^e\) and the dielectric permittivity matrix \(\textbf{K}_{d \phi}^e\) are defined as:
@@ -121,7 +121,7 @@ Therefore, the potential vector can be written as:
 	\end{array}\right \}^{\mathrm{T}},
 	\label{eq:phi_V}
 \end{eqnarray}
-where \(\textbf{b}_v\) is a list of nodes of the applied electrode and \(\textbf{b}_g\) is a list of nodes of the grounded electrode.
+where \(\textbf{b}_v\) is a list of nodes of the applied electrode and \(\textbf{b}_g\) is a list of nodes of the grounded electrode and \(\textbf{V}(t)\) is the applied voltage signal.
 Substituting Eq. (\ref{eq:phi_V}) into Eq. (\ref{eq:freePotetial}) and Eq. (\ref{eq:pztboundary}), induced stiffness of the actuator is obtained:
 \begin{eqnarray}
 	\textbf{K}_{a}=-\textbf{K}_{d\phi}(:,\textbf{a})\,\textbf{K}_{\phi \phi}^{-1}(\textbf{a},\textbf{a})\,\textbf{K}_{\phi \phi} (\textbf{a},\textbf{b}).
@@ -131,7 +131,7 @@ Hence, the equivalent mechanical force vector of the applied voltage of the piez
 	\widehat{\textbf{f}}_{a}=-\textbf{K}_{a}\,\widehat{\boldsymbol{\phi}}(\textbf{b}).
 	\label{eq:f_act}
 \end{eqnarray}
-\nomtypeR[force_act]{$\textbf{f}_{a}$}{Actuator equivalent force vector}{\(-\textbf{K}_a\,\boldsymbol{\phi}(b)\)}{\unit{\newton}}%
+\nomtypeR[force_act]{$\textbf{f}_{a}$}{Actuator equivalent force vector}{}{\unit{\newton}}%
 In the case of the open circuit sensor one electrode is grounded so the electric potential of the free nodes becomes as:
 \begin{eqnarray}
 	\widehat{\boldsymbol{\phi}}(\textbf{a}) = -\textbf{K}_{\phi\phi}^{-1}(\textbf{a},\textbf{a})\,\textbf{K}_{\phi d}(\textbf{a},:)\,\widehat{\textbf{d}}.

@@ -32,9 +32,9 @@ The actuator and sensor position relative to the cell is identical to maintain t
 From Fig.~\ref{fig:pzt_place}(\textbf{a}), it can be noticed that the highest amplitude of the \ac{s0} is obtained for the case with the \acp{pzt} placed in the middle of the cell.
 The lowest amplitudes were obtained for the cases where the transducer midpoint lay on the core wall.
 It is due to the higher stiffness underneath the \ac{pzt}, leading to less displacements.
-In the case of the \ac{a0}, the amplitude of the signals for position \#2 and \#5 are much lower than the rest cases.
-Since the transducers are permanently fixed to the structure and do not change their position during the monitoring period.
-Nonetheless, the \acp{pzt} placement is worth considering to optimise the signals obtained.
+In the case of the \ac{a0}, the signal amplitudes for position \#2 and \#5 are much lower than the rest cases.
+The sensors position does not affect the measurement while monitoring the sample, as they are permanently attached to the structure. 
+Nonetheless, the \acp{pzt} placement is worth considering to optimise the reference response.
 \begin{figure}
 	\begin{center}
 		\includegraphics[width=0.95\textwidth]{Chapter_8/pzt_place}
@@ -46,14 +46,14 @@ Nonetheless, the \acp{pzt} placement is worth considering to optimise the signal
 Changes in amplitude under the influence of different values of the piezoelectric charge constant and dielectric permittivity are presented in Fig.~\ref{fig:pzt_d} and ~\ref{fig:pzt_eps}, respectively.
 Both parameters have a significant effect on the signal amplitude both the \ac{s0} and \ac{a0}.
 The values do not just change with ambient temperature but also degrade over service time \cite{barzegar2001aging, deangelis2006p2o}.
-Therefore, I suggest that a sensor self-diagnostic tool should be included in the \ac{shm} system. 
+Therefore, it is advisable that a sensor self-diagnostic tool should be included in the \ac{shm} system. 
 An \ac{emi}-based method could be a good solution as it was suggested for self-diagnostic of damaged transducers by Jiang et al. \cite{jiang2021electromechanical}.
 
 \begin{figure}
 	\begin{center}
 		\includegraphics[width=0.95\textwidth]{Chapter_8/pzt_d}
 	\end{center}
-	\caption{The signal envelopes for different piezoelectric charge constants.}
+	\caption{The signal envelopes for the piezoelectric charge constants in the range of 80\%-120\% of the reference value.}
 	\label{fig:pzt_d}
 \end{figure}
 
@@ -61,7 +61,7 @@ An \ac{emi}-based method could be a good solution as it was suggested for self-d
 	\begin{center}
 		\includegraphics[width=0.95\textwidth]{Chapter_8/pzt_eps}
 	\end{center}
-	\caption{The signal envelopes for different dielectric permittivities.}
+	\caption{The signal envelopes for the dielectric permittivities in the range of 80\%-120\% of the reference value.}
 	\label{fig:pzt_eps}
 \end{figure}
 
@@ -69,7 +69,7 @@ An \ac{emi}-based method could be a good solution as it was suggested for self-d
 
 The effect of the skin properties on wave propagation in the \ac{hsc} was analysed for different carbon fibre volume fractions in the composite.
 This parameter affects the mode velocity due to the change in effective modulus of elasticity and density of the plate.
-A small change in modulus of elasticity leads to significant signal differences within the interference of wave reflections as it can be observe in Fig.~\ref{fig:skin_volume}.
+A small change in modulus of elasticity leads to significant signal differences within the interference of wave reflections as it can be observed in Fig.~\ref{fig:skin_volume}.
 It affects the \ac{madif} determination since the full-length signal is taken into account.
 
 \begin{figure}
@@ -110,7 +110,7 @@ Therefore, the core heights and wall thicknesses are set with the dimensions tol
 The cell can easily be deformed before bonding to the skin due to the low in-plane stiffness of the core.
 Thus for better accuracy, the cell width can be assumed as an average measurement value taken after joining the core with the skin.
 The angle of rotation can also be corrected after the components bonding.
-\begin{figure}
+\begin{figure}[!htb]
 	\begin{center}
 		\includegraphics[width=0.95\textwidth]{Chapter_8/core_height}
 	\end{center}
@@ -118,7 +118,7 @@ The angle of rotation can also be corrected after the components bonding.
 	\label{fig:core_height}
 \end{figure}
 
-\begin{figure}
+\begin{figure}[!htb]
 	\begin{center}
 		\includegraphics[width=0.95\textwidth]{Chapter_8/core_size}
 	\end{center}
@@ -126,7 +126,7 @@ The angle of rotation can also be corrected after the components bonding.
 	\label{fig:core_size}
 \end{figure}
 
-\begin{figure}
+\begin{figure}[!htb]
 	\begin{center}
 		\includegraphics[width=0.95\textwidth]{Chapter_8/core_thickness}
 	\end{center}
@@ -134,14 +134,14 @@ The angle of rotation can also be corrected after the components bonding.
 	\label{fig:core_thickness}
 \end{figure}
 
-\begin{figure}
+\begin{figure}[!htb]
 	\begin{center}
 		\includegraphics[width=0.95\textwidth]{Chapter_8/core_rotation}
 	\end{center}
 	\caption{Sensor responses in the \acf{hsc} for the various core orientations.}
 	\label{fig:core_rotation}
 \end{figure}
-
+\clearpage
 \subsection{The \ac{madif} for the double-skin \ac{hsc}}
 
 Finally, computer simulations were conducted to determine the \ac{madif} for a structure with a core between two skins.
@@ -150,16 +150,26 @@ Two transducers were attached to the top skin as before.
 Due to the impossibility of enlarging the damage in a closed-form structure, no experimental measurements were carried out.
 Two damage cases were considered in the simulations: (i) interface elements removed from the upper side (the skin with the sensor attached), and (ii) interface elements removed from the bottom side.
 
-Fig.~\ref{fig:madif_2skins}\textbf{(a)} presents the \ac{rmsd}-based \ac{madif} for a double-skin panel with the functions obtained for a single-skin for comparison.
+Fig.~\ref{fig:madif_2skins_rmsd} presents the \ac{rmsd}-based \ac{madif} for a double-skin panel with the functions obtained for a single-skin for comparison.
 Substantial differences between the double- and single-skin panels can be observed.
 In addition, the placement of the damage has also influence on the index slope.
-Similar changes in the \ac{madif} can be observed for \ac{cc}, as shown in Fig. ~\ref{fig:MADIF_2skins}\textbf{(b)}.
-Although to a lesser extent than the previous index. 
-The \ac{rmsd} values ratio single- to double-skin panel for the most significant damage is about 1.5, while the relevant ratio based on \ac{cc} is about 1.08.
-\begin{figure}
+\begin{figure}[!htb]
 	\begin{center}
-		\includegraphics[width=0.95\textwidth]{Chapter_8/MADIF_2skins}
+		\includegraphics[width=0.95\textwidth]{Chapter_8/MADIF_2skins_rmsd}
 	\end{center}
-	\caption{Comparison of the \acf{madif} for single-skin and double-skin panels based on \textbf{(a)}the \acf{rmsd} and \textbf{(b)} the \acf{cc}.}
-	\label{fig:madif_2skins}
+	\caption{Comparison of the \acf{madif} for single-skin and double-skin panels based on the\textbf{ \acf{rmsd}}.}
+	\label{fig:madif_2skins_rmsd}
 \end{figure}
+
+Similar changes in the \ac{madif} can be observed for the \ac{cc}, as shown in Fig. ~\ref{fig:madif_2skins_cc}.
+Although to a lesser extent than the previous index. 
+The \ac{rmsd} values ratio single- to double-skin panel for the most significant damage is about 1.5, while the relevant ratio based on the \ac{cc} is about 1.08.
+\begin{figure}[!htb]
+	\begin{center}
+		\includegraphics[width=0.95\textwidth]{Chapter_8/MADIF_2skins_cc}
+	\end{center}
+	\caption{Comparison of the \acf{madif} for single-skin and double-skin panels based on the \textbf{\acf{cc}}.}
+	\label{fig:madif_2skins_cc}
+\end{figure}
+
+The obtained \acp{madif} for the double-skin panel meet the conditions for their use in estimating the damage size, i.e. the monotonicity of the function and the significant change in value over the entire range of damage.

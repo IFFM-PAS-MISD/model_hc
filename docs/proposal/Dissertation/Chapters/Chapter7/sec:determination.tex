@@ -17,7 +17,7 @@ where \(a_i\) are the coefficients of the functions.
 The coefficients are determined by built-in function of Matlab named \verb+fminsearch+, which searches for the minimum of a problem specified by \(\min\limits_a f(x,a)\), and the function to be optimised is assumed to be \(f(x,a)=\left\|DI_{num} - y(x,a_i)\right\|\), where \(\left\|\cdot\right\|\) means Euclidean norm.
 A criterion for evaluating the fit of the curve to simulation results is a mean absolute error defined as the following:
 \begin{eqnarray}
-	\delta^{\mathrm{fit}} = \sum_{i=1}^{\mathrm{n^{DI}}} \left|\frac{\mathrm{DI^i_{num}}-y(w_d^i)}{\mathrm{DI^i_{num}}}\right|\times\frac{100}{\mathrm{n^{DI}}}\%,
+	\delta^{\mathrm{fit}} = \frac{1}{\mathrm{n^{DI}}}\sum_{i=1}^{\mathrm{n^{DI}}} \left|\frac{\mathrm{DI^i_{num}}-y(w_d^i)}{\mathrm{DI^i_{num}}}\right|\times100\%,
 \end{eqnarray}
 where \(\mathrm{n^{DI}}\) is the number of index points.
 The examples of the results for \ac{rmsd} are presented in Tab.~\ref{tab:fit_RMSD_full_FCGM} based on the \ac{fcgm} and in Tab. \ref{tab:fit_RMSD_full_HCGM} for the \ac{hcgm}.
@@ -90,7 +90,7 @@ The best fitted functions were chosen for the \ac{madif} determination.
 \end{table}
 
 Then all chosen \acp{di} and their fitted functions are compared with experimental results.
-The best results are obtain for the \ac{rmsd} and \ac{cc} based on the full-length signals at 100 \unit{kHz}. 
+The best results were obtained for the \ac{rmsd} and \ac{cc} based on the full-length signals at 100 \unit{kHz}. 
 Those indices are presented in Fig.~\ref{fig:madif_rmsd_best} and Fig.~\ref{fig:madif_cc_best}, respectively.
 \begin{figure}
 	\begin{center}
@@ -107,9 +107,9 @@ Those indices are presented in Fig.~\ref{fig:madif_rmsd_best} and Fig.~\ref{fig:
 	\caption{\textbf{(a)} Comparison of the \acf{madif} based on \acf{cc} and the experimental results, and \textbf{(b)} the percentage error between them.}
 	\label{fig:madif_cc_best}
 \end{figure}
-Both indices of achieved the lowest error around 5\% for the \ac{fcgm}, with the interface elements removed as the damage model.
+Both indices achieved the lowest error around 5\% for the \ac{fcgm}, with the interface elements removed as the damage model.
 The indices are also in very good agreement for the \ac{fcgm} with removed cells as a damage model.
-In the case of \ac{hcgm}, unsatisfactory results are not obtained, as none of the indices corresponds to the experimental ones with an error of less than 20\%.
+In the case of \ac{hcgm}, unsatisfactory results are obtained, as none of the indices correspond to the experimental ones with an error of less than 20\%.
 What may be relevant here is that the wave transmits energy to the core throughout its propagation.
 In contrast, in the case of \ac{fcgm}, the wave transmits energy incidentally, encountering cell walls.
 
@@ -124,10 +124,10 @@ From Eq. \ref{eq:function_1}, they are defined as:
 
 The comparison of the \ac{madif} and the \ac{edif} based on \ac{rmsd} and \ac{cc} are presented in Fig.~\ref{fig:madif_20}.
 The \ac{edif} was found using the fit function from Eq.~(\ref{eq:function_1}), the same as the \ac{madif}, for the \acp{di} based on experimental measurements.
-The \ac{rmsd} is in excellent experimental agreement, achieving an absolute error of less than 4 mm over the full range of damage.
+The \ac{rmsd} is in excellent agreement with experiment, achieving an absolute error of less than 4 mm over the full range of damage.
 For the \ac{cc}, the result is not as good as the previous one, but it also agrees with the experiment.
 The absolute error is less than 9 mm.
-Both indices can be used to estimate the damage size in the assumed scenario with a perfect approximation.
+Both indices can be used to estimate the damage size in the assumed scenario with a proposed approximation function.
 \begin{figure}[!tbh]
 	\begin{center}
 		\includegraphics[width=1.0\textwidth]{Chapter_7/MADIF_20}
@@ -135,3 +135,4 @@ Both indices can be used to estimate the damage size in the assumed scenario wit
 	\caption{The \acf{madif} and the \acf{edif} based on the \acf{rmsd} 100 \unit{\kHz}.}
 	\label{fig:madif_20}
 \end{figure}
+\clearpage

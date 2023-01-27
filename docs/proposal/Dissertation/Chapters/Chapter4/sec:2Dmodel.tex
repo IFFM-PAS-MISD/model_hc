@@ -3,33 +3,41 @@
 \label{sec:2Dmodel}
 
 %% SECTION CONTENT ////////////////////////////////////////////////////////////////////////////////////
-
+The shell element has five \acp{dof} at every node, three translations and two rotations as it is shown in Fig.~\ref{fig:2d_se}.
+All the nodes are located in the neutral surface of the element.
+\begin{figure}
+	\begin{center}
+		\includegraphics[width=0.95\textwidth]{Chapter_4/2d_se}
+	\end{center}
+	\caption{\Acf{2d} spectral element.}
+	\label{fig:2d_se}
+\end{figure}
 According to the first-order shear deformation theory~\cite{reissner1945effect, mindlin1951influence}, the displacement field is expressed as:
 \begin{eqnarray}
 	\left \{ \begin{array}{c}
-		\textbf{u}^e(\xi,\eta) \\
-		\textbf{v}^e(\xi,\eta) \\
-		\textbf{w}^e(\xi,\eta)
+		\textbf{u}^e\\
+		\textbf{v}^e\\
+		\textbf{w}^e
 	\end{array} \right\} = 
 	\left \{ \begin{array}{c}
-		\textbf{u}_0^e(\xi,\eta) + z\boldsymbol{\varphi}_x^e(\xi,\eta)\\
-		\textbf{v}_0^e(\xi,\eta) + z\boldsymbol{\varphi}_y^e(\xi,\eta)\\
-		\textbf{w}_0^e(\xi,\eta) \\
+		\textbf{u}_0^e - z\boldsymbol{\varphi}_x^e\\
+		\textbf{v}_0^e - z\boldsymbol{\varphi}_y^e\\
+		\textbf{w}_0^e\\
 	\end{array} \right\},
 \end{eqnarray}
-\nomtypeR[uvw]{$u,\,v,\,w$}{Displacement in x-, y- and z-axis direction}{-}{\unit{\metre}}%
-\nomtypeG[phi]{$\varphi^e$}{Element rotation of the normal to the mid-plane}{-}{\unit{\radian}}%
+\nomtypeR[uvw]{$u,\,v,\,w$}{Displacement in x-, y- and z-axis direction}{}{\unit{\metre}}%
+\nomtypeG[phi]{$\varphi^e$}{Element rotation of the normal to the mid-plane}{}{\unit{\radian}}%
 where \(\textbf{u}_0^e\), \(\textbf{v}_0^e\) and \(\textbf{w}_0^e\) are element displacements, \(\boldsymbol{\varphi}_x^e\), \(\boldsymbol{\varphi}_y^e\) are the element rotations of the normal to the mid-plane with respect to the axes \textit{x} and \textit{y}, respectively. They are defined as:
 \begin{eqnarray}
 	\left \{\begin{array}{c}
-		\textbf{u}_0^e(\xi,\eta) \\
-		\textbf{v}_0^e(\xi,\eta) \\
-		\textbf{w}_0^e(\xi,\eta) \\
-		\boldsymbol{\varphi}_x^e(\xi,\eta) \\
-		\boldsymbol{\varphi}_y^e(\xi,\eta)
+		\textbf{u}_0^e\\
+		\textbf{v}_0^e\\
+		\textbf{w}_0^e\\
+		\boldsymbol{\varphi}_x^e\\
+		\boldsymbol{\varphi}_y^e
 	\end{array} \right\}
 	= \textbf{N}^e(\xi,\eta)\widehat{\textbf{d}}^e
-	= \sum_{n=1}^q\sum_{m=1}^p\textbf{N}_m^e(\xi)\textbf{N}_n^e(\eta)
+	= \sum_{n=1}^{q+1}\sum_{m=1}^{p+1}\textbf{N}_m^e(\xi)\textbf{N}_n^e(\eta)
 	\left \{ \begin{array}{c}
 		\widehat{\textbf{u}}_0^e \\
 		\widehat{\textbf{v}}_0^e \\
@@ -38,11 +46,19 @@ where \(\textbf{u}_0^e\), \(\textbf{v}_0^e\) and \(\textbf{w}_0^e\) are element 
 		\widehat{\boldsymbol{\varphi}}_y^e
 	\end{array} \right \},
 \end{eqnarray}
-where $\widehat{\textbf{d}}^e$ is a nodal displacements vector of the element $e$.
+where \(n\) and \(m\) are the nodes number in \(\xi\) and \(\eta\) direction, respectively, \(q\) is the Legendre polynomial degree,  $\widehat{\textbf{d}}^e$ is a nodal displacements vector of the element $e$.
 
-The element bending strain--displacement relations are given in the form:
+The element bending strain-displacement relations are given in the form:
 \begin{eqnarray}
-	\boldsymbol{\varepsilon}_b^e =
+	\boldsymbol{\varepsilon}_b^0 = 
+	\left \{ \begin{array}{c}
+		\frac{\partial \widehat{\textbf{u}}_0^e}{\partial x} \\
+		\frac{\partial \widehat{\textbf{v}}_0^e}{\partial y} \\
+		\frac{\partial \widehat{\textbf{u}}_0^e}{\partial y} + \frac{\partial \widehat{\textbf{v}}_0^e}{\partial x}\\
+		\frac{\partial \widehat{\boldsymbol{\varphi}}_x^e}{\partial x} \\
+		\frac{\partial \widehat{\boldsymbol{\varphi}}_y^e}{\partial y} \\
+		\frac{\partial \widehat{\boldsymbol{\varphi}}_x^e}{\partial y} + \frac{\partial \widehat{\boldsymbol{\varphi}}_y^e}{\partial x}
+	\end{array} \right\} = 
 	\textbf{B}_b^e\widehat{\textbf{d}}^e = 
 	\left [
 	\begin{array}{ccccc}
@@ -64,12 +80,16 @@ The element bending strain--displacement relations are given in the form:
 
 The element shear strain--displacement relations are given in the form:
 \begin{eqnarray}
-	\boldsymbol{\varepsilon}_s^e =
+	\boldsymbol{\varepsilon}_s^e = 
+	\left \{ \begin{array}{c}
+		\frac{\partial \widehat{\textbf{w}}_0^e}{\partial x} + \widehat{\boldsymbol{\varphi}}_x^e\\
+		\frac{\partial \widehat{\textbf{w}}_0^e}{\partial y} + \widehat{\boldsymbol{\varphi}}_y^e
+	\end{array} \right\} = 
 	\textbf{B}_s^e\widehat{\textbf{d}}^e = 
 	\left [
 	\begin{array}{ccccc}
-		0 & 0 & \frac{\partial N^e}{\partial y} & -1 & 0\\
-		0 & 0 & \frac{\partial N^e}{\partial y} & 0 & -1
+		0 & 0 & \frac{\partial N^e}{\partial y} & -N^e & 0\\
+		0 & 0 & \frac{\partial N^e}{\partial y} & 0 & -N^e
 	\end{array} \right]
 	\left \{ \begin{array}{c}
 		\widehat{\textbf{u}}_0^e \\
@@ -79,7 +99,7 @@ The element shear strain--displacement relations are given in the form:
 		\widehat{\boldsymbol{\varphi}}_y^e
 	\end{array} \right\}.
 \end{eqnarray}
-\nomtypeD[Eps]{$\boldsymbol{\varepsilon}$}{Strain tensor}{\(\textbf{B}\,\textbf{d}\)}%
+\nomtypeD[Eps]{$\boldsymbol{\varepsilon}$}{Strain tensor}{}%
 The mass and stiffness matrices for \ac{2d} elements are defined as:
 \begin{eqnarray}
 	\textbf{M}_{dd}^e & = &
@@ -107,9 +127,9 @@ The mass and stiffness matrices for \ac{2d} elements are defined as:
 	\end{array} \right]
 	\textbf{B}_b^e \diff \Omega^e+\int_{\Omega^e}{\textbf{B}_s^e}^{\mathrm{T}}\hat{\textbf{A}}\textbf{B}_s^e\diff \Omega^e,
 \end{eqnarray}
-\nomtypeR[B]{$\textbf{B}$}{Strain-displacement matrix}{-}{\unit{\per\meter}}%
-\nomtypeR[he]{$h^e$}{Element thickness}{-}{\unit{\meter}}%
-\nomtypeG[Omega]{$\Omega^e$}{Element area}{-}{\unit{\square\meter}}%
+\nomtypeR[B]{$\textbf{B}$}{Strain-displacement matrix}{}{\unit{\per\meter}}%
+\nomtypeR[he]{$h^e$}{Element thickness}{}{\unit{\meter}}%
+\nomtypeG[Omega]{$\Omega^e$}{Element area}{}{\unit{\square\meter}}%
 where \(h^e=h_t+h_b\) is the element thickness, while \(h_{t(b)}\) is the distance between mid-plane and top (bottom) surface of the element, and \(\Omega_e\) is the element area.
 The superscript T denotes a transpose matrix.
 The sub-matrices \(\check{\textbf{A}},\,\hat{\textbf{A}},\,\check{\textbf{B}}\,\mathrm{and}\,\check{\textbf{D}}\) are defined as:
@@ -119,4 +139,4 @@ The sub-matrices \(\check{\textbf{A}},\,\hat{\textbf{A}},\,\check{\textbf{B}}\,\
 	\check{\textbf{D}} & = & \textbf{c}_{ij}\,(h_t^3-h_b^3)/3,\qquad i,j=1,2,6\nonumber,\\
 	\hat{\textbf{A}} & = & 5/4\,\textbf{c}_{ij}\,\left[h_t-h_b-4/3\left(h_t^3-h_b^3\right)/{h^e}^2\right],\qquad i,j=4,5.
 \end{eqnarray}
-\nomtypeR[c]{$\textbf{c}$}{Elasticity tensor}{-}{\unit[per-mode = symbol]{\newton\per\square\meter}}%
+\nomtypeR[c]{$\textbf{c}$}{Elasticity tensor}{}{\unit[per-mode = symbol]{\newton\per\square\meter}}%

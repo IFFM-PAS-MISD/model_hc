@@ -1,17 +1,13 @@
-% Note that the text in the [] brackets is the one that will
-% appear in the table of contents, whilst the text in the {}
-% brackets will appear in the main thesis.
-
 %% APPENDIX HEADER ////////////////////////////////////////////////////////////////////////////////////
-\chapter{Effective properties of the \acs{cfrp} skin and the homogenised aluminium core.}
+\chapter[Effective properties of the skin and the core]{Effective properties of the \acs{cfrp} skin and the homogenised aluminium core}
 \label{app:eff_properties}
 %% APPENDIX CONTENT ///////////////////////////////////////////////////////////////////////////////////
 \section{Effective properties of the \acs{cfrp} skin}
-Some of the elastic constants of the \ac{cfrp} plate can be describe by the following functional \cite{vinson1993behavior}:
-\begin{eqnarray}
-	P=\frac{P_fV_f+\eta_0P_mV_m}{V_f+\eta_0V_m},
-\end{eqnarray}
-where where the elastic constant \(P\), the \(P_f\), \(P_m\) and \(\eta_0\) are given in the table below, and \(V_f\) and \(V_m\) are the volume fractions of the fibres and matrix respectively.
+Some of the elastic constants of the \ac{cfrp} plate can be described by the following functional \cite{vinson1993behavior}:
+\begin{flalign}
+	&P=\frac{P_fV_f+\eta_0P_mV_m}{V_f+\eta_0V_m},&
+\end{flalign}
+where where the elastic constant \(P\), the \(P_f\), \(P_m\) and \(\eta_0\) are given in the table below, and \(V_f\) and \(V_m\) are the volume fractions of the reinforcement fibres and matrix respectively.
 \begin{table}[H]
 	\centering
 	\small
@@ -29,108 +25,108 @@ where where the elastic constant \(P\), the \(P_f\), \(P_m\) and \(\eta_0\) are 
 	\end{tabular}
 \end{table}
 The remaining coefficients are given as follows:
-\begin{eqnarray}
-	K_f&=&\frac{E_f}{2(1-\nu_f)},\\
-	K_m&=&\frac{E_m}{2(1-\nu_m)},\\
-	G_m &=& \frac{E_m}{2(1+\nu_m)},\\
-	\nu_{23} &=& \nu_{12f}V_f+\nu_m(1-V_f)\frac{1+\nu_m-\nu_{12}\left(\frac{E_m}{E_11}\right)}{1-\nu^2_m+\nu_m\nu_{12}},\\
-	E_{22}&=&E_{33}=\frac{4K_TG_{23}}{K_T+mG_{23}},\, m=1+\frac{4K_T\nu^2_{12}}{E_11},\\
-	\eta_6 &=& \frac{1+G_m/G_{12f}}{2},\\
-	\eta_4 &=& \frac{3-4\nu_m+G_m/G_{23f}}{4\left(1-\nu_m\right)},\\
-	\eta_K &=& \frac{1+G_m/K_{f}}{2\left(1-\nu_m\right)}.
-\end{eqnarray}
+\begin{flalign}
+	&K_f=\frac{E_f}{2(1-\nu_f)},&\\
+	&K_m=\frac{E_m}{2(1-\nu_m)},&\nonumber\\
+	&G_m = \frac{E_m}{2(1+\nu_m)},&\nonumber\\
+	&\nu_{23} = \nu_{12f}V_f+\nu_m(1-V_f)\frac{1+\nu_m-\nu_{12}\left(\frac{E_m}{E_11}\right)}{1-\nu^2_m+\nu_m\nu_{12}},&\nonumber\\
+	&E_{22}=E_{33}=\frac{4K_TG_{23}}{K_T+mG_{23}},&\nonumber\\ &m=1+\frac{4K_T\nu^2_{12}}{E_11},&\nonumber\\
+	&\eta_6 = \frac{1+G_m/G_{12f}}{2},&\nonumber\\
+	&\eta_4 = \frac{3-4\nu_m+G_m/G_{23f}}{4\left(1-\nu_m\right)},&\nonumber\\
+	&\eta_K = \frac{1+G_m/K_{f}}{2\left(1-\nu_m\right)}.&\nonumber
+\end{flalign}
 Considering the above coefficients, the stiffness matrix components of the single ply of the \ac{cfrp} along the fibre are equal to:
-\begin{eqnarray}
-	Q_{11} &=& E_{11}(1-\nu_{23}.*\nu_{32})./\Delta,\nonumber\\
-	Q_{12} &=& E_{11}(\nu_{21}+\nu_{31}.*\nu_{23})./\Delta,\nonumber\\
-	Q_{13} &=& E_{11}(\nu_{31}+\nu_{21}.*\nu_{32})./\Delta,\nonumber\\
-	Q_{22} &=& E_{22}(1-\nu_{31}.*\nu_{13})./\Delta,\nonumber\\
-	Q_{23} &=& E_{22}(\nu_{32}+\nu_{12}.*\nu_{31})./\Delta,\\
-	Q_{33} &=& E_{22}(1-\nu_{12}.*\nu_{21})./\Delta,\nonumber\\
-	Q_{44} &=& G_{23},\nonumber\\
-	Q_{55} &=& G_{13},\nonumber\\
-	Q_{66} &=& G_{12},\nonumber\\
-	\Delta &=& 1-\nu_{12}\nu_{21}-\nu_{23}\nu_{32}-\nu_{31}\nu_{13}-2\nu_{21}\nu_{32}\nu_{13}.\nonumber
-\end{eqnarray}
+\begin{flalign}
+	&Q_{11} = E_{11}(1-\nu_{23}\nu_{32})/\Delta,&\\
+	&Q_{12} = E_{11}(\nu_{21}+\nu_{31}\nu_{23})/\Delta,&\nonumber\\
+	&Q_{13} = E_{11}(\nu_{31}+\nu_{21}\nu_{32})/\Delta,&\nonumber\\
+	&Q_{22} = E_{22}(1-\nu_{31}\nu_{13})/\Delta,&\nonumber\\
+	&Q_{23} = E_{22}(\nu_{32}+\nu_{12}\nu_{31})/\Delta,&\nonumber\\
+	&Q_{33} = E_{22}(1-\nu_{12}\nu_{21})/\Delta,&\nonumber\\
+	&Q_{44} = G_{23},&\nonumber\\
+	&Q_{55} = G_{13},&\nonumber\\
+	&Q_{66} = G_{12},&\nonumber\\
+	&\Delta = 1-\nu_{12}\nu_{21}-\nu_{23}\nu_{32}-\nu_{31}\nu_{13}-2\nu_{21}\nu_{32}\nu_{13}.&\nonumber
+\end{flalign}
 The stiffness matrix components for the single ply in direction of angle \(\Theta_f\).
-\begin{eqnarray}
-	\bar{Q}_{11} &=& Q_{11}m^4+2(Q_{12}+2Q_{66})m^2n^2+Q_{22}n^4,\nonumber\\
-	\bar{Q}_{12} &=& (Q_{11}+Q_{22}-4Q_{66})m^2n^2+Q_{12}(m^4+n^4),\nonumber\\
-	\bar{Q}_{13} &=& Q_{13}m^2+Q_{23}n^2,\nonumber\\
-	\bar{Q}_{16} &=& (Q_{11}-Q_{12}-2Q_{66})m^3n+(Q_{12}-Q_{22}+2Q_{66})mn^3,\nonumber\\
-	\bar{Q}_{22} &=& Q_{11}n^4+2(Q_{12}+2Q_{66})m^2n^2+Q_{22}m^4,\nonumber\\
-	\bar{Q}_{23} &=& Q_{13}n^2+Q_{23}m^2,\nonumber\\
-	\bar{Q}_{26} &=& (Q_{11}-Q_{12}-2Q_{66})n^3m+(Q_{12}-Q_{22}+2Q_{66})nm^3,\nonumber\\
-	\bar{Q}_{33} &=& Q_{33},\\
-	\bar{Q}_{36} &=& (Q_{13}-Q_{23})mn,\nonumber\\
-	\bar{Q}_{44} &=& Q_{44}m^2+Q_{55}n^2,\nonumber\\
-	\bar{Q}_{45} &=& (Q_{55}-Q_{44})mn,\nonumber\\
-	\bar{Q}_{55} &=& Q_{55}m^2+Q_{44}n^2,\nonumber\\ \bar{Q}_{66} &=& (Q_{11}+Q_{22}-2Q_{12}-2Q_{66})m^2n^2+Q_{66}(m^4+n^4),\nonumber\\
-	\bar{Q}_{14} &=&\bar{Q}_{15} = \bar{Q}_{24} = \bar{Q}_25 = \bar{Q}_{34} = \bar{Q}_{35} = \bar{Q}_{46} = \bar{Q}_{56} = 0,\nonumber
-\end{eqnarray}
+\begin{flalign}
+	&\bar{Q}_{11} = Q_{11}m^4+2(Q_{12}+2Q_{66})m^2n^2+Q_{22}n^4,&\\
+	&\bar{Q}_{12} = (Q_{11}+Q_{22}-4Q_{66})m^2n^2+Q_{12}(m^4+n^4),&\nonumber\\
+	&\bar{Q}_{13} = Q_{13}m^2+Q_{23}n^2,&\nonumber\\
+	&\bar{Q}_{16} = (Q_{11}-Q_{12}-2Q_{66})m^3n+(Q_{12}-Q_{22}+2Q_{66})mn^3,&\nonumber\\
+	&\bar{Q}_{22} = Q_{11}n^4+2(Q_{12}+2Q_{66})m^2n^2+Q_{22}m^4,&\nonumber\\
+	&\bar{Q}_{23} = Q_{13}n^2+Q_{23}m^2,&\nonumber\\
+	&\bar{Q}_{26} = (Q_{11}-Q_{12}-2Q_{66})n^3m+(Q_{12}-Q_{22}+2Q_{66})nm^3,&\nonumber\\
+	&\bar{Q}_{33} = Q_{33},&\nonumber\\
+	&\bar{Q}_{36} = (Q_{13}-Q_{23})mn,&\nonumber\\
+	&\bar{Q}_{44} = Q_{44}m^2+Q_{55}n^2,&\nonumber\\
+	&\bar{Q}_{45} = (Q_{55}-Q_{44})mn,&\nonumber\\
+	&\bar{Q}_{55} = Q_{55}m^2+Q_{44}n^2,&\nonumber\\
+	&\bar{Q}_{66} = (Q_{11}+Q_{22}-2Q_{12}-2Q_{66})m^2n^2+Q_{66}(m^4+n^4),&\nonumber\\
+	&\bar{Q}_{14} =\bar{Q}_{15} = \bar{Q}_{24} = \bar{Q}_{25} = \bar{Q}_{34} = \bar{Q}_{35} = \bar{Q}_{46} = \bar{Q}_{56} = 0,&\nonumber
+\end{flalign}
 where \(m=\sin(\Theta_f)\) and \(n=\cos(\Theta_f)\).
 The homogenised properties for all the plies in the laminate are defined according to analysis of Sun and Li \cite{sun1988three}:
-\begin{eqnarray}
-	\bar{C}_{11} &=& \sum_{k=1}^Nv^{(k)}\bar{Q}^{(k)}_{11}\,+\,\sum_{k=2}^N(\bar{Q}^{(1)}_{13}-\lambda_{13})v^{(k)}(\bar{Q}^{(k)}_{13}-\bar{Q}^{(k)}_{13})/\bar{Q}^{(k)}_{33},\nonumber\\
-	\bar{C}_{12} &=& \sum_{k=1}^Nv^{(k)}\bar{Q}^{(k)}_{12}\,+\,\sum_{k=2}^N(\bar{Q}^{(1)}_{13}-\lambda_{13})*v^{(k)}(\bar{Q}^{(1)}_{23}-\bar{Q}^{(k)}_{23})/\bar{Q}^{(k)}_{33},\nonumber\\
-	\bar{C}_{13} &=& \sum_{k=1}^Nv^{(k)}\bar{Q}^{(k)}_{13}\,+\,\sum_{k=2}^N(\bar{Q}^{(k)}_{33}-\lambda_{33})v^{(k)}(\bar{Q}^{(1)}_{13}(:,1)-\bar{Q}^{(k)}_{13})/\bar{Q}^{(k)}_{33},\nonumber\\
-	\bar{C}_{22} &=& \sum_{k=1}^Nv^{(k)}\bar{Q}^{(k)}_{22}\,+\,\sum_{k=2}^N(\bar{Q}^{(k)}_{23}-\lambda_{23})v^{(k)}(\bar{Q}^{(1)}_{23}-\bar{Q}^{(k)}_{23})/\bar{Q}^{(k)}_{33},\nonumber\\
-	\bar{C}_{23} &=& \sum_{k=1}^Nv^{(k)}\bar{Q}^{(k)}_{23}\,+\,\sum_{k=2}^N(\bar{Q}^{(k)}_{33}-\lambda_{33})v^{(k)}(\bar{Q}^{(1)}_{23}-\bar{Q}^{(k)}_{23})/\bar{Q}^{(k)}_{33},\nonumber\\
-	\bar{C}_{33} &=& 1/\left(\sum_{k=1}^Nv^{(k)}/\bar{Q}^{(k)}_{33}\right),\nonumber\\
-	\bar{C}_{16} &=& \sum_{k=1}^Nv^{(k)}\bar{Q}^{(k)}_{16}\,+\,\sum_{k=2}^N(\bar{Q}^{(k)}_{13}-\lambda_{13})v^{(k)}(\bar{Q}^{(1)}_{36}-\bar{Q}^{(k)}_{36})/\bar{Q}^{(k)}_{33},\nonumber\\
-	\bar{C}_{26} &=& \sum_{k=1}^Nv^{(k)}\bar{Q}^{(k)}\,+\,\sum_{k=2}^N(\bar{Q}^{(k)}_{23}-\lambda_{23})v^{(k)}(\bar{Q}^{(1)}_{36}-\bar{Q}^{(k)}_{36}/\bar{Q}^{(k)}_{33},\nonumber\\
-	\bar{C}_{36} &=& \sum_{k=1}^Nv^{(k)}\bar{Q}^{(k)}_{36}\,+\,\sum_{k=2}^N((\bar{Q}^{(k)}_{33}-\lambda_{33})v^{(k)}(\bar{Q}^{(1)}_{36}-\bar{Q}^{(k)}_{36})/\bar{Q}^{(k)}_{33},\nonumber\\
-	\bar{C}_{66} &=& \sum_{k=1}^Nv^{(k)}\bar{Q}^{(k)}_{66}\,+\,\sum_{k=1}^N(\bar{Q}^{(k)}_{36}-\lambda_{36})v^{(k)}(\bar{Q}^{(1)}_{36}-\bar{Q}^{(k)}_{36})/\bar{Q}^{(k)}_{33},\nonumber\\
-	\bar{C}_{44} &=& \left(\sum_{k=1}^Nv^{(k)}\bar{Q}^{(k)}_{44}/\Delta_k\right)/\Delta,\nonumber\\
-	\bar{C}_{45} &=& \left(\sum_{k=1}^Nv^{(k)}\bar{Q}^{(k)}_{45}/\Delta_k\right)/\Delta,\nonumber\\
-	\bar{C}_{55} &=& \left(\sum_{k=1}^N(v^{(k)}\bar{Q}^{(k)}_{55}/\Delta_k\right)/\Delta,\nonumber
-\end{eqnarray}
-where \(N\) is the number of the plies in the laminate, \(\bar{Q}^{(k)}_{ij}\) are elastic constants for the kth ply, and
-\begin{eqnarray}
-	 v^{(k)} = \frac{t^{(k)}}{\mathrm{H}}
-	 \rho = \frac{\sum_{k=1}^N\rho^{(k)}t^{(k)}}{H}
-	\lambda_{13} = \bar{C}^{13},\,	\lambda_{23} = \bar{C}^{23},\, 	\lambda_{33} = \bar{C}^{33},\,	\lambda_{36} = \bar{C}^{36},\\
-	\Delta_k = \bar{Q}^{(k)}_{44}\bar{Q}^{(k)}_{55}-\left(\bar{Q}^{(k)}_{45}\right)^2,\\
-	\Delta = \left(\sum_{k=1}^Nv^{(k)}\bar{Q}^{(k)}_{44}/\Delta_k\right)\left(\sum_{k=1}^Nv^{(k)}\bar{Q}^{(k)}_{55}/\Delta_k\right)-\left(\sum_{k=1}^Nv^{(k)}\bar{Q}^{(k)}_{45}/\Delta_k\right)^2,
-\end{eqnarray}
-where \(t^{(k)}\) is the thickness of the kth ply, and H is the total thickness of the plate.
+\begin{flalign}
+	&\bar{C}_{11} = \sum_{k=1}^Nv^{(k)}\bar{Q}^{(k)}_{11}\,+\,\sum_{k=2}^N(\bar{Q}^{(1)}_{13}-\lambda_{13})v^{(k)}(\bar{Q}^{(k)}_{13}-\bar{Q}^{(k)}_{13})/\bar{Q}^{(k)}_{33},&\\
+	&\bar{C}_{12} = \sum_{k=1}^Nv^{(k)}\bar{Q}^{(k)}_{12}\,+\,\sum_{k=2}^N(\bar{Q}^{(1)}_{13}-\lambda_{13})v^{(k)}(\bar{Q}^{(1)}_{23}-\bar{Q}^{(k)}_{23})/\bar{Q}^{(k)}_{33},&\nonumber\\
+	&\bar{C}_{13} = \sum_{k=1}^Nv^{(k)}\bar{Q}^{(k)}_{13}\,+\,\sum_{k=2}^N(\bar{Q}^{(k)}_{33}-\lambda_{33})v^{(k)}(\bar{Q}^{(1)}_{13}-\bar{Q}^{(k)}_{13})/\bar{Q}^{(k)}_{33},\nonumber\\
+	&\bar{C}_{22} = \sum_{k=1}^Nv^{(k)}\bar{Q}^{(k)}_{22}\,+\,\sum_{k=2}^N(\bar{Q}^{(k)}_{23}-\lambda_{23})v^{(k)}(\bar{Q}^{(1)}_{23}-\bar{Q}^{(k)}_{23})/\bar{Q}^{(k)}_{33},&\nonumber\\
+	&\bar{C}_{23} = \sum_{k=1}^Nv^{(k)}\bar{Q}^{(k)}_{23}\,+\,\sum_{k=2}^N(\bar{Q}^{(k)}_{33}-\lambda_{33})v^{(k)}(\bar{Q}^{(1)}_{23}-\bar{Q}^{(k)}_{23})/\bar{Q}^{(k)}_{33},\nonumber\\
+	&\bar{C}_{33} = 1/\left(\sum_{k=1}^Nv^{(k)}/\bar{Q}^{(k)}_{33}\right),&\nonumber\\
+	&\bar{C}_{16} = \sum_{k=1}^Nv^{(k)}\bar{Q}^{(k)}_{16}\,+\,\sum_{k=2}^N(\bar{Q}^{(k)}_{13}-\lambda_{13})v^{(k)}(\bar{Q}^{(1)}_{36}-\bar{Q}^{(k)}_{36})/\bar{Q}^{(k)}_{33},&\nonumber\\
+	&\bar{C}_{26} = \sum_{k=1}^Nv^{(k)}\bar{Q}^{(k)}\,+\,\sum_{k=2}^N(\bar{Q}^{(k)}_{23}-\lambda_{23})v^{(k)}(\bar{Q}^{(1)}_{36}-\bar{Q}^{(k)}_{36}/\bar{Q}^{(k)}_{33},&\nonumber\\
+	&\bar{C}_{36} = \sum_{k=1}^Nv^{(k)}\bar{Q}^{(k)}_{36}\,+\,\sum_{k=2}^N((\bar{Q}^{(k)}_{33}-\lambda_{33})v^{(k)}(\bar{Q}^{(1)}_{36}-\bar{Q}^{(k)}_{36})/\bar{Q}^{(k)}_{33},&\nonumber\\
+	&\bar{C}_{66} = \sum_{k=1}^Nv^{(k)}\bar{Q}^{(k)}_{66}\,+\,\sum_{k=1}^N(\bar{Q}^{(k)}_{36}-\lambda_{36})v^{(k)}(\bar{Q}^{(1)}_{36}-\bar{Q}^{(k)}_{36})/\bar{Q}^{(k)}_{33},&\nonumber\\
+	&\bar{C}_{44} = \left(\sum_{k=1}^Nv^{(k)}\bar{Q}^{(k)}_{44}/\Delta_k\right)/\Delta,&\nonumber\\
+	&\bar{C}_{45} = \left(\sum_{k=1}^Nv^{(k)}\bar{Q}^{(k)}_{45}/\Delta_k\right)/\Delta,&\nonumber\\
+	&\bar{C}_{55} = \left(\sum_{k=1}^N(v^{(k)}\bar{Q}^{(k)}_{55}/\Delta_k\right)/\Delta,&\nonumber
+\end{flalign}
+where \(N\) is the number of the plies in the laminate, \(\bar{Q}^{(k)}_{ij}\) are elastic constants for the k\(^{\mathrm{th}}\) ply, and
+\begin{flalign}
+	&v^{(k)} = \frac{t^{(k)}}{\mathrm{H}},&\\
+	&\rho = \frac{\sum_{k=1}^N\rho^{(k)}t^{(k)}}{H},&\nonumber\\
+	&\lambda_{13} = \bar{C}^{13},\, \lambda_{23} = \bar{C}^{23},\,	\lambda_{33} = \bar{C}^{33},\,	\lambda_{36} = \bar{C}^{36},&\nonumber\\
+	&\Delta = \left(\sum_{k=1}^Nv^{(k)}\bar{Q}^{(k)}_{44}/\Delta_k\right)\left(\sum_{k=1}^Nv^{(k)}\bar{Q}^{(k)}_{55}/\Delta_k\right)-\left(\sum_{k=1}^Nv^{(k)}\bar{Q}^{(k)}_{45}/\Delta_k\right)^2,&\nonumber\\
+	&\Delta_k = \bar{Q}^{(k)}_{44}\bar{Q}^{(k)}_{55}-\left(\bar{Q}^{(k)}_{45}\right)^2,&\nonumber
+\end{flalign}
+where \(t^{(k)}\) is the thickness of the k\(^{\mathrm{th}}\) ply, and H is the total thickness of the plate.
 Hence, the effective material properties of the \ac{cfrp} plate are given as:
-\begin{eqnarray}
-	E_{11} = \frac{1}{\bar{S}_{11}},\,E_{22} = \frac{1}{\bar{S}_{22}},\, E_{22} = \frac{1}{\bar{S}_{33}},\\
-	\nu_{23} = -\frac{\bar{S}_{23}}{\bar{S}_{22}},\,\nu_{12} = -\frac{\bar{S}_{21}}{\bar{S}_{11}},\\
-	G_{23} = \frac{1}{\bar{S}_{44}},\,G_{13} = \frac{1}{\bar{S}_{55}},\, G_{12} = \frac{1}{\bar{S}_{66}},
-\end{eqnarray}
+\begin{flalign}
+	&E_{11} = \frac{1}{\bar{S}_{11}},\,E_{22} = \frac{1}{\bar{S}_{22}},\, E_{22} = \frac{1}{\bar{S}_{33}},&\\
+	&\nu_{23} = -\frac{\bar{S}_{23}}{\bar{S}_{22}},\,\nu_{12} = -\frac{\bar{S}_{21}}{\bar{S}_{11}},&\nonumber\\
+	&G_{23} = \frac{1}{\bar{S}_{44}},\,G_{13} = \frac{1}{\bar{S}_{55}},\, G_{12} = \frac{1}{\bar{S}_{66}},&\nonumber
+\end{flalign}
 where \(\bar{S}_{ij}\) are components of the compliance matrix \(\bar{S}=\left(\bar{C}_{66}\right)_{\mathrm{inv}}\).
 The effective material properties of the plate considered in the dissertation for \(20^{\circ}\)C are presented in Tab.~\ref{tab:properties_eff}.
 \section{Effective properties of the honeycomb core}
 
 The effective properties according to the model proposed by Malek et al. \cite{malek2015effective} are calculated as follows:
-\begin{eqnarray}
-	\rho &=& \rho_{al}\left[1-\frac{l_bn\left(h_b+l_bm\right)}{\left(l_2n+\mathrm{w}_c\right)\left(h_2+l_2m\right)}\right],\\
-	E_{11} &=& k_1E_{al}\frac{(\mathrm{w}_c/l_b)^3n}{\left(h_2/l_2+m\right)m^2},\\
-	E_{22} &=& k_2E_{al}\frac{(\mathrm{w}_c/l_b)^3(h_2/l_2+m)}{n^3},\\
-	E_{33} &=& E_{al}\left(\frac{\rho}{\rho_{al}}\right),\\
-	G_{12} &=& E_{al}\left(\frac{\mathrm{w}_c}{l_b}\right)^3\frac{(h_2/l_2+m)}{(h_b/l_b)^2nC},\\
-	G_{13} &=& G_{al}\left[\frac{\mathrm{w}_c/l_2}{(h_2/l_2+m)(\mathrm{w}_c/l_2)}\right]\left[n^2\frac{l_b}{l_2}+2\frac{\mathrm{w}_c}{l_2} \tan\left(\frac{\pi}{4}-\frac{\Theta_h}{2}\right)\right],\\
-	G_{23} &=& G_{al}\frac{\mathrm{w}_c/l_2}{\left(h_2/l_2+m\right)(\mathrm{w}_c/l_2 + n)} \left[m^2\frac{l_b}{l_2}+\frac{h_2}{l_2}+\frac{\mathrm{w}_c}{l_2}\tan\left(\frac{\pi}{4}-\frac{\Theta_h}{2}\right)\right],\\
-	\nu_{12} &=& n^2/(\frac{h_2}{l_2}+m)/mc_{12}k_1,\\
-	\nu_{23} &=& \nu_{al}\frac{E_{22}}{E_{33}},
-\end{eqnarray}
+\begin{flalign}
+	&\rho = \rho_{al}\left[1-\frac{l_bn\left(h_b+l_bm\right)}{\left(l_2n+\mathrm{w}_c\right)\left(h_2+l_2m\right)}\right],&\\
+	&E_{11} = k_1E_{al}\frac{(\mathrm{w}_c/l_b)^3n}{\left(h_2/l_2+m\right)m^2},&\nonumber\\
+	&E_{22} = k_2E_{al}\frac{(\mathrm{w}_c/l_b)^3(h_2/l_2+m)}{n^3},&\nonumber\\
+	&E_{33} = E_{al}\left(\frac{\rho}{\rho_{al}}\right),&\nonumber\\
+	&G_{12} = E_{al}\left(\frac{\mathrm{w}_c}{l_b}\right)^3\frac{(h_2/l_2+m)}{(h_b/l_b)^2nC},&\nonumber\\
+	&G_{13} = G_{al}\left[\frac{\mathrm{w}_c/l_2}{(h_2/l_2+m)(\mathrm{w}_c/l_2)}\right]\left[n^2\frac{l_b}{l_2}+2\frac{\mathrm{w}_c}{l_2} \tan\left(\frac{\pi}{4}-\frac{\Theta_h}{2}\right)\right],&\nonumber\\
+	&G_{23} = G_{al}\frac{\mathrm{w}_c/l_2}{\left(h_2/l_2+m\right)(\mathrm{w}_c/l_2 + n)} \left[m^2\frac{l_b}{l_2}+\frac{h_2}{l_2}+\frac{\mathrm{w}_c}{l_2}\tan\left(\frac{\pi}{4}-\frac{\Theta_h}{2}\right)\right],&\nonumber\\
+	&\nu_{12} = n^2/(\frac{h_2}{l_2}+m)/mc_{12}k_1,&\nonumber\\
+	&\nu_{23} = \nu_{al}\frac{E_{22}}{E_{33}},&\nonumber
+\end{flalign}
 where
-\begin{eqnarray}
-	\Theta_h &=& \arctan\left(\frac{h_1-h_2}{l_1}\right),\\
-	m &=& \sin\Theta_h,\, n = \cos\Theta_h,\\
-	l_b &=& l_2 - \mathrm{w}_c\tan\left(\frac{\pi}{4}-\frac{\Theta_h}{2}\right),\,
-	h_b = h_2 - \mathrm{w}_c\tan\left(\frac{\pi}{4}-\frac{\Theta_h}{2}\right),\\
-	k_1 &=& \frac{1}{1+\left(2.4+1.5\nu_{al}+\cot^{2}\Theta_h\right)(\mathrm{w}_c/l_b)^2},\\
-	k_2 &=& \frac{1}{1+(2.4+1.5\nu_{al}+\tan^2\Theta_h+h_b/(l_bn^2))(\mathrm{w}_c/l_b)^2},\\
-	c_{12} &=& 1+(1.4+1.5\nu_{al})(\mathrm{w}_c/l_b)^2,\\
-\end{eqnarray}
-\begin{equation}
+\begin{flalign}
+	&\Theta_h = \arctan\left(\frac{h_1-h_2}{l_1}\right),&\\
+	&m = \sin\Theta_h,\, n = \cos\Theta_h,&\nonumber\\
+	&l_b = l_2 - \mathrm{w}_c\tan\left(\frac{\pi}{4}-\frac{\Theta_h}{2}\right),\,
+	h_b = h_2 - \mathrm{w}_c\tan\left(\frac{\pi}{4}-\frac{\Theta_h}{2}\right),&\nonumber\\
+	&k_1 = \frac{1}{1+\left(2.4+1.5\nu_{al}+\cot^{2}\Theta_h\right)(\mathrm{w}_c/l_b)^2},&\nonumber\\
+	&k_2 = \frac{1}{1+(2.4+1.5\nu_{al}+\tan^2\Theta_h+h_b/(l_bn^2))(\mathrm{w}_c/l_b)^2},&\nonumber\\
+	&c_{12} = 1+(1.4+1.5\nu_{al})(\mathrm{w}_c/l_b)^2,&\nonumber
+\end{flalign}
+\begin{flalign}
 	\begin{split}
 	C &= 1+2\left(\frac{h_b}{l_b}\right)+\left(\frac{\mathrm{w}_c}{l_b}\right)^2\times\\
 	&\left[\frac{2.4+1.5\nu_{al}}{h_b/l_b}\left(4+\frac{h_2}{l_2}+m\right)+\frac{h_2/l_2+m}{\left(h_b/l_b\right)^2}\left(\left(h_2/l_2+m\right)\tan^2\Theta_h+m\right)\right].
 	\end{split}
-\end{equation}
-The effective material properties of the honeycomb core for \(20^{\circ}\}\)C are given in Tab.~\ref{tab:properties_eff}.
-\vspace{-12pt}
+\end{flalign}
+The effective material properties of the honeycomb core for \(20^{\circ}\)C are given in Tab.~\ref{tab:properties_eff}.

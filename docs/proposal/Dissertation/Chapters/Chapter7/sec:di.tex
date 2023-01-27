@@ -3,27 +3,27 @@
 \label{sec:di}
 
 %% SECTION CONTENT ////////////////////////////////////////////////////////////////////////////////////
-In the dissertation, six damage indices are analysed based on the signal envelope in the time - domain registered by the sensor.
+In the dissertation, six damage indices, considered to be the most effective \cite{torkamani2014novel, moix2016damage}, are analysed based on the signal envelope in the time-domain registered by the sensor.
 All of them are considered in three options: (i) the full-length of the signal, (ii) the first wave packet of the \ac{s0}, (iii) the first wave packet of the \ac{a0}.
-The analysis will consider signals at 50, 100 and 150 \unit{\kHz}, with the last frequency excluded for the \ac{a0}, because, as indicated in section~\ref{sec:resuls}, this mode is masked by reflections of the \ac{s0}.
+The analysis will consider signals at 50, 100 and 150 \unit{\kHz}, with the last frequency excluded for the \ac{a0}, because, as indicated in section~\ref{sec:resuls_pzt}, this mode is masked by reflections of the \ac{s0}.
 The wave packets are extracted by windowing the full-length signals with a flattened Gaussian window in the form:
 \begin{eqnarray}
 	g(t)= \mathrm{exp}\left(-\left(\frac{t-t_0}{w_g}\right) ^{n}\right),
 	\label{eq:psi_g}
 \end{eqnarray}
-\nomtypeD[gt]{\(g(t)\)}{Gaussian window}{-}%
+\nomtypeD[gt]{\(g(t)\)}{Gaussian window}{}%
 where \(t_0\) and \(w_g=0.5N_c/f_c\) are the center point and the half-width of the window, respectively, and  \(n\) determines the slope of the window.
 The usage of the window is pictured in Fig.~\ref{fig:windows}.
 \begin{figure}[!tbh]
 	\begin{center}
 		\includegraphics[width=0.95\textwidth]{Chapter_7/windows}
 	\end{center}
-	\caption{Windows}
+	\caption{Signal envelop and Gaussian windows}
 	\label{fig:windows}
 \end{figure}
 
 
-The following time-domain indices presented in \cite{torkamani2014novel, moix2016damage} are taken into consideration: \ac{p2p}, \ac{saps}, \ac{sapr}, \acf{rmsd}, \ac{eng} and \ac{cc}.
+The following time-domain indices are taken into consideration: \ac{p2p}, \ac{saps}, \ac{sapr}, \acf{rmsd}, \ac{eng} and \ac{cc}.
 Definitions of these metrics are given below:
 
 \begin{eqnarray}
@@ -73,7 +73,7 @@ The characteristics of the indices are consistent with the related indices deter
 However, the values of most windowed signals are lower than those of the full-length signals.
 In addition, the \ac{s0} window-based \acp{di} have lower values than the \ac{a0} windowed signals, except the \ac{rmsd} at 50 \unit{kHz}.
 It is because dominant displacements of the \ac{s0} are in-plane of the skin, so a smaller portion of the energy of the wave leak into the core through the healthy region.
-In the case of the full-length response, the \ac{a0} is registered, which dominant displacements are out of the plate, making this mode more sensible for damage like disbonds or delamination.
+In the case of the full-length response, the \ac{a0} is registered, which dominant displacements are out of the plate, making this mode more sensitive for damage in the form of disbonds or delamination.
 
 Accordingly, the following indicators are chosen for further consideration: \ac{p2p} and \ac{sapr} at 150 \unit{kHz} (see Fig. \ref{fig:DI_P2P} and Fig. \ref{fig:DI_SAPR}), \ac{rmsd} and \ac{cc}, all in the case of full-length and at 100 and 150 \unit{\kHz} (see Fig. \ref{fig:DI_RMSD_full} and Fig. \ref{fig:DI_CC}), and \ac{rmsd} at 50 \unit{kHz} based on \ac{s0} windowed signals (see Fig. \ref{fig:DI_RMSD_S0}).
 Those indices are compered with the \acp{di} obtained with the damage modelled by removing the interface elements and the results from simulations based on the \ac{hcgm} with both damage models.

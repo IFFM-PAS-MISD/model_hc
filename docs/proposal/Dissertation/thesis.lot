@@ -2,24 +2,24 @@
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {3.1}{\ignorespaces The mechanical properties of the materials at reference temperature of +20\unit {\degreeCelsius }.\relax }}{15}{table.caption.12}%
+\contentsline {table}{\numberline {3.1}{\ignorespaces The mechanical properties of the materials at reference temperature of +20\unit {\degreeCelsius }.\relax }}{16}{table.caption.12}%
+\addvspace {10\p@ }
+\contentsline {table}{\numberline {4.1}{\ignorespaces Model parameters used in simulations to compare the algorithm performance on \ac {gpu} and \ac {cpu}.\relax }}{40}{table.caption.24}%
+\contentsline {table}{\numberline {4.2}{\ignorespaces Sample parameters used in the benchmark of the \ac {pa} and the \ac {ba}.\relax }}{40}{table.caption.25}%
+\addvspace {10\p@ }
+\contentsline {table}{\numberline {5.1}{\ignorespaces The homogenised mechanical properties of the \ac {cfrp} plate and the honeycomb core for +20\unit {\degreeCelsius }.\relax }}{45}{table.caption.29}%
+\contentsline {table}{\numberline {5.2}{\ignorespaces The node numbers of the sample components.\relax }}{50}{table.caption.34}%
+\contentsline {table}{\numberline {5.3}{\ignorespaces The wavelength of the \ac {a0} mode propagated in the presented \ac {cfrp} plate.\relax }}{51}{table.caption.35}%
+\addvspace {10\p@ }
+\contentsline {table}{\numberline {6.1}{\ignorespaces Comparison of methods for elastic wave propagation measurements.\relax }}{58}{table.caption.42}%
+\contentsline {table}{\numberline {6.2}{\ignorespaces Comparison between amplitudes and group velocities obtained from the simulations and experiments for the single \acf {cfrp} plate.\relax }}{72}{table.caption.55}%
+\contentsline {table}{\numberline {6.3}{\ignorespaces Comparison between amplitudes and group velocities obtained from the simulations based on \acf {fcgm} and \acf {hcgm} and experiments for \acf {hsc}.\relax }}{72}{table.caption.56}%
+\addvspace {10\p@ }
+\contentsline {table}{\numberline {7.1}{\ignorespaces The errors of the functions fitted to \acf {rmsd} based on full-length windowed signals and the \acf {fcgm}.\relax }}{83}{table.caption.66}%
+\contentsline {table}{\numberline {7.2}{\ignorespaces The errors of the functions fitted to \acf {rmsd} based on full-length windowed signals and the \acf {hcgm}.\relax }}{83}{table.caption.67}%
+\addvspace {10\p@ }
+\contentsline {table}{\numberline {8.1}{\ignorespaces The coefficients of the function from Eq.\nobreakspace {}(\ref {eq:function_1}) fitted to the \acfp {madif} based on the \acf {fcgm} - interface at 100 \unit {\kHz } for various ambient temperatures.\relax }}{90}{table.caption.71}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {5.1}{\ignorespaces The effective mechanical properties of the \ac {cfrp} plate and the aluminium honeycomb core for +20\unit {\degreeCelsius }.\relax }}{41}{table.caption.25}%
-\contentsline {table}{\numberline {5.2}{\ignorespaces The node numbers of the sample components.\relax }}{44}{table.caption.29}%
-\contentsline {table}{\numberline {5.3}{\ignorespaces The wavelength of the \ac {a0} mode propagated in the presented \ac {cfrp} plate.\relax }}{45}{table.caption.30}%
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {6.1}{\ignorespaces Comparison of methods for elastic wave propagation measurements.\relax }}{53}{table.caption.37}%
-\contentsline {table}{\numberline {6.2}{\ignorespaces Comparison between amplitudes and group velocities obtained from the simulations and experiments for the single \acf {cfrp} plate.\relax }}{63}{table.caption.45}%
-\contentsline {table}{\numberline {6.3}{\ignorespaces Comparison between amplitudes and group velocities obtained from the simulations based on \acf {fcgm} and \acf {hcgm} and experiments for \acf {hsc}.\relax }}{63}{table.caption.46}%
-\contentsline {table}{\numberline {6.4}{\ignorespaces Model parameters used in simulations to compare the algorithm performed on \ac {gpu} and \ac {cpu}.\relax }}{64}{table.caption.47}%
-\contentsline {table}{\numberline {6.5}{\ignorespaces Sample parameters used in the benchmark of the \ac {pa} and the \ac {ba}.\relax }}{65}{table.caption.48}%
-\addvspace {10\p@ }
-\contentsline {table}{\numberline {7.1}{\ignorespaces The errors of the functions fitted to \acf {rmsd} based on full-length windowed signals and the \acf {fcgm}.\relax }}{75}{table.caption.59}%
-\contentsline {table}{\numberline {7.2}{\ignorespaces The errors of the functions fitted to \acf {rmsd} based on full-length windowed signals and the \acf {hcgm}.\relax }}{75}{table.caption.60}%
-\addvspace {10\p@ }
-\contentsline {table}{\numberline {8.1}{\ignorespaces The coefficients of the function from Eq.\nobreakspace {}(\ref {eq:function_1}) fitted to the \acfp {madif} based on the \acf {fcgm} - interface at 100 \unit {\kHz } for various ambient temperature.\relax }}{82}{table.caption.64}%
-\addvspace {10\p@ }
-\addvspace {10\p@ }
-\addvspace {10\p@ }
-\contentsline {table}{\numberline {B.1}{\ignorespaces The elastic constants of the \ac {cfrp}.\relax }}{100}{table.caption.77}%
+\contentsline {table}{\numberline {B.1}{\ignorespaces The elastic constants of the \ac {cfrp}.\relax }}{109}{table.caption.85}%

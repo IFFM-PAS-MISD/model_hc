@@ -4,7 +4,7 @@
 
 %% SECTION CONTENT ////////////////////////////////////////////////////////////////////////////////////
 The assessment of the damage severity in structural materials requires the development of a database of the effect of damage on system response \cite{worden2007fundamental}.
-In the case of the \ac{hsc}, many factors affect the \ac{di} magnitude, such as damage localization, material properties and dimensions, the sensor position relative to the core cell and the boundary conditions.
+In the case of the \ac{hsc}, many factors affect the \ac{di} magnitude, such as damage localisation, material properties and dimensions, the sensor position relative to the core cell and the boundary conditions.
 Considering all the factors, the determination of DI by experimental means becomes very complicated, expensive and time-consuming.
 Therefore, numerical analysis and computer simulations become the only practical tool to achieve the goal.
 
@@ -17,17 +17,31 @@ In order to alleviate these limitations the following techniques are employed:
 \item a simplified \ac{2d} model based on a cross-section of the panel \cite{li2019detection};
 \item omission of an adhesive layer \cite{mustapha2013non}.
 \end{itemize}
-The time and memory consumption of the FEM simulations is due to the high spatial resolution needed to converge the numerical results.
-When first-order elements are used, up to twenty nodes per the shortest wavelength of interest is recommended by Moser et al. \cite{moser1999modeling}.
-Therefore, implementations with higher-order elements have been developed in recent years, achieving convergence even at six nodes \cite{willberg2012comparison}.
+
+The time and memory consumption of the \ac{fem} simulations is due to the high spatial resolution needed to converge the numerical results.
+When first-order elements are used, up to 20 nodes per the shortest wavelength of interest is recommended by Moser et al. \cite{moser1999modeling}.
+At a time when the operational capabilities of personal computers were severely limited, several methods derived from classic \ac{fem}, were developed to increase the efficiency of calculations. 
+The \ac{bem} has been widely used for wave propagation in infinite or semi-infinite areas \cite{brebbia1984boundary}.
+This method uses the fundamental solution of a \ac{pde} with the approximation only at the boundary of the domain.
+The \ac{fdm} also has found application in the elastic waves modelling \cite{delsantoO1992connection}. 
+Solution of the \ac{pde} is realised by the Taylor expansion with the arbitrary number of terms that determines the order of accuracy \cite{willberg2015simulation}.
+The main disadvantage of this method is the loss of numerical stability for the structure with varying material properties.
+
+To avoid this drawback, Delsanto et. al developed the \ac{lisa} with the combination of sharp interface model to connect to different domains \cite{delsantoO1992connection}. This method is the extension of the \ac{fdm} in which iteration equations are obtain directly from heuristic consideration \cite{willberg2015simulation}.
+The \ac{lisa} is highly numerical effective due to local interactions between elements are directly transferred for numerical calculations.
+Additional, the method is available to parallel computations on \ac{gpu} \cite{packo2012lamb}.
+
+However, no application of the \ac{bem}, \ac{fdm} and \ac{lisa} in the HSC modeling has been found in the literature.
+To implement complex core geometries while maintaining numerical efficiency, a method based on higher-order elements can be a good solution.
+The implementations of this technique have been developed in recent years, achieving convergence even at six nodes \cite{willberg2012comparison}.
 One is a method based on Lagrange polynomials as a shape function and \ac{gll} for integration scheme, termed \ac{sem}.
 The \ac{sem} was initially developed for the numerical solution of the fluid flow in a channel by Patera \cite{patera1984spectral}.
 The method has also been successfully employed for acoustic wave propagation in geological structures \cite{seriani1994spectral, komatitsch2000simulation},  and \ac{gw} propagation in engineering elements \cite{kudela2007wave, ostachowicz2011guided, rucka2010experimental,rekatsinas2017cubic}.
 The time-domain \ac{sem} can be applied to complex structures e.g. stiffened panels \cite{schulte2011simulation, lonkar2014modeling}.
 Versatility of the method is also related to the use of hybrid elements in combination with \ac{fem} formulation \cite{ha2009optimizing} and non-linear issues \cite{yu2020time, li2021hybrid}.
 
-Due to the fast convergence and flexibility of the \ac{sem}, Kudela \cite{kudela2016parallel} applied the method to model \ac{hsc} with the \ac{fcgm}.
-However, the author used \ac{3d} elements to model the core walls resulting in a huge \acp{dof}.
+Due to the fast convergence and flexibility of the \ac{sem}, Kudela \cite{kudela2016parallel} applied the method to the \ac{hsc} model with the \ac{fcgm}.
+However, the author used \ac{3d} elements to model the core walls resulting in a huge number of \acp{dof}.
 The model size could be reduced if the shell element replaced the solid one.
 In addition, the surface-mounted \ac{pzt} is omitted in the above model, and a concentrated force is used as the disturbance source.
 The sensors mesh would have to coincide with the plate mesh or use the coupling between both meshes to include the \acp{pzt} in the simulation.

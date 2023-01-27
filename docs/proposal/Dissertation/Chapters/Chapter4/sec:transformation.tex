@@ -33,8 +33,9 @@ First, the displacement vector is transformed from the global to local coordinat
 	\end{array}\right \}_g,
 	\label{eq:d_local}
 \end{eqnarray}
-\nomtypeD[vector_cos]{\(\mathcal{V}^e_1,\,\mathcal{V}^e_2,\,\mathcal{V}^e_3\)}{Direction cosines}{-}%
-where \(\mathcal{V}^e_1\),\(\mathcal{V}^e_2\) and \(\mathcal{V}^e_3\) are direction cosines of the core element. Then, internal forces are calculated according to guideline from Section \ref{sec:gpu} and transformed to a global coordinate system:
+\nomtypeD[vector_cos]{\(\mathcal{V}^e_1,\,\mathcal{V}^e_2,\,\mathcal{V}^e_3\)}{Direction cosines}{}%
+where \(g\) and \(l\) mean global and local coordinate system, respectively, \(\mathcal{V}^e_1\),\(\mathcal{V}^e_2\) and \(\mathcal{V}^e_3\) are direction cosines of the core element.
+Then, internal forces are calculated according to guideline from Section \ref{sec:gpu} and transformed to a global coordinate system:
 \begin{eqnarray}
 	\left\{\textbf{F}_{int}\right\}^e_g =
 	\left [\begin{array}{ccccc}
@@ -68,7 +69,7 @@ Additionally, a part of the mass matrix accounted for rotational inertia has to 
 		\mathcal{V}_1, \mathcal{V}_2, \mathcal{V}_3 \end{array}\right ].
 	\label{eq:inertia}
 \end{eqnarray}
-\nomtypeR[inertia]{$\textbf{J}$}{Mass moment of inertia matrix}{-}{\unit{\kg\cubic\metre}}%
+\nomtypeR[inertia]{$\textbf{J}$}{Mass moment of inertia matrix}{}{\unit{\kg\cubic\metre}}%
 As the matrix becomes non-diagonal after transformation, some approximation is necessary.
 Surana analysed a lumped mass matrix with non-zero inertia for shell elements \cite{surana1980transition}.
 He presented several formulations for a transformed mass matrix to zero off-diagonal values without affecting the results appreciably.
