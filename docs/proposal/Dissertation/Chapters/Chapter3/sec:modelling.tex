@@ -1,41 +1,45 @@
 %% SECTION HEADER /////////////////////////////////////////////////////////////////////////////////////
-\section{Modeling of the \acs{gw} propagation in the \acsp{hsc}}
+\section{Modelling of \acl{gw} propagation in \aclp{hsc}}
 \label{sec:modelling}
 
 %% SECTION CONTENT ////////////////////////////////////////////////////////////////////////////////////
 
 %% SUBSECTION HEADER //////////////////////////////////////////////////////////////////////////////////
 
-In the dissertation, the \ac{hsc} composed of an aluminium honeycomb core and the skin made of \ac{cfrp} is assumed for further analysis.
-The most common numerical modeling of the phenomenon of \ac{gw} in the \acp{hsc} found in the literature is a calculation of the effective material properties of the honeycomb structure \cite{baid2015dispersion, mustapha2014leaky, qi2008ultrasonic,  shi1995derivation, sikdar2016guided}.
-The properties are obtained from the analytical \cite{gibson1982mechanics, malek2015effective} or the \ac{fem} \cite{catapano2014multi, chen2014analysis} analysis of the honeycomb \ac{rve}.
+In the dissertation, the \ac{hsc} structure consists of an aluminium honeycomb core and one skin made of \ac{cfrp}.
+The most common numerical modelling of the phenomenon of \ac{gw} in \acp{hsc} found in the literature is a calculation of the effective material properties of the honeycomb structure \cite{baid2015dispersion, mustapha2014leaky, qi2008ultrasonic,  shi1995derivation, sikdar2016guided}.
+The properties are obtained from the analytical \cite{gibson1982mechanics, malek2015effective} or the \ac{fem} \cite{catapano2014multi, chen2014analysis} analysis of the honeycomb representative volume element.
 A comprehensive literature review on the homogenisation of the honeycomb structure is presented in the work of Ahmed \cite{ahmed2019homogenization}.
 Replacing the core geometry with a homogeneous material has many advantages.
-First and foremost, it simplifies the domain mesh so that convergence of the solution requires fewer working memory resources and increases the value of the critical time step.
+First and foremost, it simplifies the domain mesh, therefore convergence of the solution requires less operational memory and increases the value of the time step.
 In addition, the wave propagation velocity determined by the simulation is in good agreement with the experiment.
 
 However, this method cannot adequately represent the phenomenon of propagating wave interaction in honeycomb cells.
 It causes the signal energy not to dissipate as it would in a real structure.
 A more precise model is the \ac{fcgm}. 
-Ruzzene et al. presented a parametric study to evaluate the dynamic behavior of the honeycomb and cellular structures through the \ac{fem} and the application of the theory of periodic structures \cite{ruzzene2003wave}.
-Recently, the simulations of the wave propagation in the \acp{hsc} have been conducted with commercially available finite element codes~\cite{song2009guided, hosseini2013numerical, tian2015wavenumber, zhao2018wave}.
+Ruzzene~et~al. presented a parametric study to evaluate the dynamic behaviour of the honeycomb and cellular structures through the \ac{fem} and the application of the theory of periodic structures \cite{ruzzene2003wave}.
+Recently, wave propagation simulations in \acp{hsc} have been conducted with commercially available finite element software~\cite{song2009guided, hosseini2013numerical, tian2015wavenumber, zhao2018wave}.
 
-While the \ac{fem} based modelling of \ac{gw} requires a significant amount of memory and is time-consuming, this method becomes inefficient in the case of \ac{fcgm}.
-Kudela increased the computational efficiency with the model based on the time-domain \ac{sem} \cite{kudela2016parallel}.
+While the \ac{fem}-based modelling of \ac{gw} requires a significant amount of memory and it is time-consuming, this method becomes inefficient in the case of \ac{fcgm}.
+Kudela increased the computational efficiency with the model based on the \ac{sem} \cite{kudela2016parallel}.
 In addition, the algorithm has been adapted for parallel computing on the \ac{gpu}, making the simulations 14 times faster than on the \ac{cpu}.
-However, this approach has two major drawbacks. One is employing solid elements with three \acp{dof} at each node to model the core walls. As a result, a \numproduct{179 x 160} \unit{\square\mm} sandwich panel has over 1.5 million \acp{dof}.
+However, this approach has two major disadvantages. Firstly, it employed solid elements with three \acp{dof} per node to model the core walls. As a result, a \numproduct{179 x 160} \unit{\square\mm} sandwich panel had over 1.5 million \acp{dof}.
 Secondly, no \ac{pzt} sensors were considered in the simulation, so a concentrated force was used to generate the \ac{gw}.
-To attach the transducers, the grids of the sensor and the host plate must coincide or use an interface between them. 
+To include the sensor in the simulation, the sensor mesh must coincide with the grid of the host plate, or a joining interface between them must be used.
 
-The disadvantages of existing modelling methods, motivated me to propose a new model of the \ac{hsc}.
-In the proposed model, the core of the plate consists of \ac{2d} elements, one per cell wall.
+The drawbacks of previous modelling methods motivated me to propose a new \ac{hsc} model.
+In this study, the \ac{sem} was used to develop the \ac{fcgm}, in which each core wall was modelled with \ac{2d} elements.
+It significatly simplified the core mesh compared to the implementation using \ac{3d} elements.
 Since the neutral plane of the elements is oriented differently concerning the global coordinate system, the local displacements vector has to be transformed accordingly.
-The skin model is developed according to the laminate theory presented by Vinson and Sierakowski \cite{vinson1993behavior}.
-In addition, two interfaces are used to connect the individual \ac{hsc} components.
-One with the non-matching grid was developed to join the sensors with the panel.
-It was done with the novel method based on the element shape functions described in Chapter \ref{ch:sem}.
-The core and skin connection was implemented with a perfect matching interface.
-To the best of my knowledge, the presented model has not been implemented yet for the \acp{hsc}.
+The transformation was carried out by introducing the sixth degree of freedom, which is a rotation regarding the out-of-plane axis and using the directional cosines vector of the element.
+The \ac{cfrp} skin plate was modelled with the \ac{3d} elements and the material properties were homogenised according to the laminate theory presented by Vinson and Sierakowski \cite{vinson1993behavior}.
+Solid elements were also used for modelling the \acp{pzt}.
+The thin adhesive layers were considered as an isotropic material and modelled with the \ac{2d} elements.
+In addition, two interfaces were used to connect all \ac{hsc} components together.
+One with the non-matching grid was developed to join the sensors with the skin.
+For this purpose a new approach was implemented based on the element shape functions.
+The core and skin connection was implemented with a perfectly matching interface.
+The presented model has not been found in the literature and the details of the implementation are presented in Chapter~\ref{ch:sem}.
 
-The parametric study conducted in the dissertation leads to the determination of a \ac{madif}, which defines the influence of the composite defect size on wave propagation.
-In this case, the defect is assumed to be a disbond between the skin and the core.
+The parametric study conducted in the dissertation leaded to the determination of a \ac{madif}, which defines the effect of damage size on wave propagation.
+In this case, the defect was assumed to be disbonds of the skin and the core.

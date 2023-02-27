@@ -5,53 +5,53 @@
 %% SECTION CONTENT ////////////////////////////////////////////////////////////////////////////////////
 
 \subsection{Spatial convergence}
-Spatial convergence was determined after simulations for samples with elements of different order of the Legendre polynomial (see Eq. \ref{eq:nodes}).
-The polynomial order for the \(\xi\times \eta\) plane in the local reference system were changed in the set: \(p=[4,\,5,\,7,\,9,\, 11]\).
-The exact order was assumed for each component to minimise the non-zero value of coupling matrix \(\textbf{G}\).
-Due to the perpendicularity of the core elements to the skin, the nodes along the core thickness are fixed to 5.
-As a criterion for convergence, the percentage error defined as:
+Spatial convergence was determined for samples with elements of different order of the Legendre polynomial (see Eq. (\ref{eq:nodes})).
+The polynomials of order \(p=[4,\,5,\,7,\,9,\, 11]\) were considered for in-plane interpolation.
+The exact polynomial order was assumed for each component to minimise the non-zero value of coupling matrix \(\textbf{G}\).
+The thickness-wise nodes of the core elements, perpendicular to the wave propagation, were fixed to 4.
+The percentage error was considered as a criterion for convergence:
 \begin{eqnarray}
 	\delta^{\mathrm{conv}} = \frac{\sum{\left(e^{\mathrm{max}}-e^{p}\right)^2}}{\sum{\left(e^{max}\right)^2}} \times 100\%,
 	\label{eq:perc_err_conv}
 \end{eqnarray}
 where \(e^{max}\) and \(e^{p}\) are the signal envelopes for the case with the elements of \(11^{\mathrm{th}}\) polynomial order and the observed case, respectively.
-A 5\% threshold was assumed for choosing the degree of the polynomial.
-The signal envelope is obtained using the Hilbert transform, which is defined as \cite{staszewski2004health}:
+A 5\% threshold was assumed for selecting the degree of the polynomial.
+The signal envelope obtained using the Hilbert transform, which was discussed in relation to signal processing in the \ac{shm} by Staszewski et al. \cite{staszewski2004health} for signal processing, is given as follows:
 \begin{eqnarray}
 	\label{eq:hilbert}
 	\hat{x}(t) &=& \frac{1}{\pi}\int_{-\infty}^{+\infty}x(\tau)\frac{1}{t-\tau}\diff\tau,\\
 	\label{eq:envelope}
 	e(t) &=& \sqrt{x^2(t)+\hat{x}^2(t)}.
+	\nomtypeD[e]{\(e(t)\)}{Signal envelope}{}%
+	\nomtypeR[t]{\(t\)}{Time vector}{}{\unit{\second}}%
 \end{eqnarray}
-\nomtypeD[e]{\(e(t)\)}{Signal envelope}{}%
-\nomtypeR[t]{\(t\)}{Time vector}{}{\unit{\second}}%
 
-The example of the simulated signals of 100 \unit{\kHz} are presented in Fig. \ref{fig:dx_conv}\textbf{(a)}.
-It can be seen that despite the good agreement of the wave speed for all cases, the amplitudes converge only for a polynomial of order 7.
-Based on the graph showing simulation errors (Fig. \ref{fig:dx_conv}(\textbf{b})), the polynomial of order \(p=7\) was selected for 50 and 100 \unit{\kHz} signals, and order \(p=9\) was selected for the 150 \unit{\kHz} signal.
+Figure \ref{fig:dx_conv}(\textbf{a}) shows the example of the simulated signals of 100 \unit{\kHz}.
+Despite the good agreement of the wave speed for all cases, the amplitudes converge only for a polynomial of order 7.
+Based on the graph in Figure \ref{fig:dx_conv}(\textbf{b}) showing simulation errors, the polynomial of order \(p=7\) was selected for 50 and 100 \unit{\kHz} signals, and order \(p=9\) was selected for the 150 \unit{\kHz} signal.
  
-Tab \ref{tab:elements_nodes} contains a complete list of elements with the number of nodes on each axis \(\xi\times \eta \times \zeta\) which were assumed in simulations.
-\begin{figure}[H]
+Table \ref{tab:elements_nodes} contains a complete list of elements with the number of nodes on each axis \(\xi\times \eta \times \zeta\) which were considered in simulations.
+\begin{figure}[!tbh]
 	\begin{center}
 		\includegraphics[width=0.95\textwidth]{Chapter_5/dx_conv}
 	\end{center}
-	\caption{Spatial convergence for the sample, \textbf{(a)} the sensor signals of 100 \unit{\kHz} for various number of the in-plane nodes (\(n \times m\)) of the element, \textbf{(b)} percent error for the differ polynomial order}
+	\caption{Spatial convergence for the specimen, (\textbf{a}) the sensor signals of 100 \unit{\kHz} for the elements with various polynomial order, (\textbf{b}) percent error for the differ polynomial order}
 	\label{fig:dx_conv}
 \end{figure}
 \begin{table}[H]
 	\small
 	\tabcolsep=0.5cm
 	\centering
-	\caption{\label{tab:elements_nodes}The node numbers of the sample components.}
+	\caption{\label{tab:elements_nodes}The node numbers of the sample components}
 	\begin{tabular}{cccc}
 		\toprule
 		\multirow{3}{*}{\textbf{Component}} & \multicolumn{3}{c}{\textbf{Number of element nodes}}\\
 		& \multicolumn{3}{c}{\(n\times m \times l\)}\\
-		& 50 \unit{\kHz} & 100 \unit{\kHz} & 150 \unit{\kHz}\\
+		& \multicolumn{2}{c}{50 and 100 \unit{\kHz}} & 150 \unit{\kHz}\\
 		\midrule
 		Core & \multicolumn{2}{c}{\numproduct{8 x 5 x 1}} & \numproduct{10 x 5 x 1}\\
 		Adhesive layer & \multicolumn{2}{c}{\numproduct{8 x 8 x 1}} & \numproduct{10 x 10 x 1}\\
-		Skin & \multicolumn{2}{c}{\numproduct{8 x 8 x 4}} & \numproduct{10 x 10 x 1}\\
+		Skin & \multicolumn{2}{c}{\numproduct{8 x 8 x 4}} & \numproduct{10 x 10 x 4}\\
 		Glue & \multicolumn{2}{c}{\numproduct{8 x 8 x 1}} & \numproduct{10 x 10 x 1}\\
 		\ac{pzt} & \multicolumn{2}{c}{\numproduct{8 x 8 x 3}} & \numproduct{10 x 10 x 3}\\
 		\bottomrule
@@ -62,29 +62,30 @@ While the maximum length of the skin element is 6 \unit{\mm}, such a \ac{cfrp} m
 Table~\ref{tab:wavelength} shows the \ac{a0} wavelengths for various frequency and propagation angles.
 \begin{table}[H]
 	\small
-	\tabcolsep=0.75cm
-	%\centering
-	\caption{\label{tab:wavelength}The wavelength of the \ac{a0} mode propagated in the presented \ac{cfrp} plate.}
+	\tabcolsep=0.5cm
+	\centering
+	\caption{\label{tab:wavelength}The wavelength of the \ac{a0} mode propagated in the presented \ac{cfrp} plate}
 	\begin{tabular}{cccccc}
 		\toprule
-		\textbf{Frequency} & \multicolumn{5}{c}{\textbf{Propagation angle}}\\
-		\unit{\kHz} & \ang{0} & \ang{30} & \ang{45} & \ang{60} & \ang{90}\\
+		\textbf{Propagation angle} & \ang{0} & \ang{30} & \ang{45} & \ang{60} & \ang{90}\\
+		\textbf{Frequency} [\unit{\kHz}] & \multicolumn{5}{c}{\textbf{Wavelength} [\unit{\mm}]}\\
 		\midrule
-		50 & 16.5& 15.2&15.0&15.2&16.6\\
-		100 & 10.3& 9.6&9.5&9.6&10.3\\
+		50 & 16.5 & 15.2 & 15.0 & 15.2 & 16.6\\
+		100 & 10.3 & 9.6 & 9.5 & 9.6 & 10.3\\
 		\bottomrule
 		\multicolumn{6}{r}{{\scriptsize{source: Dispersion Calculator v1.9}}}
 	\end{tabular}
 \end{table}
 \subsection{Temporal convergence}
-A temporal convergence test is conducted to select the appropriate time step value.
+A temporal convergence test was conducted to select the appropriate time step value.
 The critical value of time increment (\(\Delta t_{cr}\)) depends on the mesh size and the wave mode velocity.
-If this value is set over (\(\Delta t_{cr}\)), the displacement of the structure will increase to infinity in the initial moments of the simulation as it is presented in Fig. \ref{fig:dt_cr}.
-This indicates that the time step have to be further decreased which can be easy implemented for testing of the stability of the method.
+For the explicit time integration algorithm and in accordance with the Courant-Fredrichs-Levy convergence condition, the time step must be less than the ratio of \(\Delta x/c_p\), where \(\Delta x\) is the shortest distance between nodes and \(c_p\) is the phase velocity of the propagating wave.
+While time step is set over (\(\Delta t_{cr}\)), the structure displacements increase to infinity immediately as presented in Figure~\ref{fig:dt_cr}.
+It indicates that the time step has to be further decreased which can be easily implemented to verify the stability of the attempt.
 \begin{figure}[!tbh]
 	\begin{center}
 		\includegraphics[width=0.95\textwidth]{Chapter_5/dt_cr}
 	\end{center}
-	\caption{The displacement of the plate at a point of 50 mm away from actuator in the case of correctly and incorrectly selected time increments.}
+	\caption{Out-of-plane displacements at the skin point of 50 mm away from actuator in the case of correctly and incorrectly selected time increment}
 	\label{fig:dt_cr}
 \end{figure}

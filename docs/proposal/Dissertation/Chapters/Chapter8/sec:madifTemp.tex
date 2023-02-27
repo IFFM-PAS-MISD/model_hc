@@ -1,21 +1,21 @@
 %% SECTION HEADER /////////////////////////////////////////////////////////////////////////////////////
-\section{The \acs{madif} under variable temperature conditions}
+\section{The \acl{madif} determination at various ambient temperatures}
 \label{sec:madifTemp}
 
 %% SECTION CONTENT ////////////////////////////////////////////////////////////////////////////////////
 In addition to the referenced \ac{madif} obtained for +20\unit{\degreeCelsius}, a study of wave propagation at temperatures T=\(\left[-10,\,0,\,+10,\,+30,\,+40,\,+50\right]\)\unit{\degreeCelsius} was carried out.
-To determine temperature-dependent \ac{gw} propagation in \ac{hsc} using simulations, the material properties of the components were assumed according to the methodology described in section~\ref{sec:temp}.
+To determine temperature-dependent \ac{gw} propagation in \ac{hsc} using simulations, the material properties of the components were assumed according to the methodology described in Section~\ref{sec:temp}.
 
-The temperature effect on the \acp{madif} is developed based on the \ac{fcgm} and removed interface elements as a damage model.
-The analysis used both \acp{di}, i.e. the \ac{rmsd} and the \ac{cc}, for the 100 \unit{\kHz} full-length signal.
+The temperature effect on the \acp{madif} was developed based on the \ac{fcgm} and removed interface elements as a damage model.
+The analysis used both \acp{di}, i.e. the \ac{rmsd} and the \ac{cc}, for the 100 \unit{\kHz} full-length signals.
 The signals obtained for a healthy sample at considered temperatures were taken as the reference signals for each case.
 As with the reference temperature, an analysis of the selection of the fitting function was performed.
-The best results were obtained for Eq.~(\ref{eq:function_1}), and the function coefficients for each temperature are collected in the Tab.~\ref{tab:fit_F_err_temp}.
+The best results were obtained for Eq.~(\ref{eq:function_1}), and the function coefficients for each temperature are collected in Table~\ref{tab:fit_F_err_temp}.
 \begin{table}[!tbh]
 	\small
 	\tabcolsep=0.25cm
 	\centering
-	\caption{\label{tab:fit_F_err_temp} The coefficients of the function from Eq.~(\ref{eq:function_1}) fitted to the \acfp{madif} based on the \acf{fcgm} - interface at 100 \unit{\kHz} for various ambient temperatures.}
+	\caption{\label{tab:fit_F_err_temp} The coefficients of the function from Eq.~(\ref{eq:function_1}) fitted to the \aclp{madif} based on the \acl{fcgm} - interface at 100 \unit{\kHz} for various ambient temperatures}
 	\begin{tabular}{cccccccc}
 		\toprule
 		{T \unit{\degreeCelsius}} & Eq.~(\ref{eq:function_1}) & -10 & 0 & +10 & +30 & +40 & +50\\
@@ -31,23 +31,24 @@ The best results were obtained for Eq.~(\ref{eq:function_1}), and the function c
 	\end{tabular}
 \end{table}
 
-The temperature-dependent \acp{madif} based on \ac{rmsd} and \ac{cc} are presented in Fig.\ref{fig:madif_temp_rmsd} and Fig.~\ref{fig:madif_temp_cc}, respectively.
+The temperature-dependent \acp{madif} based on the \ac{rmsd} and the \ac{cc} are presented in Figures~\ref{fig:madif_temp_rmsd} and \ref{fig:madif_temp_cc}, respectively.
 It is observed that the variation in ambient temperature condition can substantially influence the \ac{madif} values.
-From Fig.~\ref{fig:madif_temp_rmsd}, it can be seen that the numerical results are in good agreement with the experimental measurements for the ambient temperature over 0\unit{\degreeCelsius}.
+The numerical results were in good agreement with the experimental measurements for the ambient temperature over 0\unit{\degreeCelsius} (Figure~\ref{fig:madif_temp_rmsd}).
 The results obtained at 0\unit{\degreeCelsius} and -10\unit{\degreeCelsius} have a much larger error because the model-based functions tend to have a lower value than the experimental ones.
-Therefore, the assumed linear model of the temperature-dependent material properties of the components used in the simulation is not sufficiently accurate with the real object.
+Therefore, the assumed linear model of the temperature-dependent material properties of the components used in the simulation was not sufficiently accurate with the real object.
 \begin{figure}[!tbh]
 	\begin{center}
 		\includegraphics[width=0.95\textwidth]{Chapter_8/MADIF_temp_RMSD}
 	\end{center}
-	\caption{The \acf{madif} and the \acf{edif} based on the \acf{rmsd} 100 \unit{\kHz}.}
+	\caption{The \acf{madif} and the \acf{edif} based on the \acf{rmsd} 100 \unit{\kHz}}
 	\label{fig:madif_temp_rmsd}
 \end{figure}
 \begin{figure}
 	\begin{center}
 		\includegraphics[width=0.95\textwidth]{Chapter_8/MADIF_temp_CC}
 	\end{center}
-	\caption{The \acf{madif} and the \acf{edif} based on the \acf{cc} 100 \unit{\kHz}.}
+	\caption{The \acf{madif} and the \acf{edif} based on the \acf{cc} 100 \unit{\kHz}}
 	\label{fig:madif_temp_cc}
 \end{figure}
-In the case of the \ac{cc}, the best results were achieved at temperatures between +10\unit{\degreeCelsius} and +40\unit{\degreeCelsius}. 
+In the case of the \ac{cc}, the best results were achieved at temperatures between +10\unit{\degreeCelsius} and +40\unit{\degreeCelsius}.
+\clearpage

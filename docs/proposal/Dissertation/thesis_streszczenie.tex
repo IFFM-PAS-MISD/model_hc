@@ -1,0 +1,52 @@
+
+\documentclass[12pt,a4paper,final]{article}
+\usepackage[polish]{babel}
+\usepackage[OT4]{fontenc}
+\usepackage[top=3.5cm, bottom=2.54cm, left=3.5cm, right=2.0cm]{geometry}
+\usepackage{graphicx}
+\usepackage{array}
+\newcolumntype{P}[1]{>{\centering\arraybackslash}p{#1}}
+% Used for displaying a sample figure. If possible, figure files should
+% be included in EPS format.
+%
+% If you use the hyperref package, please uncomment the following line
+% to display URLs in blue roman font according to Springer's eBook style:
+% \renewcommand\UrlFont{\color{blue}\rmfamily}
+
+\title{\textbf{Modelowanie płyt przekładkowych i przetworników piezoelektrycznych celem identyfikacji wielkości uszkodzeń mechanicznych}}
+\vspace{0.5cm}
+\author{\textit{mgr inż. Piotr Fiborek}\\
+		\multicolumn{1}{p{.7\textwidth}}{\centering
+			\vspace{0.5cm}
+		Instytut Maszyn Przepływowych\\
+			im. Roberta Szewlaskiego\\
+		Polskiej Akademii Nauk\\
+	\vspace{0.5cm}
+	Promotor: \textit{dr hab. inż. Pawe\l{} Kudela}\\
+			}}
+
+\begin{document}
+\maketitle
+%
+\begin{abstract}
+
+Celem pracy było opracowanie wspomaganej modelem metody oceny uszkodzeń mechanicznych w~płycie warstwowej z~rdzeniem o~strukturze plastra miodu. W~tym~celu zastosowano technikę monitorowania stanu technicznego konstrukcji opartą na propagacji fal prowadzonych. Badania umożliwiły nowe spojrzenie na~modelowanie propagacji fal w~złożonej strukturze w celu określenia, jak~rozmiar uszkodzenia wpływa na~charakterystyczne parametry propagacji.
+
+Funkcja wpływu wielkości uszkodzenia na propagację fali mogłaby być uzyskana poprzez badania eksperymentalne lub analizę teoretyczną, ale obie metody podlegają pewnym ograniczeniom. Badania eksperymentalne wymagałyby wielu kosztownych próbek. Analiza teoretyczna, z drugiej strony, jest ograniczona do podstawowych elementów konstrukcyjnych (takich jak płyty, pręty i belki) w określonych warunkach brzegowych. Natomiast narzędzia modelowania numerycznego dostarczają dokładnych danych, oraz znajdują zastosowanie w~złożonych strukturach inżynierskich bez~nadwyrężania budżetu badań.
+
+Analiza numeryczna propagacji fali kierowanej jest bardzo czasochłonna i~wymaga znacznych zasobów pamięci operacyjnej. Dlatego zastosowano metodę elementów spektralnych w dziedzinie czasu, która jest jedną z najdokładniejszych i~najbardziej wydajnych technik modelowania propagacji fal sprężystych. Algorytm całkowania w~czasie został zwektoryzowany w~celu prowadzenia obliczeń równoległych na~wielordzeniowej karcie graficznej. Zwiększono również efektywność obliczeniową poprzez redukcję globalnych stopni swobody stosując elementy dwuwymiarowe.
+Podejścia do wyznaczania właściwości materiałowych kompozytów opierają się głównie na~procesie homogenizacji. Metoda ta~jest jednak niewystarczająca do~modelowania propagacji fal w~materiałach o~złożonej strukturze, takich jak~kompozyty warstwowe o~strukturze plastra miodu. Dlatego w~proponowanych badaniach opracowano model struktury materiału o~pełnej geometrii rdzenia. Struktura plastra miodu została zamodelowana za~pomocą powłokowych elementów spektralnych dla~każdej ściany komórki rdzenia.
+
+W~analizie zastosowano podejście wielofizyczne, w~którym uwzględniono sprzężenie elektromechaniczne odpowiadające zastosowaniu przetworników piezoelektrycznych do~wzbudzania i~rejestrowania sygnału. Model został opracowany z~u\-względnieniem wpływu temperatury otoczenia. Dodatkowo, celem połączenia wszystkich komponentów struktury, zaimplementowano elementy interfejsowe gwarantujące ciągłość przemieszczeń sąsiednich elementów. Do~opracowania interfejsu zastosowano nowe podejście oparte na~mnożnikach Lagrange'a wykorzystujące funkcje kształtu elementów spektralnych do~połączenia dwóch niepasujących siatek.
+
+W~celu walidacji modelu przeprowadzono pomiary eksperymentalne z wykorzystaniem (i)~analizatora impedancji do przetworników piezoelektrycznych, (ii) skanującego wibrometru laserowego Dopplera do~analizy pełnego pola propagacji fali oraz~(iii) piezoelektrycznego zestawu akwizycji fal do~punktowej analizy propagacji fal w~strukturze.
+
+Przegląd literatury przedmiotu został przedstawiony na~początku rozprawy, gdzie opisano również metodologię, która została przyjęta do~realizacji założonego celu pracy. Następnie przedstawiono szczegółowy opis realizacji modelu propagacji fali w~strukturze warstwowej o~strukturze plastra miodu z~wykorzystaniem metody elementów spektralnych.
+Po walidacji modelu przedstawiono analizę numeryczną mającą na~celu wyznaczenie funkcji identyfikacji uszkodzeń wspomaganej modelem z~uwzględnieniem zmiennej temperatury otoczenia. Następnie przeprowadzono badania parametryczne w~celu przedstawienia wpływu współczyników materiałowych płyty z~rdzeniem o~strukturze plastra miodu na~propagację fali. Na~koniec podsumowano rozprawę, przedstawiając wnioski wynikające z~przeprowadzonych analiz. 
+
+Nowatorskość przeprowadzonych badań polegała na~opracowaniu nowego podejścia do~oceny stopnia uszkodzenia oraz~modelu numerycznego z~dokładną geometrią rdzenia o~strukturze plastra miodu wykorzystując metodę elementów spektralnych w~warunkach zmiennej temperatury otoczenia. Opracowana metoda może stanowić praktyczne kompendium wiedzy dla~projektantów systemów monitorowania stanu technicznego konstrukcji. Ponadto, w~ramach metody elementów spektralnych, opracowano interfejs do~połączenia dwóch sąsiednich elementów o~niepasujących siatkach, co~czyni tę~technikę bardziej elastyczną przy modelowaniu złożonych struktur.
+
+%\keywords{damage severity assessment \and honeycomb sandwich composites \and spectral element method \and guided waves.}
+\end{abstract}
+\end{document}
+%

@@ -4,7 +4,7 @@
 
 %% SECTION CONTENT ////////////////////////////////////////////////////////////////////////////////////
 All core elements are rotated relative to both skins, and thus it is necessary to transform the degrees of freedom from the local coordinate system of the core to the global coordinate system.
-For this purpose, an additional sixth \ac{dof} is incorporated, i.e., rotation with respect to the \textit{z}-axis:
+For this purpose, an additional sixth \ac{dof} was incorporated, i.e., rotation with respect to the \textit{z}-axis:
 \begin{eqnarray}
 	\widehat{\textbf{d}}^e_g = \left \{\begin{array}{cccccc}
 		\widehat{\textbf{u}}^e & \widehat{\textbf{v}}^e &
@@ -14,7 +14,7 @@ For this purpose, an additional sixth \ac{dof} is incorporated, i.e., rotation w
 	\label{eq:d6}
 \end{eqnarray}
 
-First, the displacement vector is transformed from the global to local coordinate system by the direction cosines as follows:
+First, the displacement vector was transformed from the global to local coordinate system by the direction cosines as follows
 \begin{eqnarray}
 	\widehat{\textbf{d}}^e_l = \left \{\begin{array}{c}
 		\widehat{\textbf{u}}^e \\ \widehat{\textbf{v}}^e \\
@@ -35,7 +35,7 @@ First, the displacement vector is transformed from the global to local coordinat
 \end{eqnarray}
 \nomtypeD[vector_cos]{\(\mathcal{V}^e_1,\,\mathcal{V}^e_2,\,\mathcal{V}^e_3\)}{Direction cosines}{}%
 where \(g\) and \(l\) mean global and local coordinate system, respectively, \(\mathcal{V}^e_1\),\(\mathcal{V}^e_2\) and \(\mathcal{V}^e_3\) are direction cosines of the core element.
-Then, internal forces are calculated according to guideline from Section \ref{sec:gpu} and transformed to a global coordinate system:
+Then, internal forces were calculated according to guideline from Section \ref{sec:gpu} and transformed to a global coordinate system by the direction cosines as
 \begin{eqnarray}
 	\left\{\textbf{F}_{int}\right\}^e_g =
 	\left [\begin{array}{ccccc}
@@ -52,7 +52,7 @@ Then, internal forces are calculated according to guideline from Section \ref{se
 	\label{eq:f_global}
 \end{eqnarray}
 
-Additionally, a part of the mass matrix accounted for rotational inertia has to be transformed, and, in contrast to the vector of internal forces, this has to be done only once in pre-processing as follows:
+Additionally, a part of the mass matrix accounted for rotational inertia was transformed, and, in contrast to the vector of internal forces, it had to be done only once in pre-processing as follows:
 
 \begin{eqnarray}
 	\textbf{J}_g=\left [ 
@@ -70,7 +70,7 @@ Additionally, a part of the mass matrix accounted for rotational inertia has to 
 	\label{eq:inertia}
 \end{eqnarray}
 \nomtypeR[inertia]{$\textbf{J}$}{Mass moment of inertia matrix}{}{\unit{\kg\cubic\metre}}%
-As the matrix becomes non-diagonal after transformation, some approximation is necessary.
+As the transfered matrix is non-diagonal, some approximation is necessary.
 Surana analysed a lumped mass matrix with non-zero inertia for shell elements \cite{surana1980transition}.
 He presented several formulations for a transformed mass matrix to zero off-diagonal values without affecting the results appreciably.
-Accordingly, in the presented model, the omission of off-diagonal values of the mass matrix is assumed.
+Accordingly, in the presented model, the omission of off-diagonal values of the mass matrix was assumed.

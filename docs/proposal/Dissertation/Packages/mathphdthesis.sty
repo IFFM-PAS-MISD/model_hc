@@ -11,11 +11,11 @@
 % Set the top margin to be 1inch from the paper edge.
 \setlength{\topmargin}{0.0cm}
 % Set the header-body separation level
-\setlength{\headsep}{1cm} %1.0cm
+\setlength{\headsep}{0.5cm} %1.0cm
 % Set the footskip to be 2cms
 \setlength{\footskip}{1cm}
 % Set the header height to be 1cm
-\setlength{\headheight}{0cm}
+\setlength{\headheight}{1cm}
 % Set the bottom margin to be 1 inch from the paper edge by
 % way of the \paperheight and \textheight commands
 % First set up a new length called \textheit
@@ -24,7 +24,7 @@
 % the paper size declared in the \documentclass command
 \setlength{\textheit}{\paperheight}
 % Subtract off 1 inch from top and bottom of the paper
-\addtolength{\textheit}{-2.0in}
+\addtolength{\textheit}{-1.5in}
 % Subtract off the \topmargin height
 \addtolength{\textheit}{-\topmargin}
 % Subtract off the \headheight height
@@ -40,8 +40,8 @@
 
 % Set the odd and even left margins to be 4.5cm from paper edge.
 % Note that 4.50cm-2.54cm=1.96cm
-\setlength{\oddsidemargin}{2.0cm} %1.96cm
-\setlength{\evensidemargin}{0.0cm} %1.96cm
+\setlength{\oddsidemargin}{1.5cm} %1.96cm
+\setlength{\evensidemargin}{1.0cm} %1.96cm
 % Set the right margin to be 1 inch from the paper edge by
 % way of the \paperwidth and \textwidth commands
 % First set up a new length called \textwid
@@ -74,8 +74,7 @@
 
 \DeclarePairedDelimiter{\abs}{\lvert}{\rvert}
 
-\newcommand{\DimensUnits}[2]{\hfill\makebox[8em]{#1\hfill}%
-\makebox[4em]{#2\hfill}\ignorespaces}
+\newcommand{\DimensUnits}[1]{\hfill\makebox[8em]{#1}\ignorespaces}
 \newcommand{\DefinitionCol}[1]{\hfill\parbox[t]{12em}{#1}\ignorespaces}
 
 \newcommand{\nomsubtitle}[1]{\item[\large\bfseries #1]}
@@ -84,21 +83,22 @@
 
 \newcommand{\nomstartR}{\nomsubtitle{Roman Symbols}%
   \item[\bfseries Symbol]%
-  \textbf{Description}\DimensUnits{}{\textbf{Units}}}
+  \textbf{Description}\DimensUnits{\textbf{Units}}{}}
 \newcommand{\nomstartG}{\nomsubtitle{Greek Symbols}%
   \item[\bfseries Symbol]%
-  \textbf{Description}\DimensUnits{}{\textbf{Units}}}
+  \textbf{Description}\DimensUnits{\textbf{Units}}}
 \newcommand{\nomstartD}{\nomsubtitle{Dimensionless Numbers}%
   \item[\bfseries Symbol]\textbf{Description}}
 
 \renewcommand*{\nompreamble}{\markboth{\nomname}{\nomname}}
 
 \newcommand{\nomdescr}[1]{\parbox[t]{8cm}{\RaggedRight #1}}
-\newcommand{\nomwithdim}[5]{\nomenclature[#1]{#2}%
-{\nomdescr{#3}\DimensUnits{#4}{#5}}}
-\newcommand{\nomtypeR}[5][]{\nomwithdim{R#1}{#2}{#3}{#4}{#5}}
-\newcommand{\nomtypeG}[5][]{\nomwithdim{G#1}{#2}{#3}{#4}{#5}}
-\newcommand{\nomtypeD}[4][]{\nomenclature[D#1]{#2}{\nomdescr{#3}\DefinitionCol{#4}}}
+
+\newcommand{\nomwithdim}[4]{\nomenclature[#1]{#2}{\nomdescr{#3}\DimensUnits{#4}}}
+
+\newcommand{\nomtypeR}[5][]{\nomwithdim{R#1}{#2}{#3}{#5}}
+\newcommand{\nomtypeG}[5][]{\nomwithdim{G#1}{#2}{#3}{#5}}
+\newcommand{\nomtypeD}[3][]{\nomenclature[D#1]{#2}{\nomdescr{#3}}}
 
 \newcommand*\diff{\mathop{}\!\mathrm{d}}
 \newcommand*\Diff[1]{\mathop{}\!\mathrm{d^#1}}
@@ -106,7 +106,7 @@
 \makenomenclature
 
 % Change chapter name for nomenclature and adjust style
-\renewcommand{\nomname}{NOMENCLATURE}
+\renewcommand{\nomname}{Nomenclature}
 \makeatletter
 \def\thenomenclature{%
 % ENABLE THIS ONLY WHEN CHAPTER TITLE OF NOMENCLATURE REQUIRES NUMBERING!!!!!
@@ -158,7 +158,7 @@
 % URL#1: http://tex.stackexchange.com/questions/13509/biblatex-for-idiots
 % URL#2: https://www.sharelatex.com/blog/2013/07/31/getting-started-with-biblatex.html
 %\usepackage[style=authoryear,backend=biber]{biblatex}
-\usepackage[citestyle=numeric-comp,style=numeric,defernumbers=true,maxnames=4,minnames=3,firstinits=true,backend=bibtex]{biblatex}
+\usepackage[citestyle=numeric-comp,sorting=none,style=numeric-comp,defernumbers=true,maxnames=4,minnames=3,firstinits=true,backend=bibtex]{biblatex}
 % Sort always by last name then first name
 % URL: http://tex.stackexchange.com/questions/12806/guidelines-for-customizing-biblatex-styles/13076#13076
 %\DeclareNameAlias{sortname}{last-first}
@@ -187,9 +187,9 @@
 % Set the table of contents name
 \settocname{TABLE OF CONTENTS}
 % Set the list of figures name
-\setlofname{LIST OF FIGURES}
+%\setlofname{LIST OF FIGURES}
 % Set the list if tables name
-\setlotname{LIST OF TABLES}
+%\setlotname{LIST OF TABLES}
 % Set the bibliograpy name
 \settocbibname{REFERENCES} %BIBLIOGRAPHY
 % Set the index name
@@ -228,10 +228,10 @@
 % Set up the default behavior for headers and footers
 %\fancyhead[L]{} \fancyhead[C]{\rightmark} \fancyhead[R]{\thepage}
 %\fancyhead[L]{} \fancyhead[C]{\slshape\nouppercase{\leftmark}} \fancyhead[R]{\thepage}
-\fancyhead[L]{} \fancyhead[C]{} \fancyhead[R]{\slshape\nouppercase{\leftmark}}
-\fancyfoot[L]{} \fancyfoot[C]{\thepage} \fancyfoot[R]{}
+\fancyhead[L]{\slshape\nouppercase{\leftmark}} \fancyhead[C]{} \fancyhead[R]{\thepage}
+\fancyfoot[L]{} \fancyfoot[C]{} \fancyfoot[R]{}
 % Set the header and footer rule width to 0.0pt
-\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\headrulewidth}{0.5pt}
 \renewcommand{\footrulewidth}{0pt}
 %\setlength{\footskip}{30pt} %MH
 
@@ -258,7 +258,7 @@
 \newif\ifnomencl \nomencltrue
 \newif\iftablecontents \tablecontentstrue
 \newif\iftablespage \tablespagefalse
-\newif\iffigurespage \figurespagetrue 
+\newif\iffigurespage \figurespagefalse
 
 
 % Redefine the chapter commands for nicer formatting
@@ -319,28 +319,24 @@
 \def\titlepg{%
     \newpage
     \pagenumbering{roman}
-	\begin{figure}[hbtp]
-	    \begin{center}
-			% UTas and AMC logo
-			\includegraphics[height=0.175\textwidth-\fboxrule-\fboxrule]{Figures/imp_logo}
-			%\hspace*{6mm}
-	    \end{center}
-	\end{figure}
     \thispagestyle{empty}%
     \singlespace
-        \null\vskip0.2in	
     \begin{center}
-        {\Large\uppercase\expandafter{\@title}}
-    \end{center}
-    \null\vskip0.1in
-    \begin{center}
-       \rm  by\\
-    \end{center}
-    \null\vskip0.1in
-    \begin{center}
-       \rm \large\@author , \@prevdegrees\\
-       \null\vskip0.35in
+       \rm \Large\@author , \@prevdegrees\\
+       \null\vskip0.3in
+        \begin{figure}[hbtp]
+       	\begin{center}
+       		% UTas and AMC logo
+       		\includegraphics[height=0.175\textwidth-\fboxrule-\fboxrule]{Figures/imp_logo}
+       	\end{center}
+       \end{figure}
+       \null\vskip0.1in
+       \large \@dept\\
        \large \@institute\\
+    \end{center}
+    \null\vskip0.1in	
+    \begin{center}
+    	{\Large\uppercase\expandafter{\@title}}
     \end{center}
     \null\vskip0.1in
     \begin{center}
@@ -355,19 +351,11 @@
 		    \@advisor\\
 	    }
     \end{center}    
-    \null\vskip0.4in
+    \null\vskip1.5in
     \begin{center}
           {\rm 
-	          %\large National Centre for Maritime Engineering and Hydrodynamics\\
-	          %{\@dept}\\
-	          \@dept\\
 	          {\@submitdate} \\
-	          \null\vskip0.25in
-	          \begin{figure*}[hbtp]
-	          \begin{center}
-	          %\scalebox{.30}{\includegraphics{Utas_vert_BW}}
-	          \end{center}
-          \end{figure*}}
+	      }
     \end{center}
     \vfill}
 
@@ -455,9 +443,10 @@
 \pagestyle{fancy}
 \setcounter{page}{0}
 \iftablecontents\tableofcontents\fi
-\iftablespage\listoftables\fi
-\iffigurespage\listoffigures\fi
+%\iftablespage\listoftables\fi
+%\iffigurespage\listoffigures\fi
 }
+
 
 % Reset the behaviour of the @ symbol
 \makeatother

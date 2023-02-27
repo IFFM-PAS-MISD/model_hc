@@ -6,50 +6,46 @@
 \chapter[Summary]{Summary}
 \label{ch:summary}
 
-In this dissertation, I developed a model-assisted method for identifying the severity of mechanical damage in a honeycomb sandwich composite. 
-For this purpose, the guided wave method was used.
+In the dissertation, a model-assisted method for identifying the severity of mechanical damage in a honeycomb sandwich composite was developed using the guided wave method.
 The damage estimation was performed based on the change in elastic wave propagation under the influence of their interaction with damage in the monitored structure.
 A phenomenon called wave leakage in sandwich panels results in the transmission of the wave into the core of the structure, where wave energy is attenuated.
-In the case of damage such as disbonds of the core from the skin, the leakage phenomenon does not occur.
-Thus, the signal recorded in the specimen with damage differs from that in the healthy state.
+Within the area of disbonds of the core and the skin, the leakage phenomenon does not occur.
+Thus, the signal recorded in the damaged specimen differed from that in the healthy state.
 
 The effect of damage size on wave propagation was done using computer simulations, resulting in a model-assisted identification function.
-Due to the high complexity of the structure under analysis, an accurate and efficient model had to be used.
-The spectral element method was used for this purpose.
+Due to the high complexity of the structure under analysis, the need for an accurate and efficient model arose, resulting in the use of the spectral element method.
 Chapter \ref{ch:sem} presents a full implementation of the method for the honeycomb sandwich composite.
-Two- and three-dimensional spectral elements are used in the model, and a multi-physics model of piezoelectric transducers is implemented for the excitation and recording of guided waves.
-This approach required the development of an interface to connect all the elements.
-I presented a new method to determine the non-matching interface elements using the shape function of the spectral elements.
+Two- and three-dimensional spectral elements were used in the model, with a multi-physics model of piezoelectric transducers implemented for the excitation and recording of guided waves.
+This approach required developing an interface to connect all the elements.
+A new method to determine the non-matching interface elements using the shape function of the spectral elements was presented.
 
-Two core models were analysed, i.e. (i) the full core geometry model and (ii) the homogenised core geometry model.
+Two core models were analysed, i.e., (i) the full core geometry model and (ii) the homogenised core geometry model.
 A rectangular core-skin disbond of variable width and fixed length was taken as the damage placed in the centre of the panel.
 The defect was modelled by removing (i) the core cells and (ii) the interface elements.
-Then, after the model validation presented in chapter \ref{ch:validation}, computer simulations were performed for different damage sizes and varied excitation signal frequencies.
+Then, after the model validation in Chapter \ref{ch:validation}, computer simulations were performed for different damage sizes and varied excitation signal frequencies.
 
-Obtained signals were processed and then used to determine several damage indices.
-It was concluded that only four indices satisfied the selection criterion, i.e. monotonic behaviour over the full range of damage sizes and the significant change of the function value.
-After comparing numerically obtained indices with the experimental results, two \acfp{madif} achieved very good agreement.
-These functions are the indices based on root mean square deviation and correlation coefficient for full-length signals at 100 \unit{\kHz}.
-They fulfil the criteria for all models.
-The conclusion is that the full core geometry model, which I proposed and implemented, is more accurate than the homogenised one.
-That model with the index based on root mean square deviation achieved an excellent agreement with the experimental investigation.
+Obtained signals were processed to determine several damage indices; in conclusion, only four satisfied the selection criterion (i.e. monotonic behaviour over all damage sizes and the significant change of the function value).
+After comparing numerically obtained indices with the experimental results, two \acfp{madif} agreed very well.
+These functions are the indices based on the root mean square deviation and the correlation coefficient for full-length signals at 100 \unit{\kHz}; they fulfil the criteria for all models.
+The conclusion is that the full core geometry model, proposed and implemented is more accurate than the homogenised one.
+The model with the index based on the root mean square deviation achieved an excellent agreement with the experimental investigation.
 
-In chapter \ref{ch:tempEffects}, an analysis of the effect of ambient temperature on the \ac{madif} is presented.
-The obtained \acp{madif} correspond very well with the experimental results, in particular for temperatures above 0\unit{\degreeCelsius}.
-The assumed temperature-dependent model is not sufficient for the ambient temperature below 0\unit{\degreeCelsius}.
-A parametric study followed this to determine the effect of various parameters (mechanical, electrical and geometrical properties) on the elastic wave propagation in honeycomb sandwich composite. 
-My analysis showed that some parameters only affect the determination of the reference signals, and some depend on the conditions prevailing during the structure inspection.
-It is recommended to develop some optimalisation method for identification of the structure parameters.
+In Chapter \ref{ch:tempEffects}, an analysis of the effect of ambient temperature on the \ac{madif} was presented.
+The \ac{madif} correspond very well with the experimental results, particularly for temperatures above 0\unit{\degreeCelsius}.
+The assumed temperature-dependent model was not sufficient for the ambient temperatures below 0\unit{\degreeCelsius}.
+A parametric study followed this to determine the effect of various parameters (mechanical, electrical and geometrical properties) on the elastic wave propagation in a honeycomb sandwich composite. 
+Some of these, i.e., the \ac{pzt} placement, core orientation, adhesive thickness, affect signals regardless of measurement conditions.
+In most cases, however, the parameters of \ac{hsc} components, significantly influence the wave propagation depending on ambient conditions.
+Therefore, it was vital recommended to develop some optimisation methods for identification of the structure properties used in the models.
 
-Major contribution of the dissertation are:
+Major contributions of the dissertation are as follows:
 \begin{itemize}
-	\item development of the full core geometry model based on spectral element method;
+	\item development of the full core geometry model based on the spectral element method,
 	\item development of the non-matching interface elements,
+	\item improvement of the spectral element method algorithm for time integration for parallel computation on the graphics processing unit,
 	\item determination of the model-assisted damage identification function for honeycomb sandwich composite,
-	\item temperature-dependent study on the model-assisted damage identification function for honeycomb sandwich composite,
-	\item improvement of the time integration of the spectral element method algorithm for parallel computation on graphics processing unit.
+	\item temperature-dependent study on the model-assisted damage identification function for honeycomb sandwich composite.
 \end{itemize}
-
+\clearpage
 The dissertation proved the thesis validity: \textit{model-assisted analysis of guided wave propagation is an effective tool for determining the damage severity in honeycomb sandwich composites}.
-The results achieved in the dissertation encourage further work on this topic.
-Namely, the analysis of functions for damage with different shapes, e.g. circles or ellipses, different positions, etc.
+The dissertation's results encourage further work on this topic, namely, analysing the functions for damage with different localisations, different shapes, (e.g. circles or ellipses), etc.

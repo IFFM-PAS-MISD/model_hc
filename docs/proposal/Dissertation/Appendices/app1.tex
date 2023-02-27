@@ -4,14 +4,14 @@
 \label{app:fu}
 
 %% APPENDIX CONTENT ///////////////////////////////////////////////////////////////////////////////////
-As part of the pre-processing, some operations need to be performed so that, force vector calculations in the equation of motion algorithm can be performed in parallel on the \ac{gpu}.
+As part of the pre-processing, some operations need to be performed so that force vector calculations in the equation of motion algorithm can be performed in parallel on the \ac{gpu}.
 Firstly, the product of the stiffness coefficients, integration weighs and Jacobian determinant must be calculated:
 \begin{flalign}
-	&\mathcal{C}^P_{i,j} = \textbf{C}^P_{i,j}\circ\mathcal{W}^P,\,i,j=1,2,3,4,5,6&\\
-	&\mathcal{A}^P_{i,j} = \textbf{A}^P_{i,j}\circ\mathcal{W}^P,\,i,j=1,2,6,&\nonumber\\
-	&\hat{\mathcal{A}}^P_{i,j} = \hat{\textbf{A}}^P_{i,j}\circ\mathcal{W}^P,\,i,j=4,5,&\nonumber\\
-	&\mathcal{B}^P_{i,j} = \textbf{B}^P_{i,j}\circ\mathcal{W}^P,\,i,j=1,2,6,&\nonumber\\
-	&\mathcal{D}^P_{i,j} = \textbf{D}^P_{i,j}\circ\mathcal{W}^P\, \mathrm{for}\, i,j=1,2,6.&\nonumber
+	&\mathcal{C}^P_{i,j} = \textbf{C}^P_{i,j}\circ\mathcal{W}^P & \mathrm{for} & \ i,j=1,2,3,4,5,6&\\
+	&\mathcal{A}^P_{i,j} = \check{\textbf{A}}^P_{i,j}\circ\mathcal{W}^P & \mathrm{for} & \ i,j=1,2,6,&\nonumber\\
+	&\hat{\mathcal{A}}^P_{i,j} = \hat{\textbf{A}}^P_{i,j}\circ\mathcal{W}^P & \mathrm{for} &\ i,j=4,5,&\nonumber\\
+	&\mathcal{B}^P_{i,j} = \check{\textbf{B}}^P_{i,j}\circ\mathcal{W}^P & \mathrm{for} &\ i,j=1,2,6,&\nonumber\\
+	&\mathcal{D}^P_{i,j} = \check{\textbf{D}}^P_{i,j}\circ\mathcal{W}^P & \mathrm{for} & \ i,j=1,2,6.&\nonumber
 \end{flalign}
 Then, derivatives in global coordinates system are determined based on local derivatives and Jacobian matrix coefficients:
 \begin{flalign}
@@ -31,7 +31,7 @@ In the first step, the displacement vectors are calculated, which in the case of
 	&\boldsymbol{\gamma}^P_{xz} =  \frac{\partial \textbf{N}^P}{\partial x}\, \widehat{\textbf{w}}^P + \frac{\partial \textbf{N}^P}{\partial z}\, \widehat{\textbf{u}}^P,&\nonumber\\
 	&\boldsymbol{\gamma}^P_{xy} =  \frac{\partial \textbf{N}^P}{\partial x}\, \widehat{\textbf{v}}^P + \frac{\partial \textbf{N}^P}{\partial y}\, \widehat{\textbf{u}}^P.&\nonumber
 \end{flalign}
-Then the stress vectors are calculated as follows: 
+Then the stress vectors are calculated as follows:
 \begin{flalign}
 	\label{eq:stress}
 	&\boldsymbol{\sigma}^P_{xx} = \mathcal{C}^P_{1,1}\circ\boldsymbol{\epsilon}^P_{xx} +  \mathcal{C}^P_{1,2}\circ\boldsymbol{\epsilon}^P_{yy} + \mathcal{C}^P_{1,3}\circ\boldsymbol{\epsilon}^P_{zz} +
@@ -45,20 +45,20 @@ Then the stress vectors are calculated as follows:
 	&\boldsymbol{\tau}^P_{xy} = \mathcal{C}^P_{1,6}\circ\boldsymbol{\epsilon}^P_{xx} +  \mathcal{C}^P_{2,6}\circ\boldsymbol{\epsilon}^P_{yy} + \mathcal{C}^P_{3,6}\circ\boldsymbol{\epsilon}^P_{zz} +
 	\mathcal{C}^P_{6,6}\circ\boldsymbol{\gamma}^P_{xy}.&\nonumber
 \end{flalign}
-The next step is calculation of the effective global forces for each element along x, y and z, directions, respectively.
+The next step is calculation of the effective global forces for each element along x, y and z, directions, respectively:
 \begin{flalign}
 	\label{eq:force_3d}
 	&\textbf{F}^P_{x} = 
 	\left( \frac{\partial \textbf{N}^P}{\partial x}\right)^T \boldsymbol{\sigma}^P_{xx} +
-	\left( \frac{\partial \textbf{N}^P}{\partial y}\right)^T \boldsymbol{\sigma}^P_{xy} +
-	\left( \frac{\partial \textbf{N}^P}{\partial z}\right)^T \boldsymbol{\sigma}^P_{xz},&\\
+	\left( \frac{\partial \textbf{N}^P}{\partial y}\right)^T \boldsymbol{\tau}^P_{xy} +
+	\left( \frac{\partial \textbf{N}^P}{\partial z}\right)^T \boldsymbol{\tau}^P_{xz},&\\
 	&\textbf{F}^P_{y} =  
-	\left( \frac{\partial \textbf{N}^P}{\partial x}\right)^T \boldsymbol{\sigma}^P_{xy} +
+	\left( \frac{\partial \textbf{N}^P}{\partial x}\right)^T \boldsymbol{\tau}^P_{xy} +
 	\left( \frac{\partial \textbf{N}^P}{\partial y}\right)^T \boldsymbol{\sigma}^P_{yy} +
-	\left( \frac{\partial \textbf{N}^P}{\partial z}\right)^T \boldsymbol{\sigma}^P_{yz},&\nonumber\\
+	\left( \frac{\partial \textbf{N}^P}{\partial z}\right)^T \boldsymbol{\tau}^P_{yz},&\nonumber\\
 	&\textbf{F}^P_{z} =  
-	\left( \frac{\partial \textbf{N}^P}{\partial x}\right)^T \boldsymbol{\sigma}^P_{xz} +
-	\left( \frac{\partial \textbf{N}^P}{\partial y}\right)^T \boldsymbol{\sigma}^P_{yz} +
+	\left( \frac{\partial \textbf{N}^P}{\partial x}\right)^T \boldsymbol{\tau}^P_{xz} +
+	\left( \frac{\partial \textbf{N}^P}{\partial y}\right)^T \boldsymbol{\tau}^P_{yz} +
 	\left( \frac{\partial \textbf{N}^P}{\partial z}\right)^T \boldsymbol{\sigma}^P_{zz}. &\nonumber
 \end{flalign}
 Finally, the element wise forces vectors are assembled to global vectors according to Eq. (\ref{eq:Fmatrix}) and Eq. (\ref{eq:Fsum}).

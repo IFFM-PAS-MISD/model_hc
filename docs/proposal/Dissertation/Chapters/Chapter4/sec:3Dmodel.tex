@@ -1,17 +1,17 @@
 %% SECTION HEADER /////////////////////////////////////////////////////////////////////////////////////
-\section{\acs{3d} spectral element}
+\section{\Acl{3d} spectral element}
 \label{sec:3Dmodel}
 
 %% SECTION CONTENT ////////////////////////////////////////////////////////////////////////////////////
-The solid element has three mechanical \acp{dof} per node, as it is shown in Fig.~\ref{fig:3d_se}.
+The solid element has three mechanical \acp{dof} per node, as it is shown in Figure~\ref{fig:3d_se}.
 \begin{figure}
 	\begin{center}
-		\includegraphics[width=0.95\textwidth]{Chapter_4/3d_se}
+		\includegraphics[width=0.8\textwidth]{Chapter_4/3d_se}
 	\end{center}
-	\caption{\Acf{3d} spectral element.}
+	\caption{\Acl{3d} spectral element}
 	\label{fig:3d_se}
 \end{figure}
-The displacement vector of the element based on \ac{3d} elasticity of solids is composed of three translations defined as:
+The displacement vector of the element based on \ac{3d} elasticity of solids is composed of three translations defined as
 \begin{eqnarray}
 	\left \{ \begin{array}{c}
 		\textbf{u}^e\\
@@ -28,7 +28,7 @@ The displacement vector of the element based on \ac{3d} elasticity of solids is 
 where \(l\) is the nodes number in \(\zeta\) direction, \(r\) is the Legendre polynomial degree, \(\widehat{\textbf{u}}^e\), \(\widehat{\textbf{v}}^e\) and 
 \(\widehat{\textbf{w}}^e\) are displacements of the element nodes in \(\xi,\eta\) and \(\zeta\) direction.
 
-The nodal strain--displacement relations are given as \cite{kudela20093d}:
+The nodal strain--displacement relations implemented bu Kudela et al. \cite{kudela20093d} are given as
 \begin{eqnarray}
 	\boldsymbol{\varepsilon}^e = 
 	\left \{ \begin{array}{c}
@@ -37,7 +37,7 @@ The nodal strain--displacement relations are given as \cite{kudela20093d}:
 		\frac{\partial \widehat{\textbf{w}}^e}{\partial z} \\
 		\frac{\partial \widehat{\textbf{v}}^e}{\partial z} + \frac{\partial \widehat{\textbf{w}}^e}{\partial y}\\
 		\frac{\partial \widehat{\textbf{u}}^e}{\partial z} + \frac{\partial \widehat{\textbf{w}}^e}{\partial x}\\
-		\frac{\partial \widehat{\textbf{v}}^e}{\partial y} + \frac{\partial \widehat{\textbf{v}}^e}{\partial x}
+		\frac{\partial \widehat{\textbf{u}}^e}{\partial y} + \frac{\partial \widehat{\textbf{v}}^e}{\partial x}
 	\end{array} \right\} = \textbf{B}^e\widehat{\textbf{d}}^e =
 	\left [
 	\begin{array}{ccc}
@@ -54,10 +54,10 @@ The nodal strain--displacement relations are given as \cite{kudela20093d}:
 		\widehat{\textbf{w}}^e
 	\end{array} \right\}.
 \end{eqnarray}
-The formulae of the structural matrices for \ac{3d} elements are:
+The formulae of the structural matrices for \ac{3d} elements are
 \begin{eqnarray}
-	\textbf{M}_{dd}^e & = & \int_{V^e}\textbf{N}^{\mathrm{T}}\rho \textbf{N} \diff V^e,\\
+	\textbf{M}_{dd}^e & = & \rho\int_{V^e}\textbf{N}^{\mathrm{T}} \textbf{N} \diff V^e,\\
 	\textbf{K}_{dd}^e & = & \int_{V^e}{\textbf{B}_d^e}^{\mathrm{T}}\textbf{c}\textbf{B}_d^e \diff V^e,
+	\nomtypeR[Ve]{$V^e$}{Element volume}{}{\unit{\cubic\meter}}%
 \end{eqnarray}
-\nomtypeR[Ve]{$V^e$}{Element volume}{}{\unit{\cubic\meter}}%
 where \textbf{c} is the elasticity tensor, \(\rho\) is mass density, and \(V_e\) is the element volume.

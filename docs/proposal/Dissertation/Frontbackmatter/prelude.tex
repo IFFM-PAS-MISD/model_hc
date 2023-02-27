@@ -12,86 +12,58 @@
 \figurespagetrue 											% Table of contents page for figures (required only if you have figures)
 
 % Title, author, supervisors, university, date of submission
-\title{Modelling of sandwich plates and piezoelectric transducers to identify the severity of mechanical damage}							% Thesis title
-\author{Piotr Fiborek} 	% First name and surname of candidate (e.g. John Doe)
-\prevdegrees{M.Sc. Eng.}              			% Specify your previous degrees (e.g. B.E. (Hons))
+% Thesis title
+\author{\textit{Piotr Fiborek}} 	% First name and surname of candidate (e.g. John Doe)
+\prevdegrees{\textit{M.Sc. Eng.}}			% Specify your previous degrees (e.g. B.E. (Hons))
 \institute{Mechanics of Intelligent Structures Department}								% Institute of department (e.g. National Centre for Maritime Engineering and Hydrodynamics)
 
-\submittedfor{A dissertation submitted to the Scientific Board of the Szewalski Institute of Fluid Flow Machinery, Polish Academy of Sciences in partial fulfillment of the requirements for the Degree of Doctor of Philosophy}			% Degree thesis is submitted for (e.g. Submitted in fulfillment of the requirements for the Degree of Doctor of Philosophy)
-\advisor{ Pawe\l{} Kudela, D.Sc. Ph.D. Eng.} % Supervisors: (e.g. Prof. Lawrence K. Forbes)
-\dept{The Szewalski Institute of Fluid Flow Machinery, Polish Academy of Sciences}
-\submitdate{January, 2023}						% Month & year of your thesis submission (e.g. January, 2016)
+\title{\textbf{Modelling of sandwich plates and piezoelectric transducers to identify \\the severity of mechanical damage}}		
+
+\submittedfor{A dissertation submitted to the Scientific Board of Institute of Fluid Flow Machinery, Polish Academy of Sciences in partial fulfillment of the requirements\\ for the Degree of Doctor of Philosophy}			% Degree thesis is submitted for (e.g. Submitted in fulfillment of the requirements for the Degree of Doctor of Philosophy)
+\advisor{\textit{Pawe\l{} Kudela, D.Sc. Ph.D. Eng.}} % Supervisors:
+\dept{Institute of Fluid Flow Machinery, Polish Academy of Sciences}
+\submitdate{Gdańsk, \textit{February, 2023}}						% Month & year of your thesis submission (e.g. January, 2016)
 
 % Abstract to be bound with thesis
 \newcommand{\abstextwithesis}
 {
-The main objective of the dissertation is to develop a model-assisted method for assessing the extent of damage in a sandwich panel with a honeycomb core.
-For this purpose, a structural health monitoring technique based on guided wave propagation is employed.
-The research proposes new insights into modelling of the elastic wave propagation in a complex structure to determine a function of damage size effect on the characteristic propagation parameters.
-Such a function could be obtained by experimental investigation or theoretical analysis, but both methods are subject to certain limitations.
-The experimental investigation would require many expensive samples.
-Theoretical analysis, on the other hand, is restricted only to fundamental structural elements, such as plates, bars or beams, and under specific boundary conditions.
-In contrast, numerical modelling provides accurate data and flexibly adapts to different structural structures without straining the research budget.
+The dissertation was aimed at developing a model-assisted method for assessing the damage in a sandwich panel with a honeycomb core. For this purpose, a structural health monitoring technique based on guided wave propagation was employed. The research offered new insight into modelling the propagation of elastic waves in a complex structure to determine how damage size affects the characteristic propagation parameters.
 
-The numerical analysis of guided wave propagation is very time-consuming and operational memory-intensive.
-Therefore, the time domain Spectral Element Method is used, which is one of the most accurate and efficient wave propagation modelling techniques.
-The time integration algorithm is vectorised to parallel computation run on a multi-core graphics card.
-Also, computational efficiency is improved by reducing global degrees of freedom using two-dimensional elements.
+A function of the effect of damage size on wave propagation could be obtained by experimental investigation or theoretical analysis, but both methods are subject to certain limitations. Experimental investigation would require many expensive samples. Theoretical analysis, on the other hand, is restricted to fundamental structural elements (such as plates, bars and beams) under specific boundary conditions. In contrast, numerical modelling provides accurate data and can be flexibly adapted to different engineering structures without straining the research budget.
 
-Current approaches for determining the material properties of composites are mainly based on the homogenisation process.
-However, this method is insufficient for wave propagation modelling in materials with a complex structure, e.g. in honeycomb sandwich composites.
-Therefore, the full core geometry model of the material structure is developed in the proposed research.
-The honeycomb structure is modelled by using shell spectral elements for each wall of the cell.
-The analysis is a multiphysics approach considering an electromechanical coupling corresponding to piezoelectric transducers used for signal excitation and sensing. 
-The model is developed, taking into account the effect of environmental conditions, such as temperature.
-In addition, to connect all components of the structure, an interface elements were implemented to guarantee the continuity of displacements of adjacent elements.
-A new approach was used to develop an interface based on Lagrange multipliers using spectral element shape functions to connect two non-matching grids.
+The numerical analysis of guided wave propagation is very time-consuming and operationally memory-intensive. Therefore, the research employed the time-domain spectral element method, one of the most accurate and efficient techniques for modelling wave propagation. The time integration algorithm was vectorised to conduct parallel computation on a multi-core graphics card. Also, computational efficiency was improved by reducing global degrees of freedom using two-dimensional elements.
+Approaches to determining the material properties of composites are mainly based on the homogenisation process. However, this method is insufficient for modelling wave propagation in materials with complex structures, such as honeycomb sandwich composites. Therefore, the full core geometry model of the material structure was developed in the proposed research.
+The honeycomb structure was modelled by shell spectral elements for each cell wall.
 
-Experimental measurements have been conducted to validate the numerical models employing piezoelectric wave acquisition setup under controlled ambient temperature in the climate chamber and the Scanning Doppler Laser Vibrometer.
+The analysis was a multiphysics approach that considered an electromechanical coupling corresponding to using piezoelectric transducers for signal excitation and sensing. The model was developed taking into account the effect of ambient temperature. In addition, to join all of the structure's components, interface elements were implemented to guarantee the continuity of the displacements of adjacent elements. A~new approach was used to develop an interface based on Lagrange multipliers using spectral element shape functions to connect two non-matching grids.
 
-The dissertation begins with a literature review of the topic and describes the methodology adopted to achieve the stated aim of the work.
-It is followed by a detailed description of the implementation of the wave propagation model in the honeycomb sandwich structure using the spectral element method.
-Once the model has been validated, a numerical analysis is presented to determine the model-assisted damage identification function considering the varying ambient temperature.
-Then, a parametric studies were carried out to present the effect of structural parameters to wave propagation in a honeycomb core structure.
-Lastly, the dissertation is summarised with conclusions arising from the analyses. 
+The experimental measurements were conducted for model validation using (i) the impedance analyser for the piezoelectric transducers model, (ii) the scanning Doppler laser vibrometer for full-field wave propagation analysis and (iii) the piezoelectric wave acquisition setup for spot analysis of the wave propagation in the structure.
 
-What is new in the proposed research is not only the development of a new approach to damage detection under varying environmental conditions but also a numerical model with the exact geometry of the multi-layer structure using the spectral element method.
-The developed method will be a practical compendium of knowledge for structural health monitoring designers.
+The literature review on the subject was presented at the beginning of the dissertation, alongside the description of the methodology adopted to achieve the stated purpose of the work. Then, a detailed description of the model implementation of wave propagation in a honeycomb sandwich structure using the spectral element method was presented.
+Once the model had been validated, a numerical analysis was provided to determine the model-assisted damage identification function considering the varying ambient temperature. Then, parametric studies were carried out to demonstrate the effect of structural parameters on wave propagation in a honeycomb core structure. Lastly, the dissertation was summarised with conclusions arising from the analyses. 
+
+The novelty of the research was that it developed a new approach to assessing the severity of damage and a numerical model with accurate geometry of a honeycomb structure that uses the spectral element method under varying ambient temperatures. The method that was developed could be a practical compendium of knowledge for designers of structural health monitoring.
+In addition, a non-matching interface was developed to connect the two components in the frame of the spectral element method, making this technique more flexible when modelling complex structures.
 }
 % Abstract to be bound with thesis
 \newcommand{\strtextwithesis}
 {
-Głównym celem rozprawy jest opracowanie metody oceny stopnia uszkodzenia płyty warstwowej z rdzeniem o strukturze plastra miodu wspomaganej modelem numerycznym.
-W tym celu zastosowano technika monitorowania stanu technicznego konstrukcji bazującą na propagacji fal prowadzonych.
-W badaniach zaproponowano nowe podejście modelowania propagacji fali sprężystej w złożonej strukturze w celu określenia funkcji wpływu wielkości uszkodzenia na charakterystyczne parametry propagacji.
-Funkcja taka może być uzyskana na drodze badań eksperymentalnych lub analizy teoretycznej, jednakże obie metody podlegaja pewnym ograniczeniom.
-Eksperymenty wymagają przygotowania wielu próbek, co wpływa na koszt badań.
-Natomiast analiza teoretyczna ograniczona jest tylko do podstawowych elementów konstrukcyjnych, takich jak płyty, pręty lub belki, o określonych warunkach brzegowych. 
-W przeciwienstwie do powyzszego, modelowanie numeryczne może dostarczyć dokładnych danych i elastycznie dostosować się do różnych konfiguracji struktury, bez nadmiernego obciążania budżetu prowadzonych badań.
+Celem pracy było opracowanie wspomaganej modelem metody oceny uszko\-dzeń mechanicznych w~płycie warstwowej z~rdzeniem o~strukturze plastra miodu. W~tym~celu zastosowano technikę monitorowania stanu technicznego konstrukcji opartą na propagacji fal prowadzonych. Badania umożliwiły nowe spojrzenie na~modelowanie propagacji fal w~złożonej strukturze w celu określenia, jak~ro\-zmiar uszkodzenia wpływa na~charakterystyczne parametry propagacji.
 
-Analiza numeryczna propagacji fal prowadzonych jest bardzo czasochłonna i wymaga znaczących zasobów pamięci operacyjnej.
-Dlatego zastosowano metodę elementów spektralnych w dziedzinie czasu, która jest jedną z najbardziej dokładnych i wydajnych technik modelowania propagacji fal sprężystych.
-Algorytm całkowania w czasie jest zwektoryzowany w celu równoległych obliczeń na wielordzeniowej karcie graficznej.
-Zwiększona zostanie również wydajność obliczenio\-wa poprzez redukcję globalnych stopni swobody z wykorzystaniem elementów dwuwymiarowych.
+Funkcja wpływu wielkości uszkodzenia na propagację fali mogłaby być uzyska\-na poprzez badania eksperymentalne lub analizę teoretyczną, ale obie metody pod\-legają pewnym ograniczeniom. Badania eksperymentalne wymagałyby wielu ko\-sztownych próbek. Analiza teoretyczna, z drugiej strony, jest ograniczona do pod\-stawowych ele\-mentów konstrukcyjnych (takich jak płyty, pręty i belki) w określonych warunkach brzegowych. Natomiast narzędzia modelowania numerycznego dostarczają dokładnych danych, oraz znajdują zastosowanie w~złożonych strukturach inżynierskich bez~nadwyrężania budżetu badań.
 
-W modelowaniu numerycznym propagacji fal prowadzonych w kompozytach najczęściej stosuje się uśrednione parametry materiałowe, otrzymane w drodze homogenizacji.
-Jednak, ta metoda jest niewystarczająca w przypadku złożonych struktur, takich jak kompozyty warstwowe z rdzeniem typu plaster miodu.
-Dlatego w proponowanych badaniach opracowano model z zachowaniem pełnej geometrii rdzenia.
-Struktura plastra miodu modelowana jest poprzez zastosowanie powłokowych elementów spektralnych dla każdej ściany komórki rdzenia.
-Analiza jest podejściem wielofizycznym uwzględniającym sprzężenie elektromechaniczne dotyczące piezoelektrycznych przetworników stosowanym do wzbudzania i rejestrowania sygnału.
-Model jest rozwijany z uwzględnieniem wpływu warunków środowiskowych, takich jak temperatura.
-Dodatkowo, w celu połączenia wszystkich elementów struktury, zaimplementowano elementy interfejsu gwarantujące ciągłość przemieszczeń sąsiadujących elementów.
-Do opracowania interfejsu opartego na mnożnikach Lagrange'a zastosowano nowe podejście wykorzystujące funkcje kształtu elementu spektralnego do połączenia dwóch niepasujących siatek.
-W celu weryfikacji modeli numerycznych przeprowadzono doświadczenia z wykorzystaniem układu  pomiaru fal za pomocą czujników piezoelektrycznych w kontrolowanej temperaturze otoczenia w komorze klimatycznej oraz skaningowego Dopplerowskiego wibrometru laserowego.
+Analiza numeryczna propagacji fali kierowanej jest bardzo czasochłonna i~wy\-maga znacznych zasobów pamięci operacyjnej. Dlatego zastosowano metodę ele\-mentów spektralnych w dziedzinie czasu, która jest jedną z najdokładniejszych i~najbardziej wydajnych technik modelowania propagacji fal sprężystych. Algorytm całkowania w~czasie został zwektoryzowany w~celu prowadzenia obliczeń równoległych na~wielo\-rdzeniowej karcie graficznej. Zwiększono również efektywność obliczeniową poprzez redukcję globalnych stopni swobody stosując elementy dwuwymiarowe.
+Podejścia do wyznaczania właściwości materiałowych kompozytów opierają się głównie na~procesie homogenizacji. Metoda ta~jest jednak niewystarczająca do~modelo\-wania propagacji fal w~materiałach o~złożonej strukturze, takich jak~ko\-mpozyty wa\-rstwowe o~strukturze plastra miodu. Dlatego w~proponowanych badaniach opraco\-wano model struktury materiału o~pełnej geometrii rdzenia. Struktura pla\-stra miodu została zamodelowana za~pomocą powłokowych elementów spektralnych dla~każdej ściany komó\-rki rdzenia.
+\pagebreak
 
-Rozprawa rozpoczyna się przeglądem literaturowym tematu oraz opisuje metodykę przyjętą do realizacji założonego celu pracy.
-Po nim następuje szczegółowy opis implementacji modelu propagacji fali w strukturze wielowarstwowej o strukturze plastra miodu z wykorzystaniem metody elementów spektralnych.
-Po walidacji modelu przedstawiono analizę numeryczną mającą na celu wyznaczenie funkcji identyfikacji uszkodzenia wspomaganej modelem z uwzględnieniem zmiennej temperatury otoczenia.
-Następnie przeprowadzono badania parametryczne w celu przedstawienia wpływu parametrów konstrukcyjnych na propagację fali w strukturze z rdzeniem typu plaster miodu.
-Na koniec, rozprawa podsumowana jest wnioskami wynikającymi z przeprowadzonych analiz.
- 
-Nowością w proponowanych badaniach jest nie tylko opracowanie nowego podejścia do detekcji uszkodzeń w zmiennych warunkach środowiskowych, ale również modelu numerycznego z dokładną geometrią struktury wielowarstwowej z wykorzystaniem metody elementów spektralnych.
-Opracowana metoda będzie stanowiła praktyczne kompendium wiedzy dla projektantów systemu monitorowania stanu konstrukcji.
+W~analizie zastosowano podejście wielofizyczne, w~którym uwzględniono sprzężenie elektromechaniczne odpowiadające zastosowaniu przetworników piezo\-elektrycznych do~wzbudzania i~rejestrowania sygnału. Model został opracowany z~u\-względnieniem wpływu temperatury otoczenia. Dodatkowo, celem połączenia wszystkich kompone\-ntów struktury, zaimplementowano elementy interfejsowe gwarantujące ciągłość przemie\-szczeń sąsiednich elementów. Do~opracowania interfejsu za\-stosowano nowe podejście oparte na~mnożnikach Lagrange'a wykorzystujące funkcje kształtu elementów spektra\-lnych do~po\-łączenia dwóch niepasujących siatek.
+
+W~celu walidacji modelu przeprowadzono pomiary eksperymentalne z wykorzy\-staniem (i)~analizatora impedancji do przetworników piezoelektry\-cznych, (ii) skanują\-cego wibrometru laserowego Dopplera do~analizy pełnego pola propagacji fali oraz~(iii) piezoelektrycznego zestawu akwizycji fal do~punktowej analizy pro\-pagacji fal w~stru\-kturze.
+
+Przegląd literatury przedmiotu został przedstawiony na~początku rozprawy, gdzie opisano również metodologię, która została przyjęta do~realizacji założonego celu pracy. Następnie przedstawiono szczegółowy opis realizacji modelu propagacji fali w~strukturze warstwowej o~strukturze plastra miodu z~wykorzystaniem metody elementów spektralnych.
+Po walidacji modelu przedstawiono analizę numeryczną mającą na~celu wyznaczenie funkcji identyfikacji uszkodzeń wspomaganej modelem z~uwzglę\-dnieniem zmiennej temperatury otoczenia. Następnie przeprowadzono badania parametryczne w~celu przedstawienia wpływu współczyników materiałowych płyty z~rdzeniem o~strukturze plastra miodu na~propagację fali. Na~koniec podsumowano rozprawę, przedstawiając wnioski wynikające z~przeprowadzonych analiz. 
+
+Nowatorskość przeprowadzonych badań polegała na~opracowaniu nowego podejścia do~oceny stopnia uszkodzenia oraz~modelu numerycznego z~dokładną geo\-metrią rdzenia o~strukturze plastra miodu wykorzystując metodę elementów spe\-ktralnych w~warunkach zmiennej temperatury otoczenia. Opracowana metoda może stanowić praktyczne kompendium wiedzy dla~projektantów systemów monitorowania stanu technicznego konstrukcji. Ponadto, w~ramach metody elementów spektralnych, opracowano interfejs do~po\-łączenia dwóch sąsiednich elementów o~niepasujących siatkach, co~czyni tę~technikę bardziej elastyczną przy modelowaniu złożonych struktur.
 }
 
 % Acknowledgments page
@@ -120,25 +92,24 @@ Opracowana metoda będzie stanowiła praktyczne kompendium wiedzy dla projektant
 \newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
 \newcolumntype{R}[1]{>{\raggedleft\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
 
-% Take care of things in `mathphdthesis.sty' behind the scenes.
-% Basically just does a check of all the fields that have been activated
-% above and fills out the appropriate pages and adds them to the thesis.
+
 \beforepreface
 The realisation of the dissertation would not have been possible without the support and encouragement of many people.
-First and foremost, I would like to express my gratitude to my thesis supervisor Professor Paweł Kudela for his guidance and perceptive view of my thesis.
+First and foremost, I would like to express my gratitude to my thesis supervisor Paweł Kudela, D.Sc., Ph.D., Eng. for his guidance and perceptive view of my thesis.
 I am fortunate to have grown my interests and research career with him.
 
-I would like to thank Professor Wiesław Ostachowicz, head of the Centre of Mechanics of Machinery and the Mechanics of Intelligent Structures Department.
-It is a great honour to be a member of a team pioneering research in structural health monitoring.
-I also thank Professor Alfred, Head of Doctoral Studies at the Institute of Fluid-Flow Machinery.
-I am also grateful to Professor Maciej Radzieński and Professor Tomasz Wandowski for sharing their enormous knowledge of laser vibrometer and electromechanical impedance measurements, respectively.
+I would like to thank Wiesław Ostachowicz, Prof., D.Sc., Ph.D., Eng.,
+Corresponding Member of the Polish Academy of Sciences, Head of the Centre of Mechanics of Machinery and the Mechanics of Intelligent Structures Department.
+It is a great honour to be a member of the team pioneering research in structural health monitoring.
+I also thank Alfred Zmitrowicz, D.Sc., Ph.D., Eng., Head of Doctoral Studies at the Institute of Fluid Flow Machinery.
+I am also grateful to Maciej Radzieński, D.Sc., Ph.D., Eng. and Tomasz Wandowski, D.Sc., Ph.D., Eng., for sharing enormous knowledge of laser vibrometer and electromechanical impedance measurements,~respectively.
 
-I also wish to thank all the Mechanics of Intelligent Structures Department researchers who supported me with their knowledge and professional experience during theoretical and experimental work: Grzegorz Zboiński, Katarzyna Majewska, Paweł Malinowski, Magdalena Mieloszyk, Rohan Soman, Shirsendu Sikdar and Kaleeswaran Balasubramaniam.
+Moreover, I wish to thank all the Mechanics of Intelligent Structures Department researchers who supported me with their knowledge and professional experience during theoretical and experimental work: Grzegorz Zboiński, Prof., D.Sc., Ph.D., Eng., Katarzyna Majewska, D.Sc., Ph.D., Paweł Malinowski, D.Sc., Ph.D., Magdalena Mieloszyk, D.Sc., Ph.D., Eng., Shirsendu Sikdar, Ph.D., Eng. and Rohan Soman, Ph.D., Eng.
 
-I would acknowledge the Polish National Science for financial support under grant agreement no. 2018/31/N/ST8/02865 and Renata Opieka-Sowińska and Monika Ratajczak for administrative services of the project.
+I would acknowledge the Polish National Science for financial support under grant agreement no. 2018/31/N/ST8/02865 and Renata Opieka-Sowińska, M.Sc. and Monika Ratajczak, M.Sc. for administrative services of the project.
 
-I wish to thank all my friends and family who supported me until the end of my dissertation writing.
+I wish to thank all my friends and family who encouraged me until the end of my dissertation writing.
 Special thanks go to my parents, who passed on what is most important in life.
 
-Last but not least, I would like to acknowledge my beloved girls, my wife Honorata, and my daughters Hanna and Emilia, for their continuous support throughout the dissertation preparation.
+Last but not least, I would like to acknowledge my beloved girls, my wife \mbox{Honorata}, and my daughters Hanna and Emilia, for being my inspiration and their endless support throughout the dissertation preparation.
 \afterpreface
