@@ -1,8 +1,0 @@
-	This study aims to assess the debonding of the carbon skin from the honeycomb core in the sandwich panel based on guided wave propagation.
-	The effect of damage on wave propagation in the slab was determined using numerical simulations.
-	The two most common honeycomb core models found in the literature are a homogenized, orthogonal continuous medium and a real geometry core modelled by finite elements, usually using commercial software.
-	In a simplified model, the results are in good agreement only for low frequencies.
-	In this paper, the panel has been modelled by the time-domain spectral element method taking into account the real geometry of the honeycomb core.
-	
-	The presented model was compared with the homogenized model of the
-	The result of the parametric study is a function of damage influence on the amplitude of propagating waves.

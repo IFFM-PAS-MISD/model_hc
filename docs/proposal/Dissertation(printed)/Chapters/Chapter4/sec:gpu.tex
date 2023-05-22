@@ -1,0 +1,104 @@
+%% SECTION HEADER /////////////////////////////////////////////////////////////////////////////////////
+\section{Parallel implementation of the internal force vector}
+\label{sec:gpu}
+
+%% SECTION CONTENT ////////////////////////////////////////////////////////////////////////////////////
+
+The most time-consuming operation in the Eq. (\ref{eq:motion}) is calculation of the internal force vector \(\textbf{f}_{int}=\left(\textbf{K}_{dd}-\textbf{K}_{s}\right)\widehat{\textbf{d}}_{t}\), as the stiffness matrix \(\textbf{K}_{dd}\) occupies a large amount of memory.
+\nomtypeR[force_int]{$\textbf{f}_{int}$}{Internal force vector}{}{\unit{\newton}}%
+Instead of allocating the full matrix \(\textbf{K}_{dd}\), Kudela proposed a parallelized computation of the internal force vector \cite{kudela2016parallel}.
+In the pre-processing, the natural derivatives matrix, the vector of inverted components of the Jacobian matrix, and the integration weights multiplied by the Jacobian determinant is rearranged from the global to the local form as follows:
+\begin{eqnarray}
+	\label{eq:isoparametric}
+	\textbf{N}^P_{,\xi} & = & \left[ \begin{array}{cccc}
+		\textbf{N}^{1}_{,\xi} & \textbf{0} & \ldots & \textbf{0}\\
+		\textbf{0} & \textbf{N}^{2}_{,\xi} & \ldots & \textbf{0}\\
+		\vdots & \vdots &  \ddots & \vdots\\
+		\textbf{0} & \textbf{0} & \ldots & \textbf{N}^{\mathrm{e}}_{,\xi}
+	\end{array}\right],\\
+	\label{eq:jacob}
+	\left(\mathcal{J}^P\right)^{i,j}_{inv} & = & \left\{ \begin{array}{c}
+		\left(\mathcal{J}^{1}\right)^{i,j}_{inv}\\
+		\left(\mathcal{J}^{2}\right)^{i,j}_{inv}\\
+		\vdots\\
+		\left(\mathcal{J}^{\mathrm{e}}\right)^{i,j}_{inv} \end{array}\right\},\\
+	\label{eq:intWeights}
+	\mathcal{W}^P & = & \left\{ \begin{array}{c}
+		w^{1}\\
+		w^{2}\\
+		\vdots\\
+		w^{\mathrm{e}} \end{array}\right\} \circ
+	\left\{ \begin{array}{c}
+		\det\left(\mathcal{J}^{1}\right)\\
+		\det\left(\mathcal{J}^{2}\right)\\
+		\vdots\\
+		\det\left(\mathcal{J}^{\mathrm{e}}\right)
+	 \end{array}\right\},
+\end{eqnarray}
+\nomtypeD[wj]{$\mathcal{W}$}{Element weights and Jacobian determinant product}{}%
+where e is the spectral elements number in modeled domain; \(\mathcal{J}^P\), \(\det\left(\mathcal{J}^P\right)\) and \(\left(\mathcal{J}^P\right)_{inv}\) are the Jacobian matrix, its determinant and inverse, respectively; $i,j=1\ldots3$; and '$\circ$' denotes element-wise multiplication.
+The $\textbf{N}^P_{,\xi}$ is a block-diagonal sparse matrix, and the equality of $\textbf{N}^1_{,\xi}=\textbf{N}^2_{,\xi}=\ldots=\textbf{N}^{\mathrm{e}}_{,\xi}$ holds if the same order of interpolation shape function is used for all elements.
+Besides, a vector of local node indices \(\textbf{I}_L\) and corresponding global node indices \(\textbf{I}_G\) must be defined during the pre-processing step.
+
+Adjacent elements in the mesh share nodes, so one node in the global system can correspond to several nodes in the local system.
+Since independent operations on vectors are necessary for parallel computation on the \ac{gpu}, $\textbf{I}_G$ must be rearranged to separate all duplicated nodes.
+Therefore, the matrix $\textbf{I}_G$ is created in which no column has repeated indices of the nodes.
+Then, the corresponding local map $\textbf{I}_L$ must also be created.
+Algorithm presented in \cite{kudela2016parallel} was used for the rearrangement.
+
+The following computational operations are performed during the time integration algorithm. Firstly, the global vector of nodal displacements is transferred to the element node displacements such as
+
+\begin{eqnarray}
+	\widehat{\textbf{d}}_t^P = \left\{\widehat{\textbf{d}}_t^{1},\ \widehat{\textbf{d}}_t^{2},\ \ldots\ \widehat{\textbf{d}}_t^{\mathrm{e}}\right\}^T.
+\end{eqnarray}
+Next, the strain and stress vectors are calculated as
+\begin{eqnarray}
+	\label{eq:strain_e}
+	\boldsymbol{\varepsilon}^e & = & \left[\boldsymbol{\varepsilon}^e_{xx},\ \boldsymbol{\varepsilon}^e_{yy},\ \boldsymbol{\varepsilon}^e_{zz},\ \boldsymbol{\gamma}^e_{yz},\ \boldsymbol{\gamma}^e_{xz},\ \boldsymbol{\gamma}^e_{xy}\ \right]^T=\textbf{B}^e\widehat{\textbf{d}}^e,\\
+	\label{eq:stress_e}
+	\boldsymbol{\sigma}^e & = & \left[\boldsymbol{\sigma}^e_{xx},\ \boldsymbol{\sigma}^e_{yy},\ \boldsymbol{\sigma}^e_{zz},\ \boldsymbol{\tau}^e_{yz},\ \boldsymbol{\tau}^e_{xz},\ \boldsymbol{\tau}^e_{xy},\ \right]^T=\textbf{C}\boldsymbol{\varepsilon}^e.
+\end{eqnarray}
+The explicit formulation of Eq.~(\ref{eq:strain_e}) and Eq.~(\ref{eq:stress_e}) for \ac{3d} and first-order shear deformation model are given in the Appendix~\ref{app:fu}.
+
+Then, the vector of internal forces is calculated as
+\begin{eqnarray}
+	\label{eq:forces}
+	\textbf{F}^P_{int}=\left[\textbf{F}^P_1,\ \textbf{F}^P_2,\ \ldots\ \textbf{F}^P_{dof} \right]^T={\textbf{B}^P}^T\boldsymbol{\sigma}^P,
+\end{eqnarray}
+where $dof$ is the nodal degree of freedom.
+It should be mentioned that \(\boldsymbol{\varepsilon}\), \(\boldsymbol{\sigma}\) and \(\textbf{F}^P_{int}\) components are calculated separately, with the appropriate order of performing the element-wise multiplication of the particular vectors.
+This approach is essential in order to keep the calculations matrix-free.
+
+Finally, the assembly of internal forces vector is performed using the \(\textbf{I}_G\) and \(\textbf{I}_L\) as follows
+
+\begin{eqnarray}
+	\label{eq:Fint}
+	{\left(\textbf{F}_{int}\right)}^t_{\textbf{I}^m_G} = {\left(\textbf{F}_{int}\right)}^t_{\textbf{I}^m_G} + {\left(\textbf{F}^P_{int}\right)}^t_{\textbf{I}^m_L}\quad for\ m=1\ldots \mathrm{col} 
+\end{eqnarray}
+where col is the number of columns in \(\textbf{I}_G\).
+
+In the dissertation, some improvements have been implemented to the above algorithm to make it more computationally efficient \cite{fiborek2022spectral}.
+Instead of calculating the vector of internal forces in the \verb+for-loop+ like in Eq.~(\ref{eq:Fint}), it is recommended to assign all local forces into the matrix as
+\begin{eqnarray}
+	\label{eq:Fmatrix}
+	{\left(\textbf{F}_{int}\right)}^i_{\textbf{I}_G} ={\left(\textbf{F}^P_{int}\right)}^i_{\textbf{I}_L}
+\end{eqnarray}
+and then return the column vector containing the sum of each row of matrix \({\left(\textbf{F}^P_{int}\right)}^i_{\textbf{I}_L}\).
+For example in Matlab, it can be done by built-in function \verb|sum| as
+\begin{eqnarray}
+	\label{eq:Fsum}
+	{\left(\textbf{F}_{int}\right)}^i = \verb|sum| \left({\left(\textbf{F}^P_{int}\right)}^i_{\textbf{I}_L},2\right).
+\end{eqnarray}
+Fixed number of columns in Eq.~(\ref{eq:Fint}) was proposed in \cite{kudela2016parallel}.
+In the current approach the number of columns was selected adaptively according to the given mesh.
+The number of columns should be as the the smallest divisor of the number of nodes but not less than the maximum number of elements for common node.
+In this way, less serial operations are performed and \ac{gpu} resources are better utilized.
+
+Further code modifications included storage scheme.
+Instead of storing in memory both isoparametric derivatives Eq.~(\ref{eq:isoparametric}) and inverted components of Jacobian matrix shown in Eq.~(\ref{eq:jacob}), it is recommended to calculate derivatives in global coordinates system as
+\begin{eqnarray}
+	\textbf{N}^P_{,X} = \left(\mathcal{J}^P\right)_{inv}\,\textbf{N}^P_{\xi}.
+\end{eqnarray}
+Also, a multiplication of elastic constants \(\textbf{C}\) with integration weights defined in Eq.~(\ref{eq:intWeights}) can be performed in preprocessing stage before main loop through integration time steps.
+Detailed formulas for determining the internal forces described above can be found in Appendix~\ref{app:fu}.
+

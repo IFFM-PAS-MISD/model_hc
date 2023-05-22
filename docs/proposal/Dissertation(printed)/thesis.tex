@@ -1,0 +1,88 @@
+%% -----------------------------------------------------------------
+
+
+% Declare overall type of document (use 11pt report class on A4 paper).
+\documentclass[11pt,a4paper,final]{report}
+
+% If you want to generate an index you should include the following command
+% which puts a makeindex command in the preamble. Additionally, you need to un-comment
+% the file 'index' in the '\includeonly' command below and also include the 'index'
+% file in the main document.
+\makeindex
+\PassOptionsToPackage{nottoc}{tocbibind}
+
+% Include the style file which contains all the required formatting
+% information that is set out in the Research Higher Degrees Resource
+% Handbook (2003 version). NOTE: This file uses the following packages
+% 'graphicx' for graphics manipulation
+% 'fancyhdr' for nice headers and footers.
+% 'makeidx' for generating the index
+% 'tocbibind' for adding table of contents entries for bibliography, index etc.
+% 'sectsty' for generating stylised chapter and section headings.
+% 'lipsum' for generating dummy text.
+% 'natbib' and 'har2nat' for bib citations.
+% 'xcolor' color package.
+% 'epstopdf' EPS to PDF conversion.
+% You will need to make sure your LaTeX installation has these packages
+% installed...else it wont work :(
+\usepackage{Packages/mathphdthesis}
+
+% acro package for acronims
+\usepackage{acro}
+\include{Acronyms/declaration}
+\usepackage[ruled,vlined]{algorithm2e}
+\usepackage{multirow}
+\usepackage{amsthm}
+\usepackage[T1]{fontenc}
+\newtheorem*{thesis*}{Thesis}
+\theoremstyle{plain}
+\graphicspath{{Figures/}} %Setting the graphicspath
+% Here you would include any additional packages that you want to use.
+% You should make sure they don't clash with the above packages that
+% are in use in the style file.
+
+% Specify which pieces (other .tex files) you plan to include. You can comment
+% out files that you will include later or have already finished to speed
+% up TeX processing
+\includeonly{
+Frontbackmatter/prelude 			% Contains all the relevant candidate information (name, degrees, abstract etc)
+,Frontbackmatter/newcom 			% Place all you new commands in here
+,Nomenclature/nomenclature  		% The nomenclature chapter
+,Acronyms/acronyms					% Acronyms chapter
+,Chapters/Intro/intro  	    		% The first chapter
+,Chapters/Chapter2/ch:problem 		% Chp2
+,Chapters/Chapter3/ch:method 		% Chp3
+,Chapters/Chapter4/ch:sem 			% Chp4
+,Chapters/Chapter5/ch:simulation 	% Chp5
+,Chapters/Chapter6/ch:validation 	% Chp6
+,Chapters/Chapter7/ch:severity 		% Chp7
+,Chapters/Chapter8/ch:tempEffect 	% Ch8
+,Chapters/Chapter9/ch:summary		% Chp9
+,Appendices/app0   					% Needed to switch to appendix mode
+,index  							% Places the index in the thesis
+}
+
+% Begin the thesis
+\begin{document}
+
+% Include all the pieces of your thesis in here
+\include{Frontbackmatter/prelude}
+\include{Frontbackmatter/newcom}
+\include{Nomenclature/nomenclature}
+\include{Acronyms/acronyms}
+\include{Chapters/Intro/intro}
+\include{Chapters/Chapter2/ch:problem}
+\include{Chapters/Chapter3/ch:method}
+\include{Chapters/Chapter4/ch:sem}
+\include{Chapters/Chapter5/ch:simulation}
+\include{Chapters/Chapter6/ch:validation}
+\include{Chapters/Chapter7/ch:severity}
+\include{Chapters/Chapter8/ch:tempEffect}
+\include{Chapters/Chapter9/ch:summary}
+\include{Appendices/app0}
+\include{index}
+
+% Bibliography
+\addcontentsline{toc}{chapter}{Bibliography}
+\printbibliography
+\end{document}

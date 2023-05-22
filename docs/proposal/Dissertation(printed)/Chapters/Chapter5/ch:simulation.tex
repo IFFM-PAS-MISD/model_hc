@@ -1,0 +1,41 @@
+% Note that the text in the [] brackets is the one that will
+% appear in the table of contents, whilst the text in the {}
+% brackets will appear in the main thesis.
+
+%% CHAPTER HEADER /////////////////////////////////////////////////////////////////////////////////////
+\chapter{Numerical Simulation Pre-processing and the Convergence Tests}
+\label{ch:simulation}
+
+%% CHAPTER INTRODUCTION ///////////////////////////////////////////////////////////////////////////////
+The Chapter presents the sample configuration for numerical simulations based on the \ac{sem}.
+The configuration matches the specimen used to validate the model experimentally.
+The description contains the overall dimensions of \ac{hsc} panel, sensor placement, the material properties, and the excitation signal.
+It is demonstrated how the individual components were meshed to improve computer operations.
+Two disbonds models are described in the Chapter.
+In the first model, the core cells from the damaged area were removed, and in the second model, the interface components between the adhesive layer and the core were removed from the damaged area.
+
+The end of the Chapter features a presentation of temporal and spatial convergence tests of the implemented models.
+The time convergence test showed that while the time step is selected above the critical value it results in immediate displacements to infinity.
+On the other hand, the spatial convergence test consisted of selecting the order of the polynomial interpolation of the spectral elements to obtain a convergence error below the assumed threshold.
+%% INCLUDE SECTIONS ///////////////////////////////////////////////////////////////////////////////////
+
+\input{Chapters/Chapter5/sec:excitation}
+\input{Chapters/Chapter5/sec:sample}
+\input{Chapters/Chapter5/sec:honeycomb}
+\input{Chapters/Chapter5/sec:homogenised}
+\input{Chapters/Chapter5/sec:disbond}
+\input{Chapters/Chapter5/sec:convergence}
+
+\section{Conclusions}
+\label{sec:conclusionsSimul}
+
+The Chapter describes the whole model configuration for numerical simulations.
+The mesh generation for each component, the excitation signals, and the description of damage modelling are included.
+A comparison between the \ac{fcgm} and \ac{hcgm} is also provided.
+
+An essential issue in numerical modelling is the convergence of the solution in the spatial and temporal domains.
+Incorrectly selected model parameters cause significant errors in the results.
+When a time increment is set over the critical value, displacements tend immediately to infinity.
+The size and order of the spectral element should be selected depending on the smallest propagating wavelength in the analysed structure.
+In turn, the smallest distance between nodes affects the critical value of the time step.
+All this has a consequence on the duration of computer simulations.

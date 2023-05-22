@@ -1,0 +1,56 @@
+%% SECTION HEADER /////////////////////////////////////////////////////////////////////////////////////
+\section{Challenges in \acl{gw} propagation modelling for damage assessment in \acl{hsc}}
+\label{sec:challenges}
+
+%% SECTION CONTENT ////////////////////////////////////////////////////////////////////////////////////
+Assessing the damage severity in structural materials requires a database of the damage influence on system response \cite{worden2007fundamental}.
+In the case of \ac{hsc}, many factors affect the \ac{di} magnitude, such as damage localisation, material properties and dimensions, the sensor position relative to the core cell and the boundary conditions.
+Determining \ac{di} by experimental means becomes very complicated, expensive and time-consuming, considering all the factors.
+Therefore, numerical analysis and computer simulations become the only practical tool to achieve the goal.
+
+The most common \ac{hsc} numerical model used in analysing \acp{gw} and \ac{emi} found in the literature is based on the \ac{fem}.
+Although the numerical results are close to the experimental results, the models have some limitations in performing the simulations with reasonable computation time and operating memory consumption.
+In order to alleviate these limitations, the techniques are employed as follows:
+\begin{itemize}
+\item reduction of the sample dimensions \cite{hosseini2013numerical, tian2015wavenumber},
+\item homogenisation of the core properties \cite{catapano2014multi, zhou2020debonding},
+\item a simplified \acl{2d} model based on a cross-section of the panel~ \cite{li2019detection},
+\item omission of an adhesive layer \cite{mustapha2013non}.
+\end{itemize}
+
+The time and memory consumption of the \ac{fem} simulations is due to the high spatial resolution needed to converge the numerical results.
+When first-order elements are used, up to 20 nodes per the shortest wavelength of interest is recommended by Moser et al. \cite{moser1999modeling}.
+At a time when the operational capabilities of personal computers were severely limited, several methods derived from classic \ac{fem} were developed to increase the efficiency of calculations.
+The \ac{bem} has been widely used for wave propagation in infinite or semi-infinite areas \cite{brebbia1984boundary}.
+This method uses the fundamental solution of a \ac{pde} with the approximation only at the boundary of the domain.
+The \ac{fdm} also has found application in elastic wave modelling \cite{delsantoO1992connection}.
+The solution of the \ac{pde} is realised by the Taylor expansion with the arbitrary number of terms that determines the order of accuracy \cite{willberg2015simulation}.
+The main disadvantage of this method is the loss of numerical stability for the structure with varying material properties.
+
+To avoid this drawback, Delsanto et al. developed the \ac{lisa} with the combination of a sharp interface model to connect to different domains \cite{delsantoO1992connection}. This method is the extension of the \ac{fdm} in which iteration equations are obtained directly from heuristic consideration \cite{willberg2015simulation}.
+The \ac{lisa} is highly numerically efficient because local interactions between elements are directly transferred for numerical calculations.
+
+However, no usage of the \ac{bem}, \ac{fdm} and \ac{lisa} in \ac{hsc} modelling has been documented in the literature, supposedly due to the complex geometry of the core.
+Realistic shape of the core can be implemented while keeping numerical efficiency using a technique based on high-order elements.
+The implementations of this technique have been developed in recent years, achieving convergence even at six nodes in case of \ac{gw} propagating in isotropic plates \cite{willberg2012comparison}.
+One of the implementations is a method based on Lagrange polynomials as a shape function and the \ac{gll} for integration scheme, termed the \ac{sem}.
+The \ac{sem} was initially developed by Patera \cite{patera1984spectral} for the numerical solution of the fluid flow in a channel.
+The method has also been successfully employed for acoustic wave propagation in geological structures \cite{seriani1994spectral, komatitsch2000simulation} and \ac{gw} propagation in engineering elements \cite{kudela2007wave, ostachowicz2011guided, rucka2010experimental,rekatsinas2017cubic}.
+The \ac{sem} can be applied to complex structures, e.g. stiffened panels \cite{schulte2011simulation, lonkar2014modeling}.
+The versatility of the method is also related to the use of hybrid elements in combination with \ac{fem} formulation \cite{ha2009optimizing} and non-linear issues \cite{yu2020time, li2021hybrid}.
+
+Due to the fast convergence and flexibility of the \ac{sem}, Kudela \cite{kudela2016parallel} applied the method to the \ac{hsc} model with the \ac{fcgm}.
+However, the author used \ac{3d} elements to model the core walls resulting in a huge number of \acp{dof}.
+The model size could be reduced if the shell element replaced the solid one.
+In addition, the surface-mounted \ac{pzt} is omitted in the above model, and a concentrated force is used as the disturbance source.
+The sensor mesh would have to coincide with the plate mesh or use the coupling between both meshes to include the \acp{pzt} in the simulation.
+Such coupling can be realised using an interface based on Lagrange multipliers proposed by Farhat and Roux for domain decomposition in \ac{fem} \cite{farhat1991method}.
+Ashwin et al. implemented the interface for the \ac{sem} but did not adopt it to non-matching grids \cite{ashwin2014formulation}, which is required to generalise the model.
+Therefore, one of the goals of the dissertation was to implement a non-matching grid approach for the \ac{sem}.
+
+Besides a computationally efficient model, an important factor affecting the speed of computer simulations is the hardware on which they are performed.
+Recently, the use of \ac{gpu}-equipped workstations in numerical computation has grown.
+However, to employ the \ac{gpu} for calculations, the time integration algorithm must be prepared for parallel processing.
+The implementation of the algorithm for the \ac{sem} was presented by Kudela \cite{kudela2016parallel} and by Paćko et al. for the \ac{lisa} \cite{packo2012lamb}.
+According to \cite{kudela2016parallel}, the multi-core architecture of the \ac{gpu} enables simultaneous vector operations, making simulations over 14 times faster than those performed by a \ac{cpu}.
+Determining the effect of damage size for models with a large number of \ac{dof} should be done using the \ac{gpu} to perform a series of simulations in a reasonable amount of time.

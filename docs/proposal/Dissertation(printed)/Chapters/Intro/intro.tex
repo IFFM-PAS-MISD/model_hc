@@ -1,0 +1,42 @@
+% Set page numbering to arabic the first time we commence a chapter.
+% This is required to get the page numbering correct.
+\pagenumbering{arabic}
+
+% Note that the text in the [] brackets is the one that will
+% appear in the table of contents, whilst the text in the {}
+% brackets will appear in the main thesis.
+
+%% CHAPTER HEADER /////////////////////////////////////////////////////////////////////////////////////
+\chapter[Introduction]{Introduction}
+\label{ch:intro}
+The dissertation is the result of the author’s work as an assistant in the Department of Mechanics of Intelligent Structures, Institute of Fluid Flow Machinery, Polish Academy of Sciences.
+Most of the work was carried out within the framework of a research project titled ‘Model-assisted damage identification function for Structural Health Monitoring of composite structures under a varied environmental condition', which was granted to the author by the National Science Centre, Poland.
+The primary objective was to develop a new approach to a sandwich structure assessment based on guided waves techniques under varied operating conditions.
+The essence of the proposed method was to establish an accurate and numerically efficient model of the wave propagation in the sandwich structure, which allowed for determining the mechanical damage severity.
+A better understanding of guided wave behaviour in such structures and their interaction with damage may allow the development of more precise structural health monitoring strategies, reducing costs without compromising the safety of the liable systems.
+%% CHAPTER INTRODUCTION ///////////////////////////////////////////////////////////////////////////////
+
+%% INCLUDE SECTIONS ///////////////////////////////////////////////////////////////////////////////////
+\input{Chapters/Intro/sec:scs}
+\input{Chapters/Intro/sec:shm}
+\input{Chapters/Intro/sec:pzt}
+\input{Chapters/Intro/sec:techniques}
+\input{Chapters/Intro/sec:chall2enges}
+
+\section{Conclusions}
+\label{sec:conclusionsIntro}
+
+%% SECTION CONTENT ////////////////////////////////////////////////////////////////////////////////////
+The Introduction briefly reviewed issues raised in the dissertation, i.e., composite materials, their construction and applications; definition of the \ac{shm} and application of the \ac{pzt} sensors in damage detection; and challenges in \ac{gw} propagation modelling for damage severity assessment in \acp{hsc}.
+
+According to the literature review, a useful method for damage size assessment in \ac{hsc} is needed to enhance the safety of using composite structures.
+In the dissertation, a novel approach for assessing the size of mechanical damage in a sandwich panel was proposed and developed using a \ac{gw} propagation technique.
+This procedure involved actuation of elastic waves in the investigated structure, as well as their recording with the use of the \ac{pzt} setup.
+The signals and a preliminary numerical analysis that defined a function of the impact of damage on wave propagation were used to estimate the defect severity.
+The milestone of the dissertation was to prepare numerically effective model of \ac{gw} propagation in a sandwich panel.
+The selection process of a suitable numerical modelling technique addressed the following issues:
+\begin{itemize}
+	\item flexibility to model the complex structure of the honeycomb core
+	\item time efficiency due to the large number of \ac{dof} in the model
+	\item possibility of parallel calculation on the \ac{gpu}.
+\end{itemize}

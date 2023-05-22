@@ -1,0 +1,50 @@
+
+\documentclass{article}
+%
+\usepackage[top=5cm, bottom=5.6cm, left=4.5cm, right=4.2cm]{geometry}
+\usepackage{graphicx}
+\usepackage{array}
+\newcolumntype{P}[1]{>{\centering\arraybackslash}p{#1}}
+
+\title{Parametric study of guided wave propagation in honeycomb sandwich panel for model-assisted damage assessment method}
+\author{Piotr Fiborek\(^*\) and Pawel Kudela\\
+	\multicolumn{1}{p{.7\textwidth}}{\centering\emph{Institute
+			of Fluid Flow Machinery,\\
+			 Polish Academy of Sciences, Poland}\\
+		\(^*\)pfiborek@imp.gda.pl}}
+\date{}
+\begin{document}
+\maketitle
+%
+\section*{Objective}
+The research subject was a parametric analysis of a model-assisted damage identification function (MADIF) in a honeycomb sandwich panel. The MADIF, obtained using computer simulations, determines how the size of the damage affects the propagation of the guided wave in the inspected panel. The analysis included various parameters of the core, the skin and the piezoelectric transducers affecting wave propagation.
+
+\section*{Methods}
+The numerical simulations determined the MADIF based on the spectral element method for various widths of the rectangular disbonds of the core and the skin. The sandwich consisted of the aluminium honeycomb core, the carbon fibre-reinforced polymer skin, the adhesive layer between the core and the skin and piezoelectric transducers (PZT) attached to the skin by cyanoacrylate glue. The simulations assumed the following models of each panel component: full core geometry model with shell elements, shell elements for the adhesive layer and cyanoacrylate glue, and solid elements for the skin and the PZT. Moreover, the interface elements were used to join all components together. The disbonds were modelled by removing the interface elements within the damaged area between the core and the adhesive layer. To determine MADIF, the damage index based on the root mean square deviation (RMSD) was used. Once the function was validated experimentally, the numerical simulations were performed in various parameters of the core geometry and material properties of the components.
+\section*{Results}
+The MADIF was obtained for a rectangular \(500\times500\times1.6\) mm\(^3\) panel with a damage width in the range 0-120 mm. Two PZTs were attached to the panel top surface at a distance of 200 mm from each other. Damage was symmetrically located between the PZTs.
+
+The comparison of the MADIF and the corresponding experimentally obtained function (EDIF) is presented in Figure \ref{fig:comparison}.
+It can be seen that it is in very good agreement, achieving an absolute error of less than 4 mm.
+\begin{figure}[!tbh]
+	\centering
+	\includegraphics[width=1.0\textwidth]{rmsd}
+	\caption{The model-assisted damage identification function (MADIF) and the experimental damage identification function (EDIF) based on the root mean square deviation (RMSD)}
+	\label{fig:comparison}
+\end{figure}
+
+A parametric study was then conducted to indicate how the various simulation parameters affect wave propagation. Since the values of some of these parameters can change due to environmental conditions, they must be considered when assessing the damage. An example of the signals obtained for different dielectric permittivity of the PZT is presented in Figure \ref{fig:pzt_eps}.
+\begin{figure}
+	\centering
+	\includegraphics[width=1.0\textwidth]{pzt_eps}
+	\caption{The signal envelopes for the dielectric permittivity in the range of 80-120\% of the reference value}
+	\label{fig:pzt_eps}
+\end{figure}
+\section*{Conclusion}
+The research developed the function for damage severity assessment in the honeycomb sandwich panel. Then a parametric study was performed for various factors of the specimen components.
+The analysis showed that the phenomenon of elastic wave propagation in the panel is very complex, and signal response strongly depends on many parameters.
+
+%\keywords{damage severity assessment \and honeycomb sandwich composites \and spectral element method \and guided waves.}
+
+\end{document}
+%

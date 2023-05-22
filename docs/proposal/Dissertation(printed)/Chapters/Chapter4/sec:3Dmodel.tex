@@ -1,0 +1,63 @@
+%% SECTION HEADER /////////////////////////////////////////////////////////////////////////////////////
+\section{\Acl{3d} spectral element}
+\label{sec:3Dmodel}
+
+%% SECTION CONTENT ////////////////////////////////////////////////////////////////////////////////////
+The solid element has three mechanical \acp{dof} per node, as it is shown in Figure~\ref{fig:3d_se}.
+\begin{figure}
+	\begin{center}
+		\includegraphics[width=0.8\textwidth]{Chapter_4/3d_se}
+	\end{center}
+	\caption{\Acl{3d} spectral element}
+	\label{fig:3d_se}
+\end{figure}
+The displacement vector of the element based on \ac{3d} elasticity of solids is composed of three translations defined as
+\begin{eqnarray}
+	\left \{ \begin{array}{c}
+		\textbf{u}^e\\
+		\textbf{v}^e\\
+		\textbf{w}^e
+	\end{array} \right\} = \textbf{N}^e(\xi,\eta, \zeta)\widehat{\textbf{d}}^e = \sum_{l=1}^{r+1}\sum_{n=1}^{q+1}\sum_{m=1}^{p+1}\textbf{N}_m^e(\xi)\textbf{N}_n^e(\eta)\textbf{N}_l^e(\zeta)
+	\left \{ \begin{array}{c}
+		\widehat{\textbf{u}}^e\\
+		\widehat{\textbf{v}}^e\\
+		\widehat{\textbf{w}}^e
+	\end{array} \right\},
+	\label{eq:3D_displ}
+\end{eqnarray}
+where \(l\) is the nodes number in \(\zeta\) direction, \(r\) is the Legendre polynomial degree, \(\widehat{\textbf{u}}^e\), \(\widehat{\textbf{v}}^e\) and 
+\(\widehat{\textbf{w}}^e\) are displacements of the element nodes in \(\xi,\eta\) and \(\zeta\) direction.
+
+The nodal strain--displacement relations implemented bu Kudela et al. \cite{kudela20093d} are given as
+\begin{eqnarray}
+	\boldsymbol{\varepsilon}^e = 
+	\left \{ \begin{array}{c}
+		\frac{\partial \widehat{\textbf{u}}^e}{\partial x} \\
+		\frac{\partial \widehat{\textbf{v}}^e}{\partial y} \\
+		\frac{\partial \widehat{\textbf{w}}^e}{\partial z} \\
+		\frac{\partial \widehat{\textbf{v}}^e}{\partial z} + \frac{\partial \widehat{\textbf{w}}^e}{\partial y}\\
+		\frac{\partial \widehat{\textbf{u}}^e}{\partial z} + \frac{\partial \widehat{\textbf{w}}^e}{\partial x}\\
+		\frac{\partial \widehat{\textbf{u}}^e}{\partial y} + \frac{\partial \widehat{\textbf{v}}^e}{\partial x}
+	\end{array} \right\} = \textbf{B}^e\widehat{\textbf{d}}^e =
+	\left [
+	\begin{array}{ccc}
+		\frac{\partial N^e}{\partial x} & 0 & 0\\
+		0 & \frac{\partial N^e}{\partial y} & 0\\
+		0 & 0 & \frac{\partial N^e}{\partial z}\\
+		0 & \frac{\partial N^e}{\partial z} & \frac{\partial N^e}{\partial y}\\
+		\frac{\partial N^e}{\partial z} & 0 & \frac{\partial N^e}{\partial x}\\
+		\frac{\partial N^e}{\partial y} & \frac{\partial N^e}{\partial x} & 0
+	\end{array} \right]
+	\left \{ \begin{array}{c}
+		\widehat{\textbf{u}}^e \\
+		\widehat{\textbf{v}}^e \\
+		\widehat{\textbf{w}}^e
+	\end{array} \right\}.
+\end{eqnarray}
+The formulae of the structural matrices for \ac{3d} elements are
+\begin{eqnarray}
+	\textbf{M}_{dd}^e & = & \rho\int_{V^e}\textbf{N}^{\mathrm{T}} \textbf{N} \diff V^e,\\
+	\textbf{K}_{dd}^e & = & \int_{V^e}{\textbf{B}_d^e}^{\mathrm{T}}\textbf{c}\textbf{B}_d^e \diff V^e,
+	\nomtypeR[Ve]{$V^e$}{Element volume}{}{\unit{\cubic\meter}}%
+\end{eqnarray}
+where \textbf{c} is the elasticity tensor, \(\rho\) is mass density, and \(V_e\) is the element volume.

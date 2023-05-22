@@ -1,0 +1,76 @@
+%% SECTION HEADER /////////////////////////////////////////////////////////////////////////////////////
+\section{Transformation of the core elements}
+\label{sec:transformation}
+
+%% SECTION CONTENT ////////////////////////////////////////////////////////////////////////////////////
+All core elements are rotated relative to both skins, and thus it is necessary to transform the degrees of freedom from the local coordinate system of the core to the global coordinate system.
+For this purpose, an additional sixth \ac{dof} was incorporated, i.e., rotation with respect to the \textit{z}-axis:
+\begin{eqnarray}
+	\widehat{\textbf{d}}^e_g = \left \{\begin{array}{cccccc}
+		\widehat{\textbf{u}}^e & \widehat{\textbf{v}}^e &
+		\widehat{\textbf{w}}^e & \widehat{\boldsymbol{\varphi}}_x^e &
+		\widehat{\boldsymbol{\varphi}}_y^e & \widehat{\boldsymbol{\varphi}}_z^e
+	\end{array}\right \}^{\mathrm{T}}_g.
+	\label{eq:d6}
+\end{eqnarray}
+
+First, the displacement vector was transformed from the global to local coordinate system by the direction cosines as follows
+\begin{eqnarray}
+	\widehat{\textbf{d}}^e_l = \left \{\begin{array}{c}
+		\widehat{\textbf{u}}^e \\ \widehat{\textbf{v}}^e \\
+		\widehat{\textbf{w}}^e \\ \widehat{\boldsymbol{\varphi}}_x^e \\
+		\widehat{\boldsymbol{\varphi}}_y^e
+	\end{array}\right \}_l = 
+	\left [\begin{array}{ccccc}
+		\mathcal{V}^e_1, & \mathcal{V}^e_2, & \mathcal{V}^e_3, & \textbf{0} & \textbf{0} \\
+		\textbf{0} & \textbf{0} & \textbf{0} & \mathcal{V}^e_1, & \mathcal{V}^e_2
+	\end{array}\right ]^{\mathrm{T}}
+	\left \{\begin{array}{c}
+		\widehat{\textbf{u}}^e \\ \widehat{\textbf{v}}^e \\
+		\widehat{\textbf{w}}^e \\ \widehat{\boldsymbol{\varphi}}_x^e \\
+		\widehat{\boldsymbol{\varphi}}_y^e\\
+		\widehat{\boldsymbol{\varphi}}_z^e
+	\end{array}\right \}_g,
+	\label{eq:d_local}
+\end{eqnarray}
+\nomtypeD[vector_cos]{\(\mathcal{V}^e_1,\,\mathcal{V}^e_2,\,\mathcal{V}^e_3\)}{Direction cosines}{}%
+where \(g\) and \(l\) mean global and local coordinate system, respectively, \(\mathcal{V}^e_1\),\(\mathcal{V}^e_2\) and \(\mathcal{V}^e_3\) are direction cosines of the core element.
+Then, internal forces were calculated according to guideline from Section \ref{sec:gpu} and transformed to a global coordinate system by the direction cosines as
+\begin{eqnarray}
+	\left\{\textbf{F}_{int}\right\}^e_g =
+	\left [\begin{array}{ccccc}
+		\mathcal{V}^e_1, & \mathcal{V}^e_2, & \mathcal{V}^e_3, & \textbf{0} & \textbf{0} \\
+		\textbf{0} & \textbf{0} & \textbf{0} & \mathcal{V}^e_1, & \mathcal{V}^e_2
+	\end{array}\right ]
+	\left \{\begin{array}{c}
+		\textbf{F}^1_{int} \\
+		\textbf{F}^2_{int} \\
+		\textbf{F}^3_{int} \\
+		\textbf{F}^4_{int} \\
+		\textbf{F}^5_{int} \\
+	\end{array}\right \}_l^e.
+	\label{eq:f_global}
+\end{eqnarray}
+
+Additionally, a part of the mass matrix accounted for rotational inertia was transformed, and, in contrast to the vector of internal forces, it had to be done only once in pre-processing as follows:
+
+\begin{eqnarray}
+	\textbf{J}_g=\left [ 
+	\begin{array}{ccc}
+		\left (\textbf{J}\right)^{1,1}_g & \left (\textbf{J}\right )^{1,2}_g & \left (\textbf{J}\right )^{1,3}_g\\
+		& \left (\textbf{J}\right )^{2,2}_g & \left (\textbf{J}\right )^{2,3}_g\\
+		Sym. &  & \left (\textbf{J}\right )^{3,3}_g\\
+	\end{array}
+	\right ]
+	=\left[\begin{array}{ccc}
+		\mathcal{V}_1, \mathcal{V}_2, \mathcal{V}_3 \end{array}\right ]^{\mathrm{T}}
+	\,\textbf{J}_l\,
+	\left[\begin{array}{ccc}
+		\mathcal{V}_1, \mathcal{V}_2, \mathcal{V}_3 \end{array}\right ].
+	\label{eq:inertia}
+\end{eqnarray}
+\nomtypeR[inertia]{$\textbf{J}$}{Mass moment of inertia matrix}{}{\unit{\kg\cubic\metre}}%
+As the transfered matrix is non-diagonal, some approximation is necessary.
+Surana analysed a lumped mass matrix with non-zero inertia for shell elements \cite{surana1980transition}.
+He presented several formulations for a transformed mass matrix to zero off-diagonal values without affecting the results appreciably.
+Accordingly, in the presented model, the omission of off-diagonal values of the mass matrix was assumed.

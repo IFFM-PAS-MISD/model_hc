@@ -1,0 +1,32 @@
+
+\documentclass{article}
+%
+\usepackage[top=5cm, bottom=5.6cm, left=4.5cm, right=4.2cm]{geometry}
+\usepackage{graphicx}
+\usepackage{array}
+\newcolumntype{P}[1]{>{\centering\arraybackslash}p{#1}}
+% Used for displaying a sample figure. If possible, figure files should
+% be included in EPS format.
+%
+% If you use the hyperref package, please uncomment the following line
+% to display URLs in blue roman font according to Springer's eBook style:
+% \renewcommand\UrlFont{\color{blue}\rmfamily}
+
+\title{Model-assisted method for damage severity assessment in honeycomb sandwich panel}
+\author{Piotr Fiborek, Pawel Kudela}
+
+\begin{document}
+\maketitle
+%
+\begin{abstract}
+The research aimed to develop a model-assisted method to identify the severity of mechanical damage in a honeycomb core sandwich panel. For this purpose, a structural health monitoring technique based on guided wave propagation was employed. The research offered new insight into modelling the propagation of elastic waves in a complex structure to determine how damage size affects the characteristic propagation parameters.	
+
+The numerical analysis of guided wave propagation is very time-consuming and memory-intensive. Therefore, the time-domain spectral element method was employed, which is one of the most accurate and efficient techniques for modeling wave propagation. The most popular approach to determining the honeycomb core's material properties is based on the homogenization process. However, this method is insufficient for modeling wave propagation in materials with such complex structures. In the proposed study, the full core geometry model was developed. To increase computation efficiency, two-dimensional spectral elements were used to model the honeycomb core. Moreover, the time integration algorithm was vectorized to conduct parallel computation on a multi-core graphics card. The analysis was a multi-physics approach that considered an electromechanical coupling corresponding to using piezoelectric transducers for signal excitation and sensing.
+
+Once the model had been validated experimentally, numerical simulations were conducted to obtain the model-assisted damage identification function (MADIF). In the simulation, the damage was considered to be the disbonds of the core from the skin in a rectangular area. Obtained function estimates a damage size according to the sensor response. Six damage indices were analysed to determine the MADIF; ultimately, two of them were selected. Their characteristics were monotonic over the entire damage range and significantly changed the index value for the most extensive damage. 
+The experimental study, which corresponds to the simulation scenario, was conducted. The numerical results were in excellent agreement with the experimental measurements.
+
+%\keywords{damage severity assessment \and honeycomb sandwich composites \and spectral element method \and guided waves.}
+\end{abstract}
+\end{document}
+%

@@ -1,0 +1,52 @@
+
+\documentclass[12pt,a4paper,final]{article}
+%
+\usepackage[top=3.5cm, bottom=2.54cm, left=3.5cm, right=2.0cm]{geometry}
+\usepackage{graphicx}
+\usepackage{array}
+\newcolumntype{P}[1]{>{\centering\arraybackslash}p{#1}}
+% Used for displaying a sample figure. If possible, figure files should
+% be included in EPS format.
+%
+% If you use the hyperref package, please uncomment the following line
+% to display URLs in blue roman font according to Springer's eBook style:
+% \renewcommand\UrlFont{\color{blue}\rmfamily}
+
+\title{\textbf{Modelling of sandwich plates and piezoelectric transducers to identify \\the severity of mechanical damage}}
+\vspace{0.5cm}
+\author{\textit{Piotr Fiborek, M.Sc. Eng.}\\
+	\multicolumn{1}{p{.7\textwidth}}{\centering
+		\vspace{0.5cm}
+		{Institute of Fluid Flow Machinery,\\
+		Polish Academy of Sciences}\\
+	\vspace{0.5cm}
+		Supervisor: {\textit{Pawe\l{} Kudela, D.Sc. Ph.D. Eng.}}\\
+			}}
+
+\begin{document}
+\maketitle
+%
+\begin{abstract}
+
+The dissertation was aimed at developing a model-assisted method for assessing the damage in a sandwich panel with a honeycomb core. For this purpose, a structural health monitoring technique based on guided wave propagation was employed. The research offered new insight into modelling the propagation of elastic waves in a complex structure to determine how damage size affects the characteristic propagation parameters.
+
+A function of the effect of damage size on wave propagation could be obtained by experimental investigation or theoretical analysis, but both methods are subject to certain limitations. Experimental investigation would require many expensive samples. Theoretical analysis, on the other hand, is restricted to fundamental structural elements (such as plates, bars and beams) under specific boundary conditions. In contrast, numerical modelling provides accurate data and can be flexibly adapted to different engineering structures without straining the research budget.
+
+The numerical analysis of guided wave propagation is very time-consuming and operationally memory-intensive. Therefore, the research employed the time-domain spectral element method, one of the most accurate and efficient techniques for modelling wave propagation. The time integration algorithm was vectorised to conduct parallel computation on a multi-core graphics card. Also, computational efficiency was improved by reducing global degrees of freedom using two-dimensional elements.
+Approaches to determining the material properties of composites are mainly based on the homogenisation process. However, this method is insufficient for modelling wave propagation in materials with complex structures, such as honeycomb sandwich composites. Therefore, the full core geometry model of the material structure was developed in the proposed research.
+The honeycomb structure was modelled by shell spectral elements for each cell wall.
+
+The analysis was a multiphysics approach that considered an electromechanical coupling corresponding to using piezoelectric transducers for signal excitation and sensing. The model was developed taking into account the effect of ambient temperature. In addition, to join all of the structure's components, interface elements were implemented to guarantee the continuity of the displacements of adjacent elements. A~new approach was used to develop an interface based on Lagrange multipliers using spectral element shape functions to connect two non-matching grids.
+
+The experimental measurements were conducted for model validation using (i) the impedance analyser for the piezoelectric transducers model, (ii) the scanning Doppler laser vibrometer for full-field wave propagation analysis and (iii) the piezoelectric wave acquisition setup for spot analysis of the wave propagation in the structure.
+
+The literature review on the subject was presented at the beginning of the dissertation, alongside the description of the methodology adopted to achieve the stated purpose of the work. Then, a detailed description of the model implementation of wave propagation in a honeycomb sandwich structure using the spectral element method was presented.
+Once the model had been validated, a numerical analysis was provided to determine the model-assisted damage identification function considering the varying ambient temperature. Then, parametric studies were carried out to demonstrate the effect of structural parameters on wave propagation in a honeycomb core structure. Lastly, the dissertation was summarised with conclusions arising from the analyses. 
+
+The novelty of the research was that it developed a new approach to assessing the severity of damage and a numerical model with accurate geometry of a honeycomb structure that uses the spectral element method under varying ambient temperatures. The method that was developed could be a practical compendium of knowledge for designers of structural health monitoring.
+In addition, a non-matching interface was developed to connect the two components in the frame of the spectral element method, making this technique more flexible when modelling complex structures.
+
+%\keywords{damage severity assessment \and honeycomb sandwich composites \and spectral element method \and guided waves.}
+\end{abstract}
+\end{document}
+%

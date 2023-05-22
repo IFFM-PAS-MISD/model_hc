@@ -24,11 +24,43 @@
     <marker
        inkscape:isstock="true"
        style="overflow:visible"
-       id="marker43001"
+       id="marker14990"
        refX="0"
        refY="0"
        orient="auto"
        inkscape:stockid="Arrow1Mend">
+      <path
+         inkscape:connector-curvature="0"
+         transform="matrix(-0.4,0,0,-0.4,-4,0)"
+         style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:1.00000003pt;stroke-opacity:1"
+         d="M 0,0 5,-5 -12.5,0 5,5 Z"
+         id="path14988" />
+    </marker>
+    <marker
+       inkscape:stockid="Arrow1Mend"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="marker14798"
+       style="overflow:visible"
+       inkscape:isstock="true"
+       inkscape:collect="always">
+      <path
+         id="path14796"
+         d="M 0,0 5,-5 -12.5,0 5,5 Z"
+         style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:1.00000003pt;stroke-opacity:1"
+         transform="matrix(-0.4,0,0,-0.4,-4,0)"
+         inkscape:connector-curvature="0" />
+    </marker>
+    <marker
+       inkscape:isstock="true"
+       style="overflow:visible"
+       id="marker43001"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="Arrow1Mend"
+       inkscape:collect="always">
       <path
          inkscape:connector-curvature="0"
          transform="matrix(-0.4,0,0,-0.4,-4,0)"
@@ -456,8 +488,8 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="0.98994953"
-     inkscape:cx="434.46236"
-     inkscape:cy="293.17221"
+     inkscape:cx="275.83758"
+     inkscape:cy="228.58064"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -484,7 +516,7 @@
      id="layer1"
      transform="translate(0,-192)">
     <rect
-       style="opacity:1;fill:#ffffff;fill-opacity:0.99009902;stroke:none;stroke-width:0.16500001;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       style="opacity:1;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.16500001;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
        id="rect44859"
        width="160"
        height="105"
@@ -565,13 +597,13 @@
     <text
        xml:space="preserve"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.82222223px;line-height:1.25;font-family:'TeX Gyre DejaVu Math';-inkscape-font-specification:'TeX Gyre DejaVu Math';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
-       x="73.678185"
-       y="215.15475"
+       x="89.053902"
+       y="210.92148"
        id="text31800"><tspan
          sodipodi:role="line"
          id="tspan31798"
-         x="73.678185"
-         y="215.15475"
+         x="89.053902"
+         y="210.92148"
          style="font-size:2.82222223px;fill:#000000;stroke-width:0.26458332">damage  area</tspan></text>
     <path
        style="fill:none;stroke:#000000;stroke-width:0.16500001;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
@@ -670,18 +702,18 @@
        transform="rotate(90)" />
     <text
        id="text42091"
-       y="225.19464"
-       x="105.80235"
+       y="220.96136"
+       x="104.21487"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.82222223px;line-height:1.25;font-family:'TeX Gyre DejaVu Math';-inkscape-font-specification:'TeX Gyre DejaVu Math';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
        xml:space="preserve"><tspan
          style="font-size:2.82222223px;text-align:center;text-anchor:middle;fill:#000000;stroke-width:0.26458332"
-         y="225.19464"
-         x="105.80235"
+         y="220.96136"
+         x="104.21487"
          id="tspan42089"
          sodipodi:role="line">retro-reflective tape*</tspan><tspan
          style="font-size:2.82222223px;text-align:center;text-anchor:middle;fill:#000000;stroke-width:0.26458332"
-         y="228.72241"
-         x="105.80235"
+         y="224.48914"
+         x="104.21487"
          sodipodi:role="line"
          id="tspan42097">180 × 50</tspan></text>
     <text
@@ -745,5 +777,15 @@
        cx="98.61834"
        id="circle11268"
        style="opacity:1;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.76499999;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.265;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;stroke-miterlimit:4;stroke-dasharray:none;marker-end:url(#marker14798)"
+       d="m 103.90102,224.56996 -8.886707,3.80859"
+       id="path14788"
+       inkscape:connector-curvature="0" />
+    <path
+       inkscape:connector-curvature="0"
+       id="path14986"
+       d="m 98.701466,211.5152 -13.372387,7.84621"
+       style="fill:none;stroke:#000000;stroke-width:0.26499999;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#marker14990)" />
   </g>
 </svg>

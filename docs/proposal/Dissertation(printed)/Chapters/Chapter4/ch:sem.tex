@@ -1,0 +1,41 @@
+% Note that the text in the [] brackets is the one that will
+% appear in the table of contents, whilst the text in the {}
+% brackets will appear in the main thesis.
+
+%% CHAPTER HEADER /////////////////////////////////////////////////////////////////////////////////////
+\chapter{Formulation of the Time-Domain Spectral Element Method}
+\label{ch:sem}
+%% CHAPTER INTRODUCTION ///////////////////////////////////////////////////////////////////////////////
+The comprehensive formulation of the \ac{sem}-based numerical model is presented in the Chapter.
+It includes shape function definition, numerical integration in the scheme of the \ac{gll}, determination of the structural matrices for solid and first-order shear deformation theory elements and electromechanical coupling for the \acp{pzt}.
+The non-matching interface was introduced with the novel approach based on the element shape functions.
+These components were combined to implement the \ac{sem} for the honeycomb structure with the \ac{fcgm}, which has not been found in the literature before.
+
+%% INCLUDE SECTIONS ///////////////////////////////////////////////////////////////////////////////////
+\input{Chapters/Chapter4/sec:sem}
+\input{Chapters/Chapter4/sec:2Dmodel}
+\input{Chapters/Chapter4/sec:3Dmodel}
+\input{Chapters/Chapter4/sec:PZTmodel}
+\input{Chapters/Chapter4/sec:damping}
+\input{Chapters/Chapter4/sec:interface}
+\input{Chapters/Chapter4/sec:transformation}
+\input{Chapters/Chapter4/sec:time}
+\input{Chapters/Chapter4/sec:gpu}
+\input{Chapters/Chapter4/sec:improvement}
+\section{Conclusions}
+\label{sec:conclusionsSEM}
+%% SECTION CONTENT ////////////////////////////////////////////////////////////////////////////////////
+The Chapter describes the \ac{sem} implementation for use in \acp{hsc} with the \ac{fcgm}.
+This model requires the development of structural matrices for \ac{2d} and \ac{3d} elements and a transformation of the nodal displacements between the local and global coordinate systems.
+An original approach was developed to connect elements with non-matching grids using an interface based on Lagrange multipliers.
+For this purpose, the shape fusions of common points in the space of connected elements were determined to calculate the traction forces necessary to provide joint displacements.
+
+The implementation of the non-matching interface is a major contribution to the development of the \ac{sem} method.
+Previously, to connect domains of different shapes, their meshes were matched with each other to enable the connection of nodes.
+Without the interface, connecting the specimen components, i.e. the honeycomb core, the rectangular skin and the circular sensor, would have been extremely difficult.
+It would probably require assuming some constraints, such as the sensor being located only within the area of the core cell.
+The application of the interface goes beyond the dissertation subject; among other things, it was used in the simulation of \ac{gw} registration by the \ac{fbg} optical sensors.
+
+In addition, a parallel central difference method implementation was improved for even more efficient computation on the graphics card.
+The obtained equation of motion solution was even 10 times faster than the algorithm presented in the paper \cite{kudela2020parallel}.
+

@@ -1,0 +1,115 @@
+%% APPENDIX HEADER ////////////////////////////////////////////////////////////////////////////////////
+
+\chapter{Formulas for calculation of internal forces}
+\label{app:fu}
+
+%% APPENDIX CONTENT ///////////////////////////////////////////////////////////////////////////////////
+As part of the pre-processing, some operations need to be performed so that force vector calculations in the equation of motion algorithm can be performed in parallel on the \ac{gpu}.
+Firstly, the product of the stiffness coefficients, integration weighs and Jacobian determinant must be calculated:
+\begin{flalign}
+	&\mathcal{C}^P_{i,j} = \textbf{C}^P_{i,j}\circ\mathcal{W}^P & \mathrm{for} & \ i,j=1,2,3,4,5,6&\\
+	&\mathcal{A}^P_{i,j} = \check{\textbf{A}}^P_{i,j}\circ\mathcal{W}^P & \mathrm{for} & \ i,j=1,2,6,&\nonumber\\
+	&\hat{\mathcal{A}}^P_{i,j} = \hat{\textbf{A}}^P_{i,j}\circ\mathcal{W}^P & \mathrm{for} &\ i,j=4,5,&\nonumber\\
+	&\mathcal{B}^P_{i,j} = \check{\textbf{B}}^P_{i,j}\circ\mathcal{W}^P & \mathrm{for} &\ i,j=1,2,6,&\nonumber\\
+	&\mathcal{D}^P_{i,j} = \check{\textbf{D}}^P_{i,j}\circ\mathcal{W}^P & \mathrm{for} & \ i,j=1,2,6.&\nonumber
+\end{flalign}
+Then, derivatives in global coordinates system are determined based on local derivatives and Jacobian matrix coefficients:
+\begin{flalign}
+&\frac{\partial \textbf{N}^P}{\partial x} = \textbf{N}^P_{,\xi}\circ\left(\mathcal{J}^P\right)^{1,1}_{\mathrm{inv}} + \textbf{N}^P_{,\eta}\circ\left(\mathcal{J}^P\right)^{2,1}_{\mathrm{inv}} + \textbf{N}^P_{,\zeta}\circ\left(\mathcal{J}^P\right)^{3,1}_{\mathrm{inv}},&\\
+&\frac{\partial \textbf{N}^P}{\partial y} = \textbf{N}^P_{,\xi}\circ\left(\mathcal{J}^P\right)^{1,2}_{\mathrm{inv}} + \textbf{N}^P_{,\eta}\circ\left(\mathcal{J}^P\right)^{2,2}_{\mathrm{inv}} + \textbf{N}^P_{,\zeta}\circ\left(\mathcal{J}^P\right)^{3,2}_{\mathrm{inv}},&\nonumber\\
+&\frac{\partial \textbf{N}^P}{\partial z} = \textbf{N}^P_{,\xi}\circ\left(\mathcal{J}^P\right)^{1,3}_{\mathrm{inv}} + \textbf{N}^P_{,\eta}\circ\left(\mathcal{J}^P\right)^{2,3}_{\mathrm{inv}} + \textbf{N}^P_{,\zeta}\circ\left(\mathcal{J}^P\right)^{3,3}_{\mathrm{inv}}. &\nonumber
+\end{flalign}
+
+The determination of the internal force field is carried out in four steps for each moment.
+In the first step, the displacement vectors are calculated, which in the case of \ac{3d} elements, are defined as:
+\begin{flalign}
+	\label{eq:strain}
+	&\boldsymbol{\epsilon}^P_{xx} = \frac{\partial \textbf{N}^P}{\partial x}\, \widehat{\textbf{u}}^P,&\\
+	&\boldsymbol{\epsilon}^P_{yy} = \frac{\partial \textbf{N}^P}{\partial y}\, \widehat{\textbf{v}}^P,&\nonumber\\
+	&\boldsymbol{\epsilon}^P_{zz} = \frac{\partial \textbf{N}^P}{\partial z}\, \widehat{\textbf{w}}^P,&\nonumber\\
+	&\boldsymbol{\gamma}^P_{yz} = \frac{\partial \textbf{N}^P}{\partial y}\, \widehat{\textbf{w}}^P + \frac{\partial \textbf{N}^P}{\partial z}\, \widehat{\textbf{v}}^P,&\nonumber\\
+	&\boldsymbol{\gamma}^P_{xz} =  \frac{\partial \textbf{N}^P}{\partial x}\, \widehat{\textbf{w}}^P + \frac{\partial \textbf{N}^P}{\partial z}\, \widehat{\textbf{u}}^P,&\nonumber\\
+	&\boldsymbol{\gamma}^P_{xy} =  \frac{\partial \textbf{N}^P}{\partial x}\, \widehat{\textbf{v}}^P + \frac{\partial \textbf{N}^P}{\partial y}\, \widehat{\textbf{u}}^P.&\nonumber
+\end{flalign}
+Then the stress vectors are calculated as follows:
+\begin{flalign}
+	\label{eq:stress}
+	&\boldsymbol{\sigma}^P_{xx} = \mathcal{C}^P_{1,1}\circ\boldsymbol{\epsilon}^P_{xx} +  \mathcal{C}^P_{1,2}\circ\boldsymbol{\epsilon}^P_{yy} + \mathcal{C}^P_{1,3}\circ\boldsymbol{\epsilon}^P_{zz} +
+	\mathcal{C}^P_{1,6}\circ\boldsymbol{\gamma}^P_{xy},&\\
+	&\boldsymbol{\sigma}^P_{yy} = \mathcal{C}^P_{2,1}\circ\boldsymbol{\epsilon}^P_{xx} +  \mathcal{C}^P_{2,2}\circ\boldsymbol{\epsilon}^P_{yy} + \mathcal{C}^P_{2,3}\circ\boldsymbol{\epsilon}^P_{zz} +
+	\mathcal{C}^P_{2,6}\circ\boldsymbol{\gamma}^P_{xy},&\nonumber\\
+	&\boldsymbol{\sigma}^P_{zz} = \mathcal{C}^P_{3,1}\circ\boldsymbol{\epsilon}^P_{xx} +  \mathcal{C}^P_{3,2}\circ\boldsymbol{\epsilon}^P_{yy} + \mathcal{C}^P_{3,3}\circ\boldsymbol{\epsilon}^P_{zz} +
+	\mathcal{C}^P_{3,6}\circ\boldsymbol{\gamma}^P_{xy},&\nonumber\\
+	&\boldsymbol{\tau}^P_{yz} = \mathcal{C}^P_{4,4}\circ\boldsymbol{\gamma}^P_{yz} +  \mathcal{C}^P_{4,5}\circ\boldsymbol{\gamma}^P_{xz},&\nonumber\\
+	&\boldsymbol{\tau}^P_{xz} = \mathcal{C}^P_{5,4}\circ\boldsymbol{\gamma}^P_{yz} +  \mathcal{C}^P_{5,5}\circ\boldsymbol{\gamma}^P_{xz},&\nonumber\\
+	&\boldsymbol{\tau}^P_{xy} = \mathcal{C}^P_{1,6}\circ\boldsymbol{\epsilon}^P_{xx} +  \mathcal{C}^P_{2,6}\circ\boldsymbol{\epsilon}^P_{yy} + \mathcal{C}^P_{3,6}\circ\boldsymbol{\epsilon}^P_{zz} +
+	\mathcal{C}^P_{6,6}\circ\boldsymbol{\gamma}^P_{xy}.&\nonumber
+\end{flalign}
+The next step is calculation of the effective global forces for each element along x, y and z, directions, respectively:
+\begin{flalign}
+	\label{eq:force_3d}
+	&\textbf{F}^P_{x} = 
+	\left( \frac{\partial \textbf{N}^P}{\partial x}\right)^T \boldsymbol{\sigma}^P_{xx} +
+	\left( \frac{\partial \textbf{N}^P}{\partial y}\right)^T \boldsymbol{\tau}^P_{xy} +
+	\left( \frac{\partial \textbf{N}^P}{\partial z}\right)^T \boldsymbol{\tau}^P_{xz},&\\
+	&\textbf{F}^P_{y} =  
+	\left( \frac{\partial \textbf{N}^P}{\partial x}\right)^T \boldsymbol{\tau}^P_{xy} +
+	\left( \frac{\partial \textbf{N}^P}{\partial y}\right)^T \boldsymbol{\sigma}^P_{yy} +
+	\left( \frac{\partial \textbf{N}^P}{\partial z}\right)^T \boldsymbol{\tau}^P_{yz},&\nonumber\\
+	&\textbf{F}^P_{z} =  
+	\left( \frac{\partial \textbf{N}^P}{\partial x}\right)^T \boldsymbol{\tau}^P_{xz} +
+	\left( \frac{\partial \textbf{N}^P}{\partial y}\right)^T \boldsymbol{\tau}^P_{yz} +
+	\left( \frac{\partial \textbf{N}^P}{\partial z}\right)^T \boldsymbol{\sigma}^P_{zz}. &\nonumber
+\end{flalign}
+Finally, the element wise forces vectors are assembled to global vectors according to Eq. (\ref{eq:Fmatrix}) and Eq. (\ref{eq:Fsum}).
+
+Similarly, internal forces are determined for \ac{2d} elements, with displacement vectors defined as:
+\begin{flalign}
+	\label{eq:strain_b}
+	&\boldsymbol{\epsilon}^P_{b1} = \frac{\partial \textbf{N}^P}{\partial x}\, \widehat{\textbf{u}}^P_0,&\\
+	&\boldsymbol{\epsilon}^P_{b2} = \frac{\partial \textbf{N}^P}{\partial y}\, \widehat{\textbf{v}}^P_0,&\nonumber\\
+	&\boldsymbol{\epsilon}^P_{b3} = \frac{\partial \textbf{N}^P}{\partial y}\, \widehat{\textbf{u}}^P_0 +
+	\frac{\partial \textbf{N}^P}{\partial x}\, \widehat{\textbf{v}}^P_0,&\nonumber\\
+	&\boldsymbol{\epsilon}^P_{b4} = \frac{\partial \textbf{N}^P}{\partial x}\, \widehat{\boldsymbol{\varphi}}^P_x,&\nonumber\\
+	&\boldsymbol{\epsilon}^P_{b5} = \frac{\partial \textbf{N}^P}{\partial y}\, \widehat{\boldsymbol{\varphi}}^P_y,&\nonumber\\
+	&\boldsymbol{\epsilon}^P_{b6} = \frac{\partial \textbf{N}^P}{\partial x}\, \widehat{\boldsymbol{\varphi}}^P_y + 
+	\frac{\partial \textbf{N}^P}{\partial y}\, \widehat{\boldsymbol{\varphi}}^P_x,&\nonumber\\
+	&\boldsymbol{\epsilon}^P_{s1} = \frac{\partial \textbf{N}^P}{\partial x}\, \widehat{\textbf{w}}^P_0 - \widehat{\boldsymbol{\varphi}}^P_x,&\nonumber\\
+	&\boldsymbol{\epsilon}^P_{s2} = \frac{\partial \textbf{N}^P}{\partial y}\, \widehat{\textbf{w}}^P_0 -\widehat{\boldsymbol{\varphi}}^P_y,&\nonumber
+\end{flalign}
+the stress vectors:
+\begin{flalign}
+	\label{eq:stress_b}
+	&\boldsymbol{\sigma}^P_{s1} = \hat{\mathcal{A}}^P_{4,4}\circ\boldsymbol{\epsilon}^P_{s1} +  \hat{\mathcal{A}}^P_{4,5}\circ\boldsymbol{\epsilon}^P_{s2},&\\ &\boldsymbol{\sigma}^P_{s1} = \hat{\mathcal{A}}^P_{4,5}\circ\boldsymbol{\epsilon}^P_{s1} +  \hat{\mathcal{A}}^P_{5,5}\circ\boldsymbol{\epsilon}^P_{s2},&\nonumber\\
+	&\boldsymbol{\sigma}^P_{b1} = \mathcal{A}^P_{1,1}\circ\boldsymbol{\epsilon}^P_{b1} +  \mathcal{A}^P_{1,2}\circ\boldsymbol{\epsilon}^P_{b2} + \mathcal{A}^P_{1,6}\circ\boldsymbol{\epsilon}^P_{b3} +
+	\mathcal{B}^P_{1,1}\circ\boldsymbol{\epsilon}^P_{b4} +  \mathcal{B}^P_{1,2}\circ\boldsymbol{\epsilon}^P_{b5} + \mathcal{B}^P_{1,6}\circ\boldsymbol{\epsilon}^P_{b6},&\nonumber\\	
+	&\boldsymbol{\sigma}^P_{b1} = \mathcal{A}^P_{1,2}\circ\boldsymbol{\epsilon}^P_{b1} +  \mathcal{A}^P_{2,2}\circ\boldsymbol{\epsilon}^P_{b2} + \mathcal{A}^P_{2,6}\circ\boldsymbol{\epsilon}^P_{b3} +
+	\mathcal{B}^P_{1,2}\circ\boldsymbol{\epsilon}^P_{b4} +  \mathcal{B}^P_{2,2}\circ\boldsymbol{\epsilon}^P_{b5} + \mathcal{B}^P_{2,6}\circ\boldsymbol{\epsilon}^P_{b6},&\nonumber\\
+	&\boldsymbol{\sigma}^P_{b1} = \mathcal{A}^P_{1,6}\circ\boldsymbol{\epsilon}^P_{b1} +  \mathcal{A}^P_{2,6}\circ\boldsymbol{\epsilon}^P_{b2} + \mathcal{A}^P_{6,6}\circ\boldsymbol{\epsilon}^P_{b3} +
+	\mathcal{B}^P_{1,6}\circ\boldsymbol{\epsilon}^P_{b4} +  \mathcal{B}^P_{2,6}\circ\boldsymbol{\epsilon}^P_{b5} + \mathcal{B}^P_{6,6}\circ\boldsymbol{\epsilon}^P_{b6},&\nonumber\\
+	&\boldsymbol{\sigma}^P_{b1} = \mathcal{B}^P_{1,1}\circ\boldsymbol{\epsilon}^P_{b1} +  \mathcal{B}^P_{1,2}\circ\boldsymbol{\epsilon}^P_{b2} + \mathcal{B}^P_{1,6}\circ\boldsymbol{\epsilon}^P_{b3} +
+	\mathcal{D}^P_{1,1}\circ\boldsymbol{\epsilon}^P_{b4} +  \mathcal{D}^P_{1,2}\circ\boldsymbol{\epsilon}^P_{b5} + \mathcal{D}^P_{1,6}\circ\boldsymbol{\epsilon}^P_{b6},&\nonumber\\
+	&\boldsymbol{\sigma}^P_{b1} = \mathcal{B}^P_{1,2}\circ\boldsymbol{\epsilon}^P_{b1} +  \mathcal{B}^P_{2,2}\circ\boldsymbol{\epsilon}^P_{b2} + \mathcal{B}^P_{2,6}\circ\boldsymbol{\epsilon}^P_{b3} +
+	\mathcal{D}^P_{1,2}\circ\boldsymbol{\epsilon}^P_{b4} +  \mathcal{D}^P_{2,2}\circ\boldsymbol{\epsilon}^P_{b5} + \mathcal{D}^P_{2,6}\circ\boldsymbol{\epsilon}^P_{b6},&\nonumber\\
+	&\boldsymbol{\sigma}^P_{b1} = \mathcal{B}^P_{1,6}\circ\boldsymbol{\epsilon}^P_{b1} +  \mathcal{B}^P_{2,6}\circ\boldsymbol{\epsilon}^P_{b2} + \mathcal{B}^P_{6,6}\circ\boldsymbol{\epsilon}^P_{b3} +
+	\mathcal{D}^P_{1,6}\circ\boldsymbol{\epsilon}^P_{b4} +  \mathcal{D}^P_{2,6}\circ\boldsymbol{\epsilon}^P_{b5} + \mathcal{D}^P_{6,6}\circ\boldsymbol{\epsilon}^P_{b6},&\nonumber
+\end{flalign}
+and the internal forces:
+\begin{flalign}
+	\label{eq:force_2d}
+	&\textbf{F}^P_{x} = 
+	\left( \frac{\partial \textbf{N}^P}{\partial x}\right)^T \boldsymbol{\sigma}^P_{b1} +
+	\left( \frac{\partial \textbf{N}^P}{\partial y}\right)^T \boldsymbol{\sigma}^P_{b3},&\\
+	&\textbf{F}^P_{y} = 
+	\left( \frac{\partial \textbf{N}^P}{\partial x}\right)^T \boldsymbol{\sigma}^P_{b3} +
+	\left( \frac{\partial \textbf{N}^P}{\partial y}\right)^T \boldsymbol{\sigma}^P_{b2},&\nonumber\\
+	&\textbf{F}^P_{z} = 
+	\left( \frac{\partial \textbf{N}^P}{\partial x}\right)^T \boldsymbol{\sigma}^P_{s1} +
+	\left( \frac{\partial \textbf{N}^P}{\partial y}\right)^T \boldsymbol{\sigma}^P_{s2},&\nonumber\\
+	&\textbf{M}^P_{x} = 
+	-\left( \frac{\partial \textbf{N}^P}{\partial x}\right)^T \boldsymbol{\sigma}^P_{b4} -
+	\left( \frac{\partial \textbf{N}^P}{\partial y}\right)^T \boldsymbol{\sigma}^P_{b6} - \boldsymbol{\sigma}^P_{s1},&\nonumber\\
+	&\textbf{M}^P_{y} = 
+	-\left( \frac{\partial \textbf{N}^P}{\partial x}\right)^T \boldsymbol{\sigma}^P_{b6} -
+	\left( \frac{\partial \textbf{N}^P}{\partial y}\right)^T \boldsymbol{\sigma}^P_{b5} - \boldsymbol{\sigma}^P_{s2}.&\nonumber
+\end{flalign}
