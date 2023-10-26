@@ -1,0 +1,102 @@
+\begin{figure}[h!]
+	\centering
+	\begin{subfigure}{0.3\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{../../../figures/png/0_75kHz_100us.png}
+		\caption[]
+		{{\small 75 kHz}}
+		\label{fig:Exp75kHz_100us}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}{0.3\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{../../../figures/png/7500kHz_100us.png}
+		\caption[]
+		{{\small 75 kHz}}
+		\label{fig:Honey75kHz_100us}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}{0.3\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{../../../figures/png/7510kHz_100us.png}
+		\caption[]
+		{{\small 75 kHz}}
+		\label{fig:Simple75kHz_100us}
+	\end{subfigure}
+	\vskip\baselineskip
+	\begin{subfigure}{0.3\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{../../../figures/png/0_100kHz_100us.png}
+		\caption[]
+		{{\small 100 kHz}}
+		\label{fig:Exp100kHz_100us}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}{0.3\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{../../../figures/png/10000kHz_100us.png}
+		\caption[]
+		{{\small 100 kHz}}
+		\label{fig:Honey100kHz_100us}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}{0.3\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{../../../figures/png/10010kHz_100us.png}
+		\caption[]
+		{{\small 100 kHz}}
+		\label{fig:Simple100kHz_100us}
+	\end{subfigure}
+	\vskip\baselineskip
+	\begin{subfigure}{0.3\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{../../../figures/png/0_125kHz_100us.png}
+		\caption[]
+		{{\small 125 kHz}}
+		\label{fig:Exp125kHz_100us}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}{0.3\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{../../../figures/png/12500kHz_100us.png}
+		\caption[]
+		{{\small 125 kHz}}
+		\label{fig:Honey125kHz_100us}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}{0.3\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{../../../figures/png/12510kHz_100us.png}
+		\caption[]
+		{{\small 125 kHz}}
+		\label{fig:Simple125kHz_100us}
+	\end{subfigure}
+	\vskip\baselineskip
+	\begin{subfigure}{0.3\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{../../../figures/png/0_150kHz_100us.png}
+		\caption[]
+		{{\small 150 kHz}}
+		\label{fig:Exp150kHz_100us}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}{0.3\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{../../../figures/png/15000kHz_100us.png}
+		\caption[]
+		{{\small 150 kHz}}
+		\label{fig:Honey150kHz_100us}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}{0.3\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{../../../figures/png/15010kHz_100us.png}
+		\caption[]
+		{{\small 150 kHz}}
+		\label{fig:Simple150kHz_100us}
+	\end{subfigure}
+	\vskip\baselineskip
+	\caption[]
+	{Full-field wave snapshots in 100 $\mu$s time step for: (a),(d),(g),(j), experimental, (b),(e),(h),(k), present model, (c),(f),(i),(l), simplified model}
+	\label{fig:fullfield}
+\end{figure}
